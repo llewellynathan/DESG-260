@@ -101,25 +101,47 @@ Each lesson plan follows this structure:
 
 ## Alignment Check: Desired Results ↔ Activities
 
-After drafting a lesson plan, verify that every Desired Result is addressed by at least one activity:
+Each lesson plan uses a tagging system to connect Desired Results to Activities.
 
-### Checklist
+### Tagging System
 
-| Desired Result | Check |
-|----------------|-------|
-| Each **Essential Question** | Is it explicitly asked or discussed in an activity? |
-| Each **Understanding** | Is there an activity that helps students arrive at this understanding? |
-| Each **Students Will Know** item | Is this knowledge introduced or reinforced in an activity? |
-| Each **Students Will Be Able To** skill | Do students practice this skill during class? |
+Number each desired result with a prefix:
+- `EQ#` — Essential Questions (EQ1, EQ2, etc.)
+- `U#` — Understandings
+- `K#` — Students Will Know
+- `S#` — Students Will Be Able To (Skills)
+
+### How to Use
+
+1. **In Desired Results** — Number each item explicitly:
+   ```markdown
+   **Essential Questions:**
+   - EQ1: What is design?
+   - EQ2: What is forming vs. rendering intent?
+   ```
+
+2. **In Activities** — Add inline tags after the time:
+   ```markdown
+   3. **"What is Design?" Discussion** (15 min) `[EQ1, EQ2, K1]`
+   ```
+
+3. **In Alignment Check table** — Verify every result is addressed:
+   ```markdown
+   | Code | Desired Result | Activities |
+   |------|----------------|------------|
+   | EQ1 | What is design? | 3, 6 |
+   | EQ2 | Forming vs. rendering | 2, 3, 5 |
+   ```
+
+### Verification
+
+After drafting a lesson plan, check the Alignment table:
+- Every code should have at least one activity listed
+- If a result shows `—` (no activities), add it to an existing activity or create a new one
 
 ### Common Gaps and Fixes
 
 1. **EQ not addressed** → Add a discussion question or prompt to an existing activity
-2. **Understanding not connected** → Frame an activity introduction with the understanding (e.g., "This project requires both forming and rendering intent...")
+2. **Understanding not connected** → Frame an activity introduction with the understanding
 3. **Knowledge not introduced** → Add vocabulary or concept explanation to a relevant activity
 4. **Skill not practiced** → Rename activity to emphasize the skill; add prompts that require students to demonstrate it
-
-### Example
-
-**Gap:** "Students Will Be Able To: Identify design problems worth solving through curiosity and empathy"
-**Fix:** Rename "Brainstorming Session" → "Brainstorming: Identify Problems Worth Solving" and add frame: "Good design starts with curiosity and empathy — what journeys do people struggle to navigate?"

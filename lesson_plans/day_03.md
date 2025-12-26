@@ -9,22 +9,22 @@ How do designers create visual consistency across a system of icons?
 ### Desired Results
 
 **Essential Questions:**
-- How do designers create visual consistency across a system of icons?
-- What is the relationship between form and function in digital products? Can something be beautiful and usable at the same time?
+- EQ1: How do designers create visual consistency across a system of icons?
+- EQ2: What is the relationship between form and function in digital products? Can something be beautiful and usable at the same time?
 
 **Understandings:**
-- Icons are not just decoration; they are functional communication tools that must be instantly recognizable.
-- A cohesive visual system requires establishing and following consistent rules (stroke weight, grid, style).
-- Good design requires excellence in both forming and rendering. A brilliant idea poorly executed fails; a beautifully crafted solution to the wrong problem also fails.
+- U1: Icons are not just decoration; they are functional communication tools that must be instantly recognizable.
+- U2: A cohesive visual system requires establishing and following consistent rules (stroke weight, grid, style).
+- U3: Good design requires excellence in both forming and rendering. A brilliant idea poorly executed fails; a beautifully crafted solution to the wrong problem also fails.
 
 **Students Will Know:**
-- Principles of icon design (simplicity, recognizability, consistency)
-- How to use vector tools in Illustrator and/or Figma
-- How craft skills like typography, visual hierarchy, and prototyping support rendering intent
+- K1: Principles of icon design (simplicity, recognizability, consistency)
+- K2: How to use vector tools in Illustrator and/or Figma
+- K3: How craft skills like typography, visual hierarchy, and prototyping support rendering intent
 
 **Students Will Be Able To:**
-- Critique icons for both function (usability) and form (aesthetics)
-- Create vectorized icons with consistent visual style
+- S1: Critique icons for both function (usability) and form (aesthetics)
+- S2: Create vectorized icons with consistent visual style
 
 **Targeted Learning Outcomes:** Critical Analysis of Form and Format, Communication and Feedback
 
@@ -39,34 +39,34 @@ How do designers create visual consistency across a system of icons?
 
 ### Activities
 
-1. **A2 Icon Critique Round 1: Functional/Usability** (20 min)
+1. **A2 Icon Critique Round 1: Functional/Usability** (20 min) `[EQ2, U1, S1]`
    - Rotating silent critique
    - Each student writes feedback on sticky notes for 3-4 peers' icon sets
    - Guiding questions: Can you identify what this represents? Does it communicate the intended emotion? Would a user understand this at small sizes?
    - Frame: "Icons are functional communication tools — if someone can't understand it, the icon fails regardless of how beautiful it is"
    - Connects to EQ: Can something be beautiful and usable at the same time?
 
-2. **A2 Icon Critique Round 2: Formal/Aesthetics** (20 min)
+2. **A2 Icon Critique Round 2: Formal/Aesthetics** (20 min) `[EQ1, EQ2, U2, S1, K1]`
    - Pin icon sets to board for class discussion
    - Questions: Is this a cohesive set? Consistent stroke weight? Similar proportions? Do they look like they belong together?
    - Reference: "Cohesive icon sets are like good typefaces — similar strokes, proportions, and stylistic forms"
    - Discuss: What visual rules make a set feel unified?
    - Connects to Understanding: A cohesive visual system requires consistent rules
 
-3. **Discussion: Form and Function** (10 min)
+3. **Discussion: Form and Function** (10 min) `[EQ2, U3]`
    - Ask: What is the relationship between form and function? Are they ever in tension?
    - Connect the two critiques: Round 1 tested function, Round 2 tested form — good icons need both
    - Frame using forming/rendering: Function = forming intent (what must this communicate?), Form = rendering intent (how do I execute it beautifully?)
    - Key insight: A brilliant idea poorly executed fails; a beautifully crafted solution to the wrong problem also fails
 
-4. **Vectors Demo: Illustrator or Figma** (20 min)
+4. **Vectors Demo: Illustrator or Figma** (20 min) `[K2]`
    - Students choose their preferred tool
    - Key tools demonstrated: Pen tool, shape tool, pathfinder/boolean operations
    - Show process of vectorizing one icon from sketch
    - Discuss: Vectors vs. pixels — why vectors for icons?
    - Tips for maintaining consistency: Use a grid, set a standard stroke weight, align anchor points
 
-5. **Introduce A3: Vectorized Icon Set** (10 min)
+5. **Introduce A3: Vectorized Icon Set** (10 min) `[U2, K1]`
    - **A3 requirements:**
      - Vectorized versions of all 4-7 icons
      - Icons at least 2 inches tall, aligned on horizontal line
@@ -76,13 +76,13 @@ How do designers create visual consistency across a system of icons?
    - Explain: Day 4 is a work session day; come prepared to finalize
    - Grading criteria: Visual Excellence (cohesive set, composition, negative space relationships)
 
-6. **Discussion: Learning New Tools** (10 min)
+6. **Discussion: Learning New Tools** (10 min) `[K3]`
    - Ask: What is the best process for learning new digital programs?
    - Share strategies: tutorials, practice projects, keyboard shortcuts, asking peers
    - Point to resources available (see Resources section)
    - Frame: Learning tools is part of rendering intent — craft skills take practice
 
-7. **Vectorizing Work Session** (80 min)
+7. **Vectorizing Work Session** (80 min) `[S2, K2]`
    - Students begin vectorizing their icon sets
    - Choose Illustrator OR Figma based on preference and career goals
    - 1:1 feedback as instructor circulates (aim for 5 min each, prioritize students who are stuck)
@@ -96,6 +96,23 @@ How do designers create visual consistency across a system of icons?
    - Point to resources for additional help
 
 **Total time:** 180 minutes
+
+---
+
+### Alignment Check
+
+| Code | Desired Result | Activities |
+|------|----------------|------------|
+| EQ1 | Visual consistency across icon systems | 2 |
+| EQ2 | Form and function relationship | 1, 2, 3 |
+| U1 | Icons are functional communication tools | 1 |
+| U2 | Cohesive systems require consistent rules | 2, 5 |
+| U3 | Excellence in both forming and rendering | 3 |
+| K1 | Principles of icon design | 2, 5 |
+| K2 | Vector tools (Illustrator/Figma) | 4, 7 |
+| K3 | Craft skills support rendering intent | 6 |
+| S1 | Critique icons for function and form | 1, 2 |
+| S2 | Create vectorized icons with consistent style | 7 |
 
 ---
 
