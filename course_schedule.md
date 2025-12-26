@@ -32,81 +32,13 @@
 
 ---
 
-### Week 2, Day 3 — Wednesday, Jan 14
-
-**Desired Results:**
-
-*Essential Questions:*
-- How do designers create visual consistency across a system of icons?
-- What is the relationship between form and function in digital products? Can something be beautiful and usable at the same time?
-
-*Understandings:*
-- Icons are not just decoration; they are functional communication tools that must be instantly recognizable.
-- A cohesive visual system requires establishing and following consistent rules (stroke weight, grid, style).
-- Good design requires excellence in both forming and rendering. A brilliant idea poorly executed fails; a beautifully crafted solution to the wrong problem also fails.
-
-*Students Will Know:*
-- Principles of icon design (simplicity, recognizability, consistency)
-- How to use vector tools in Illustrator and/or Figma
-- How craft skills like typography, visual hierarchy, and prototyping support rendering intent
-
-*Students Will Be Able To:*
-- Critique icons for both function (usability) and form (aesthetics)
-- Create vectorized icons with consistent visual style
-
-*Targeted Learning Outcomes:* Critical Analysis of Form and Format, Communication and Feedback
-
-**Topics:**
-- Icon Set Critique x2:
-  - First critique: functional (usability) — rotating, silent critique
-  - Second critique: formal (aesthetics) — pin to board, class critique
-- Vectors vs. Pixels; pen tool in Illustrator vs. vector tool in Figma
-- Discussion about learning tools (what is the best process for learning new digital programs)
-
-**Assignments:**
+### Day 3 — Wednesday, Jan 14
+**Unit A: Wayfinding** | Focus: How do designers create visual consistency across a system of icons?
 - 📚 Read Ellen Lupton, *Design is Storytelling*, Act 1
 - 📚 Read notes on "What is a Good Icon?"
-- ⛳ Icon Set Draft #1
+- ⛳ A2 Icon Set Draft (bring to class)
 
-**Activities:**
-
-1. **A2 Icon Critique Round 1: Functional/Usability** (20 min)
-   - Rotating silent critique
-   - Each student writes feedback on sticky notes
-   - Questions: Can you identify what this represents? Does it communicate the emotion?
-   - Connects to: Icons as functional communication tools
-
-2. **A2 Icon Critique Round 2: Formal/Aesthetics** (20 min)
-   - Pin to board, class discussion
-   - Questions: Is this a cohesive set? Consistent stroke weight? Similar proportions?
-   - Reference: "Cohesive icon sets are like good typefaces"
-
-3. **Vectors Demo** (20 min)
-   - Illustrator OR Figma (student choice)
-   - Key tools: Pen tool, shape tool, pathfinder
-   - Show vectorizing one icon from sketch
-
-4. **Introduce A3: Vectorized Icon Set** (10 min)
-   - **A3 requirements:**
-     - Vectorized versions of all icons
-     - Icons at least 2 inches tall, aligned on horizontal line
-     - Attentive to spacing and optical alignment
-   - **Due: Day 4 (Wednesday, Jan 21) — submit PDF to Learning Suite by end of class**
-   - Explain: this is a work session day; come prepared to finalize
-
-5. **Vectorizing Work Session** (30 min)
-   - Students begin vectorizing their icon sets
-   - 1:1 feedback as instructor circulates
-
-**Homework:** Continue vectorizing icons; Read Lupton and "What is a Good Icon?"
-
-**Resources:**
-- Software Training from BYU Library
-- Figma tutorials: Intro, Vectors 1, Vectors 2
-- Illustrator 10-min intro video
-- Tools: Shape tool, Pen tool, Pathfinder
-- 👉 Adobe Creative Cloud: https://adobe.byu.edu ($30/year student account)
-- 👉 Figma Education: https://www.figma.com/education/ (free with BYU email)
+→ [Lesson Plan](lesson_plans/day_03.md)
 
 ---
 
