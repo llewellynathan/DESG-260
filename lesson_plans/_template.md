@@ -9,20 +9,20 @@
 ### Desired Results
 
 **Essential Questions:**
-- [Question 1]
-- [Question 2]
+- EQ1: [Question 1]
+- EQ2: [Question 2]
 
 **Understandings:**
-- [Understanding 1]
-- [Understanding 2]
+- U1: [Understanding 1]
+- U2: [Understanding 2]
 
 **Students Will Know:**
-- [Knowledge item 1]
-- [Knowledge item 2]
+- K1: [Knowledge item 1]
+- K2: [Knowledge item 2]
 
 **Students Will Be Able To:**
-- [Skill 1]
-- [Skill 2]
+- S1: [Skill 1]
+- S2: [Skill 2]
 
 **Targeted Learning Outcomes:** [Outcome 1], [Outcome 2]
 
@@ -35,15 +35,30 @@
 
 ### Activities
 
-1. **[Activity Name]** (X min)
+1. **[Activity Name]** (X min) `[EQ1, U2]`
    - [Detail]
    - [Detail]
 
-2. **[Activity Name]** (X min)
+2. **[Activity Name]** (X min) `[K1, S1]`
    - [Detail]
    - [Detail]
 
 **Total time:** X minutes
+
+---
+
+### Alignment Check
+
+| Code | Desired Result | Activities |
+|------|----------------|------------|
+| EQ1 | [Question 1] | 1, 2 |
+| EQ2 | [Question 2] | 2 |
+| U1 | [Understanding 1] | 1 |
+| U2 | [Understanding 2] | 1, 2 |
+| K1 | [Knowledge 1] | 2 |
+| K2 | [Knowledge 2] | — |
+| S1 | [Skill 1] | 2 |
+| S2 | [Skill 2] | — |
 
 ---
 

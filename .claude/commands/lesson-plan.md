@@ -23,14 +23,18 @@ Generate a complete lesson plan for Day $ARGUMENTS of DESG 260.
 4. Calculate total time (Monday ~120 min, Wednesday ~180 min)
 5. Ensure at least half the class is work/studio time
 6. Frame activities using forming/rendering intent
-7. **Verify ALL Desired Results align to activities** (per CLAUDE.md "Alignment Check"):
+7. **Use the tagging system to connect Desired Results to Activities:**
+   - Number each Desired Result with a prefix (EQ1, EQ2, U1, U2, K1, K2, S1, S2)
+   - Add inline tags after each activity's time: `**Activity Name** (X min) [EQ1, U2, S1]`
+   - Include an Alignment Check table after Activities mapping each code to its activities
+8. **Verify ALL Desired Results align to activities** (per CLAUDE.md "Alignment Check"):
    - Each Essential Question → explicitly asked or discussed in an activity
    - Each Understanding → activity helps students arrive at this understanding
    - Each "Students Will Know" → knowledge introduced or reinforced in an activity
    - Each "Students Will Be Able To" → skill practiced during class
-8. Introduce assignments BEFORE related work sessions
-9. **When introducing or referencing assignments, pull exact requirements from the assignment file** (dimensions, format, quantity, grading criteria, due dates)
-10. After creating the lesson plan, update course_schedule.md to simplify that day's entry to match Day 1's format
+9. Introduce assignments BEFORE related work sessions
+10. **When introducing or referencing assignments, pull exact requirements from the assignment file** (dimensions, format, quantity, grading criteria, due dates)
+11. After creating the lesson plan, update course_schedule.md to simplify that day's entry to match Day 1's format
 
 ## Output Format
 Follow the exact structure in _template.md with all sections filled in.
