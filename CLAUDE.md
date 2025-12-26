@@ -6,6 +6,14 @@
 - **Semester:** Winter 2026
 - **Class sessions:** 27 (Mon & Wed)
 
+## Class Timing
+
+- **Mondays:** ~2 hours (120 min)
+- **Wednesdays:** ~3 hours (180 min)
+- **Work time:** At least half of each class should be studio/work time
+  - Mondays: ~60 min instruction, ~60 min work
+  - Wednesdays: ~90 min instruction, ~90 min work
+
 ## Core Framework: Forming vs. Rendering Intent
 
 This is the central concept of the course. Reference it throughout:
@@ -54,6 +62,14 @@ Each lesson plan follows this structure:
 4. **Include time estimates** — Every activity gets (X min)
 5. **Total time** — Include total at end of Activities section
 6. **Homework is specific** — State exactly what's due and when
+7. **Update schedule when creating lesson plans** — When a lesson plan is created, simplify that day's entry in `course_schedule.md` to match Day 1's format:
+   ```
+   ### Day X — [Weekday], [Date]
+   **Unit [A-E]: [Name]** | Focus: [One-line theme]
+   - [Assignment due bullets]
+
+   → [Lesson Plan](lesson_plans/day_XX.md)
+   ```
 
 ## Style Preferences
 
