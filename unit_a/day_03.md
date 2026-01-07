@@ -1,4 +1,4 @@
-# Day 3 — Wednesday, Jan 14
+# Day 3 — Vectorizing Icons - Wednesday, Jan 14
 ## Unit A: Wayfinding Map & Icons
 
 ### Focus

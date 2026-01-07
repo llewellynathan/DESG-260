@@ -34,6 +34,14 @@
 - ⛳ Write Letter to Prof. due
 - ⛳ A1 Wayfinding Sketches due (bring to class)
 
+**In class:**
+- Telestrations game: feedback loops and communication
+- Gallery critique of A1 sketches with dot voting
+- Partner usability testing
+- Icon/symbol vocabulary (Pictionary game)
+- Icon sketching workshop
+- Introduce A2: Icon Set Draft
+
 → [Lesson Plan](unit_a/day_02.md)
 
 ---
@@ -43,6 +51,13 @@
 - 📚 Read Ellen Lupton, *Design is Storytelling*, Act 1
 - 📚 Read notes on "What is a Good Icon?"
 - ⛳ A2 Icon Set Draft (bring to class)
+
+**In class:**
+- Icon critique: function (usability) and form (aesthetics)
+- Form vs. function discussion
+- Vector tools demo (Illustrator/Figma)
+- Introduce A3: Vectorized Icon Set
+- Vectorizing work session
 
 → [Lesson Plan](unit_a/day_03.md)
 
@@ -58,6 +73,13 @@
 **Unit A: Wayfinding** | Focus: How do constraints enable creativity?
 - 📚 Read Frank Chimero, *Shape of Design*, Chapter 1 (How and Why)
 - ⛳ Vectorized Icon Set due (end of class)
+
+**In class:**
+- Progress share and troubleshooting
+- Constraints discussion: how limitations enable creativity
+- Work session with 1:1 meetings
+- Introduce A4: Final Deliverable (process book)
+- Peer review for final polish
 
 → [Lesson Plan](unit_a/day_04.md)
 

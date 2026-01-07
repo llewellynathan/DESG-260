@@ -1,4 +1,4 @@
-# Day 4 — Wednesday, Jan 21
+# Day 4 — Polishing the Map + Icons - Wednesday, Jan 21
 ## Unit A: Wayfinding Map & Icons
 
 ### Focus

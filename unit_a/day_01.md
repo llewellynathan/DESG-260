@@ -1,8 +1,8 @@
-# Day 1 — Wednesday, Jan 7
+# Day 1 — Experience Mapping - Wednesday, Jan 7
 ## Unit A: Wayfinding Map & Icons
 
 ### Focus
-What is design? Forming vs. rendering intent.
+What is design? Forming vs. rendering intent. 
 
 ---
 
@@ -129,7 +129,7 @@ What is design? Forming vs. rendering intent.
 
 ### Homework
 - Complete A1 sketches (5+ thumbnails + 1 larger finessed sketch) — bring physical copies to Day 2
-- Let to professor: see email from Doug Thomas with dropbox link
+- Letter to professor: see assignment page for details
 
 ---
 

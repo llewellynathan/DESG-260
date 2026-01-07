@@ -24,7 +24,7 @@ Good design requires excellence in both. A brilliant idea poorly executed fails.
 
 ### What You'll Make
 
-A wayfinding map that tells the story of a journey — not just physical directions, but an experience with emotions, ideas, and key moments. You'll create 4-7 icons to mark the touchpoints along the way, then document your process from rough sketches to polished vectors.
+A wayfinding/experience map that tells the story of a journey — not just physical directions, but an experience with emotions, ideas, and key moments. You'll create 4-7 icons to mark the touchpoints along the way, then document your process from rough sketches to polished vectors.
 
 ### Why This Matters
 
