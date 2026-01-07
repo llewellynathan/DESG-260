@@ -43,13 +43,19 @@ Empathy, feedback loops, and testing as design activities
    - Frame: "How easily can symbols be misunderstood? What happens when we don't test our work with others?"
    - Connects to the importance of testing your work — and to the Essential Question about designing for others vs. yourself
 
-2. **A1 Sketch Review: Gallery Critique** (20 min) `[EQ2, U2, U3]`
+2. **Today's Learning Goals** (3 min) `[EQ1, EQ2, U1, U2]`
+   - Frame: "You just experienced how easily communication breaks down. Here's what we're learning to do about it..."
+   - Display the Essential Questions and key objectives
+   - Connect Telestrations experience to EQ1 (empathy) and U2 (testing as design activity)
+   - Preview the testing/feedback activities ahead
+
+3. **A1 Sketch Review: Gallery Critique** (20 min) `[EQ2, U2, U3]`
    - Post all sketches on wall
    - Silent viewing period (5 min)
    - Dot voting: place dots on most communicative maps
    - Discussion prompt: "What makes a design 'good' for users? Why did you vote for the ones you did?"
 
-3. **Partner Usability Test** (20 min) `[EQ1, U1, U2, S1]`
+4. **Partner Usability Test** (20 min) `[EQ1, U1, U2, S1]`
    - Frame: "Research and testing ARE design activities — this is not a separate phase, it's central to designing"
    - Prompt: Rather than simply giving your sketch to your partner and asking them if they understand it, what questions might you ask to help you receive specific, useful feedback?
    - Pairs trade sketches
@@ -60,20 +66,20 @@ Empathy, feedback loops, and testing as design activities
       - What types of questions did you ask? Were they open ended or yes/no questions?
    
 
-4. **Icon/Symbol Exercise: Pictionary Game** (15 min) `[K3]`
+5. **Icon/Symbol Exercise: Pictionary Game** (15 min) `[K3]`
    - Groups of 4
    - Practice communicating abstract concepts visually
    - Debrief: What made icons readable vs. confusing?
    - Introduce vocabulary: icons (representational), symbols (abstract meaning), pictograms (simplified representation)
 
-5. **Icon Sketching Workshop** (35 min) `[S2, U3]`
+6. **Icon Sketching Workshop** (35 min) `[S2, U3]`
    - Students identify 4-7 key moments in their journey
    - Quick sketches of potential icons (hand-drawn)
    - Emphasis on abstract emotions — at least 2 icons must represent abstract emotions/ideas (assignment requirement)
    - 1:1 feedback as instructor circulates
    - This is work time: apply what you learned from the usability test to improve your designs
 
-6. **Introduce A2: Icon Set Draft** (15 min) `[K1, K2, U1]`
+7. **Introduce A2: Icon Set Draft** (15 min) `[K1, K2, U1]`
    - **A2 requirements:**
      - 4-7 icons representing key moments in journey
      - At least 2 icons must represent abstract emotions/ideas
@@ -83,7 +89,7 @@ Empathy, feedback loops, and testing as design activities
    - **Due: Day 3 (Wednesday, Jan 14) — bring physical draft to class**
    - Explain: icons will be critiqued for both function (usability) and form (aesthetics)
 
-**Total time:** 120 minutes
+**Total time:** 123 minutes
 
 ---
 
@@ -91,16 +97,16 @@ Empathy, feedback loops, and testing as design activities
 
 | Code | Desired Result | Activities |
 |------|----------------|------------|
-| EQ1 | How empathy shapes design | 1, 3 |
-| EQ2 | What makes design "good" for users | 2 |
-| U1 | Empathy, curiosity, humility for forming intent | 3, 6 |
-| U2 | Research/testing are design activities | 1, 2, 3 |
-| U3 | Design process is iterative | 2, 5 |
-| K1 | Empathy supports forming intent | 6 |
-| K2 | Stages of design process | 6 |
-| K3 | Icons vs. symbols vs. pictograms | 4 |
-| S1 | Facilitate usability tests | 3 |
-| S2 | Sketch icon concepts rapidly | 5 |
+| EQ1 | How empathy shapes design | 1, 2, 4 |
+| EQ2 | What makes design "good" for users | 2, 3 |
+| U1 | Empathy, curiosity, humility for forming intent | 2, 4, 7 |
+| U2 | Research/testing are design activities | 1, 2, 3, 4 |
+| U3 | Design process is iterative | 3, 6 |
+| K1 | Empathy supports forming intent | 7 |
+| K2 | Stages of design process | 7 |
+| K3 | Icons vs. symbols vs. pictograms | 5 |
+| S1 | Facilitate usability tests | 4 |
+| S2 | Sketch icon concepts rapidly | 6 |
 
 ---
 

@@ -56,25 +56,30 @@ What is design? Forming vs. rendering intent.
       - Bad design is the result of bad or poorly formed intent or bad rendering of well formed, good intent.
       - Learing to form and render intent are foundational to success in this course
 
-4. **Principles of Great Design & Learning** (10 min) `[EQ3]`
+4. **Today's Learning Goals** (5 min) `[EQ1, EQ2, EQ3, EQ4]`
+   - Frame: "Now that we've discussed what design is, here's what we're working toward today..."
+   - Display the Essential Questions and key objectives on screen/board
+   - Highlight connection between their definitions and the forming/rendering framework
+   - Point to skills they'll practice (identifying problems worth solving)
+
+5. **Principles of Great Design & Learning** (10 min) `[EQ3]`
  - Set expectations for studio and learning culture:
    - If you want to be a great designer, be a great learner. These principles apply to both.
    - **Feedback reveals blindspots and knowledge/skill gaps** — External perspectives show us what we cannot see ourselves. You can either be humble and learn from feedback or you can hold yourself back. Your choice.
    - **Externalization clarifies thinking** — Externalizing (e.g. explaining your design to someone) your thinking brings clarity and helps your brain make new connections and idenetify gaps in your thinking. If you're stuck, try talking through your problem with a friend.
    - **Failure is a natural part of the process** — First attempts are experiments, not final answers. Failure is core to learning and improving your thinking and your design work.
    - **Incubation enables breakthroughs** — Your brain continues working even when you step away. When you get stuck, either as a learner or designer, take a break.
-   - **Iterate from low to high fidelity** — Overcome ambiguity and uncerainty by making small iterations from low to high fidelity. Start with words and iterate towards visuals.
+   - **Iterate from low to high fidelity** — Overcome ambiguity and uncertainty by making small iterations from low to high fidelity. Start with simple ideas and concepts then progress to more advanced ideas and concepts. Start with words and iterate towards visuals.
    - **Teaching deepens understanding** — You don't fully understand something until you can teach it. You don't fully know what you know and think until you've tried to get it out of your head and teach it to someone else.
    - **Reflection accelerates growth** — Without reflection, experience doesn't become learning. Failure and feedback paired with reflection helps you to iterate and try new ways of thinking and doing.
 
    - **Ask: Why did I have you discuss with your neighbor how to define design rather than simply tell you my definition?**
 
-5. **Wayfinding/Experience Mapping Examples Gallery Walk** (15 min) `[EQ4, K3]`
+6. **Wayfinding/Experience Mapping Examples Gallery Walk** (15 min) `[EQ4, K3]`
    - **Introduce key concepts:**
      - **Wayfinding:** Navigating through space—answers "How do I get from here to there?"
      - **Journey Map:** Visualization of experience over time, showing touchpoints and emotions
      - **Experience Map:** Broader than journey maps—captures any human experience, not tied to a specific product
-     - **Emotional Journey:** Maps the highs and lows of feeling throughout an experience
    - Show 7 examples (see Resources below)
    - **Discussion prompts for each example:**
      - What is the journey being mapped? (Physical? Emotional? Metaphorical?)
@@ -82,7 +87,7 @@ What is design? Forming vs. rendering intent.
      - How does the design tell a story from beginning to end?
      - What makes the icon set cohesive? (Line weight? Style? Color?)
 
-6. **Introduce Assignment 1: Wayfinding Map & Icons** (20 min) `[EQ2, U1, U2]`
+7. **Introduce Assignment 1: Wayfinding Map & Icons** (20 min) `[EQ2, U1, U2]`
    - Frame the project using forming/rendering:
      - **Forming intent:** What journey will you map? What story will you tell? What must your icons communicate, to whom, in what context?
      - **Rendering intent:** How will you execute it with visual clarity and consistency?
@@ -99,14 +104,14 @@ What is design? Forming vs. rendering intent.
    - **Due: Day 2 (Monday, Jan 12) — bring physical sketches to class**
    - Explain: sketches will be reviewed and tested by peers
 
-7. **Brainstorming: Identify Problems Worth Solving** (15 min) `[EQ1, S1, U2]`
+8. **Brainstorming: Identify Problems Worth Solving** (15 min) `[EQ1, S1, U2]`
    - Frame: Good design starts with curiosity and empathy — what journeys do people struggle to navigate? What experiences are confusing or emotionally complex?
    - Students generate 5+ distinct journey ideas (dreams, stories, metaphors, processes)
    - Emphasize: NOT just physical directions — think about user flows through experiences
    - Quick share with neighbor: What problem does your journey address? Who would benefit from this map?
    - This is the first step of A1 — continue refining ideas as homework
 
-**Total time:** 95 minutes
+**Total time:** 100 minutes
 
 ---
 
@@ -114,16 +119,16 @@ What is design? Forming vs. rendering intent.
 
 | Code | Desired Result | Activities |
 |------|----------------|------------|
-| EQ1 | What is design? | 3, 7 |
-| EQ2 | Forming vs. rendering intent | 2, 3, 6 |
-| EQ3 | Guiding principles for great design | 4 |
-| EQ4 | Symbols across language/culture | 5 |
-| U1 | Design is forming and rendering intent | 2, 6 |
-| U2 | Icon design requires both forming and rendering | 6, 7 |
+| EQ1 | What is design? | 3, 4, 8 |
+| EQ2 | Forming vs. rendering intent | 2, 3, 4, 7 |
+| EQ3 | Guiding principles for great design | 4, 5 |
+| EQ4 | Symbols across language/culture | 4, 6 |
+| U1 | Design is forming and rendering intent | 2, 7 |
+| U2 | Icon design requires both forming and rendering | 7, 8 |
 | K1 | Distinction between forming and rendering | 2, 3 |
 | K2 | UX vocabulary (affordances, signifiers, etc.) | 3 |
-| K3 | What makes wayfinding succeed/fail | 5 |
-| S1 | Identify problems worth solving | 7 |
+| K3 | What makes wayfinding succeed/fail | 6 |
+| S1 | Identify problems worth solving | 8 |
 
 ---
 

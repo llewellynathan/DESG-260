@@ -14,6 +14,9 @@
 
 ## A. Start Here → Journeys, Destinations, Touchpoints (2 weeks)
 
+### Day 0 - Mon, Jan 5
+- ⛳ Write Letter to Prof. due
+
 ### Day 1 — Wed, Jan 7
 **Unit A: Wayfinding Map & Icons** | Focus: What is design? Forming vs. rendering intent.
 - 📚 Read syllabus before class
@@ -31,7 +34,7 @@
 
 ### Day 2 — Monday, Jan 12
 **Unit A: Wayfinding** | Focus: Empathy, feedback loops, and testing as design activities
-- ⛳ Write Letter to Prof. due
+
 - ⛳ A1 Wayfinding Sketches due (bring to class)
 
 **In class:**
