@@ -15,11 +15,17 @@
 ## A. Start Here → Journeys, Destinations, Touchpoints (2 weeks)
 
 ### Day 1 — Wed, Jan 7
-**Unit A: Wayfinding** | Focus: What is design?
+**Unit A: Wayfinding Map & Icons** | Focus: What is design? Forming vs. rendering intent.
 - 📚 Read syllabus before class
-- In class: Brainstorming session
 
-→ [Lesson Plan](lesson_plans/day_01.md)
+**In class:**
+- Introduce the forming/rendering framework as the course's central concept
+- 7 principles of great design & learning (feedback, externalization, failure, incubation, iteration, teaching, reflection)
+- Wayfinding & experience mapping concepts + gallery walk
+- Introduce Assignment 1: Wayfinding Map & Icons
+- Brainstorming: identify journeys worth mapping
+
+→ [Lesson Plan](unit_a/day_01.md)
 
 ---
 
@@ -28,7 +34,7 @@
 - ⛳ Write Letter to Prof. due
 - ⛳ A1 Wayfinding Sketches due (bring to class)
 
-→ [Lesson Plan](lesson_plans/day_02.md)
+→ [Lesson Plan](unit_a/day_02.md)
 
 ---
 
@@ -38,7 +44,7 @@
 - 📚 Read notes on "What is a Good Icon?"
 - ⛳ A2 Icon Set Draft (bring to class)
 
-→ [Lesson Plan](lesson_plans/day_03.md)
+→ [Lesson Plan](unit_a/day_03.md)
 
 ---
 
@@ -48,68 +54,12 @@
 
 ---
 
-### Week 3, Day 4 — Wednesday, Jan 21
-
-**Desired Results:**
-
-*Essential Questions:*
-- How do constraints enable creativity? Why do limitations (device size, platform guidelines, accessibility requirements) often lead to better solutions?
-
-*Understandings:*
-- A cohesive visual system requires establishing and following consistent rules (stroke weight, grid, style).
-- Effective wayfinding requires understanding how people navigate physical and mental spaces.
-
-*Students Will Know:*
-- Principles of icon design (simplicity, recognizability, consistency)
-- How to use vector tools in Illustrator and/or Figma
-
-*Students Will Be Able To:*
-- Create vectorized icons with consistent visual style
-- Design a simple wayfinding system
-
-*Targeted Learning Outcomes:* Critical Analysis of Form and Format
-
-**Topics:**
-- In-class work session; vectorizing map/design
-
-**Assignments:**
+### Day 4 — Wednesday, Jan 21
+**Unit A: Wayfinding** | Focus: How do constraints enable creativity?
 - 📚 Read Frank Chimero, *Shape of Design*, Chapter 1 (How and Why)
-- ⛳ Vectorized Icon set Due (end of class)
+- ⛳ Vectorized Icon Set due (end of class)
 
-**Activities:**
-
-*Note: Day 4 follows MLK Day (no class Jan 19)*
-
-1. **Quick Check-In: Progress Share** (10 min)
-   - Students show current vectorized icons
-   - Identify anyone who's stuck
-
-2. **Constraints Discussion** (15 min)
-   - EQ: How do constraints enable creativity?
-   - Discuss how B&W limitation, icon count, and map format forced clearer decisions
-   - Connect to forming/rendering: constraints sharpen both intent AND execution
-
-3. **Work Session with 1:1 Meetings** (50 min)
-   - Students finalize vectorized icons and map design
-   - Instructor meets individually (5 min each) to review progress
-   - Focus feedback on: visual hierarchy, composition, type choice
-
-4. **Introduce A4: Final Deliverable** (10 min)
-   - **A4 requirements:**
-     - PDF process book showcasing sketches → finished work
-     - Final map on one page (default 17" x 11" horizontal)
-     - 1-2 sentences explaining core concept
-     - At least 1 caption describing how design changed in response to feedback
-   - **Due: Day 5 (Monday, Jan 26) — submit to Learning Suite before class**
-   - Explain: Day 5 begins Project B, so A4 must be complete
-
-5. **Peer Review: Final Polish** (15 min)
-   - Partners review each other's near-final work
-   - Checklist: Icons aligned? Consistent stroke? Map readable? Caption clear?
-
-**End of Class:** A3 Vectorized Icon Set due to Learning Suite
-
-**Homework:** Complete A4 Final Deliverable (process book pages with sketches → final + captions describing response to feedback) — due Day 5
+→ [Lesson Plan](unit_a/day_04.md)
 
 ---
 

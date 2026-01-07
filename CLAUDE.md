@@ -35,12 +35,18 @@ DESG 260/
 ├── CLAUDE.md                   ← This file
 ├── course_overview.md          ← Course-level backward design
 ├── course_schedule.md          ← Simplified calendar
-├── assignment_*.md             ← Assignment briefs
-└── lesson_plans/
-    ├── _template.md            ← Copy for new lessons
+├── lesson_plans/
+│   └── _template.md            ← Copy for new lessons
+└── unit_a/                     ← Unit A: Wayfinding Map & Icons
+    ├── overview.md             ← Student-facing unit introduction
+    ├── assignment.md           ← Assignment brief
     ├── day_01.md
-    └── ...
+    ├── day_02.md
+    ├── day_03.md
+    └── day_04.md
 ```
+
+*Future units (B, C, D, E) will follow the same structure: `unit_x/overview.md`, `unit_x/assignment.md`, and daily lesson plans.*
 
 ## Lesson Plan Format
 
@@ -68,7 +74,7 @@ Each lesson plan follows this structure:
    **Unit [A-E]: [Name]** | Focus: [One-line theme]
    - [Assignment due bullets]
 
-   → [Lesson Plan](lesson_plans/day_XX.md)
+   → [Lesson Plan](unit_X/day_XX.md)
    ```
 
 ## Style Preferences

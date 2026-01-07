@@ -50,12 +50,17 @@ Empathy, feedback loops, and testing as design activities
    - Discussion prompt: "What makes a design 'good' for users? Why did you vote for the ones you did?"
 
 3. **Partner Usability Test** (20 min) `[EQ1, U1, U2, S1]`
+   - Frame: "Research and testing ARE design activities — this is not a separate phase, it's central to designing"
+   - Prompt: Rather than simply giving your sketch to your partner and asking them if they understand it, what questions might you ask to help you receive specific, useful feedback?
    - Pairs trade sketches
    - Partner tries to "read" the journey without explanation
    - Record: What was clear? What was confusing?
-   - Frame: "Research and testing ARE design activities — this is not a separate phase, it's central to designing"
+   - Class discussion:
+      - What questions did you ask your partner to elicit helpful feedback?
+      - What types of questions did you ask? Were they open ended or yes/no questions?
+   
 
-4. **Icon/Symbol Exercise: Pictionary** (15 min) `[K3]`
+4. **Icon/Symbol Exercise: Pictionary Game** (15 min) `[K3]`
    - Groups of 4
    - Practice communicating abstract concepts visually
    - Debrief: What made icons readable vs. confusing?
@@ -100,7 +105,9 @@ Empathy, feedback loops, and testing as design activities
 ---
 
 ### Homework
-Complete A2 Icon Set Draft (2" tall, aligned, hand-drawn) — bring physical copies to Day 3
+- 📚 Read Ellen Lupton, *Design is Storytelling*, Act 1
+- 📚 Read notes on "What is a Good Icon?"
+- ⛳ A2 Icon Set Draft (2" tall, aligned, hand-drawn) — bring physical copies to Day 3
 
 ---
 

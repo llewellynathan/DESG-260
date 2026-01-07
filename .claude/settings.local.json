@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "WebFetch(domain:www.uxforthemasses.com)",
+      "WebFetch(domain:uxmastery.com)",
+      "WebFetch(domain:www.nngroup.com)",
+      "WebFetch(domain:www.hustlebadger.com)",
+      "WebFetch(domain:www.edrawmax.com)",
+      "WebFetch(domain:smart-interface-design-patterns.com)",
+      "WebFetch(domain:www.storyboardthat.com)",
+      "WebFetch(domain:theheroplace.com)",
+      "WebFetch(domain:venngage.com)"
+    ]
+  }
+}
