@@ -34,7 +34,6 @@ Generate a complete lesson plan for Day $ARGUMENTS of DESG 260.
    - Each "Students Will Be Able To" → skill practiced during class
 9. Introduce assignments BEFORE related work sessions
 10. **When introducing or referencing assignments, pull exact requirements from the assignment file** (dimensions, format, quantity, grading criteria, due dates)
-11. After creating the lesson plan, update course_schedule.md to simplify that day's entry to match Day 1's format
 
 ## Output Format
 Follow the exact structure in _template.md with all sections filled in.

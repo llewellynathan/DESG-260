@@ -18,7 +18,10 @@
 - ⛳ Write Letter to Prof. due
 
 ### Day 1 — Wed, Jan 7
-**Unit A: Wayfinding Map & Icons** | Focus: What is design? Forming vs. rendering intent.
+**Unit A: Wayfinding Map & Icons** 
+Today's Focus: What is design? Forming vs. rendering intent.
+
+**Come to class having done:**
 - 📚 Read syllabus before class
 
 **In class:**
