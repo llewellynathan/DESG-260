@@ -36,15 +36,18 @@ Today's Focus: What is design? Forming vs. rendering intent.
 ---
 
 ### Day 2 — Monday, Jan 12
-**Unit A: Wayfinding** | Focus: Empathy, feedback loops, and testing as design activities
+**Unit A: Wayfinding Map & Icons**
+Today's Focus: Empathy, feedback loops, and testing as design activities
 
-- ⛳ A1 Wayfinding Sketches due (bring to class)
+**Come to class having done:**
+- ⛳ Write Letter to Prof. (before class)
+- ⛳ A1 Wayfinding Sketches (bring physical copies to class)
 
 **In class:**
-- Telestrations game: feedback loops and communication
-- Gallery critique of A1 sketches with dot voting
+- Telestrations game (DIY version): feedback loops and communication breakdown
+- Gallery critique of A1 sketches with silent annotation (green/yellow sticky notes)
 - Partner usability testing
-- Icon/symbol vocabulary (Pictionary game)
+- Icon/symbol vocabulary with Pictionary game (concrete → abstract prompts)
 - Icon sketching workshop
 - Introduce A2: Icon Set Draft
 
@@ -53,7 +56,10 @@ Today's Focus: What is design? Forming vs. rendering intent.
 ---
 
 ### Day 3 — Wednesday, Jan 14
-**Unit A: Wayfinding** | Focus: How do designers create visual consistency across a system of icons?
+**Unit A: Wayfinding**
+Today's Focus: How do designers create visual consistency across a system of icons?
+
+**Come to class having done:**
 - 📚 Read Ellen Lupton, *Design is Storytelling*, Act 1
 - 📚 Read notes on "What is a Good Icon?"
 - ⛳ A2 Icon Set Draft (bring to class)
@@ -76,7 +82,10 @@ Today's Focus: What is design? Forming vs. rendering intent.
 ---
 
 ### Day 4 — Wednesday, Jan 21
-**Unit A: Wayfinding** | Focus: How do constraints enable creativity?
+**Unit A: Wayfinding**
+Today's Focus: How do constraints enable creativity?
+
+**Come to class having done:**
 - 📚 Read Frank Chimero, *Shape of Design*, Chapter 1 (How and Why)
 - ⛳ Vectorized Icon Set due (end of class)
 

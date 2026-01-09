@@ -38,9 +38,15 @@ Empathy, feedback loops, and testing as design activities
 
 ### Activities
 
-1. **Telestrations Game** (15 min) `[EQ1, U2]`
-   - Introduces feedback loop and communication breakdown
-   - Frame: "How easily can symbols be misunderstood? What happens when we don't test our work with others?"
+1. **Telestrations Game (DIY Version)** (15 min) `[EQ1, U2]`
+   - **Setup:** Give each student a strip of paper folded into 6 accordion sections (or 6 index cards clipped together)
+   - **How to play:**
+     1. Section 1: Write a word or short phrase
+     2. Pass left → Section 2: Draw what you see (fold back section 1)
+     3. Pass left → Section 3: Write what you see (fold back section 2)
+     4. Continue alternating draw/write until all sections are filled
+     5. Unfold and share the evolution with the group
+   - **Debrief:** "How easily can symbols be misunderstood? What happens when we don't test our work with others?"
    - Connects to the importance of testing your work — and to the Essential Question about designing for others vs. yourself
 
 2. **Today's Learning Goals** (3 min) `[EQ1, EQ2, U1, U2]`
@@ -50,10 +56,12 @@ Empathy, feedback loops, and testing as design activities
    - Preview the testing/feedback activities ahead
 
 3. **A1 Sketch Review: Gallery Critique** (20 min) `[EQ2, U2, U3]`
-   - Post all sketches on wall
-   - Silent viewing period (5 min)
-   - Dot voting: place dots on most communicative maps
-   - Discussion prompt: "What makes a design 'good' for users? Why did you vote for the ones you did?"
+   - **Setup:** Post all sketches on wall. Give each student green and yellow sticky notes.
+   - **Silent annotation** (10 min):
+     - Green sticky: Place on elements that communicate clearly (write a brief note why)
+     - Yellow sticky: Place on areas where you have a question or feel confused
+   - **Retrieval & review** (5 min): Students collect their own sketch and read the feedback
+   - **Discussion** (5 min): "What patterns do you notice? What made certain elements clear or confusing?"
 
 4. **Partner Usability Test** (20 min) `[EQ1, U1, U2, S1]`
    - Frame: "Research and testing ARE design activities — this is not a separate phase, it's central to designing"
@@ -67,10 +75,20 @@ Empathy, feedback loops, and testing as design activities
    
 
 5. **Icon/Symbol Exercise: Pictionary Game** (15 min) `[K3]`
-   - Groups of 4
-   - Practice communicating abstract concepts visually
-   - Debrief: What made icons readable vs. confusing?
-   - Introduce vocabulary: icons (representational), symbols (abstract meaning), pictograms (simplified representation)
+   - **Setup:** Form groups of 4. Each group needs paper/whiteboard and a marker.
+   - **How to play** (10 min):
+     - One person draws, others guess. No words, letters, or numbers allowed.
+     - 30-45 seconds per round. Rotate drawer each round.
+     - **Round 1-2 prompts (concrete):** hot chocolate, stairs, elevator, parking, backpack, clock, door, bench
+     - **Round 3-4 prompts (abstract):** frustration, relief, confusion, accomplishment, excitement, boredom, anticipation, exhaustion
+   - **Debrief** (5 min):
+     - "What made concrete objects easier to draw than emotions?"
+     - "What visual strategies did you use for abstract concepts?"
+   - **Introduce vocabulary:**
+     - **Icon:** Representational image that resembles what it depicts (e.g., coffee cup icon)
+     - **Symbol:** Abstract mark with learned meaning (e.g., heart = love, $ = money)
+     - **Pictogram:** Simplified, standardized representation (e.g., bathroom signs, airport wayfinding)
+   - Connect to A2: "Your icon set needs at least 2 icons representing abstract emotions—you just practiced this!"
 
 6. **Icon Sketching Workshop** (35 min) `[S2, U3]`
    - Students identify 4-7 key moments in their journey

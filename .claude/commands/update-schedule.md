@@ -3,6 +3,8 @@ description: Update course_schedule.md after creating a lesson plan
 allowed-tools: Read, Edit
 ---
 
+**Usage:** `/update-schedule [day number]` (e.g., `/update-schedule 5`)
+
 Update the Day $ARGUMENTS entry in course_schedule.md to the simplified format.
 
 ## Context Files to Read
