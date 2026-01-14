@@ -10,7 +10,10 @@
       "WebFetch(domain:smart-interface-design-patterns.com)",
       "WebFetch(domain:www.storyboardthat.com)",
       "WebFetch(domain:theheroplace.com)",
-      "WebFetch(domain:venngage.com)"
+      "WebFetch(domain:venngage.com)",
+      "Skill(slides)",
+      "WebFetch(domain:www.figma.com)",
+      "WebFetch(domain:help.figma.com)"
     ]
   }
 }

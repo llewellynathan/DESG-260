@@ -38,7 +38,12 @@ Empathy, feedback loops, and testing as design activities
 
 ### Activities
 
-1. **Telestrations Game (DIY Version)** (15 min) `[EQ1, U2]`
+1. **Warm-Up: Sketch Self-Review** (10 min) `[EQ1, U2]`
+   - With your A1 sketches in front of you, identify 2-3 areas where you're uncertain if your intent is clear to others
+   - Write one question you'd like answered during today's critique
+   - Consider: What assumptions did you make about what viewers would understand?
+
+2. **Telestrations Game (DIY Version)** (15 min) `[EQ1, U2]`
    - **Setup:** Give each student a strip of paper folded into 6 accordion sections (or 6 index cards clipped together)
    - **How to play:**
      1. Section 1: Write a word or short phrase
@@ -49,13 +54,13 @@ Empathy, feedback loops, and testing as design activities
    - **Debrief:** "How easily can symbols be misunderstood? What happens when we don't test our work with others?"
    - Connects to the importance of testing your work — and to the Essential Question about designing for others vs. yourself
 
-2. **Today's Learning Goals** (3 min) `[EQ1, EQ2, U1, U2]`
+3. **Today's Learning Goals** (3 min) `[EQ1, EQ2, U1, U2]`
    - Frame: "You just experienced how easily communication breaks down. Here's what we're learning to do about it..."
    - Display the Essential Questions and key objectives
    - Connect Telestrations experience to EQ1 (empathy) and U2 (testing as design activity)
    - Preview the testing/feedback activities ahead
 
-3. **A1 Sketch Review: Gallery Critique** (20 min) `[EQ2, U2, U3]`
+4. **A1 Sketch Review: Gallery Critique** (20 min) `[EQ2, U2, U3]`
    - **Setup:** Post all sketches on wall. Give each student green and yellow sticky notes.
    - **Silent annotation** (10 min):
      - Green sticky: Place on elements that communicate clearly (write a brief note why)
@@ -63,7 +68,7 @@ Empathy, feedback loops, and testing as design activities
    - **Retrieval & review** (5 min): Students collect their own sketch and read the feedback
    - **Discussion** (5 min): "What patterns do you notice? What made certain elements clear or confusing?"
 
-4. **Partner Usability Test** (20 min) `[EQ1, U1, U2, S1]`
+5. **Partner Usability Test** (20 min) `[EQ1, U1, U2, S1]`
    - Frame: "Research and testing ARE design activities — this is not a separate phase, it's central to designing"
    - Prompt: Rather than simply giving your sketch to your partner and asking them if they understand it, what questions might you ask to help you receive specific, useful feedback?
    - Pairs trade sketches
@@ -74,7 +79,7 @@ Empathy, feedback loops, and testing as design activities
       - What types of questions did you ask? Were they open ended or yes/no questions?
    
 
-5. **Icon/Symbol Exercise: Pictionary Game** (15 min) `[K3]`
+6. **Icon/Symbol Exercise: Pictionary Game** (15 min) `[K3]`
    - **Setup:** Form groups of 4. Each group needs paper/whiteboard and a marker.
    - **How to play** (10 min):
      - One person draws, others guess. No words, letters, or numbers allowed.
@@ -90,14 +95,14 @@ Empathy, feedback loops, and testing as design activities
      - **Pictogram:** Simplified, standardized representation (e.g., bathroom signs, airport wayfinding)
    - Connect to A2: "Your icon set needs at least 2 icons representing abstract emotions—you just practiced this!"
 
-6. **Icon Sketching Workshop** (35 min) `[S2, U3]`
+7. **Icon Sketching Workshop** (35 min) `[S2, U3]`
    - Students identify 4-7 key moments in their journey
    - Quick sketches of potential icons (hand-drawn)
    - Emphasis on abstract emotions — at least 2 icons must represent abstract emotions/ideas (assignment requirement)
    - 1:1 feedback as instructor circulates
    - This is work time: apply what you learned from the usability test to improve your designs
 
-7. **Introduce A2: Icon Set Draft** (15 min) `[K1, K2, U1]`
+8. **Introduce A2: Icon Set Draft** (15 min) `[K1, K2, U1]`
    - **A2 requirements:**
      - 4-7 icons representing key moments in journey
      - At least 2 icons must represent abstract emotions/ideas
@@ -107,7 +112,7 @@ Empathy, feedback loops, and testing as design activities
    - **Due: Day 3 (Wednesday, Jan 14) — bring physical draft to class**
    - Explain: icons will be critiqued for both function (usability) and form (aesthetics)
 
-**Total time:** 123 minutes
+**Total time:** 133 minutes
 
 ---
 
@@ -115,16 +120,16 @@ Empathy, feedback loops, and testing as design activities
 
 | Code | Desired Result | Activities |
 |------|----------------|------------|
-| EQ1 | How empathy shapes design | 1, 2, 4 |
-| EQ2 | What makes design "good" for users | 2, 3 |
-| U1 | Empathy, curiosity, humility for forming intent | 2, 4, 7 |
-| U2 | Research/testing are design activities | 1, 2, 3, 4 |
-| U3 | Design process is iterative | 3, 6 |
-| K1 | Empathy supports forming intent | 7 |
-| K2 | Stages of design process | 7 |
-| K3 | Icons vs. symbols vs. pictograms | 5 |
-| S1 | Facilitate usability tests | 4 |
-| S2 | Sketch icon concepts rapidly | 6 |
+| EQ1 | How empathy shapes design | 1, 2, 3, 5 |
+| EQ2 | What makes design "good" for users | 3, 4 |
+| U1 | Empathy, curiosity, humility for forming intent | 3, 5, 8 |
+| U2 | Research/testing are design activities | 1, 2, 3, 4, 5 |
+| U3 | Design process is iterative | 4, 7 |
+| K1 | Empathy supports forming intent | 8 |
+| K2 | Stages of design process | 8 |
+| K3 | Icons vs. symbols vs. pictograms | 6 |
+| S1 | Facilitate usability tests | 5 |
+| S2 | Sketch icon concepts rapidly | 7 |
 
 ---
 

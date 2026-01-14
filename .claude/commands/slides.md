@@ -20,16 +20,26 @@ Generate a slide-by-slide presentation outline for Day $ARGUMENTS of DESG 260.
 
 ## Slide Structure Rules
 
-**Key principle:** Slides follow the Activities section. The Desired Results section (EQs, Understandings, Know, Skills) is reference material — only include that content when an activity explicitly calls for it.
+**Key principle:** The Warm-Up is the first thing students see when entering class. Title and preview come after, then remaining activities follow.
 
 Generate slides in this order:
 
-### 1. Title Slide
+### 1. Warm-Up Slide
+- Pull from Activity 1 (Warm-Up) in the lesson plan
+- This is what students see immediately when they enter — they can start working right away
+- Include the activity name and instructions
+
+### 2. Title Slide
 - Day number, weekday, and date
 - Unit letter and name
+- **Big Idea:** A single memorable statement distilled from the Focus section — what students should take away
 
-### 2. Activity Slides
-For each activity in the lesson plan, create slides based on its content:
+### 3. Today's Activities Slide
+- **Today:** List the main activities in order, separated by arrows (→)
+- This previews what the class will cover
+
+### 4. Activity Slides
+For each activity in the lesson plan (starting from Activity 2, since Warm-Up is Slide 1), create slides based on its content:
 
 **Simple activity** (1 slide): Activity has ≤3 bullet points, no sub-lists, no discussion prompts
 - Single slide with activity name, time, and brief description
@@ -46,10 +56,10 @@ For each activity in the lesson plan, create slides based on its content:
 - Students Will Know slide
 - Students Will Be Able To slide
 
-### 3. Homework Slide
+### 5. Homework Slide
 - All homework items with their symbols (📚, ⛳, 🚩)
 
-### 4. Resources Slide (if resources exist)
+### 6. Resources Slide (if resources exist)
 - Links and references from the Resources section
 
 ## Output Format
@@ -62,13 +72,28 @@ Use this exact markdown format with `---` as slide separators:
 
 ---
 
-### Slide 1: Title
-**Day X — [Weekday], [Date]**
-Unit [Letter]: [Name]
+### Slide 1: Warm-Up
+**Warm-Up: [Specific Activity]** (10 min)
+- [Instruction 1]
+- [Instruction 2]
+- [Instruction 3]
 
 ---
 
-### Slide 2: [Activity Name]
+### Slide 2: Title
+**Day X — [Weekday], [Date]**
+Unit [Letter]: [Name]
+
+**Big Idea:** [Single memorable takeaway from Focus section]
+
+---
+
+### Slide 3: Today's Activities
+**Today:** [Activity 2] → [Activity 3] → [Activity 4] → ...
+
+---
+
+### Slide 4: [Activity 2 Name]
 **[Activity Name]** ([X] min)
 [Activity content...]
 
