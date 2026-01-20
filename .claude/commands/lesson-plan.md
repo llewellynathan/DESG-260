@@ -3,46 +3,136 @@ description: Generate a lesson plan for a specified day number
 allowed-tools: Read, Write, Edit, Glob
 ---
 
-Generate a complete lesson plan for Day $ARGUMENTS of DESG 260.
+**Usage:** `/lesson-plan [day number]` (e.g., `/lesson-plan 5`)
+
+Generate a simple, studio-focused lesson plan for Day $ARGUMENTS of DESG 260.
+
+## Design Philosophy
+
+Create **simple but information-rich** lesson plans. Provide high-value direct instruction in minimal time so students have abundant studio time.
+
+**Activities should be:**
+- **Warm-up** — Students start independently
+- **Today's Learning Goals** — Review Desired Results, preview how activities address them
+- **Direct Instruction** (required) — Information-rich, teacher-led explicit teaching: modeling techniques, explaining concepts, demonstrating processes ("I do, We do, You do")
+- **Additional learning activities** (optional) — Critique, discussion, peer feedback
+- **Work session** — The main event; gets remaining time
+
+**Aim for 4-6 activities total** (not 8-10). Consolidate related content into fewer, high-value activities.
 
 ## Context Files to Read
-1. @course_schedule.md — Find Day $ARGUMENTS and extract all Desired Results, Topics, Assignments, Activities, and Resources
-2. @lesson_plans/_template.md — Use this structure
-3. @CLAUDE.md — Follow all conventions in "Lesson Plan Format" and "Style Preferences"
-4. @lesson_plans/day_01.md and @lesson_plans/day_02.md — Match the established patterns
-5. **Read the relevant assignment file based on the day's unit:**
-   - Days 1-4: @assignment_1_wayfinding.md
-   - Days 5-8: @assignment_2_make_it_better_app.md
-   - Days 9-13: @assignment_3_hierarchy_responsive_website.md
-   - Days 14-24: @assignment_4_neue_application.md
+1. @course_schedule.md — Find Day $ARGUMENTS and extract Desired Results, Assignments, and Resources
+2. @CLAUDE.md — Follow course framework (forming/rendering intent)
+3. **Read the relevant unit files based on day number:**
+   - Days 1-4: `unit_a/assignment.md`
+   - Days 5-8: `unit_b/assignment.md`
+   - Days 9-13: `unit_c/assignment.md`
+   - Days 14-24: `unit_d/assignment.md`
+   - Days 25-27: `unit_e/assignment.md`
 
 ## Requirements
-1. Create the lesson plan at `lesson_plans/day_XX.md` (use two-digit format: day_03.md)
-2. Pull all content from course_schedule.md for that day
-3. **Write a Focus that can become a "Big Idea":**
-   - The Focus should be specific enough to distill into a single memorable takeaway
-   - Think: What's the one thing students should remember from this class?
-   - Example: "Testing your work with others reveals blind spots you can't see yourself"
-4. Transform Topics into concrete Activities with time estimates
-5. Calculate total time (Monday ~120 min, Wednesday ~180 min)
-6. Ensure at least half the class is work/studio time
-7. **Start each class with a "Warm-Up" activity (10 min):**
-   - Students should be able to begin independently without instructor guidance
-   - Activity should prepare students for the day's content
-   - Design it so students who arrive late or can't finish aren't disadvantaged
-   - This should be Activity 1 in the lesson plan, formatted as: **Warm-Up: [Specific Activity]** (10 min)
+1. Create the lesson plan at the appropriate unit folder: `unit_X/day_XX.md`
+2. Pull all Desired Results from course_schedule.md for that day
+3. **Write a Focus that becomes a "Big Idea"** — What's the one thing students should remember?
+4. **Consolidate into 4-6 activities** (warm-up, learning goals, direct instruction, possibly critique/discussion, work session)
+5. Ensure at least half the class is work/studio time
+6. Use the tagging system: `**Activity Name** (X min) [EQ1, U2, S1]`
+7. Pull exact requirements from assignment files when introducing milestones
 8. Frame activities using forming/rendering intent
-9. **Use the tagging system to connect Desired Results to Activities:**
-   - Number each Desired Result with a prefix (EQ1, EQ2, U1, U2, K1, K2, S1, S2)
-   - Add inline tags after each activity's time: `**Activity Name** (X min) [EQ1, U2, S1]`
-   - Include an Alignment Check table after Activities mapping each code to its activities
-10. **Verify ALL Desired Results align to activities** (per CLAUDE.md "Alignment Check"):
-    - Each Essential Question → explicitly asked or discussed in an activity
-    - Each Understanding → activity helps students arrive at this understanding
-    - Each "Students Will Know" → knowledge introduced or reinforced in an activity
-    - Each "Students Will Be Able To" → skill practiced during class
-11. Introduce assignments BEFORE related work sessions
-12. **When introducing or referencing assignments, pull exact requirements from the assignment file** (dimensions, format, quantity, grading criteria, due dates)
 
-## Output Format
-Follow the exact structure in _template.md with all sections filled in.
+## Output Structure
+
+```markdown
+# Day X — [Weekday], [Date]
+## Unit [Letter]: [Name]
+
+**Focus:** [One-line Big Idea — what should students remember from this class?]
+
+**Targeted Learning Outcomes:** [From course_schedule.md]
+
+---
+
+### Desired Results
+
+**Essential Questions:**
+- EQ1: [From course_schedule.md]
+- EQ2: [From course_schedule.md]
+
+**Understandings:**
+- U1: [From course_schedule.md]
+- U2: [From course_schedule.md]
+
+**Students Will Know:**
+- K1: [From course_schedule.md]
+- K2: [From course_schedule.md]
+
+**Students Will Be Able To:**
+- S1: [From course_schedule.md]
+- S2: [From course_schedule.md]
+
+---
+
+### Assignments Due
+- 📚 [Readings]
+- ⛳ [Checkpoints]
+- 🚩 [Major assignments]
+
+---
+
+### Activities
+
+1. **Warm-Up: [Activity Name]** (10 min) `[relevant tags]`
+   - Students can begin independently without instructor
+   - Prepares for the day's content
+   - Late arrivals aren't disadvantaged
+
+2. **Today's Learning Goals** (5 min) `[all tags]`
+   - Review Desired Results with students
+   - Preview what activities will address each
+   - Frame the day's learning in terms of forming/rendering intent
+
+3. **[Direct Instruction Activity]** (~15-25 min) `[relevant tags]`
+   - **I do:** Teacher models/demonstrates/explains
+   - **We do:** Class practices together
+   - **You do:** Students try independently
+   - Information-rich: substantial content, not stretched thin
+   - Examples: Vector tools demo, design principles lecture, technique demonstration
+
+4. **[Additional Activity if needed]** (~15-20 min) `[relevant tags]`
+   - Critique, discussion, peer feedback, etc.
+   - Only include if the day requires it
+
+5. **[Assignment Introduction]** (~10 min) `[relevant tags]`
+   - Only if introducing a new milestone
+   - Requirements (pull from assignment.md)
+   - Due date
+
+6. **Work Session + 1:1 Feedback** (remaining time) `[relevant tags]`
+   - What students are working on
+   - Instructor focus during circulation
+   - What's due by end of class (if anything)
+
+---
+
+### Homework
+- [Specific items with due dates]
+
+---
+
+### Resources
+- [Links and references from course_schedule.md]
+```
+
+## Special Cases
+
+- **Day 1** — Allow extended instruction for course intro, defining design, and foundational concepts. Day 1 establishes the forming/rendering framework.
+- **Final unit days** (e.g., Day 4, Day 8) — Minimal instruction; mostly work time and 1:1 feedback.
+
+## Guiding Principles
+
+1. **Desired Results drive activities** — Activities should directly address EQs, Understandings, and Skills
+2. **Review Desired Results each class** — Activity 2 previews learning goals
+3. **Include Direct Instruction** — Each lesson needs information-rich, teacher-led teaching
+4. **Consolidate related content** — Combine items into fewer, high-value activities
+5. **Work session is the main event** — Instruction prepares students for productive work time
+6. **Pull exact requirements from assignment files** — Dimensions, formats, due dates

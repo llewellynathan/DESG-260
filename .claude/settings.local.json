@@ -13,7 +13,8 @@
       "WebFetch(domain:venngage.com)",
       "Skill(slides)",
       "WebFetch(domain:www.figma.com)",
-      "WebFetch(domain:help.figma.com)"
+      "WebFetch(domain:help.figma.com)",
+      "WebFetch(domain:medium.com)"
     ]
   }
 }

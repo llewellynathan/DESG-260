@@ -102,47 +102,21 @@ Today's Focus: How do constraints enable creativity?
 
 ## B. One More Thing → Product Design as Discovery and Problem Solving; Conventions (2 weeks)
 
-### Week 4, Day 5 — Monday, Jan 26
+### Day 5 — Monday, Jan 26
+**Unit B: Make It Better App**
+Today's Focus: Understanding why something was designed a certain way is the first step to improving it.
 
-**Desired Results:**
-
-*Essential Questions:*
-- How do we identify what's broken in an existing product—and how do we know our fix is actually better?
-- What makes a design "good" for users? How do we move beyond personal preference to make design decisions grounded in user needs?
-
-*Understandings:*
-- Improving an existing product requires both forming better intent (discovering what's actually broken and for whom) and rendering that intent (executing improvements with appropriate craft).
-- Improving an existing product requires understanding why it was designed that way in the first place.
-- Good design is often invisible. Users notice friction, confusion, and frustration—not seamless experiences.
-
-*Students Will Know:*
-- How to create user flows and task diagrams
-- Methods for conducting competitive analysis
-- The vocabulary and concepts of user experience design (affordances, signifiers, feedback, mental models, user flows)
-
-*Students Will Be Able To:*
-- Analyze existing products to identify strengths, weaknesses, and opportunities
-- Conduct user research using interviews, observation, and competitive analysis
-
-*Targeted Learning Outcomes:* Problem Discovery & Research, Familiarity and Distinctiveness
-
-**Topics:**
-- Process Books/Final Documentation review
-- Big idea: User Flows and Competitive Analysis
-- Introduction to Project B: Make It Better App
-
-**Assignments:**
+**Come to class having done:**
 - 🚩 A. Wayfinding & Icons Due (turn in before class on Learning Suite)
 - 📚 Read Don Norman, *Design of Everyday Things*, Ch. 1
-- In-class quiz (Q1)
-- B1: User Flow & Competitive Analysis assignment
-- Purchase Index Cards before next class
 
-**Resources:**
-- Apple Human Interface Guidelines — https://developer.apple.com/fonts/ (San Francisco)
-- Google Material Design Guidelines — https://fonts.google.com (Roboto)
-- Facebook Device Mockups
-- https://lawsofux.com/
+**In class:**
+- UX vocabulary: affordances, signifiers, feedback, mental models
+- User flows and competitive analysis
+- Introduction to Project B: Make It Better App
+- B1: User Flow & Competitive Analysis (due end of class)
+
+→ [Lesson Plan](unit_b/day_05.md)
 
 ---
 
