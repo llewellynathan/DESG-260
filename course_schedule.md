@@ -17,12 +17,11 @@
 ### Day 0 - Mon, Jan 5
 - ⛳ Write Letter to Prof. due
 
-### Day 1 — Wed, Jan 7
-**Unit A: Wayfinding Map & Icons** 
-Today's Focus: What is design? Forming vs. rendering intent.
+---
 
-**Come to class having done:**
-- 📚 Read syllabus before class
+### Day 1 — Wed, Jan 7
+**Unit A: Wayfinding Map & Icons**
+Today's Focus: What is design? Forming vs. rendering intent.
 
 **In class:**
 - Introduce the forming/rendering framework as the course's central concept
@@ -31,17 +30,19 @@ Today's Focus: What is design? Forming vs. rendering intent.
 - Introduce Assignment 1: Wayfinding Map & Icons
 - Brainstorming: identify journeys worth mapping
 
+**Come to class having done:**
+- 📚 Read syllabus before class
+
+**Assignments due before next class:**
+- ⛳ A1 Wayfinding Sketches (bring physical copies to Day 2)
+
 → [Lesson Plan](unit_a/day_01.md)
 
 ---
 
 ### Day 2 — Monday, Jan 12
 **Unit A: Wayfinding Map & Icons**
-Today's Focus: Empathy, feedback loops, and testing as design activities
-
-**Come to class having done:**
-- ⛳ Write Letter to Prof. (before class)
-- ⛳ A1 Wayfinding Sketches (bring physical copies to class)
+Today's Focus: Empathy, feedback loops, and testing as design activities.
 
 **In class:**
 - Telestrations game (DIY version): feedback loops and communication breakdown
@@ -51,6 +52,15 @@ Today's Focus: Empathy, feedback loops, and testing as design activities
 - Icon sketching workshop
 - Introduce A2: Icon Set Draft
 
+**Come to class having done:**
+- ⛳ Write Letter to Prof. (before class)
+- ⛳ A1 Wayfinding Sketches (bring physical copies to class)
+
+**Assignments due before next class:**
+- 📚 Read Ellen Lupton, *Design is Storytelling*, Act 1
+- 📚 Read notes on "What is a Good Icon?"
+- ⛳ A2 Icon Set Draft (bring to Day 3)
+
 → [Lesson Plan](unit_a/day_02.md)
 
 ---
@@ -59,17 +69,21 @@ Today's Focus: Empathy, feedback loops, and testing as design activities
 **Unit A: Wayfinding**
 Today's Focus: How do designers create visual consistency across a system of icons?
 
-**Come to class having done:**
-- 📚 Read Ellen Lupton, *Design is Storytelling*, Act 1
-- 📚 Read notes on "What is a Good Icon?"
-- ⛳ A2 Icon Set Draft (bring to class)
-
 **In class:**
 - Icon critique: function (usability) and form (aesthetics)
 - Form vs. function discussion
 - Vector tools demo (Illustrator/Figma)
 - Introduce A3: Vectorized Icon Set
 - Vectorizing work session
+
+**Come to class having done:**
+- 📚 Read Ellen Lupton, *Design is Storytelling*, Act 1
+- 📚 Read notes on "What is a Good Icon?"
+- ⛳ A2 Icon Set Draft (bring to class)
+
+**Assignments due before next class:**
+- 📚 Read Frank Chimero, *Shape of Design*, Chapter 1 (How and Why)
+- ⛳ Continue vectorizing icons for Day 4
 
 → [Lesson Plan](unit_a/day_03.md)
 
@@ -85,16 +99,20 @@ Today's Focus: How do designers create visual consistency across a system of ico
 **Unit A: Wayfinding**
 Today's Focus: How do constraints enable creativity?
 
-**Come to class having done:**
-- 📚 Read Frank Chimero, *Shape of Design*, Chapter 1 (How and Why)
-- ⛳ Vectorized Icon Set due (end of class)
-
 **In class:**
 - Progress share and troubleshooting
 - Constraints discussion: how limitations enable creativity
 - Work session with 1:1 meetings
 - Introduce A4: Final Deliverable (process book)
 - Peer review for final polish
+
+**Come to class having done:**
+- 📚 Read Frank Chimero, *Shape of Design*, Chapter 1 (How and Why)
+- ⛳ Vectorized Icon Set (due end of class)
+
+**Assignments due before next class:**
+- 🚩 A. Wayfinding & Icons Due (turn in before Day 5 on Learning Suite)
+- 📚 Read Don Norman, *Design of Everyday Things*, Ch. 1
 
 → [Lesson Plan](unit_a/day_04.md)
 
@@ -106,126 +124,91 @@ Today's Focus: How do constraints enable creativity?
 **Unit B: Make It Better App**
 Today's Focus: Understanding why something was designed a certain way is the first step to improving it.
 
+**In class:**
+- UX vocabulary: affordances, signifiers, feedback, mental models
+- Heuristic analysis using Nielsen's 10 Usability Heuristics
+- Mapping an existing user flow (screenshots, annotations, actions)
+- Competitive analysis methods
+- Introduction to Project B: Make It Better App
+- B1: User Flow & Competitive Analysis (due end of class)
+
 **Come to class having done:**
 - 🚩 A. Wayfinding & Icons Due (turn in before class on Learning Suite)
 - 📚 Read Don Norman, *Design of Everyday Things*, Ch. 1
 
-**In class:**
-- UX vocabulary: affordances, signifiers, feedback, mental models
-- User flows and competitive analysis
-- Introduction to Project B: Make It Better App
-- B1: User Flow & Competitive Analysis (due end of class)
+**Assignments due before next class:**
+- ⛳ B1 User Flow & Competitive Analysis (if not finished in class, due by 11:59pm)
+- Purchase index cards before Day 6
 
 → [Lesson Plan](unit_b/day_05.md)
 
 ---
 
-### Week 4, Day 6 — Wednesday, Jan 28
+### Day 6 — Wednesday, Jan 28
+**Unit B: Make It Better App**
+Today's Focus: Platform conventions exist because users expect them—breaking them has real costs.
 
-**Desired Results:**
+**In class:**
+- Platform conventions workshop (iOS HIG vs. Material Design)
+- Task flows vs. user flows (pancake analogy)
+- Paper prototyping techniques and practice
+- Work session: B2 Paper Prototype V1 + User Task Diagram
 
-*Essential Questions:*
-- When should designers follow platform conventions, and when is it appropriate to deviate?
-- How do designers balance familiarity and innovation? When should we follow conventions, and when should we break them?
+**Come to class having done:**
+- ⛳ B1 User Flow & Competitive Analysis (should be complete from Day 5)
+- Bring index cards
 
-*Understandings:*
-- Platform conventions (iOS, Android, Web) exist because users have learned to expect them; breaking conventions has real costs.
-- Users bring mental models shaped by prior experience. Effective interfaces leverage existing expectations while introducing new patterns thoughtfully.
+**Assignments due before next class:**
+- ⛳ B2 Paper Prototype V1 + User Task Diagram (due 11:59pm on Learning Suite)
+- Test paper prototype with at least 1 person outside class
 
-*Students Will Know:*
-- Platform-specific design patterns and guidelines
-- Platform-specific design conventions (iOS Human Interface Guidelines, Material Design)
-- How to create user flows and task diagrams
-
-*Students Will Be Able To:*
-- Create paper prototypes for rapid iteration
-- Sketch and prototype ideas at varying levels of fidelity (paper, wireframe, high-fidelity)
-
-*Targeted Learning Outcomes:* Familiarity and Distinctiveness, Problem Discovery & Research
-
-**Topics:**
-- B2: In-class exercises
-  1. Competitive Analysis Matrix
-  2. Paper Prototyping
-  3. User Task Diagram
-
-**Assignments:**
-- Competitive Analysis Matrix due
-- Paper prototyping V1 due
-- Turn in by 11:59pm on Learning Suite
+→ [Lesson Plan](unit_b/day_06.md)
 
 ---
 
-### Week 5, Day 7 — Monday, Feb 2
+### Day 7 — Monday, Feb 2
+**Unit B: Make It Better App**
+Today's Focus: Usability testing reveals problems designers cannot see on their own.
 
-**Desired Results:**
+**In class:**
+- Testing debrief: What surprised you from usability testing?
+- Design for Many vs. Design for One—specific users lead to better designs
+- UX Mapping methods (empathy maps, journey maps, experience maps, service blueprints)
+- Personas vs. market segments
+- Figma prototyping demo and shortcuts
+- Work session: Iterate on paper prototype, begin Figma
 
-*Essential Questions:*
-- What can we learn about user needs by watching people struggle?
-- How does empathy shape the design process? What does it mean to truly design for someone else's needs rather than our own assumptions?
+**Come to class having done:**
+- ⛳ B2 Paper Prototype V1 + User Task Diagram
+- Tested paper prototype with at least 1 person outside class
 
-*Understandings:*
-- Usability testing reveals problems that designers cannot see on their own.
-- Research and testing are design activities, not separate phases. Understanding users, testing assumptions, and iterating based on feedback are central to the design process.
-- Empathy, curiosity, and humility are essential for forming intent.
-
-*Students Will Know:*
-- Basic usability testing protocols
-- Research methods for understanding users (interviews, observation, usability testing, competitive analysis)
-
-*Students Will Be Able To:*
-- Conduct usability tests with real users
-- Create user flows, journey maps, and personas based on research
-- Facilitate usability tests and synthesize findings
-
-*Targeted Learning Outcomes:* Problem Discovery & Research, Communication and Feedback
-
-**Topics:**
-- Big idea:
-  - Design for Many vs. Design for One
-  - Usability Mapping (4 methods)
-- Practical:
-  - Personas, Market Segmenting, Tribes
-  - Usability Testing as Discovery for New Product Ideas
-  - Figma Prototyping & Learning Shortcuts
-
-**Assignments:**
-- Paper prototype V2 with notes from testing 2 friends; User Task Diagram due
-- In-class: Begin building digital prototype in Figma
+**Assignments due before next class:**
+- ⛳ B3 Paper Prototype V2 with testing notes (due on Learning Suite)
+- Continue building digital prototype
 
 **Resources:**
-- Great Figma basics tutorials
-- San Francisco font: Mac (.dmg) / Windows (.zip via GitHub)
 - UX Mapping (4 types): https://www.nngroup.com/articles/ux-mapping-cheat-sheet/
+
+→ [Lesson Plan](unit_b/day_07.md)
 
 ---
 
-### Week 5, Day 8 — Wednesday, Feb 4
+### Day 8 — Wednesday, Feb 4
+**Unit B: Make It Better App**
+Today's Focus: The design process is iterative—discovery, definition, development, and delivery overlap.
 
-**Desired Results:**
+**In class:**
+- Rough Digital Prototype check-in
+- Work session with 1:1 meetings
+- Troubleshooting and refinement
 
-*Essential Questions:*
-- How do we identify what's broken in an existing product—and how do we know our fix is actually better?
+**Come to class having done:**
+- ⛳ B3 Paper Prototype V2 with testing notes
+- Rough digital prototype in progress
 
-*Understandings:*
-- Good design requires excellence in both forming and rendering. A brilliant idea poorly executed fails; a beautifully crafted solution to the wrong problem also fails.
-- The design process is iterative and non-linear. Discovery, definition, development, and delivery overlap and repeat.
-
-*Students Will Know:*
-- Platform-specific design patterns and guidelines
-
-*Students Will Be Able To:*
-- Build a functional prototype in Figma
-- Translate test findings into design improvements
-
-*Targeted Learning Outcomes:* Familiarity and Distinctiveness, Communication and Feedback
-
-**Topics:**
-- Rough Digital Prototype Due
-- Work in Class with 1:1 meetings
-
-**Assignments:**
-- Prototype V2 (Rough Digital Prototype) with notes from testing due
+**Assignments due before next class:**
+- 🚩 B. Make It Better App Due (before Day 9 on Learning Suite)
+- 📚 Read "The Web's Grain"
 
 **Resources:**
 - File types and what they're good for (feat. The Noun Project)
@@ -235,85 +218,52 @@ Today's Focus: Understanding why something was designed a certain way is the fir
 
 ## C. Hello, World! → Responsive, Online, & Mobile (2 weeks)
 
-### Week 6, Day 9 — Monday, Feb 9
+### Day 9 — Monday, Feb 9
+**Unit C: Hierarchy & Responsive Web**
+Today's Focus: Responsive design is about adapting presentation, not creating separate experiences.
 
-**Desired Results:**
+**In class:**
+- Design for 100,000 devices; web design: Box model/web structure
+- Documentation storytelling
+- Figma design tools for responsive design
+- Grids
+- Introduce C1 Digital Hierarchy Exercise
 
-*Essential Questions:*
-- How does the same content need to change when viewed on different devices?
-- How do constraints enable creativity? Why do limitations (device size, platform guidelines, accessibility requirements) often lead to better solutions?
+**Come to class having done:**
+- 🚩 B. Make It Better App Due (turn in before class)
+- 📚 Read "The Web's Grain"
 
-*Understandings:*
-- Responsive design challenges both forming intent (what information hierarchy serves users across contexts?) and rendering intent (how do typography and layout execute that hierarchy?).
-- Content should drive design decisions; responsive design is about adapting presentation, not creating separate experiences.
-- Grids and systems create consistency and enable faster, more confident design decisions.
-
-*Students Will Know:*
-- The box model and basic structure of web layouts
-- How responsive grids adapt across breakpoints
-- How responsive design adapts to different screen sizes and contexts
-
-*Students Will Be Able To:*
-- Design layouts that adapt responsively to multiple screen sizes
-- Use grids to create consistent, structured layouts
-
-*Targeted Learning Outcomes:* Critical Analysis of Form and Format, Detailed Documentation
-
-**Topics:**
-- Big idea:
-  - Design for 100,000 devices; web design: Box model/web structure
-  - Documentation storytelling
-- Practical:
-  - Figma design tools for responsive design
-  - Grids
-
-**Assignments:**
-- 🚩 B. One More Thing/Make it Better App Due
-- 📖 Read "The Web's Grain" before next class
-- Introducing C1 Digital Hierarchy Exercise
+**Assignments due before next class:**
+- Begin C1 Digital Hierarchy Exercise
+- Download VS Code or Brackets
 
 **Resources:**
 - Responsive layout grids overview
-- Download Brackets code editor (or VS Code)
 
 ---
 
-### Week 6, Day 10 — Wednesday, Feb 11
+### Day 10 — Wednesday, Feb 11
+**Unit C: Hierarchy & Responsive Web**
+Today's Focus: Typography is the foundation of interface design—hierarchy, readability, and personality all flow from type choices.
 
-**Desired Results:**
-
-*Essential Questions:*
-- What role does typography play in guiding users through information?
-- What story does a design tell? How do we communicate complex ideas, guide behavior, and create meaning through interfaces?
-
-*Understandings:*
-- Typography is the foundation of interface design—hierarchy, readability, and personality all flow from type choices.
-- Good design is often invisible. Users notice friction, confusion, and frustration—not seamless experiences.
-
-*Students Will Know:*
-- The box model and basic structure of web layouts
-- Principles of typographic hierarchy and scale
-- The difference between system fonts and brand typography
-
-*Students Will Be Able To:*
-- Write basic HTML to understand how design translates to code
-- Create style sheets that document design decisions
-
-*Targeted Learning Outcomes:* Critical Analysis of Form and Format, Detailed Documentation
-
-**Topics:**
-- Big idea: Structured language
-- Practical: Style sheets (Web, InDesign, Figma); Presentation design
-
-**Assignments:**
+**In class:**
+- Structured language and style sheets
 - In-class coding exercise: basic HTML
-- Character research, student-sourced information, PDP rough wireframes due
+- Style sheets (Web, InDesign, Figma)
+- Presentation design
+
+**Come to class having done:**
+- C1 progress
+- Character research and student-sourced information
+
+**Assignments due before next class:**
+- PDP rough wireframes
+- Continue C1 work
 
 **Resources:**
 - W3 Schools: basic HTML, Images, Different tags
 - Type Scale: https://typescale.com
 - Material Design & Apple type scales
-- InDesign/Figma tutorials on Paragraph/Character/Text Styles
 
 ---
 
@@ -329,76 +279,47 @@ Today's Focus: Understanding why something was designed a certain way is the fir
 
 ---
 
-### Week 7, Day 11 — Wednesday, Feb 18
+### Day 11 — Wednesday, Feb 18
+**Unit C: Hierarchy & Responsive Web**
+Today's Focus: Grids and systems create consistency and enable faster, more confident design decisions.
 
-**Desired Results:**
+**In class:**
+- Typography & Hierarchy
+- Responsive pages in Figma
+- System vs. Brand typography
+- Grid systems
 
-*Essential Questions:*
-- How do designers create structure and hierarchy without relying on decoration?
-- What is the relationship between form and function in digital products? Can something be beautiful and usable at the same time?
+**Come to class having done:**
+- C1 progress (8.5 x 11 Figma Pages)
 
-*Understandings:*
-- Typography is the foundation of interface design—hierarchy, readability, and personality all flow from type choices.
-- Grids and systems create consistency and enable faster, more confident design decisions.
-
-*Students Will Know:*
-- Principles of typographic hierarchy and scale
-- The difference between system fonts and brand typography
-- Principles of visual hierarchy and typography in interface design
-
-*Students Will Be Able To:*
-- Establish and apply a typographic scale
-- Apply typographic hierarchy and grid systems to digital layouts
-
-*Targeted Learning Outcomes:* Critical Analysis of Form and Format, Familiarity and Distinctiveness
-
-**Topics:**
-- Big idea: Typography & Hierarchy
-- Responsive pages in Figma, Type pt.2 (System vs. Brand typography, grids)
-
-**Assignments:**
-- C1 progress due (8.5 x 11 Figma Pages)
-- Digital PDP webpage rough, Stylesheet due
+**Assignments due before next class:**
+- Digital PDP webpage rough
+- Stylesheet due
+- 📚 Read: https://speeches.byu.edu/talks/amy-petersen-jensen/some-hopeful-words-on-media-and-agency/
 
 **Resources:**
 - The Enneagram: https://www.enneagraminstitute.com/type-descriptions
-- Type Scale resources
 - Using grids in Figma: YouTube tutorial
 - Vignelli on Grids (p. 40 of PDF)
 
 ---
 
-### Week 8, Day 12 — Monday, Feb 23
+### Day 12 — Monday, Feb 23
+**Unit C: Hierarchy & Responsive Web**
+Today's Focus: Content should drive design decisions; responsive design adapts presentation across contexts.
 
-**Desired Results:**
-
-*Essential Questions:*
-- How does the same content need to change when viewed on different devices?
-- How does empathy shape the design process? What does it mean to truly design for someone else's needs rather than our own assumptions?
-
-*Understandings:*
-- Content should drive design decisions; responsive design is about adapting presentation, not creating separate experiences.
-- Design serves human flourishing. Beyond usability and aesthetics, designers have a responsibility to consider the broader impact of their work on people's lives, relationships, and well-being.
-- Empathy, curiosity, and humility are essential for forming intent.
-
-*Students Will Know:*
-- The relationship between branding, typography, and interface design
-- Principles of typographic hierarchy and scale
-
-*Students Will Be Able To:*
-- Design layouts that adapt responsively to multiple screen sizes
-- Design interfaces that balance familiar patterns with distinctive visual identity
-
-*Targeted Learning Outcomes:* Familiarity and Distinctiveness, Better Interactions & Experiences
-
-**Topics:**
-- Big idea: Responsive pages in Figma, Type pt.3 (designing for mobile, choosing a typeface)
+**In class:**
+- Responsive pages in Figma, Type pt.3 (designing for mobile, choosing a typeface)
 - Discussion of Empathy, Attention (and Soul & Presence)
 
-**Assignments:**
+**Come to class having done:**
 - 📚 Read: https://speeches.byu.edu/talks/amy-petersen-jensen/some-hopeful-words-on-media-and-agency/
-- Revised digital PDP & Stylesheet due
-- C2 Digital Roughs Due 11:59pm on Learning Suite
+- Digital PDP webpage rough
+- Stylesheet
+
+**Assignments due before next class:**
+- Revised digital PDP & Stylesheet
+- ⛳ C2 Digital Roughs Due 11:59pm on Learning Suite
 
 **Resources:**
 - Choosing Type: BYU GD Type Library, Fontstand, Adobe Fonts, Google Fonts
@@ -407,240 +328,157 @@ Today's Focus: Understanding why something was designed a certain way is the fir
 
 ---
 
-### Week 8, Day 13 — Wednesday, Feb 25
+### Day 13 — Wednesday, Feb 25
+**Unit C: Hierarchy & Responsive Web**
+Today's Focus: Good design requires excellence in both forming and rendering—a brilliant idea poorly executed fails.
 
-**Desired Results:**
-
-*Essential Questions:*
-- What story does a design tell? How do we communicate complex ideas, guide behavior, and create meaning through interfaces?
-- How do designers create structure and hierarchy without relying on decoration?
-
-*Understandings:*
-- Responsive design challenges both forming intent (what information hierarchy serves users across contexts?) and rendering intent (how do typography and layout execute that hierarchy?).
-- Good design requires excellence in both forming and rendering. A brilliant idea poorly executed fails; a beautifully crafted solution to the wrong problem also fails.
-
-*Students Will Know:*
-- How responsive grids adapt across breakpoints
-- Principles of visual hierarchy and typography in interface design
-
-*Students Will Be Able To:*
-- Design layouts that adapt responsively to multiple screen sizes
-- Create style sheets that document design decisions
-- Document their design process in a professional case study format
-
-*Targeted Learning Outcomes:* Critical Analysis of Form and Format, Familiarity and Distinctiveness, Detailed Documentation
-
-**Topics:**
+**In class:**
 - Storytelling & Responsive Pages in Figma
 - Guest discussion on applying to BFA programs (optional)
+- C1 High-resolution PDP page work session
 
-**Assignments:**
+**Come to class having done:**
+- ⛳ C2 Digital Roughs
+- Revised digital PDP & Stylesheet
+
+**Assignments due before next class:**
 - 🚩 C. Hierarchy & Responsive Web Due at 11:59pm
-- C1 High-resolution PDP page due in class
+- 📚 Read "On Combination Play" and Idea Generation
 
 **Resources:**
 - Variants and Interactive Components (Figma)
-- Fun hover states/web design examples: Rail Park, Dossier, Showcase, Shape Farm, etc.
+- Fun hover states/web design examples: Rail Park, Dossier, Showcase, Shape Farm
 - Mobbin: great resource for example screens/web pages
 
 ---
 
 ## D. Inform & Delight → Problem Seeking, Product as Beautiful and Functional Interfaces (6 weeks)
 
-### Week 9, Day 14 — Monday, Mar 2
+### Day 14 — Monday, Mar 2
+**Unit D: Neue App (Capstone)**
+Today's Focus: The best design opportunities come from observation and curiosity, not from briefs.
 
-**Desired Results:**
+**In class:**
+- Introduction of Project D (Neue Application)
+- Forming vs. rendering intent revisited
+- Methods for idea generation and validation
 
-*Essential Questions:*
-- How do designers discover problems worth solving—rather than just solving problems handed to them?
-- What is the difference between forming intent and rendering intent—and why does good design require excellence in both?
+**Come to class having done:**
+- 🚩 C. Hierarchy & Responsive Web Due
+- 📚 Read "On Combination Play" and Idea Generation
 
-*Understandings:*
-- The capstone project requires the full cycle: forming intent through research and problem discovery, and rendering intent through visual identity, interaction design, and documentation.
-- The best design opportunities often come from observation and curiosity, not from briefs.
-
-*Students Will Know:*
-- The distinction between forming intent (discovering the right problem and envisioning the right solution) and rendering intent (executing that vision skillfully)
-- Methods for idea generation and validation (interviews, competitive analysis, "Mom Test")
-
-*Students Will Be Able To:*
-- Identify design problems worth solving through curiosity and empathy
-- Generate and validate product ideas through research
-
-*Targeted Learning Outcomes:* Problem Discovery & Research, Design Strategy
-
-**Topics:**
-- Big idea: Introduction of Project D (Neue Application)
-
-**Assignments:**
-- D Neue Application (Next Assignment)
-- Due: Watch Variants/Interactive Components; Take Enneagram quiz (optional)
+**Assignments due before next class:**
+- Watch Variants/Interactive Components tutorial
+- Take Enneagram quiz (optional)
+- Come with 3 app ideas
 
 **Resources:**
-- 📚 Read "On Combination Play" and Idea Generation before next class
 - Enneagram video
 
 ---
 
-### Week 9, Day 15 — Wednesday, Mar 4
+### Day 15 — Wednesday, Mar 4
+**Unit D: Neue App (Capstone)**
+Today's Focus: Empathy, curiosity, and humility are essential for forming intent.
 
-**Desired Results:**
+**In class:**
+- How to Generate Ideas
+- Combination Play
+- Early Stage Research
 
-*Essential Questions:*
-- What does it mean to design a product that is both beautiful and functional? Are these ever in tension?
-- How does empathy shape the design process? What does it mean to truly design for someone else's needs rather than our own assumptions?
-
-*Understandings:*
-- The best design opportunities often come from observation and curiosity, not from briefs.
-- Empathy, curiosity, and humility are essential for forming intent. These qualities help designers understand problems from perspectives beyond their own.
-
-*Students Will Know:*
-- Methods for idea generation and validation (interviews, competitive analysis, "Mom Test")
-- How empathy, curiosity, and humility support forming intent
-
-*Students Will Be Able To:*
-- Generate and validate product ideas before committing to execution
-- Identify design problems worth solving through curiosity and empathy
-
-*Targeted Learning Outcomes:* Problem Discovery & Research, Better Interactions & Experiences
-
-**Topics:**
-- Big idea: How to Generate Ideas; Combination Play, Early Stage Research
-
-**Assignments:**
+**Come to class having done:**
 - 📚 Read "On Combination Play" and Idea Generation
-- Come with 3 app ideas
+- 3 app ideas prepared
+
+**Assignments due before next class:**
+- 📚 Read/Skim *Technique for Producing Ideas*
+- Refine to best idea + two backup ideas
 
 **Resources:**
 - Idea template: "I want to help [target audience] who want to [user need] by [avoiding current pain point] and [improving value added] unlike [current competitors]"
 
 ---
 
-### Week 10, Day 16 — Monday, Mar 9
+### Day 16 — Monday, Mar 9
+**Unit D: Neue App (Capstone)**
+Today's Focus: Research and testing are design activities, not separate phases.
 
-**Desired Results:**
+**In class:**
+- Early Stage Idea Validation
+- Problem solving vs. problem seeking
+- Strategy and design (competing futures)
+- Validation Interviews/Research for discovery
 
-*Essential Questions:*
-- How do research, strategy, and visual design come together in a cohesive product?
-- How do designers discover problems worth solving—rather than just solving problems handed to them?
-
-*Understandings:*
-- Research and testing are design activities, not separate phases. Understanding users, testing assumptions, and iterating based on feedback are central to the design process.
-- Designing for real users requires ongoing research, testing, and humility about our assumptions.
-
-*Students Will Know:*
-- Methods for idea generation and validation (interviews, competitive analysis, "Mom Test")
-- Research methods for understanding users (interviews, observation, usability testing, competitive analysis)
-
-*Students Will Be Able To:*
-- Conduct user research using interviews, observation, and competitive analysis
-- Generate and validate product ideas through research
-
-*Targeted Learning Outcomes:* Problem Discovery & Research, Design Strategy
-
-**Topics:**
-- Big idea: Early Stage Idea Validation
-- Problem solving vs. problem seeking; Strategy and design (competing futures)
-- Practical: Validation, Interviews/Research for discovery
-
-**Assignments:**
+**Come to class having done:**
 - 📚 Read/Skim *Technique for Producing Ideas*
-- Come with best idea for Project D and two backup ideas
+- Best idea for Project D + two backup ideas
 
----
-
-### Week 10, Day 17 — Wednesday, Mar 11
-
-**Desired Results:**
-
-*Essential Questions:*
-- How do research, strategy, and visual design come together in a cohesive product?
-- How do constraints enable creativity? Why do limitations often lead to better solutions?
-
-*Understandings:*
-- Designing for real users requires ongoing research, testing, and humility about our assumptions.
-- The design process is iterative and non-linear. Discovery, definition, development, and delivery overlap and repeat.
-
-*Students Will Know:*
-- How to scope a product to a realistic, achievable feature set
-- Methods for conducting competitive analysis
-
-*Students Will Be Able To:*
-- Analyze existing products to identify strengths, weaknesses, and opportunities
-- Conduct user research using interviews, observation, and competitive analysis
-
-*Targeted Learning Outcomes:* Design Strategy, Problem Discovery & Research
-
-**Topics:**
-- Big idea: Scope (how to scope a product) & Competitive Analysis & Validation Interviews (part II)
-
-**Assignments:**
-- Competitive Analysis for Project D due
-- Observational/Emotional Journey Map and User Flow due
-
-**Resources:**
+**Assignments due before next class:**
+- Begin competitive analysis for Project D
 - 📚 Read/Skim *The Mom Test*
 
 ---
 
-### Week 11, Day 18 — Monday, Mar 16
+### Day 17 — Wednesday, Mar 11
+**Unit D: Neue App (Capstone)**
+Today's Focus: Designing for real users requires ongoing research, testing, and humility about our assumptions.
 
-**Desired Results:**
+**In class:**
+- Scope (how to scope a product)
+- Competitive Analysis deep dive
+- Validation Interviews (part II)
 
-*Essential Questions:*
-- How does empathy shape the design process? What does it mean to truly design for someone else's needs rather than our own assumptions?
-- What story does your product tell about who it's for and what it values?
+**Come to class having done:**
+- 📚 Read/Skim *The Mom Test*
+- Competitive analysis in progress
 
-*Understandings:*
-- Empathy, curiosity, and humility are essential for forming intent. These qualities help designers understand problems from perspectives beyond their own.
-- Designing for real users requires ongoing research, testing, and humility about our assumptions.
-
-*Students Will Know:*
-- The relationship between personas, user flows, and interface design
-- Research methods for understanding users
-
-*Students Will Be Able To:*
-- Create personas, journey maps, and user flows grounded in real data
-- Create user flows, journey maps, and personas based on research
-
-*Targeted Learning Outcomes:* Problem Discovery & Research, Communication and Feedback
-
-**Topics:**
-- Observational/Emotional Journey Maps
-- User Personas, branding concepts, Process Books
-
-**Assignments:**
-- Due: Talk to 4+ people "Mom Test" style; record findings; 2+ research points
-- In-depth User Persona due
+**Assignments due before next class:**
+- Competitive Analysis for Project D due
+- Observational/Emotional Journey Map and User Flow due
+- Talk to 4+ people "Mom Test" style
 
 ---
 
-### Week 11, Day 19 — Wednesday, Mar 18
+### Day 18 — Monday, Mar 16
+**Unit D: Neue App (Capstone)**
+Today's Focus: Personas, journey maps, and user flows must be grounded in real data.
 
-**Desired Results:**
+**In class:**
+- Observational/Emotional Journey Maps
+- User Personas
+- Branding concepts
+- Process Books introduction
 
-*Essential Questions:*
-- What story does your product tell about who it's for and what it values?
-- What story does a design tell? How do we communicate complex ideas, guide behavior, and create meaning through interfaces?
+**Come to class having done:**
+- Competitive Analysis for Project D
+- Observational/Emotional Journey Map and User Flow
+- Notes from 4+ "Mom Test" interviews
 
-*Understandings:*
-- Designing for real users requires ongoing research, testing, and humility about our assumptions.
-- A product's visual identity (brand, typography, color, motion) is not separate from its usability—they work together to create experience.
-
-*Students Will Know:*
-- How branding, typography, and iconography create product identity
-- The relationship between branding, typography, and interface design
-
-*Students Will Be Able To:*
-- Create personas, journey maps, and user flows grounded in real data
-- Develop a cohesive visual identity (brand, type, color, icons) for their product
-
-*Targeted Learning Outcomes:* Design Strategy, Problem Discovery & Research
-
-**Assignments:**
+**Assignments due before next class:**
+- In-depth User Persona due
 - 📚 Read Lupton, *Design Is Storytelling*, p.36–42 (Storyboards and Rules of Threes)
-- ✏️ Draft Observational/Emotional Journey Map
-- Brand Audit due at beginning of class
+- Draft Observational/Emotional Journey Map
+- Brand Audit due at beginning of Day 19
+
+---
+
+### Day 19 — Wednesday, Mar 18
+**Unit D: Neue App (Capstone)**
+Today's Focus: A product's visual identity is not separate from its usability—they work together.
+
+**In class:**
+- Brand Audit review
+- Branding, typography, and iconography
+- Visual identity development
+
+**Come to class having done:**
+- 📚 Read Lupton, *Design Is Storytelling*, p.36–42
+- Draft Observational/Emotional Journey Map
+- Brand Audit (due at beginning of class)
+
+**Assignments due before next class:**
+- Paper Prototype for Primary Screen (5-6 screens for main feature, 3-4 for side features)
+- Watch: Usability Test Facilitation (NNGroup)
 
 **Resources:**
 - Customer Journey Mapping: https://www.nngroup.com/articles/customer-journey-mapping/
@@ -654,104 +492,71 @@ Today's Focus: Understanding why something was designed a certain way is the fir
 
 ---
 
-### Week 12, Day 20 — Monday, Mar 23
+### Day 20 — Monday, Mar 23
+**Unit D: Neue App (Capstone)**
+Today's Focus: Good defaults vs. dark patterns—design serves human flourishing.
 
-**Desired Results:**
-
-*Essential Questions:*
-- What story does your product tell about who it's for and what it values?
-- What makes a design "good" for users? How do we move beyond personal preference to make design decisions grounded in user needs?
-
-*Understandings:*
-- Design serves human flourishing. Beyond usability and aesthetics, designers have a responsibility to consider the broader impact of their work on people's lives, relationships, and well-being.
-- Good design is often invisible. Users notice friction, confusion, and frustration—not seamless experiences.
-
-*Students Will Know:*
-- Basic usability testing protocols
-- Users bring mental models shaped by prior experience
-
-*Students Will Be Able To:*
-- Conduct multiple rounds of usability testing and iterate based on findings
-- Sketch and prototype ideas at varying levels of fidelity (paper, wireframe, high-fidelity)
-
-*Targeted Learning Outcomes:* Better Interactions & Experiences, Problem Discovery & Research
-
-**Topics:**
-- Big idea: Good defaults vs. dark patterns ("smell of desperation"); ethics of design
-
-**Assignments:**
-- Paper Prototype for Primary Screen Due — 5-6 screens for main feature, 3-4 for side features
+**In class:**
+- Ethics of design discussion
 - Usability Test No.1 (in class)
+- Paper prototype testing
+
+**Come to class having done:**
+- Paper Prototype for Primary Screen (5-6 screens for main feature, 3-4 for side features)
 - Watch: Usability Test Facilitation (NNGroup)
+
+**Assignments due before next class:**
+- Speculative Observational Storyboard (Learning Suite)
+- Emotional Journey Map (Learning Suite)
+- 5 User Interviews due (11:55pm)
 
 **Resources:**
 - TypeTogether's Guide to Pairing Type
 - Paper Prototyping video (NNGroup)
-- User Testing resources from Michael Margolis and Shane Doyle
 - Elements and Principles of Design
 
 ---
 
-### Week 12, Day 21 — Wednesday, Mar 25
+### Day 21 — Wednesday, Mar 25
+**Unit D: Neue App (Capstone)**
+Today's Focus: Good design requires excellence in both forming and rendering.
 
-**Desired Results:**
-
-*Essential Questions:*
-- What does it mean to design a product that is both beautiful and functional? Are these ever in tension?
-- What story does your product tell about who it's for and what it values?
-
-*Understandings:*
-- A product's visual identity (brand, typography, color, motion) is not separate from its usability—they work together to create experience.
-- Good design requires excellence in both forming and rendering. A brilliant idea poorly executed fails; a beautifully crafted solution to the wrong problem also fails.
-
-*Students Will Know:*
-- How branding, typography, and iconography create product identity
-- The relationship between branding, typography, and interface design
-
-*Students Will Be Able To:*
-- Develop a cohesive visual identity (brand, type, color, icons) for their product
-- Create personas, journey maps, and user flows grounded in real data
-
-*Targeted Learning Outcomes:* Design Strategy, Familiarity and Distinctiveness
-
-**Topics:**
+**In class:**
 - Branding Pt 1
+- Visual identity refinement
+- Prototype iteration
 
-**Assignments:**
-- Speculative Observational Storyboard due (LS)
-- Emotional Journey Map due (LS)
-- 5 User Interviews due (11:55pm)
+**Come to class having done:**
+- Speculative Observational Storyboard
+- Emotional Journey Map
+- 5 User Interviews
+
+**Assignments due before next class:**
+- Revised prototype with full flow screens
+- Sourced content
+- Branding Style Sheet Draft
 
 ---
 
-### Week 13, Day 22 — Monday, Mar 30
+### Day 22 — Monday, Mar 30
+**Unit D: Neue App (Capstone)**
+Today's Focus: Users bring mental models shaped by prior experience—leverage existing expectations thoughtfully.
 
-**Desired Results:**
-
-*Essential Questions:*
-- What is the relationship between form and function in digital products? Can something be beautiful and usable at the same time?
-- How do designers balance familiarity and innovation? When should we follow conventions, and when should we break them?
-
-*Understandings:*
-- A product's visual identity (brand, typography, color, motion) is not separate from its usability—they work together to create experience.
-- Users bring mental models shaped by prior experience. Effective interfaces leverage existing expectations while introducing new patterns thoughtfully.
-
-*Students Will Know:*
-- Principles of motion design and microinteractions
-- How branding, typography, and iconography create product identity
-
-*Students Will Be Able To:*
-- Build an interactive prototype with transitions and microinteractions
-- Build interactive prototypes in Figma
-
-*Targeted Learning Outcomes:* Familiarity and Distinctiveness, Critical Analysis of Form and Format
-
-**Topics:**
+**In class:**
 - Branding / Expressive Type
-- Big idea: UX Laws; Motion in Figma (Auto-animation, GIFs); Motion Design as usability
+- UX Laws
+- Motion in Figma (Auto-animation, GIFs)
+- Motion Design as usability
 
-**Assignments:**
-- Due: Revised prototype with full flow screens, sourced content, Branding Style Sheet Draft
+**Come to class having done:**
+- Revised prototype with full flow screens
+- Sourced content
+- Branding Style Sheet Draft
+
+**Assignments due before next class:**
+- Wireframes check-in
+- Selected type for high fidelity
+- Watch: Microanimations, SmartAnimate, Auto-automation tutorial
 
 **Resources:**
 - BYU Graphic Design Type Library (PDF; email byugraphicdesigninfo@gmail.com)
@@ -761,35 +566,22 @@ Today's Focus: Understanding why something was designed a certain way is the fir
 
 ---
 
-### Week 13, Day 23 — Wednesday, Apr 1
+### Day 23 — Wednesday, Apr 1
+**Unit D: Neue App (Capstone)**
+Today's Focus: Branding, type, and color create product identity.
 
-**Desired Results:**
+**In class:**
+- Branding, Type, Color (pt.1)
+- High Fidelity App in-class critique
 
-*Essential Questions:*
-- What does it mean to design a product that is both beautiful and functional? Are these ever in tension?
-- What story does your product tell about who it's for and what it values?
-
-*Understandings:*
-- A product's visual identity (brand, typography, color, motion) is not separate from its usability—they work together to create experience.
-- Good design requires excellence in both forming and rendering.
-
-*Students Will Know:*
-- How branding, typography, and iconography create product identity
-- Principles of visual hierarchy and typography in interface design
-
-*Students Will Be Able To:*
-- Design a complete product from paper prototype through high-fidelity mockup
-- Develop a cohesive visual identity (brand, type, color, icons) for their product
-
-*Targeted Learning Outcomes:* Familiarity and Distinctiveness, Design Strategy
-
-**Topics:**
-- Big idea: Branding, Type, Color (pt.1)
-
-**Assignments:**
-- Wireframes check-in; selected type for high fidelity
+**Come to class having done:**
+- Wireframes check-in
+- Selected type for high fidelity
 - Watch: Microanimations, SmartAnimate, Auto-automation tutorial
-- High Fidelity App with branding for in-class critique
+
+**Assignments due before next class:**
+- High Fidelity App with branding (continue refining)
+- 📚📺 Watch: Microanimations, SmartAnimate, Auto-automation tutorial (if not done)
 
 **Resources:**
 - Storytelling example: Ocarina of Time, A Masterclass in Subtext
@@ -803,35 +595,23 @@ Today's Focus: Understanding why something was designed a certain way is the fir
 
 ---
 
-### Week 14, Day 24 — Monday, Apr 6
+### Day 24 — Monday, Apr 6
+**Unit D: Neue App (Capstone)**
+Today's Focus: Accessibility requirements and inclusive design lead to better solutions for everyone.
 
-**Desired Results:**
+**In class:**
+- Color (pt.2) & Accessibility (pt.1)
+- High-fidelity x5 in-class critique
+- Motion work session
 
-*Essential Questions:*
-- How do constraints enable creativity? Why do limitations (device size, platform guidelines, accessibility requirements) often lead to better solutions?
-- What makes a design "good" for users?
-
-*Understandings:*
-- Design serves human flourishing. Beyond usability and aesthetics, designers have a responsibility to consider the broader impact of their work.
-- Good design is often invisible. Users notice friction, confusion, and frustration—not seamless experiences.
-
-*Students Will Know:*
-- Accessibility requirements and inclusive design principles
-- Basic accessibility principles and why they matter
-
-*Students Will Be Able To:*
-- Design a complete product from paper prototype through high-fidelity mockup
-- Build an interactive prototype with transitions and microinteractions
-
-*Targeted Learning Outcomes:* Better Interactions & Experiences, Familiarity and Distinctiveness
-
-**Topics:**
-- Big idea: Color (pt.2) & Accessibility (pt.1)
-
-**Assignments:**
-- High-fidelity x5 due; in-class critique
+**Come to class having done:**
+- High-fidelity x5 screens
 - 📚📺 Watch: Microanimations, SmartAnimate, Auto-automation tutorial
-- High Fidelity review; Motion due (linked prototype, interactive states, 1 custom animation)
+
+**Assignments due before next class:**
+- High Fidelity review complete
+- Motion due (linked prototype, interactive states, 1 custom animation)
+- Full High Fidelity close to done
 
 **Resources:**
 - Color & UX: interaction-design.org, toptal.com
@@ -841,71 +621,45 @@ Today's Focus: Understanding why something was designed a certain way is the fir
 
 ## E. Thinking Made Visible → Storytelling of Thoughts; Documentation, Case Studies (2 weeks)
 
-### Week 14, Day 25 — Wednesday, Apr 8
+### Day 25 — Wednesday, Apr 8
+**Unit E: Documentation & Case Studies**
+Today's Focus: Documentation and storytelling are essential design skills—a great product poorly communicated will not succeed.
 
-**Desired Results:**
-
-*Essential Questions:*
-- What story does a design tell? How do we communicate complex ideas, guide behavior, and create meaning through interfaces?
-- What story does your product tell about who it's for and what it values?
-
-*Understandings:*
-- Documentation and storytelling are essential design skills; a great product poorly communicated will not succeed.
-- The capstone project requires the full cycle: forming intent through research and problem discovery, and rendering intent through visual identity, interaction design, and documentation.
-
-*Students Will Know:*
-- How to scope a product to a realistic, achievable feature set
-- Principles of motion design and microinteractions
-
-*Students Will Be Able To:*
-- Document their entire process in a professional case study
-- Document their design process in a professional case study format
-
-*Targeted Learning Outcomes:* Detailed Documentation, Communication and Feedback
-
-**Topics:**
-- Big idea: Documentation & Storytelling
-
-**Assignments:**
-- Full High Fidelity close to done; Motion due
-- 📚📺 Watch Microanimations/SmartAnimate tutorials
-- 🚩 D. Inform and Delight / Neue App final due 11:59pm
+**In class:**
+- Documentation & Storytelling
 - In-class meetings for documentation/process book reviews
+
+**Come to class having done:**
+- Full High Fidelity close to done
+- Motion complete
+- 📚📺 Watch Microanimations/SmartAnimate tutorials
+
+**Assignments due before next class:**
+- 🚩 D. Neue App final due 11:59pm
+- Begin Process Book
 
 **Resources:**
 - UX & Motion: https://www.nngroup.com/articles/animation-purpose-ux/
 
 ---
 
-### Week 15, Day 26 — Monday, Apr 13
+### Day 26 — Monday, Apr 13
+**Unit E: Documentation & Case Studies**
+Today's Focus: Storytelling and presenting within constraints.
 
-**Desired Results:**
+**In class:**
+- Accessibility (pt.2)
+- Storytelling and presenting
+- In-class meetings for documentation/process book reviews
 
-*Essential Questions:*
-- How do constraints enable creativity? Why do limitations (device size, platform guidelines, accessibility requirements) often lead to better solutions?
-- What story does a design tell? How do we communicate complex ideas, guide behavior, and create meaning through interfaces?
+**Come to class having done:**
+- 🚩 D. Neue App final submitted
+- Process Book in progress
 
-*Understandings:*
-- Documentation and storytelling are essential design skills; a great product poorly communicated will not succeed.
-- Design serves human flourishing. Beyond usability and aesthetics, designers have a responsibility to consider the broader impact of their work.
-
-*Students Will Know:*
-- Accessibility requirements and inclusive design principles
-- Basic accessibility principles and why they matter
-
-*Students Will Be Able To:*
-- Document their entire process in a professional case study
-- Document their design process in a professional case study format
-
-*Targeted Learning Outcomes:* Detailed Documentation, Better Interactions & Experiences
-
-**Topics:**
-- Big idea: Accessibility (pt.2); Storytelling and presenting (within constraints)
-
-**Assignments:**
+**Assignments due before next class:**
 - 🚩 D. Neue App main DRAFT due (PDF of static screens + Figma clickable prototype link)
 - 🚩 E. Process Book draft due
-- In-class meetings for documentation/process book reviews
+- Practice presenting Neue App 3+ times (1 must be in front of another human)
 
 **Resources:**
 - Resolution and Documentation guide
@@ -913,34 +667,24 @@ Today's Focus: Understanding why something was designed a certain way is the fir
 
 ---
 
-### Week 15, Day 27 — Wednesday, Apr 15
-
-**Desired Results:**
-
-*Essential Questions:*
-- What is the difference between forming intent and rendering intent—and why does good design require excellence in both?
-- What story does your product tell about who it's for and what it values?
-
-*Understandings:*
-- The capstone project requires the full cycle: forming intent through research and problem discovery, and rendering intent through visual identity, interaction design, and documentation.
-- Documentation and storytelling are essential design skills; a great product poorly communicated will not succeed.
-- Good design requires excellence in both forming and rendering. A brilliant idea poorly executed fails; a beautifully crafted solution to the wrong problem also fails.
-
-*Students Will Know:*
-- The distinction between forming intent and rendering intent
-- How to scope a product to a realistic, achievable feature set
-
-*Students Will Be Able To:*
-- Present and defend their design decisions
-- Defend design decisions with clear rationale grounded in user needs and design principles
-
-*Targeted Learning Outcomes:* Communication and Feedback, Detailed Documentation, All Learning Outcomes
+### Day 27 — Wednesday, Apr 15
+**Unit E: Documentation & Case Studies**
+Today's Focus: Good design requires excellence in both forming and rendering—the capstone demonstrates the full cycle.
 
 **Last Day of DESGD 260**
 
-**Assignments:**
-- Due before class: Practice presenting Neue App 3+ times (1 must be in front of another human)
+**In class:**
 - Show Neue App projects in class together
+- Final presentations and celebration
+
+**Come to class having done:**
+- Practice presenting Neue App 3+ times (1 must be in front of another human)
+- 🚩 D. Neue App main DRAFT
+- 🚩 E. Process Book draft
+
+**Assignments due before next class:**
+- Final revisions based on feedback
+- Prepare for final submission during Finals Week
 
 ---
 

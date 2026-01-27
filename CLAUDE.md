@@ -68,11 +68,20 @@ Each lesson plan follows this structure:
 4. **Include time estimates** — Every activity gets (X min)
 5. **Total time** — Include total at end of Activities section
 6. **Homework is specific** — State exactly what's due and when
-7. **Update schedule when creating lesson plans** — When a lesson plan is created, simplify that day's entry in `course_schedule.md` to match Day 1's format:
+7. **Update schedule when creating lesson plans** — When a lesson plan is created, ensure that day's entry in `course_schedule.md` follows this format:
    ```
    ### Day X — [Weekday], [Date]
-   **Unit [A-E]: [Name]** | Focus: [One-line theme]
-   - [Assignment due bullets]
+   **Unit [A-E]: [Name]**
+   Today's Focus: [One-line theme]
+
+   **In class:**
+   - [Activities, topics, exercises]
+
+   **Come to class having done:**
+   - [Readings, assignments to complete before class]
+
+   **Assignments due before next class:**
+   - [Deliverables due after this class, before the next one]
 
    → [Lesson Plan](unit_X/day_XX.md)
    ```
