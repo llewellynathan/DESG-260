@@ -1,0 +1,406 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1800 1400">
+  <defs>
+    <style>
+      .screen { fill: #FFF9C4; stroke: #F9A825; stroke-width: 2; rx: 12; }
+      .decision { fill: #E3F2FD; stroke: #1976D2; stroke-width: 2; }
+      .action { fill: #E8F5E9; stroke: #388E3C; stroke-width: 2; rx: 8; }
+      .start { fill: #FFCDD2; stroke: #D32F2F; stroke-width: 2; }
+      .end { fill: #F3E5F5; stroke: #7B1FA2; stroke-width: 2; }
+      .label { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 12px; fill: #333; }
+      .title { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 14px; font-weight: 600; fill: #333; }
+      .section-title { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 18px; font-weight: 700; fill: #1565C0; }
+      .connector { fill: none; stroke: #666; stroke-width: 1.5; }
+      .connector-label { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 10px; fill: #666; }
+      .flow-section { fill: #FAFAFA; stroke: #E0E0E0; stroke-width: 1; stroke-dasharray: 5,5; rx: 16; }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#666" />
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1800" height="1400" fill="#FFFFFF"/>
+
+  <!-- Main Title -->
+  <text x="900" y="40" text-anchor="middle" style="font-family: -apple-system, BlinkMacSystemFont, sans-serif; font-size: 28px; font-weight: 700; fill: #1A1A1A;">iOS Notes App - Core User Flows</text>
+  <text x="900" y="65" text-anchor="middle" style="font-family: -apple-system, BlinkMacSystemFont, sans-serif; font-size: 14px; fill: #666;">Detailed flows with decision points</text>
+
+  <!-- Legend -->
+  <rect x="30" y="85" width="300" height="100" fill="#F5F5F5" stroke="#E0E0E0" rx="8"/>
+  <text x="45" y="105" class="title">Legend</text>
+  <rect x="45" y="115" width="20" height="16" class="screen"/>
+  <text x="75" y="127" class="label">Screen/View</text>
+  <polygon points="145,123 160,115 175,123 160,131" class="decision"/>
+  <text x="185" y="127" class="label">Decision Point</text>
+  <rect x="45" y="140" width="20" height="16" class="action"/>
+  <text x="75" y="152" class="label">User Action</text>
+  <circle cx="155" cy="148" r="8" class="start"/>
+  <text x="185" y="152" class="label">Start</text>
+  <circle cx="265" cy="148" r="8" class="end"/>
+  <text x="285" y="152" class="label">End State</text>
+
+  <!-- ==================== FLOW 1: CREATE NOTE ==================== -->
+  <rect x="20" y="200" width="550" height="550" class="flow-section"/>
+  <text x="295" y="225" text-anchor="middle" class="section-title">1. CREATE NOTE FLOW</text>
+
+  <!-- Start -->
+  <circle cx="295" cy="260" r="15" class="start"/>
+  <text x="295" y="265" text-anchor="middle" class="label" style="fill: white; font-weight: 600;">Start</text>
+
+  <!-- Notes List Screen -->
+  <rect x="195" y="295" width="200" height="50" class="screen"/>
+  <text x="295" y="315" text-anchor="middle" class="title">Notes List</text>
+  <text x="295" y="330" text-anchor="middle" class="label">All notes displayed</text>
+
+  <!-- Tap Compose -->
+  <rect x="210" y="365" width="170" height="35" class="action"/>
+  <text x="295" y="387" text-anchor="middle" class="label">Tap ✏️ Compose Button</text>
+
+  <!-- New Note Editor -->
+  <rect x="195" y="420" width="200" height="50" class="screen"/>
+  <text x="295" y="440" text-anchor="middle" class="title">Note Editor</text>
+  <text x="295" y="455" text-anchor="middle" class="label">Blank note, cursor active</text>
+
+  <!-- Enter Content -->
+  <rect x="210" y="490" width="170" height="35" class="action"/>
+  <text x="295" y="512" text-anchor="middle" class="label">Enter Title &amp; Content</text>
+
+  <!-- Decision: Add more? -->
+  <polygon points="295,555 370,590 295,625 220,590" class="decision"/>
+  <text x="295" y="587" text-anchor="middle" class="label">Add</text>
+  <text x="295" y="599" text-anchor="middle" class="label">attachments?</text>
+
+  <!-- Attachment flow (Yes) -->
+  <rect x="400" y="572" width="140" height="35" class="action"/>
+  <text x="470" y="594" text-anchor="middle" class="label">Add Photo/Scan/etc.</text>
+
+  <!-- Navigate Back -->
+  <rect x="210" y="650" width="170" height="35" class="action"/>
+  <text x="295" y="672" text-anchor="middle" class="label">Tap &lt; Back / Swipe</text>
+
+  <!-- End: Note Saved -->
+  <circle cx="295" cy="720" r="18" class="end"/>
+  <text x="295" y="724" text-anchor="middle" class="label" style="fill: white; font-size: 10px;">Saved</text>
+
+  <!-- Connectors for Flow 1 -->
+  <path d="M295,275 L295,295" class="connector" marker-end="url(#arrowhead)"/>
+  <path d="M295,345 L295,365" class="connector" marker-end="url(#arrowhead)"/>
+  <path d="M295,400 L295,420" class="connector" marker-end="url(#arrowhead)"/>
+  <path d="M295,470 L295,490" class="connector" marker-end="url(#arrowhead)"/>
+  <path d="M295,525 L295,555" class="connector" marker-end="url(#arrowhead)"/>
+  <path d="M370,590 L400,590" class="connector" marker-end="url(#arrowhead)"/>
+  <text x="380" y="582" class="connector-label">Yes</text>
+  <path d="M470,607 L470,640 L370,640 L370,665 L380,665" class="connector" marker-end="url(#arrowhead)"/>
+  <path d="M295,625 L295,650" class="connector" marker-end="url(#arrowhead)"/>
+  <text x="300" y="640" class="connector-label">No</text>
+  <path d="M295,685 L295,702" class="connector" marker-end="url(#arrowhead)"/>
+
+  <!-- ==================== FLOW 2: EDIT NOTE ==================== -->
+  <rect x="590" y="200" width="590" height="550" class="flow-section"/>
+  <text x="885" y="225" text-anchor="middle" class="section-title">2. EDIT NOTE FLOW</text>
+
+  <!-- Start -->
+  <circle cx="885" cy="260" r="15" class="start"/>
+  <text x="885" y="265" text-anchor="middle" class="label" style="fill: white; font-weight: 600;">Start</text>
+
+  <!-- Notes List -->
+  <rect x="785" y="295" width="200" height="50" class="screen"/>
+  <text x="885" y="315" text-anchor="middle" class="title">Notes List</text>
+  <text x="885" y="330" text-anchor="middle" class="label">Existing notes shown</text>
+
+  <!-- Select Note -->
+  <rect x="800" y="365" width="170" height="35" class="action"/>
+  <text x="885" y="387" text-anchor="middle" class="label">Tap Note to Open</text>
+
+  <!-- Note Detail -->
+  <rect x="785" y="420" width="200" height="50" class="screen"/>
+  <text x="885" y="440" text-anchor="middle" class="title">Note Detail View</text>
+  <text x="885" y="455" text-anchor="middle" class="label">Full note content</text>
+
+  <!-- Tap to Edit -->
+  <rect x="800" y="490" width="170" height="35" class="action"/>
+  <text x="885" y="512" text-anchor="middle" class="label">Tap Anywhere to Edit</text>
+
+  <!-- Editor Active -->
+  <rect x="785" y="545" width="200" height="50" class="screen"/>
+  <text x="885" y="565" text-anchor="middle" class="title">Note Editor (Active)</text>
+  <text x="885" y="580" text-anchor="middle" class="label">Keyboard visible, cursor</text>
+
+  <!-- Decision: Format? -->
+  <polygon points="710,640 770,670 710,700 650,670" class="decision"/>
+  <text x="710" y="667" text-anchor="middle" class="label">Format</text>
+  <text x="710" y="679" text-anchor="middle" class="label">text?</text>
+
+  <!-- Format Actions -->
+  <rect x="620" y="720" width="180" height="35" class="action"/>
+  <text x="710" y="742" text-anchor="middle" class="label">Bold/Italic/List/Checklist</text>
+
+  <!-- Decision: Add checklist? -->
+  <polygon points="1000,640 1060,670 1000,700 940,670" class="decision"/>
+  <text x="1000" y="667" text-anchor="middle" class="label">Add</text>
+  <text x="1000" y="679" text-anchor="middle" class="label">checklist?</text>
+
+  <!-- Checklist Actions -->
+  <rect x="910" y="720" width="180" height="35" class="action"/>
+  <text x="1000" y="742" text-anchor="middle" class="label">Tap Aa → Checklist</text>
+
+  <!-- Connectors for Flow 2 -->
+  <path d="M885,275 L885,295" class="connector" marker-end="url(#arrowhead)"/>
+  <path d="M885,345 L885,365" class="connector" marker-end="url(#arrowhead)"/>
+  <path d="M885,400 L885,420" class="connector" marker-end="url(#arrowhead)"/>
+  <path d="M885,470 L885,490" class="connector" marker-end="url(#arrowhead)"/>
+  <path d="M885,525 L885,545" class="connector" marker-end="url(#arrowhead)"/>
+  <path d="M835,595 L710,595 L710,640" class="connector" marker-end="url(#arrowhead)"/>
+  <path d="M935,595 L1000,595 L1000,640" class="connector" marker-end="url(#arrowhead)"/>
+  <path d="M710,700 L710,720" class="connector" marker-end="url(#arrowhead)"/>
+  <text x="715" y="712" class="connector-label">Yes</text>
+  <path d="M1000,700 L1000,720" class="connector" marker-end="url(#arrowhead)"/>
+  <text x="1005" y="712" class="connector-label">Yes</text>
+
+  <!-- ==================== FLOW 3: DELETE NOTE ==================== -->
+  <rect x="1200" y="200" width="580" height="550" class="flow-section"/>
+  <text x="1490" y="225" text-anchor="middle" class="section-title">3. DELETE NOTE FLOW</text>
+
+  <!-- Start -->
+  <circle cx="1350" cy="260" r="15" class="start"/>
+  <text x="1350" y="265" text-anchor="middle" class="label" style="fill: white; font-weight: 600;">Start</text>
+
+  <!-- Notes List -->
+  <rect x="1250" y="295" width="200" height="50" class="screen"/>
+  <text x="1350" y="315" text-anchor="middle" class="title">Notes List</text>
+  <text x="1350" y="330" text-anchor="middle" class="label">All notes displayed</text>
+
+  <!-- Decision: Method -->
+  <polygon points="1350,375 1425,410 1350,445 1275,410" class="decision"/>
+  <text x="1350" y="407" text-anchor="middle" class="label">Delete</text>
+  <text x="1350" y="419" text-anchor="middle" class="label">method?</text>
+
+  <!-- Swipe Method -->
+  <rect x="1230" y="470" width="130" height="35" class="action"/>
+  <text x="1295" y="492" text-anchor="middle" class="label">Swipe Left</text>
+
+  <!-- Delete Button appears -->
+  <rect x="1230" y="525" width="130" height="40" class="screen"/>
+  <text x="1295" y="545" text-anchor="middle" class="label">🗑️ Delete</text>
+  <text x="1295" y="558" text-anchor="middle" class="label">button shown</text>
+
+  <!-- Tap Delete -->
+  <rect x="1230" y="585" width="130" height="35" class="action"/>
+  <text x="1295" y="607" text-anchor="middle" class="label">Tap Delete</text>
+
+  <!-- Long Press Method -->
+  <rect x="1450" y="470" width="130" height="35" class="action"/>
+  <text x="1515" y="492" text-anchor="middle" class="label">Long Press Note</text>
+
+  <!-- Context Menu -->
+  <rect x="1440" y="525" width="150" height="50" class="screen"/>
+  <text x="1515" y="545" text-anchor="middle" class="title">Context Menu</text>
+  <text x="1515" y="560" text-anchor="middle" class="label">Pin, Lock, Share, Delete</text>
+
+  <!-- Tap Delete Option -->
+  <rect x="1450" y="595" width="130" height="35" class="action"/>
+  <text x="1515" y="617" text-anchor="middle" class="label">Tap "Delete"</text>
+
+  <!-- Note Deleted -->
+  <rect x="1320" y="660" width="180" height="40" class="screen"/>
+  <text x="1410" y="680" text-anchor="middle" class="title">Note Removed</text>
+  <text x="1410" y="693" text-anchor="middle" class="label">Moved to Recently Deleted</text>
+
+  <!-- End -->
+  <circle cx="1410" cy="735" r="18" class="end"/>
+  <text x="1410" y="739" text-anchor="middle" class="label" style="fill: white; font-size: 10px;">Done</text>
+
+  <!-- Connectors for Flow 3 -->
+  <path d="M1350,275 L1350,295" class="connector" marker-end="url(#arrowhead)"/>
+  <path d="M1350,345 L1350,375" class="connector" marker-end="url(#arrowhead)"/>
+  <path d="M1295,410 L1295,470" class="connector" marker-end="url(#arrowhead)"/>
+  <text x="1270" y="440" class="connector-label">Swipe</text>
+  <path d="M1405,410 L1515,410 L1515,470" class="connector" marker-end="url(#arrowhead)"/>
+  <text x="1520" y="440" class="connector-label">Long Press</text>
+  <path d="M1295,505 L1295,525" class="connector" marker-end="url(#arrowhead)"/>
+  <path d="M1295,565 L1295,585" class="connector" marker-end="url(#arrowhead)"/>
+  <path d="M1515,505 L1515,525" class="connector" marker-end="url(#arrowhead)"/>
+  <path d="M1515,575 L1515,595" class="connector" marker-end="url(#arrowhead)"/>
+  <path d="M1295,620 L1295,650 L1320,680" class="connector" marker-end="url(#arrowhead)"/>
+  <path d="M1515,630 L1515,650 L1500,680" class="connector" marker-end="url(#arrowhead)"/>
+  <path d="M1410,700 L1410,717" class="connector" marker-end="url(#arrowhead)"/>
+
+  <!-- ==================== FLOW 4: ORGANIZE (FOLDERS) ==================== -->
+  <rect x="20" y="770" width="860" height="610" class="flow-section"/>
+  <text x="450" y="795" text-anchor="middle" class="section-title">4. ORGANIZE NOTES FLOW (Folders &amp; Tags)</text>
+
+  <!-- Start -->
+  <circle cx="200" cy="840" r="15" class="start"/>
+  <text x="200" y="845" text-anchor="middle" class="label" style="fill: white; font-weight: 600;">Start</text>
+
+  <!-- Folders View -->
+  <rect x="100" y="875" width="200" height="50" class="screen"/>
+  <text x="200" y="895" text-anchor="middle" class="title">Folders View</text>
+  <text x="200" y="910" text-anchor="middle" class="label">iCloud, On My iPhone, etc.</text>
+
+  <!-- Decision: Action -->
+  <polygon points="200,960 280,1000 200,1040 120,1000" class="decision"/>
+  <text x="200" y="997" text-anchor="middle" class="label">Action?</text>
+
+  <!-- Create Folder Branch -->
+  <rect x="50" y="1070" width="140" height="35" class="action"/>
+  <text x="120" y="1092" text-anchor="middle" class="label">Tap 📁+ New Folder</text>
+
+  <rect x="40" y="1125" width="160" height="45" class="screen"/>
+  <text x="120" y="1145" text-anchor="middle" class="title">Name Folder</text>
+  <text x="120" y="1160" text-anchor="middle" class="label">Enter name, tap Save</text>
+
+  <circle cx="120" cy="1205" r="15" class="end"/>
+  <text x="120" y="1209" text-anchor="middle" class="label" style="fill: white; font-size: 9px;">Done</text>
+
+  <!-- Move Note Branch -->
+  <rect x="220" y="1070" width="140" height="35" class="action"/>
+  <text x="290" y="1092" text-anchor="middle" class="label">Long Press Note</text>
+
+  <rect x="210" y="1125" width="160" height="45" class="screen"/>
+  <text x="290" y="1145" text-anchor="middle" class="title">Context Menu</text>
+  <text x="290" y="1160" text-anchor="middle" class="label">Tap "Move"</text>
+
+  <rect x="210" y="1190" width="160" height="45" class="screen"/>
+  <text x="290" y="1210" text-anchor="middle" class="title">Folder Picker</text>
+  <text x="290" y="1225" text-anchor="middle" class="label">Select destination</text>
+
+  <rect x="220" y="1255" width="140" height="35" class="action"/>
+  <text x="290" y="1277" text-anchor="middle" class="label">Tap Folder</text>
+
+  <circle cx="290" cy="1325" r="15" class="end"/>
+  <text x="290" y="1329" text-anchor="middle" class="label" style="fill: white; font-size: 9px;">Moved</text>
+
+  <!-- Connectors for Create Folder -->
+  <path d="M200,855 L200,875" class="connector" marker-end="url(#arrowhead)"/>
+  <path d="M200,925 L200,960" class="connector" marker-end="url(#arrowhead)"/>
+  <path d="M140,1000 L120,1000 L120,1070" class="connector" marker-end="url(#arrowhead)"/>
+  <text x="95" y="1035" class="connector-label">New Folder</text>
+  <path d="M200,1040 L200,1055 L290,1055 L290,1070" class="connector" marker-end="url(#arrowhead)"/>
+  <text x="240" y="1050" class="connector-label">Move Note</text>
+  <path d="M120,1105 L120,1125" class="connector" marker-end="url(#arrowhead)"/>
+  <path d="M120,1170 L120,1190" class="connector" marker-end="url(#arrowhead)"/>
+  <path d="M290,1105 L290,1125" class="connector" marker-end="url(#arrowhead)"/>
+  <path d="M290,1170 L290,1190" class="connector" marker-end="url(#arrowhead)"/>
+  <path d="M290,1235 L290,1255" class="connector" marker-end="url(#arrowhead)"/>
+  <path d="M290,1290 L290,1310" class="connector" marker-end="url(#arrowhead)"/>
+
+  <!-- Tags Branch -->
+  <rect x="400" y="875" width="200" height="50" class="screen"/>
+  <text x="500" y="895" text-anchor="middle" class="title">Note Editor</text>
+  <text x="500" y="910" text-anchor="middle" class="label">Inside a note</text>
+
+  <rect x="415" y="945" width="170" height="35" class="action"/>
+  <text x="500" y="967" text-anchor="middle" class="label">Type #tagname</text>
+
+  <rect x="400" y="1000" width="200" height="50" class="screen"/>
+  <text x="500" y="1020" text-anchor="middle" class="title">Tag Created</text>
+  <text x="500" y="1035" text-anchor="middle" class="label">Tag highlighted in yellow</text>
+
+  <polygon points="500,1085 560,1115 500,1145 440,1115" class="decision"/>
+  <text x="500" y="1112" text-anchor="middle" class="label">View by</text>
+  <text x="500" y="1124" text-anchor="middle" class="label">tag?</text>
+
+  <rect x="415" y="1170" width="170" height="35" class="action"/>
+  <text x="500" y="1192" text-anchor="middle" class="label">Tap # in Folders view</text>
+
+  <rect x="400" y="1225" width="200" height="50" class="screen"/>
+  <text x="500" y="1245" text-anchor="middle" class="title">Tags Browser</text>
+  <text x="500" y="1260" text-anchor="middle" class="label">All tags listed</text>
+
+  <rect x="415" y="1295" width="170" height="35" class="action"/>
+  <text x="500" y="1317" text-anchor="middle" class="label">Tap Specific Tag</text>
+
+  <circle cx="500" cy="1360" r="15" class="end"/>
+  <text x="500" y="1364" text-anchor="middle" class="label" style="fill: white; font-size: 9px;">Filter</text>
+
+  <!-- Connectors for Tags -->
+  <path d="M500,925 L500,945" class="connector" marker-end="url(#arrowhead)"/>
+  <path d="M500,980 L500,1000" class="connector" marker-end="url(#arrowhead)"/>
+  <path d="M500,1050 L500,1085" class="connector" marker-end="url(#arrowhead)"/>
+  <path d="M500,1145 L500,1170" class="connector" marker-end="url(#arrowhead)"/>
+  <text x="505" y="1160" class="connector-label">Yes</text>
+  <path d="M500,1205 L500,1225" class="connector" marker-end="url(#arrowhead)"/>
+  <path d="M500,1275 L500,1295" class="connector" marker-end="url(#arrowhead)"/>
+  <path d="M500,1330 L500,1345" class="connector" marker-end="url(#arrowhead)"/>
+
+  <!-- Smart Folders -->
+  <rect x="660" y="875" width="200" height="50" class="screen"/>
+  <text x="760" y="895" text-anchor="middle" class="title">Smart Folders</text>
+  <text x="760" y="910" text-anchor="middle" class="label">Auto-organized views</text>
+
+  <rect x="660" y="945" width="200" height="120" class="screen"/>
+  <text x="760" y="965" text-anchor="middle" class="title">Built-in Smart Folders:</text>
+  <text x="760" y="985" text-anchor="middle" class="label">• Notes with Attachments</text>
+  <text x="760" y="1005" text-anchor="middle" class="label">• Notes with Checklists</text>
+  <text x="760" y="1025" text-anchor="middle" class="label">• Notes with Drawings</text>
+  <text x="760" y="1045" text-anchor="middle" class="label">• Shared Notes</text>
+
+  <path d="M760,925 L760,945" class="connector" marker-end="url(#arrowhead)"/>
+
+  <!-- ==================== FLOW 5: SEARCH ==================== -->
+  <rect x="900" y="770" width="450" height="610" class="flow-section"/>
+  <text x="1125" y="795" text-anchor="middle" class="section-title">5. SEARCH FLOW</text>
+
+  <!-- Start -->
+  <circle cx="1125" cy="840" r="15" class="start"/>
+  <text x="1125" y="845" text-anchor="middle" class="label" style="fill: white; font-weight: 600;">Start</text>
+
+  <!-- Notes List or Folders -->
+  <rect x="1025" y="875" width="200" height="50" class="screen"/>
+  <text x="1125" y="895" text-anchor="middle" class="title">Notes List / Folders</text>
+  <text x="1125" y="910" text-anchor="middle" class="label">Any main screen</text>
+
+  <!-- Pull Down -->
+  <rect x="1040" y="945" width="170" height="35" class="action"/>
+  <text x="1125" y="967" text-anchor="middle" class="label">Pull Down to Reveal</text>
+
+  <!-- Search Bar -->
+  <rect x="1025" y="1000" width="200" height="50" class="screen"/>
+  <text x="1125" y="1020" text-anchor="middle" class="title">Search Bar</text>
+  <text x="1125" y="1035" text-anchor="middle" class="label">Keyboard active</text>
+
+  <!-- Type Query -->
+  <rect x="1040" y="1070" width="170" height="35" class="action"/>
+  <text x="1125" y="1092" text-anchor="middle" class="label">Type Search Query</text>
+
+  <!-- Results -->
+  <rect x="1025" y="1125" width="200" height="60" class="screen"/>
+  <text x="1125" y="1145" text-anchor="middle" class="title">Search Results</text>
+  <text x="1125" y="1160" text-anchor="middle" class="label">Notes matching query</text>
+  <text x="1125" y="1175" text-anchor="middle" class="label">(searches content &amp; OCR)</text>
+
+  <!-- Decision: Found? -->
+  <polygon points="1125,1220 1185,1250 1125,1280 1065,1250" class="decision"/>
+  <text x="1125" y="1247" text-anchor="middle" class="label">Found</text>
+  <text x="1125" y="1259" text-anchor="middle" class="label">results?</text>
+
+  <!-- Yes: Tap Result -->
+  <rect x="1040" y="1305" width="170" height="35" class="action"/>
+  <text x="1125" y="1327" text-anchor="middle" class="label">Tap Note Result</text>
+
+  <!-- Note Opens -->
+  <circle cx="1125" cy="1370" r="15" class="end"/>
+  <text x="1125" y="1374" text-anchor="middle" class="label" style="fill: white; font-size: 9px;">Open</text>
+
+  <!-- No: Refine -->
+  <rect x="1220" y="1232" width="110" height="35" class="action"/>
+  <text x="1275" y="1254" text-anchor="middle" class="label">Refine Query</text>
+
+  <!-- Connectors for Search -->
+  <path d="M1125,855 L1125,875" class="connector" marker-end="url(#arrowhead)"/>
+  <path d="M1125,925 L1125,945" class="connector" marker-end="url(#arrowhead)"/>
+  <path d="M1125,980 L1125,1000" class="connector" marker-end="url(#arrowhead)"/>
+  <path d="M1125,1050 L1125,1070" class="connector" marker-end="url(#arrowhead)"/>
+  <path d="M1125,1105 L1125,1125" class="connector" marker-end="url(#arrowhead)"/>
+  <path d="M1125,1185 L1125,1220" class="connector" marker-end="url(#arrowhead)"/>
+  <path d="M1125,1280 L1125,1305" class="connector" marker-end="url(#arrowhead)"/>
+  <text x="1130" y="1295" class="connector-label">Yes</text>
+  <path d="M1125,1340 L1125,1355" class="connector" marker-end="url(#arrowhead)"/>
+  <path d="M1185,1250 L1220,1250" class="connector" marker-end="url(#arrowhead)"/>
+  <text x="1195" y="1242" class="connector-label">No</text>
+  <path d="M1275,1232 L1275,1100 L1210,1085" class="connector" marker-end="url(#arrowhead)"/>
+
+  <!-- Footer -->
+  <text x="900" y="1390" text-anchor="middle" style="font-family: -apple-system, sans-serif; font-size: 11px; fill: #999;">iOS Notes App User Flows • Core Features with Decision Points</text>
+</svg>

@@ -1,7 +1,7 @@
 # Day 7 — Monday, Feb 2
 ## Unit B: Make It Better App
 
-**Focus:** Usability testing reveals problems designers cannot see on their own.
+**Focus:** AI tools can accelerate rendering, but only if you've done the hard work of forming intent first.
 
 **Targeted Learning Outcomes:** Problem Discovery & Research, Better Interactions & Experiences
 
@@ -10,28 +10,28 @@
 ### Desired Results
 
 **Essential Questions:**
-- EQ1: How do we identify what's broken in an existing product—and how do we know our fix is actually better?
-- EQ2: Who are we designing for? How do we design for "many" while still understanding individuals?
+- EQ1: How do we identify opportunities in an existing product—and how do we know our new feature genuinely improves the experience?
+- EQ2: How do AI prototyping tools change the rendering process—and what do they require from us as designers?
 
 **Understandings:**
 - U1: Usability testing is a design activity, not a validation step—it reveals problems designers cannot see on their own.
-- U2: "Designing for everyone" often means designing for no one. Understanding specific users helps create better experiences for many.
-- U3: Personas and user segments are tools for forming intent—they help us understand whose problems we're solving.
+- U2: AI tools can accelerate rendering intent, but they cannot form intent. The quality of AI output depends on the clarity of your design thinking.
+- U3: Moving from paper to digital is not just translating—it's an opportunity to refine, add fidelity, and test whether your decisions hold at higher resolution.
 
 **Students Will Know:**
-- K1: Four methods of UX mapping (empathy maps, customer journey maps, experience maps, service blueprints)
-- K2: What personas are and how they differ from market segments
+- K1: Current AI prototyping tools and what each is best suited for (Figma Make, v0, Lovable, Play)
+- K2: The limitations and risks of AI-generated prototypes (generic design, hallucinated interactions, platform convention violations)
 - K3: Basic Figma prototyping techniques and shortcuts
 
 **Students Will Be Able To:**
 - S1: Synthesize usability testing feedback into design improvements
-- S2: Create user personas grounded in research
+- S2: Use AI tools to generate UI elements and evaluate/refine the output against platform conventions and their design intent
 - S3: Build interactive prototypes in Figma
 
 ---
 
 ### Assignments Due
-- ⛳ B2 Paper Prototype V1 + User Task Diagram (should be complete from Day 6)
+- ⛳ B2 Paper Prototype + User Task Diagram (should be complete from Day 6)
 - Tested paper prototype with at least 1 person outside class
 
 ---
@@ -43,67 +43,86 @@
    - What did users struggle with that you didn't anticipate?
    - Be ready to share one insight that changed your design
 
-2. **Today's Learning Goals** (5 min) `[EQ1, EQ2, U1, U2, U3, K1, K2, K3, S1, S2, S3]`
-   - Today we focus on the "who"—understanding your users more deeply
-   - This connects to *forming intent*: You can't solve the right problem if you don't understand who has it
-   - Preview: UX mapping methods, personas, then we transition to Figma to start building
+2. **Today's Learning Goals** (5 min) `[EQ1, EQ2, U1, U2, U3, K1, K3, S1, S2, S3]`
+   - You've done the hard work of *forming intent*: research, user flows, paper prototypes, usability testing
+   - Now we shift to *rendering intent*: translating your tested paper designs into high-fidelity digital prototypes
+   - Today: We'll learn how AI tools can accelerate this process—and where they fall short
+   - Preview: AI prototyping landscape, Figma prototyping demo, then work time to iterate on B3 and start going digital
 
-3. **Direct Instruction: Users, Personas & UX Mapping** (25 min) `[EQ2, U2, U3, K1, K2, S2]`
+3. **Direct Instruction: AI Tools for Prototyping** (25 min) `[EQ2, U2, K1, K2, S2]`
 
-   **Part A: Design for Many vs. Design for One** (10 min)
-   - **I do:** The paradox of user-centered design
-     - Designing for "everyone" creates generic, mediocre experiences
-     - Designing for a *specific* user often creates better experiences for many
-     - Why? Specific constraints force clear decisions
-   - Example: OXO Good Grips—designed for users with arthritis, loved by everyone
-   - Key question: Who specifically are you designing your app improvement for?
+   **Part A: The Rendering Problem** (3 min)
+   - **I do:** Frame the challenge you face right now:
+     - You have tested paper prototypes with clear design intent
+     - B4 requires a high-fidelity prototype "indistinguishable from native iOS/Android"
+     - That's a big jump. How do we get there efficiently?
+   - Key concept: AI is a *rendering* tool, not a *forming* tool. It can't decide what problem to solve or what users need. It can accelerate execution of decisions you've already made.
 
-   **Part B: UX Mapping Methods** (10 min)
-   - **I do:** Four mapping types and when to use each:
-     - **Empathy Map:** What does your user say, think, do, feel? (Focus: one user's mindset)
-     - **Customer Journey Map:** One persona's experience across touchpoints (Focus: single user type)
-     - **Experience Map:** General human behavior, not tied to specific product (Focus: broad patterns)
-     - **Service Blueprint:** Behind-the-scenes processes that support the user journey (Focus: organization)
-   - For this project: Journey maps and empathy maps are most useful
-   - Show quick example of an empathy map for a frustrated app user
+   **Part B: AI Prototyping Tool Landscape** (15 min)
+   - **I do:** Walk through the current tool landscape with examples:
+     - **Figma Make** — AI built into Figma; generates UI from text prompts within your existing Figma file. Best for students already in the Figma workflow.
+     - **v0 by Vercel** — Generates React-based UIs from text or image input; free tier available. Produces actual running code you can preview in a browser.
+     - **Lovable** — Chat-based full-stack prototype builder. Describe your app and iterate in real time with a live running prototype.
+     - **Play** (createwithplay.com) — iOS-specific prototyping tool that uses real native elements and Core Animation. Prototypes feel like real iOS apps. Exports directly to SwiftUI/Xcode. Share prototypes via App Clips—no app download needed. **Free education program:** 6 months of Starter plan for students with school email verification.
+   - For each: show a quick example of input → output (have screenshots or short recordings prepared)
+   - **Using AI to write your prompts:**
+     - The quality of what these tools produce depends entirely on the quality of your prompt
+     - Use Claude (or another LLM) to help you write detailed, specific prompts for prototyping tools
+     - Workflow: Describe your feature and target app to Claude → ask it to write a prompt for v0/Lovable/Figma Make → refine the prompt → paste into the tool
+     - **Demo:** Show a before/after—a vague prompt vs. a Claude-refined prompt and the difference in output quality
+     - This is a transferable skill: learning to describe design intent clearly in text makes you a better designer and a better collaborator
 
-   **Part C: Personas vs. Market Segments** (5 min)
-   - **We do:** What's the difference?
-     - Market segment: "Millennials who use fitness apps" (demographic bucket)
-     - Persona: "Maya, 28, trains for marathons, frustrated by apps that assume she's a beginner" (specific, story-based)
-   - Personas put a face on your user—they help you make decisions ("Would Maya want this?")
-   - Ask: Can you describe your target user as specifically as Maya?
+   **Part C: Limitations & Critical Evaluation** (7 min)
+   - **We do:** Look at an AI-generated prototype together and critique it:
+     - Does it follow iOS/Android platform conventions? (Connect to Day 6 learning)
+     - Does it use real content or generic placeholder text?
+     - Are the interactions standard or hallucinated?
+     - Does it match the design intent you would have specified?
+   - Key risks to watch for:
+     - Generic "template" aesthetic that doesn't match your target app's design language
+     - Interactions that look plausible but don't follow platform norms
+     - Over-reliance: accepting AI output without evaluating against your tested design
+   - Rule of thumb: AI output is a *starting point for refinement*, not a finished deliverable
+   - Ask: What parts of your B4 deliverable could AI help with? What parts require your judgment?
 
-4. **Figma Prototyping Demo** (20 min) `[K3, S3]`
+4. **Figma Prototyping Demo** (20 min) `[K3, S3, S2]`
    - **I do:** Essential Figma prototyping techniques
      - Connecting frames with prototype mode
      - Click/tap interactions
      - Smart Animate basics for transitions
      - Device preview on mobile
+   - **I do:** Quick demonstration of Figma Make
+     - Show how to prompt Figma Make with a description based on a paper prototype
+     - Show how to refine the AI output manually in Figma
    - **Key shortcuts** for speed:
      - `R` for rectangle, `T` for text, `F` for frame
      - `Cmd/Ctrl + D` to duplicate
      - Hold `Opt/Alt` while dragging to duplicate
      - `Shift + A` for auto layout
    - **We do:** Build a simple 2-screen prototype together
-   - Reminder: Your prototype needs at least 5 screens showing the complete user flow
+   - Reminder: Your final deliverable needs a high-fidelity prototype showing your new feature integrated into the app. Whether you use AI tools, pure Figma, or a combination—the result must be indistinguishable from the native app.
 
-5. **Work Session: B3 Iteration & Figma Start** (remaining ~60 min) `[EQ1, U1, S1, S3]`
+5. **Work Session: B3 Digital Prototype** (remaining ~60 min) `[EQ1, EQ2, U1, U2, U3, S1, S2, S3]`
 
    **What you're working on:**
-   - **B3 Paper Prototype V2:** Revise based on your first usability test
-   - **Testing notes:** Document what you changed and why
-   - **Begin Figma prototype:** Start translating your paper screens to digital
+   - **B3 Digital Prototype:** Translate your tested paper prototype into an interactive Figma prototype
+     - Match the existing app's design language (typography, spacing, color, interaction patterns)
+     - Try describing your screens to Figma Make, v0, or Lovable and iterate from the output
+     - If designing for iOS, explore Play for native-feeling prototypes
+     - Or build from scratch in Figma — whatever approach gets you to high fidelity fastest
+   - **User Testing (Round 2):** Test your digital prototype with at least 2 people (not classmates)
+   - **If you used an AI tool:** Check every screen against your paper prototype and platform conventions. What did it get right? What needs fixing?
 
    **Instructor circulating for 1:1s:**
    - Did your paper prototype testing reveal genuine usability issues?
-   - How are you prioritizing what to fix?
-   - Are you ready to start in Figma, or do you need more paper iteration?
+   - How are you prioritizing what to fix in the digital version?
+   - What approach are you taking — AI tools, pure Figma, or a combination?
+   - If using AI tools: What did you keep from the AI output? What did you change and why?
 
    **B3 Due: Before Day 8 on Learning Suite**
-   - Revised paper prototype photos
-   - Testing notes from both sessions (V1 and V2 if possible)
-   - List of changes made based on feedback
+   - PDF with link to Figma digital prototype
+   - Testing notes from user testing (at least 2 people)
+   - Format as a slide for your final documentation
 
 **Total time:** ~120 minutes
 
@@ -113,31 +132,33 @@
 
 | Code | Desired Result | Activities |
 |------|----------------|------------|
-| EQ1 | How do we know our fix is better? | 1, 2, 5 |
-| EQ2 | Who are we designing for? | 2, 3 |
+| EQ1 | How do we know our new feature improves the experience? | 1, 2, 5 |
+| EQ2 | How do AI tools change rendering—and what do they require? | 2, 3, 5 |
 | U1 | Usability testing reveals unseen problems | 1, 2, 5 |
-| U2 | Designing for specific users helps everyone | 2, 3 |
-| U3 | Personas help form intent | 2, 3 |
-| K1 | Four UX mapping methods | 2, 3 |
-| K2 | Personas vs. market segments | 2, 3 |
+| U2 | AI accelerates rendering but cannot form intent | 2, 3, 5 |
+| U3 | Paper-to-digital is a refinement opportunity | 2, 5 |
+| K1 | AI prototyping tools and their strengths | 2, 3 |
+| K2 | AI limitations and risks | 3 |
 | K3 | Figma prototyping techniques | 2, 4 |
 | S1 | Synthesize testing feedback | 1, 5 |
-| S2 | Create user personas | 2, 3 |
+| S2 | Use and evaluate AI tool output | 3, 4, 5 |
 | S3 | Build Figma prototypes | 4, 5 |
 
 ---
 
 ### Homework
-- ⛳ B3 Paper Prototype V2 with testing notes (due on Learning Suite before Day 8)
-- Test your revised paper prototype with at least 1 more person (2 total tests minimum)
-- Continue building digital prototype in Figma
+- ⛳ B3 Digital Prototype + User Testing Round 2 (due on Learning Suite before Day 8)
+- Test your digital prototype with at least 2 people (not classmates)
+- Continue refining digital prototype in Figma
 - Bring your laptop to Day 8 for extended work session
 
 ---
 
 ### Resources
-- UX Mapping (4 types): https://www.nngroup.com/articles/ux-mapping-cheat-sheet/
-- Empathy Mapping: https://www.nngroup.com/articles/empathy-mapping/
-- Personas: https://www.nngroup.com/articles/persona/
 - Figma Prototyping Basics: https://help.figma.com/hc/en-us/articles/360040314193-Guide-to-prototyping-in-Figma
 - Smart Animate: https://help.figma.com/hc/en-us/articles/360039818874-Create-advanced-animations-with-smart-animate
+- Figma Make (AI features): https://www.figma.com/ai/
+- v0 by Vercel: https://v0.dev/
+- Lovable: https://lovable.dev/
+- Play (iOS prototyping): https://createwithplay.com/
+- Play Education Program: https://learn.createwithplay.com/en/articles/10317719-play-for-education-program

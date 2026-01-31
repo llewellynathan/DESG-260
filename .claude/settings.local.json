@@ -14,7 +14,10 @@
       "Skill(slides)",
       "WebFetch(domain:www.figma.com)",
       "WebFetch(domain:help.figma.com)",
-      "WebFetch(domain:medium.com)"
+      "WebFetch(domain:medium.com)",
+      "WebFetch(domain:productschool.com)",
+      "WebFetch(domain:designcode.io)",
+      "WebFetch(domain:createwithplay.com)"
     ]
   }
 }

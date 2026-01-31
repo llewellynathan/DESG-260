@@ -96,7 +96,7 @@
      - 💚 Clear purpose it's failing to achieve
      - 💚 Focus on one user flow, not the whole app
      - ❌ Not already well-designed apps (Instagram, Spotify)
-   - B1 deliverable (due end of class): User Flow + Competitive Analysis PDF
+   - B1 deliverable (due Day 6 end of class): User Flow + Competitive Analysis PDF
    - Full project due: Day 9 (Feb 9)
    - Bring index cards to next class
 
@@ -104,13 +104,13 @@
    - Choose your app (instructor approval required)
    - Map the current user flow of the feature you'll redesign
    - Begin competitive analysis: identify 2-3 competitor apps
-   - **Due end of class:** B1 User Flow & Competitive Analysis (PDF to Learning Suite)
+   - **Continue B1** — User Flow & Competitive Analysis (due Day 6 end of class, PDF to Learning Suite)
    - 1:1 meetings: Help students identify genuine problems vs. personal preferences
 
 ---
 
 ### Homework
-- Complete B1 if not finished in class (due by 11:59pm)
+- Continue B1 User Flow & Competitive Analysis (due Day 6 end of class)
 - 📚 Continue with Norman Ch. 1 if not finished
 - 📚 Read this article: https://www.figma.com/resource-library/user-flow/
 - Purchase index cards before Day 6 (Wednesday)

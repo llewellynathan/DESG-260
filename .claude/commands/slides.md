@@ -32,7 +32,7 @@ Generate slides in this order:
 ### 2. Title Slide
 - Day number, weekday, and date
 - Unit letter and name
-- **Big Idea:** A single memorable statement distilled from the Focus section — what students should take away
+- **Big Idea:** A single memorable statement that connects all of the day's activities into one theme. Synthesize from the full lesson — not just the Focus section. It should feel like the thread running through everything students do that day.
 
 ### 3. Today's Activities Slide
 - **Today:** List the main activities in order, separated by arrows (→)
@@ -50,11 +50,7 @@ For each activity in the lesson plan (starting from Activity 2, since Warm-Up is
 - **Discussion slide** (if has discussion prompts): Questions for class discussion
 - **Reveal slide** (if instructor shares a definition or answer after discussion): The instructor's key point
 
-**Pulling in Desired Results:** If an activity references learning goals, EQs, or objectives (e.g., "Display Essential Questions", "Today's Learning Goals"), include ALL Desired Results at that point — each category on a separate slide:
-- Essential Questions slide
-- Understandings slide
-- Students Will Know slide
-- Students Will Be Able To slide
+**"By the end of today..." slide:** If an activity references learning goals or objectives (e.g., "Today's Learning Goals"), generate a single slide titled "By the end of today..." with 2-3 concrete, plain-language outcomes drawn from the lesson's Desired Results. Write these as things students will *do* or *make* — not academic language. Example: "You'll build a paper prototype and test it with a partner."
 
 ### 5. Homework Slide
 - All homework items with their symbols (📚, ⛳, 🚩)

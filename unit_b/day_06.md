@@ -29,7 +29,7 @@
 ---
 
 ### Assignments Due
-- ⛳ B1 User Flow & Competitive Analysis (should be complete from Day 5)
+- ⛳ B1 User Flow & Competitive Analysis (in progress from Day 5)
 - 📚 Read this article: https://www.figma.com/resource-library/user-flow/
 
 ---
@@ -68,7 +68,7 @@
      - Good: Snapchat's camera-first launch (broke convention, but served core purpose)
      - Bad: Non-standard confirmation dialogs that confuse users
    - Rule of thumb: Break conventions only when the benefit clearly outweighs the learning cost
-   - Ask: In your app, are you tempted to break any conventions? Why?
+   - Ask: For the feature you're adding, are you tempted to break any conventions? Why?
 
 4. **Direct Instruction: Task Flows vs. User Flows** (10 min) `[K3]`
    - **I do:** Introduce the pancake analogy (Erika Harano):
@@ -81,7 +81,7 @@
        - Shows a *specific persona's perspective*—including decision points, errors, and alternate paths
        - Use to catch dead ends, gaps, and edge cases
    - Key insight: Task flows can be *embedded within* larger user flows
-   - **You do:** For your B2 deliverable, you're creating a *task diagram* (task flow)—the ideal path through your redesigned feature
+   - **You do:** For your B2 deliverable, you're creating two *task diagrams*—the existing app flow and a modified flow showing your new feature added. Use color or a visual separator to demarcate the new feature from the original
 
 5. **Hands-On: Paper Prototyping Workshop** (30 min) `[S1, S2, K3]`
 
@@ -94,8 +94,8 @@
    - Show what "just enough detail" looks like
 
    **Practice: Sketch your first screens** (15 min)
-   - **You do:** Create paper screens for your primary redesigned flow
-   - Start with 3-5 screens covering your main improvement
+   - **You do:** Create paper screens showing your new feature integrated into the existing app
+   - Start with 3-5 screens covering your new feature
    - Think about: What conventions from Part B apply to your platform?
 
    **Quick test in pairs** (5 min)
@@ -104,21 +104,28 @@
    - Designer: Flip to the next screen, narrate what happens
    - Note where testers get confused
 
-6. **Work Session: B2 Deliverables** (remaining ~100 min) `[EQ1, EQ2, U1, U2, S1, S2, K3]`
+6. **Work Session: B1 Completion, B2a, & B2 Start** (remaining ~100 min) `[EQ1, EQ2, U1, U2, S1, S2, K3]`
 
-   **What you're creating:**
-   - **Paper Prototype V1:** Your redesigned screens on paper (5-6 screens for main feature, 3-4 for side features)
-   - **User Task Diagram:** Map showing every step users take to complete their goal
-   - **At least 1 usability test** with someone outside class (not a classmate)
+   **What you're working on (in order of priority):**
+   1. **Finish B1** — Complete User Flow & Competitive Analysis if not done (due end of class, PDF to Learning Suite)
+   2. **B2a Competitive Analysis Matrix** — Polish your competitive analysis matrix in Illustrator or Figma, following the format shown in class (due end of class, PDF to Learning Suite)
+   3. **Start B2 Paper Prototype + User Task Diagram** — Begin paper prototyping your new feature and creating user task diagrams (due before Day 7)
+      - Paper Prototype: Your new feature screens on paper (5-6 screens for main feature, 3-4 for side features)
+      - User Task Diagrams: Two diagrams — existing app flow and modified flow with your new feature added. Use color or a visual separator to clearly demarcate the new feature from the original
+      - At least 1 usability test with someone outside class (not a classmate) — this can happen after class
 
    **Instructor circulating for 1:1s:**
+   - Is your B1 competitive analysis thorough? Do you have enough competitors?
    - Are your paper screens testable? (Enough detail to "tap through")
-   - Does your redesign apply platform conventions appropriately?
+   - Does your new feature apply platform conventions appropriately?
    - Have you identified where to test your prototype?
 
-   **B2 Due: 11:59pm on Learning Suite**
-   - Paper prototype photos (or scans)
-   - User task diagram
+   **Due end of class:**
+   - B1 User Flow & Competitive Analysis (PDF to Learning Suite)
+   - B2a Competitive Analysis Matrix (PDF to Learning Suite)
+
+   **Due before Day 7:**
+   - B2 Paper Prototype + User Task Diagram (PDF to Learning Suite)
    - Brief notes from your usability test
 
 **Total time:** ~180 minutes
@@ -142,9 +149,9 @@
 ---
 
 ### Homework
-- ⛳ B2 Paper Prototype V1 + User Task Diagram due 11:59pm on Learning Suite
+- ⛳ B2 Paper Prototype + User Task Diagram (due before Day 7 on Learning Suite)
 - Test your paper prototype with at least 1 person outside of class before submitting
-- Bring your paper prototype to Day 7—we'll iterate based on testing
+- Bring your paper prototype to Day 7 — we'll debrief testing and start going digital
 - 📚 Continue familiarizing yourself with your platform's guidelines (iOS HIG or Material Design)
 
 ---

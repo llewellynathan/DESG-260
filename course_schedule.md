@@ -130,14 +130,14 @@ Today's Focus: Understanding why something was designed a certain way is the fir
 - Mapping an existing user flow (screenshots, annotations, actions)
 - Competitive analysis methods
 - Introduction to Project B: Make It Better App
-- B1: User Flow & Competitive Analysis (due end of class)
+- Work session: Begin B1 User Flow & Competitive Analysis (due Day 6 end of class)
 
 **Come to class having done:**
 - 🚩 A. Wayfinding & Icons Due (turn in before class on Learning Suite)
 - 📚 Read Don Norman, *Design of Everyday Things*, Ch. 1
 
 **Assignments due before next class:**
-- ⛳ B1 User Flow & Competitive Analysis (if not finished in class, due by 11:59pm)
+- ⛳ Continue B1 User Flow & Competitive Analysis (due Day 6 end of class)
 - Purchase index cards before Day 6
 
 → [Lesson Plan](unit_b/day_05.md)
@@ -146,20 +146,24 @@ Today's Focus: Understanding why something was designed a certain way is the fir
 
 ### Day 6 — Wednesday, Jan 28
 **Unit B: Make It Better App**
-Today's Focus: Platform conventions exist because users expect them—breaking them has real costs.
+Today's Focus: Platform conventions exist because users expect them — breaking them has real costs.
 
 **In class:**
 - Platform conventions workshop (iOS HIG vs. Material Design)
 - Task flows vs. user flows (pancake analogy)
 - Paper prototyping techniques and practice
-- Work session: B2 Paper Prototype V1 + User Task Diagram
+- Work session: Complete B1, polish B2a Competitive Analysis Matrix, begin B2 Paper Prototype
 
 **Come to class having done:**
-- ⛳ B1 User Flow & Competitive Analysis (should be complete from Day 5)
+- ⛳ B1 User Flow & Competitive Analysis (in progress from Day 5)
 - Bring index cards
 
+**Assignments due end of class:**
+- ⛳ B1 User Flow & Competitive Analysis (PDF to Learning Suite)
+- ⛳ B2a Competitive Analysis Matrix — polished version in Illustrator or Figma (PDF to Learning Suite)
+
 **Assignments due before next class:**
-- ⛳ B2 Paper Prototype V1 + User Task Diagram (due 11:59pm on Learning Suite)
+- ⛳ B2 Paper Prototype + User Task Diagram (due before Day 7 on Learning Suite)
 - Test paper prototype with at least 1 person outside class
 
 → [Lesson Plan](unit_b/day_06.md)
@@ -168,26 +172,25 @@ Today's Focus: Platform conventions exist because users expect them—breaking t
 
 ### Day 7 — Monday, Feb 2
 **Unit B: Make It Better App**
-Today's Focus: Usability testing reveals problems designers cannot see on their own.
+Today's Focus: AI tools can accelerate rendering, but only if you've done the hard work of forming intent first.
 
 **In class:**
 - Testing debrief: What surprised you from usability testing?
-- Design for Many vs. Design for One—specific users lead to better designs
-- UX Mapping methods (empathy maps, journey maps, experience maps, service blueprints)
-- Personas vs. market segments
-- Figma prototyping demo and shortcuts
-- Work session: Iterate on paper prototype, begin Figma
+- AI prototyping tools: Figma Make, v0, Lovable, Play
+- Using AI to write better prompts for prototyping tools
+- AI limitations: evaluating AI output against platform conventions and design intent
+- Figma prototyping demo and shortcuts (with Figma Make integration)
+- Work session: Begin digital prototype (B3)
 
 **Come to class having done:**
-- ⛳ B2 Paper Prototype V1 + User Task Diagram
+- ⛳ B2 Paper Prototype + User Task Diagram
 - Tested paper prototype with at least 1 person outside class
 
 **Assignments due before next class:**
-- ⛳ B3 Paper Prototype V2 with testing notes (due on Learning Suite)
-- Continue building digital prototype
+- ⛳ B3 Digital Prototype + User Testing Round 2 (due before Day 8 on Learning Suite)
 
 **Resources:**
-- UX Mapping (4 types): https://www.nngroup.com/articles/ux-mapping-cheat-sheet/
+- Figma Make (AI features): https://www.figma.com/ai/
 
 → [Lesson Plan](unit_b/day_07.md)
 
@@ -195,24 +198,26 @@ Today's Focus: Usability testing reveals problems designers cannot see on their 
 
 ### Day 8 — Wednesday, Feb 4
 **Unit B: Make It Better App**
-Today's Focus: The design process is iterative—discovery, definition, development, and delivery overlap.
+Today's Focus: The design process is iterative — discovery, definition, development, and delivery overlap.
 
 **In class:**
-- Rough Digital Prototype check-in
+- B3 Digital Prototype check-in and gallery walk
+- Documentation walkthrough: six required sections of B4
 - Work session with 1:1 meetings
-- Troubleshooting and refinement
+- Prototype refinement and documentation assembly
 
 **Come to class having done:**
-- ⛳ B3 Paper Prototype V2 with testing notes
-- Rough digital prototype in progress
+- ⛳ B3 Digital Prototype + User Testing Round 2
 
 **Assignments due before next class:**
-- 🚩 B. Make It Better App Due (before Day 9 on Learning Suite)
+- 🚩 B4 The Final New Feature — Complete Documentation PDF (before Day 9 on Learning Suite)
 - 📚 Read "The Web's Grain"
 
 **Resources:**
 - File types and what they're good for (feat. The Noun Project)
 - Figma: Organizing with Pages
+
+→ [Lesson Plan](unit_b/day_08.md)
 
 ---
 
