@@ -49,6 +49,7 @@ A well-designed **documentation PDF** that includes the components below. Most o
     - Show the finished design in all of its glory (include device mock-up)
     - Should be indistinguishable from Apple or Google default apps
     - Include annotations about features or careful design decisions
+    - **Must be designed in Figma without AI tools** (you may use AI for earlier prototypes, but the final must be your own work)
 
 
 ## B1 User Flow & Competitive Analysis
@@ -86,7 +87,7 @@ Turn in to Learning Suite (due before Day 7)
 
 Translate your paper prototype into a digital prototype and test it with real users.
 
-**Digital Prototype:** Build your new feature as an interactive Figma prototype. Match the existing app's design language (typography, spacing, color, interaction patterns). Include enough screens to demonstrate the complete new feature flow.
+**Digital Prototype:** Build your new feature as an interactive Figma prototype. You are welcome to use AI tools (Figma Make, v0, Lovable, Play, etc.) to generate your initial digital prototype. Match the existing app's design language (typography, spacing, color, interaction patterns). Include enough screens to demonstrate the complete new feature flow.
 
 **User Testing:** Test your digital prototype with at least 2 people (not classmates). Document what worked, what confused users, and what you plan to change.
 
@@ -119,6 +120,7 @@ Turn in to Learning Suite (due before Day 8)
     - Show the finished design in all of its glory (include device mock-up)
     - Should be indistinguishable from Apple or Google default apps
     - Include annotations about features or careful design decisions
+    - **Must be designed in Figma without AI tools** (you may use AI for earlier prototypes, but the final must be your own work)
 
 Due: Day 9 (Monday, Feb 9) before class on Learning Suite
 

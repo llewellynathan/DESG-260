@@ -83,7 +83,8 @@
      - Interactions that look plausible but don't follow platform norms
      - Over-reliance: accepting AI output without evaluating against your tested design
    - Rule of thumb: AI output is a *starting point for refinement*, not a finished deliverable
-   - Ask: What parts of your B4 deliverable could AI help with? What parts require your judgment?
+   - **Important policy:** You may use AI tools freely for your B3 digital prototype, but your final B4 high-fidelity prototype must be designed in Figma without AI. B3 is where you learn what AI can do; B4 is where you prove what *you* can do.
+   - Ask: What can you learn from AI-generated output that will help you build better screens yourself?
 
 4. **Figma Prototyping Demo** (20 min) `[K3, S3, S2]`
    - **I do:** Essential Figma prototyping techniques
@@ -100,7 +101,7 @@
      - Hold `Opt/Alt` while dragging to duplicate
      - `Shift + A` for auto layout
    - **We do:** Build a simple 2-screen prototype together
-   - Reminder: Your final deliverable needs a high-fidelity prototype showing your new feature integrated into the app. Whether you use AI tools, pure Figma, or a combination—the result must be indistinguishable from the native app.
+   - Reminder: AI tools are great for getting your B3 digital prototype started quickly, but **your final B4 high-fidelity prototype must be designed in Figma without AI tools.** Use B3 to learn and explore with AI; use B4 to demonstrate your own craft. The result must be indistinguishable from the native app.
 
 5. **Work Session: B3 Digital Prototype** (remaining ~60 min) `[EQ1, EQ2, U1, U2, U3, S1, S2, S3]`
 
@@ -111,7 +112,7 @@
      - If designing for iOS, explore Play for native-feeling prototypes
      - Or build from scratch in Figma — whatever approach gets you to high fidelity fastest
    - **User Testing (Round 2):** Test your digital prototype with at least 2 people (not classmates)
-   - **If you used an AI tool:** Check every screen against your paper prototype and platform conventions. What did it get right? What needs fixing?
+   - **If you used an AI tool:** Check every screen against your paper prototype and platform conventions. What did it get right? What needs fixing? Remember: AI is allowed for B3, but your final B4 prototype must be built in Figma without AI.
 
    **Instructor circulating for 1:1s:**
    - Did your paper prototype testing reveal genuine usability issues?

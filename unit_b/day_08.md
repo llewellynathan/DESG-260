@@ -70,13 +70,14 @@
 5. **Work Session with 1:1 Meetings** (remaining ~130 min) `[EQ1, EQ2, U1, U2, U3, S1, S2, S3]`
 
    **What you're working on:**
-   - **Refine digital prototype:** Polish interactions, match native design language, fix issues from testing
+   - **Build final high-fidelity prototype in Figma (no AI tools):** Polish interactions, match native design language, fix issues from testing. Your B4 prototype must be your own Figma work — use what you learned from AI in B3, but build this one yourself.
    - **Begin documentation PDF:** Start assembling your B1-B3 deliverables into the six-section format
    - **Add annotations:** Explain your design decisions on the high-fidelity screens
    - **Device mock-ups:** Place final screens into device mock-ups
 
    **Instructor circulating for 1:1s:**
    - Does your prototype feel native to the platform?
+   - Are you building your final prototype in Figma without AI tools?
    - What feedback from testing did you act on? What did you decide not to change, and why?
    - Is your documentation telling a clear story of your design process?
    - Are all six sections accounted for?
