@@ -20,7 +20,7 @@ Generate a slide-by-slide presentation outline for Day $ARGUMENTS of DESG 260.
 
 ## Slide Structure Rules
 
-**Key principle:** The Warm-Up is the first thing students see when entering class. Title and preview come after, then remaining activities follow.
+**Key principle:** The Warm-Up is the first thing students see when entering class. Prayer follows, then title, preview, and remaining activities. Target **12–16 slides** for a typical class session — prefer fewer, denser slides over many sparse ones.
 
 Generate slides in this order:
 
@@ -29,34 +29,69 @@ Generate slides in this order:
 - This is what students see immediately when they enter — they can start working right away
 - Include the activity name and instructions
 
-### 2. Title Slide
-- Day number, weekday, and date
-- Unit letter and name
-- **Big Idea:** A single memorable statement that connects all of the day's activities into one theme. Synthesize from the full lesson — not just the Focus section. It should feel like the thread running through everything students do that day.
+### 2. Prayer Slide
+- Always include a Prayer slide after the warm-up
+- Title: "Prayer"
+- Content: Placeholder text (e.g., "[Name], will you pray for us today?")
 
-### 3. Today's Activities Slide
-- **Today:** List the main activities in order, separated by arrows (→)
+### 3. Title Slide
+- Unit letter and name only (large, centered)
+- **Big Idea** as subtitle: A single memorable statement that connects all of the day's activities into one theme. Synthesize from the full lesson — not just the Focus section. It should feel like the thread running through everything students do that day.
+- Do NOT include the day number, weekday, or date on this slide
+
+### 4. Today Slide
+- Title: **Today**
+- List the main activities as a **bullet list** (not arrows)
 - This previews what the class will cover
 
-### 4. Activity Slides
-For each activity in the lesson plan (starting from Activity 2, since Warm-Up is Slide 1), create slides based on its content:
+### 5. "By the end of today..." Slide
+- If a learning goals activity exists in the lesson plan, generate this slide
+- Use **named categories** — each learning goal gets a short bold label (2-3 words) and a plain-language description
+- Draw from the lesson's Desired Results, but write as things students will *do* or *make* — not academic language
+- Format each as: **Label** — Description
+- Example:
+  - **AI Tools** — You'll know the current landscape of AI prototyping tools and what each is good (and bad) at
+  - **Digital prototyping** — You'll start translating your paper prototype into an interactive digital prototype in Figma
+  - **AI Policy** — You'll understand the B3/B4 AI policy: AI is welcome for B3, but B4 must be your own Figma work
 
-**Simple activity** (1 slide): Activity has ≤3 bullet points, no sub-lists, no discussion prompts
-- Single slide with activity name, time, and brief description
+### 6. Activity Slides
+For each activity in the lesson plan (starting from Activity 2, since Warm-Up is Slide 1), create slides based on its content.
 
-**Complex activity** (multiple slides): Activity has setup instructions, multi-step processes, OR discussion/debrief prompts
-- **Activity Title slide**: Name and time only
-- **Content slides**: Break down the activity's bullet points into logical slides
-- **Discussion slide** (if has discussion prompts): Questions for class discussion
-- **Reveal slide** (if instructor shares a definition or answer after discussion): The instructor's key point
+**Consolidation rule:** Prefer merging related concepts into a single slide rather than splitting every sub-point. If two consecutive content points support the same idea, combine them. Aim for roughly 1 slide per major idea.
 
-**"By the end of today..." slide:** If an activity references learning goals or objectives (e.g., "Today's Learning Goals"), generate a single slide titled "By the end of today..." with 2-3 concrete, plain-language outcomes drawn from the lesson's Desired Results. Write these as things students will *do* or *make* — not academic language. Example: "You'll build a paper prototype and test it with a partner."
+**Activity section header** (for major activities like lectures or demos):
+- Activity name as title
+- Optional subtitle synthesized from the activity's theme (e.g., "The good, the bad, and the ugly")
+- Use subtitles when the activity has a clear angle or framing beyond its name
 
-### 5. Homework Slide
-- All homework items with their symbols (📚, ⛳, 🚩)
+**Content slides:**
+- Break down the activity into logical slides based on distinct ideas
+- Keep bullet points concise — these are slide prompts, not full scripts
 
-### 6. Resources Slide (if resources exist)
-- Links and references from the Resources section
+**Hands-on exercise slides:** When an activity involves students doing something (not just listening), generate a slide with **numbered step-by-step instructions** rather than summary bullets. Structure as "do this" instructions.
+- Example: "1. Go to Figma Make  2. Describe an app you want to make, keep it simple  3. Submit your prompt"
+
+**Instructor cues and discussion prompts:** Do NOT create separate discussion slides. Instead, include discussion questions and instructor prompts as **blockquotes** within content slides:
+```
+> What are you noticing in the prototype it made for you?
+```
+These serve as prompts for the instructor to facilitate discussion — they are not standalone slides.
+
+**Reveal/key takeaway:** If the instructor shares a definition or answer after discussion, include it on the same content slide (or as a follow-up content slide if the reveal is substantial). Use bold for emphasis.
+
+### 7. "Next Up" Slide
+- Replaces separate work session, homework, and due date slides
+- Title: **Next up**
+- Combine into a single slide:
+  - What students are working on during the work session
+  - Key reminders and tips
+  - Homework items (plain text, no emoji prefixes)
+  - Due dates
+- Only split into multiple slides if the combined content is genuinely too dense for one slide (4+ distinct homework items AND work session instructions)
+
+### 8. Resources Slide (only if needed)
+- Only include a Resources slide if there are specific tools or links students need to access during class
+- If resources are just reference material, skip this slide — students can find them in the lesson plan
 
 ## Output Format
 
@@ -69,29 +104,55 @@ Use this exact markdown format with `---` as slide separators:
 ---
 
 ### Slide 1: Warm-Up
-**Warm-Up: [Specific Activity]** (10 min)
+**Warm-Up: [Specific Activity]** (X min)
 - [Instruction 1]
 - [Instruction 2]
 - [Instruction 3]
 
 ---
 
-### Slide 2: Title
-**Day X — [Weekday], [Date]**
-Unit [Letter]: [Name]
-
-**Big Idea:** [Single memorable takeaway from Focus section]
+### Slide 2: Prayer
+**Prayer**
+[Name], will you pray for us today?
 
 ---
 
-### Slide 3: Today's Activities
-**Today:** [Activity 2] → [Activity 3] → [Activity 4] → ...
+### Slide 3: Title
+**Unit [Letter]: [Name]**
+[Big Idea as subtitle]
 
 ---
 
-### Slide 4: [Activity 2 Name]
-**[Activity Name]** ([X] min)
-[Activity content...]
+### Slide 4: Today
+**Today**
+- [Activity name]
+- [Activity name]
+- [Activity name]
+- [Activity name]
+
+---
+
+### Slide 5: By the end of today...
+**[Label 1]** — [Plain-language description]
+
+**[Label 2]** — [Plain-language description]
+
+**[Label 3]** — [Plain-language description]
+
+---
+
+### Slide 6: [Activity Section Header]
+**[Activity Name]**
+[Optional subtitle]
+
+---
+
+### Slide 7: [Content]
+**[Concept or topic]**
+- [Point 1]
+- [Point 2]
+
+> [Instructor cue or discussion prompt]
 
 ---
 
@@ -99,16 +160,13 @@ Unit [Letter]: [Name]
 
 ---
 
-### Slide N: Homework
-- 📚 [Reading]
-- ⛳ [Checkpoint]
-- 🚩 [Major assignment]
+### Slide N: Next Up
+**Next up**
+- [Work session task and details]
+- [Key reminders]
+- [Homework item 1] (due [when])
+- [Homework item 2]
 
----
-
-### Slide N+1: Resources
-- [Resource 1]
-- [Resource 2]
 ```
 
 ## Save Output
@@ -128,6 +186,7 @@ Examples:
 - Number slides sequentially (Slide 1, Slide 2, etc.)
 - Remove alignment codes like `[EQ1, U2]` from activity names
 - Keep bullet points concise — these are slide prompts, not full scripts
-- Discussion prompts should be framed as questions students will discuss
-- Include instructor definitions/answers on separate "reveal" slides after discussion prompts
-- Total slide count will vary based on activity complexity
+- Target 12–16 slides total — consolidate aggressively
+- Discussion prompts use blockquote format (`>`) within content slides, not separate slides
+- No emoji prefixes on slides (emojis stay in lesson plans only)
+- Hands-on activities use numbered instructions, not summary bullets

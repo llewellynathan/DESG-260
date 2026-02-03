@@ -12,12 +12,29 @@
       "WebFetch(domain:theheroplace.com)",
       "WebFetch(domain:venngage.com)",
       "Skill(slides)",
+      "Skill(slides-html)",
       "WebFetch(domain:www.figma.com)",
       "WebFetch(domain:help.figma.com)",
       "WebFetch(domain:medium.com)",
       "WebFetch(domain:productschool.com)",
       "WebFetch(domain:designcode.io)",
-      "WebFetch(domain:createwithplay.com)"
+      "WebFetch(domain:createwithplay.com)",
+      "Bash(open:*)",
+      "Bash(gh repo create:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)",
+      "Bash(gh api:*)",
+      "Bash(gh repo list:*)",
+      "WebFetch(domain:llewellynathan.github.io)",
+      "Bash(git -C /Users/nathanllewellyn/Projects/DESG-260-slides add .nojekyll)",
+      "Bash(git -C /Users/nathanllewellyn/Projects/DESG-260-slides commit -m \"$\\(cat <<''EOF''\nchore: add .nojekyll to fix Pages build\n\nThe legacy Jekyll builder was getting stuck. This file tells GitHub\nPages to serve files directly without Jekyll processing.\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\nEOF\n\\)\")",
+      "Bash(git -C /Users/nathanllewellyn/Projects/DESG-260-slides push)",
+      "Bash(git -C /Users/nathanllewellyn/Projects/DESG-260-slides add:*)",
+      "Bash(git -C /Users/nathanllewellyn/Projects/DESG-260-slides commit -m \"$\\(cat <<''EOF''\nchore: add GitHub Actions workflow for Pages deployment\n\nSwitch from legacy Jekyll builder \\(which was stuck\\) to the modern\nGitHub Actions deployment pipeline using upload-pages-artifact.\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\nEOF\n\\)\")",
+      "Bash(gh -R llewellynathan/DESG-260-slides run list --limit 3)",
+      "Bash(gh -R llewellynathan/DESG-260-slides run view:*)",
+      "Bash(gh -R llewellynathan/DESG-260-slides run rerun 21608068094)"
     ]
   }
 }
