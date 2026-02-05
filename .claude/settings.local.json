@@ -34,7 +34,9 @@
       "Bash(git -C /Users/nathanllewellyn/Projects/DESG-260-slides commit -m \"$\\(cat <<''EOF''\nchore: add GitHub Actions workflow for Pages deployment\n\nSwitch from legacy Jekyll builder \\(which was stuck\\) to the modern\nGitHub Actions deployment pipeline using upload-pages-artifact.\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\nEOF\n\\)\")",
       "Bash(gh -R llewellynathan/DESG-260-slides run list --limit 3)",
       "Bash(gh -R llewellynathan/DESG-260-slides run view:*)",
-      "Bash(gh -R llewellynathan/DESG-260-slides run rerun 21608068094)"
+      "Bash(gh -R llewellynathan/DESG-260-slides run rerun 21608068094)",
+      "Bash(git ls-tree:*)",
+      "Bash(git fetch:*)"
     ]
   }
 }
