@@ -1,0 +1,123 @@
+# Day 11 — Tuesday, Feb 17
+## Unit C: Hierarchy & Responsive Web
+
+**Focus:** Grids are invisible scaffolding — they create consistency and speed up every design decision.
+
+**Targeted Learning Outcomes:**
+- Better Interactions & Experiences
+- Critical Analysis of Form and Format
+- Design Strategy
+
+---
+
+### Desired Results
+
+**Essential Questions:**
+- EQ1: How do grids enable both consistency and flexibility?
+- EQ2: What's the difference between designing for mobile-first vs. desktop-first?
+- EQ3: How do constraints (like grid systems) actually speed up design decisions?
+
+**Understandings:**
+- U1: Grids create consistency and enable faster, more confident design decisions
+- U2: Responsive design requires thinking in systems, not fixed layouts
+- U3: The same content can be arranged differently across breakpoints while maintaining coherence
+
+**Students Will Know:**
+- K1: How to set up and use layout grids in Figma (columns, margins, gutters)
+- K2: Common grid patterns for mobile and desktop (4-column mobile, 12-column desktop)
+- K3: How content reflows between breakpoints
+
+**Students Will Be Able To:**
+- S1: Create responsive frames in Figma with proper grid setup
+- S2: Design a layout that works across mobile and desktop breakpoints
+- S3: Align elements consistently using grid and auto-layout
+
+---
+
+### Assignments Due
+- ⛳ C2: Type Hierarchy (due before class)
+- PDP rough wireframes (paper or digital sketches)
+
+---
+
+### Activities
+
+1. **Warm-Up: Grid Detective** (10 min) `[EQ1, U1, K2]`
+   - Prompt on screen: "Open a well-designed website. Can you find the grid? How many columns? Where are the margins?"
+   - Students screenshot and annotate with grid overlay guesses
+   - Quick share: 2-3 examples — what patterns emerge?
+
+2. **Today's Learning Goals** (5 min) `[EQ1, EQ2, EQ3, U1, U2, U3]`
+   - Today we're adding structure to your PDP: grids and responsive frames
+   - Connection to forming/rendering: grids are how we *render* consistency — they're the invisible system that makes designs feel intentional
+   - By end of class: your PDP will have proper grid setup for both mobile and desktop
+
+3. **Direct Instruction: Grid Systems in Figma** (25 min) `[K1, K2, K3, U1, U2, S1, S3]`
+   - **I do:** Explain grid fundamentals
+     - Why grids? Alignment, consistency, faster decisions
+     - Anatomy: columns, gutters, margins
+     - Common patterns: 4-column mobile, 12-column desktop
+     - Vignelli's perspective: "The grid is an attitude"
+   - **I do:** Demo setting up grids in Figma
+     - Create desktop frame (1440px) with 12-column grid
+     - Create mobile frame (375px) with 4-column grid
+     - Show how same content aligns to different grids
+   - **We do:** Together, place a product card on both grids
+     - Desktop: card spans 4 columns
+     - Mobile: card spans full width
+     - Discuss: what changed? What stayed the same?
+   - **You do:** Students set up grids on their own PDP frames (5 min)
+
+4. **Introduce C3: Mobile + Desktop Wireframes** (10 min) `[S2, U2, U3]`
+   - **Due: Wed, Feb 18 @ 11:59pm**
+   - Requirements:
+     - Simple wireframes for both mobile and desktop PDP
+     - Show: product title + details, image placements, button placements, page layout
+     - Focus on structure, not visual polish
+   - These wireframes become the foundation for high-fidelity work
+   - Reminder: same content, different arrangement — let the grid guide you
+
+5. **Work Session: Grid Setup + Wireframes** (70 min) `[S1, S2, S3, EQ2, EQ3]`
+   - **Priority 1:** Set up Figma frames with proper grids (mobile + desktop)
+   - **Priority 2:** Complete C3 wireframes (due Wed @ 11:59pm)
+   - **Priority 3:** Begin placing content from C1 into wireframe structure
+   - Instructor circulates for 1:1 feedback:
+     - Are grids set up correctly? (columns, margins, gutters)
+     - Does content align to the grid?
+     - Does the mobile layout make sense for thumb-zone navigation?
+     - Is the hierarchy clear in the wireframe?
+
+**Total: 120 min** (Monday schedule on Tuesday due to Presidents' Day)
+
+---
+
+### Homework
+- Continue C3: Mobile + Desktop Wireframes (due Wed, Feb 18 @ 11:59pm)
+- Begin high-fidelity PDP designs
+
+---
+
+### Resources
+- Vignelli Canon: Grids (p. 40 of PDF)
+- Using grids in Figma: YouTube tutorial
+- Figma: Layout Grids documentation
+- The Enneagram: https://www.enneagraminstitute.com/type-descriptions
+
+---
+
+### Alignment Check
+
+| Code | Desired Result | Activities |
+|------|----------------|------------|
+| EQ1 | How do grids enable consistency and flexibility? | 1, 2, 3 |
+| EQ2 | Mobile-first vs. desktop-first? | 2, 5 |
+| EQ3 | How do constraints speed up decisions? | 2, 3, 5 |
+| U1 | Grids create consistency | 1, 3 |
+| U2 | Responsive = thinking in systems | 3, 4 |
+| U3 | Same content, different arrangement | 3, 4 |
+| K1 | Layout grids in Figma | 3 |
+| K2 | Common grid patterns | 1, 3 |
+| K3 | Content reflow between breakpoints | 3 |
+| S1 | Create responsive frames with grids | 3, 5 |
+| S2 | Design for mobile and desktop | 4, 5 |
+| S3 | Align elements using grid | 3, 5 |

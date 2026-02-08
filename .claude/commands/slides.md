@@ -12,9 +12,9 @@ Generate a slide-by-slide presentation outline for Day $ARGUMENTS of DESG 260.
 1. **Determine the unit folder based on day number:**
    - Days 1-4 → `unit_a/`
    - Days 5-8 → `unit_b/`
-   - Days 9-13 → `unit_c/`
-   - Days 14-24 → `unit_d/`
-   - Days 25-27 → `unit_e/`
+   - Days 9-14 → `unit_c/`
+   - Days 15-25 → `unit_d/`
+   - Days 26-28 → `unit_e/`
 
 2. **Read the lesson plan file** at `unit_X/day_XX.md` (use two-digit format)
 

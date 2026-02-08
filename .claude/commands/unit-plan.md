@@ -16,9 +16,9 @@ Generate the foundational files for Unit $ARGUMENTS of DESG 260.
 ## Unit Boundaries
 - Unit A: Days 1-4
 - Unit B: Days 5-8
-- Unit C: Days 9-13
-- Unit D: Days 14-24
-- Unit E: Days 25-27
+- Unit C: Days 9-14
+- Unit D: Days 15-25
+- Unit E: Days 26-28
 
 ## What to Generate
 

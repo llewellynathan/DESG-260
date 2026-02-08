@@ -4,7 +4,7 @@
 - **Course:** DESG 260: Interface & Usability (User Experience 1)
 - **Institution:** BYU
 - **Semester:** Winter 2026
-- **Class sessions:** 27 (Mon & Wed)
+- **Class sessions:** 28 (Mon & Wed)
 
 ## Class Timing
 
@@ -100,9 +100,9 @@ Each lesson plan follows this structure:
 |------|---------|------|-------|
 | A | Wayfinding Map & Icons | 1-4 | Journeys, Destinations, Touchpoints |
 | B | Make It Better App | 5-8 | Product Design, Conventions |
-| C | Hierarchy/Responsive Web | 9-13 | Responsive, Online, Mobile |
-| D | Neue App (Capstone) | 14-24 | Problem Seeking, Beautiful & Functional |
-| E | Documentation | 25-27 | Storytelling, Case Studies |
+| C | Hierarchy/Responsive Web | 9-14 | Responsive, Online, Mobile |
+| D | Neue App (Capstone) | 15-25 | Problem Seeking, Beautiful & Functional |
+| E | Documentation | 26-28 | Storytelling, Case Studies |
 
 ## Seven Learning Outcomes
 

@@ -36,7 +36,8 @@
       "Bash(gh -R llewellynathan/DESG-260-slides run view:*)",
       "Bash(gh -R llewellynathan/DESG-260-slides run rerun 21608068094)",
       "Bash(git ls-tree:*)",
-      "Bash(git fetch:*)"
+      "Bash(git fetch:*)",
+      "Skill(unit-plan)"
     ]
   }
 }

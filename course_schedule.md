@@ -3,7 +3,7 @@
 **Class meets:** Monday & Wednesday
 **First class:** Wednesday, January 7, 2026
 **Last class:** Wednesday, April 15, 2026
-**Total class sessions:** 27
+**Total class sessions:** 28
 
 **Legend:**
 - ⛳ = Checkpoint (minor, in-class or sharing online)
@@ -21,6 +21,7 @@
 
 ### Day 1 — Wed, Jan 7
 **Unit A: Wayfinding Map & Icons**
+
 Today's Focus: What is design? Forming vs. rendering intent.
 
 **In class:**
@@ -42,6 +43,7 @@ Today's Focus: What is design? Forming vs. rendering intent.
 
 ### Day 2 — Monday, Jan 12
 **Unit A: Wayfinding Map & Icons**
+
 Today's Focus: Empathy, feedback loops, and testing as design activities.
 
 **In class:**
@@ -67,6 +69,7 @@ Today's Focus: Empathy, feedback loops, and testing as design activities.
 
 ### Day 3 — Wednesday, Jan 14
 **Unit A: Wayfinding**
+
 Today's Focus: How do designers create visual consistency across a system of icons?
 
 **In class:**
@@ -97,6 +100,7 @@ Today's Focus: How do designers create visual consistency across a system of ico
 
 ### Day 4 — Wednesday, Jan 21
 **Unit A: Wayfinding**
+
 Today's Focus: How do constraints enable creativity?
 
 **In class:**
@@ -122,6 +126,7 @@ Today's Focus: How do constraints enable creativity?
 
 ### Day 5 — Monday, Jan 26
 **Unit B: Make It Better App**
+
 Today's Focus: Understanding why something was designed a certain way is the first step to improving it.
 
 **In class:**
@@ -146,6 +151,7 @@ Today's Focus: Understanding why something was designed a certain way is the fir
 
 ### Day 6 — Wednesday, Jan 28
 **Unit B: Make It Better App**
+
 Today's Focus: Platform conventions exist because users expect them — breaking them has real costs.
 
 **In class:**
@@ -172,6 +178,7 @@ Today's Focus: Platform conventions exist because users expect them — breaking
 
 ### Day 7 — Monday, Feb 2
 **Unit B: Make It Better App**
+
 Today's Focus: AI tools can accelerate rendering, but only if you've done the hard work of forming intent first.
 
 **In class:**
@@ -198,6 +205,7 @@ Today's Focus: AI tools can accelerate rendering, but only if you've done the ha
 
 ### Day 8 — Wednesday, Feb 4
 **Unit B: Make It Better App**
+
 Today's Focus: The design process is iterative — discovery, definition, development, and delivery overlap.
 
 **In class:**
@@ -225,50 +233,47 @@ Today's Focus: The design process is iterative — discovery, definition, develo
 
 ### Day 9 — Monday, Feb 9
 **Unit C: Hierarchy & Responsive Web**
-Today's Focus: Responsive design is about adapting presentation, not creating separate experiences.
+
+Today's Focus: Responsive design adapts presentation to context — one system, many devices.
 
 **In class:**
-- Design for 100,000 devices; web design: Box model/web structure
-- Documentation storytelling
-- Figma design tools for responsive design
-- Grids
-- Introduce C1 Digital Hierarchy Exercise
+- Warm-up: Compare responsive vs. native experiences
+- Responsive design fundamentals: box model, grids, auto-layout
+- Demo: Setting up responsive grids in Figma
+- Introduce Assignment C: Responsive Product Detail Page
+- Work session: Persona research + content gathering for C1
 
 **Come to class having done:**
 - 🚩 B. Make It Better App Due (turn in before class)
 - 📚 Read "The Web's Grain"
 
 **Assignments due before next class:**
-- Begin C1 Digital Hierarchy Exercise
-- Download VS Code or Brackets
+- ⛳ C1: Persona Sheet + Product Details (due Feb 11 @ 5:15pm)
 
-**Resources:**
-- Responsive layout grids overview
+→ [Lesson Plan](unit_c/day_09.md)
 
 ---
 
 ### Day 10 — Wednesday, Feb 11
 **Unit C: Hierarchy & Responsive Web**
-Today's Focus: Typography is the foundation of interface design—hierarchy, readability, and personality all flow from type choices.
+
+Today's Focus: Typography is structure — hierarchy, readability, and personality all flow from type choices.
 
 **In class:**
-- Structured language and style sheets
-- In-class coding exercise: basic HTML
-- Style sheets (Web, InDesign, Figma)
-- Presentation design
+- Warm-up: Type hierarchy scavenger hunt on real PDPs
+- Typography systems: type scales, Figma text styles
+- Introduce C2: Type Hierarchy
+- Work session: C1 finalization + C2 type stylesheet
 
 **Come to class having done:**
-- C1 progress
-- Character research and student-sourced information
+- ⛳ C1: Persona Sheet + Product Details (due 5:15pm today)
+- Character research and student-sourced product information
 
 **Assignments due before next class:**
+- ⛳ C2: Type Hierarchy (due Feb 17 @ 5:15pm)
 - PDP rough wireframes
-- Continue C1 work
 
-**Resources:**
-- W3 Schools: basic HTML, Images, Different tags
-- Type Scale: https://typescale.com
-- Material Design & Apple type scales
+→ [Lesson Plan](unit_c/day_10.md)
 
 ---
 
@@ -284,83 +289,102 @@ Today's Focus: Typography is the foundation of interface design—hierarchy, rea
 
 ---
 
-### Day 11 — Wednesday, Feb 18
+### Day 11 — Tuesday, Feb 17
 **Unit C: Hierarchy & Responsive Web**
-Today's Focus: Grids and systems create consistency and enable faster, more confident design decisions.
+
+Today's Focus: Grids are invisible scaffolding — they create consistency and speed up every design decision.
 
 **In class:**
-- Typography & Hierarchy
-- Responsive pages in Figma
-- System vs. Brand typography
-- Grid systems
+- Warm-up: Grid detective — find the grid on well-designed sites
+- Grid systems in Figma: columns, gutters, margins
+- Demo: Setting up 12-column desktop and 4-column mobile grids
+- Introduce C3: Mobile + Desktop Wireframes
+- Work session: Grid setup + wireframes
 
 **Come to class having done:**
-- C1 progress (8.5 x 11 Figma Pages)
+- ⛳ C2: Type Hierarchy
+- PDP rough wireframes (paper or digital sketches)
 
 **Assignments due before next class:**
-- Digital PDP webpage rough
-- Stylesheet due
-- 📚 Read: https://speeches.byu.edu/talks/amy-petersen-jensen/some-hopeful-words-on-media-and-agency/
+- Continue C3: Mobile + Desktop Wireframes (due Wed @ 11:59pm)
 
-**Resources:**
-- The Enneagram: https://www.enneagraminstitute.com/type-descriptions
-- Using grids in Figma: YouTube tutorial
-- Vignelli on Grids (p. 40 of PDF)
+→ [Lesson Plan](unit_c/day_11.md)
 
 ---
 
-### Day 12 — Monday, Feb 23
+### Day 12 — Wednesday, Feb 18
 **Unit C: Hierarchy & Responsive Web**
-Today's Focus: Content should drive design decisions; responsive design adapts presentation across contexts.
+
+Today's Focus: Wireframes are thinking tools — they let you solve layout problems before committing to details.
 
 **In class:**
-- Responsive pages in Figma, Type pt.3 (designing for mobile, choosing a typeface)
-- Discussion of Empathy, Attention (and Soul & Presence)
+- Warm-up: Wireframe self-assessment
+- Peer wireframe critique (groups of 3)
+- Responsive layout patterns (stacking, reordering, collapsing)
+- Work session: Wireframe refinement + high-fidelity start
 
 **Come to class having done:**
-- 📚 Read: https://speeches.byu.edu/talks/amy-petersen-jensen/some-hopeful-words-on-media-and-agency/
-- Digital PDP webpage rough
-- Stylesheet
+- ⛳ C2: Type Hierarchy (should be complete)
+- C3: Wireframes in progress
 
 **Assignments due before next class:**
-- Revised digital PDP & Stylesheet
-- ⛳ C2 Digital Roughs Due 11:59pm on Learning Suite
+- ⛳ C3: Mobile + Desktop Wireframes (due tonight @ 11:59pm)
+- 📚 Read: "Some Hopeful Words on Media and Agency" (Amy Petersen Jensen)
 
-**Resources:**
-- Choosing Type: BYU GD Type Library, Fontstand, Adobe Fonts, Google Fonts
-- Bringhurst, *Elements of Typographic Style*, Ch. 6
-- TypeTogether's Guide to Pairing Type
+→ [Lesson Plan](unit_c/day_12.md)
 
 ---
 
-### Day 13 — Wednesday, Feb 25
+### Day 13 — Monday, Feb 23
 **Unit C: Hierarchy & Responsive Web**
-Today's Focus: Good design requires excellence in both forming and rendering—a brilliant idea poorly executed fails.
+
+Today's Focus: Design for the person, not the screen — empathy drives every layout decision.
 
 **In class:**
-- Storytelling & Responsive Pages in Figma
-- Guest discussion on applying to BFA programs (optional)
-- C1 High-resolution PDP page work session
+- Warm-up: Reflection on reading — attention and design
+- Discussion: Empathy, attention, and design ethics
+- Typography for mobile + type pairing strategies
+- Introduce C4: High Fidelity V1 + Testing
+- Work session: High-fidelity PDP + peer feedback round
 
 **Come to class having done:**
-- ⛳ C2 Digital Roughs
-- Revised digital PDP & Stylesheet
+- 📚 Read: "Some Hopeful Words on Media and Agency" (Amy Petersen Jensen)
+- ⛳ C3: Mobile + Desktop Wireframes
 
 **Assignments due before next class:**
-- 🚩 C. Hierarchy & Responsive Web Due at 11:59pm
+- ⛳ C4: High Fidelity V1 + Testing (due tonight @ 11:59pm)
+
+→ [Lesson Plan](unit_c/day_13.md)
+
+---
+
+### Day 14 — Wednesday, Feb 25
+**Unit C: Hierarchy & Responsive Web**
+
+Today's Focus: Final polish — the last 10% of craft work makes the difference between good and great.
+
+**In class:**
+- Warm-up: Final checklist self-review
+- Quick tips: Common polish issues (alignment, spacing, type, responsive)
+- Work session: Final polish + process documentation
+- Guest discussion on BFA programs (optional)
+
+**Come to class having done:**
+- ⛳ C4: High Fidelity V1 + Testing
+
+**Assignments due before next class:**
+- 🚩 C5: Final High Fidelity Designs (due tonight @ 5:15pm)
 - 📚 Read "On Combination Play" and Idea Generation
 
-**Resources:**
-- Variants and Interactive Components (Figma)
-- Fun hover states/web design examples: Rail Park, Dossier, Showcase, Shape Farm
-- Mobbin: great resource for example screens/web pages
+→ [Lesson Plan](unit_c/day_14.md)
 
 ---
 
 ## D. Inform & Delight → Problem Seeking, Product as Beautiful and Functional Interfaces (6 weeks)
 
-### Day 14 — Monday, Mar 2
+### Day 15 — Monday, Mar 2
 **Unit D: Neue App (Capstone)**
+
 Today's Focus: The best design opportunities come from observation and curiosity, not from briefs.
 
 **In class:**
@@ -382,8 +406,9 @@ Today's Focus: The best design opportunities come from observation and curiosity
 
 ---
 
-### Day 15 — Wednesday, Mar 4
+### Day 16 — Wednesday, Mar 4
 **Unit D: Neue App (Capstone)**
+
 Today's Focus: Empathy, curiosity, and humility are essential for forming intent.
 
 **In class:**
@@ -404,8 +429,9 @@ Today's Focus: Empathy, curiosity, and humility are essential for forming intent
 
 ---
 
-### Day 16 — Monday, Mar 9
+### Day 17 — Monday, Mar 9
 **Unit D: Neue App (Capstone)**
+
 Today's Focus: Research and testing are design activities, not separate phases.
 
 **In class:**
@@ -424,8 +450,9 @@ Today's Focus: Research and testing are design activities, not separate phases.
 
 ---
 
-### Day 17 — Wednesday, Mar 11
+### Day 18 — Wednesday, Mar 11
 **Unit D: Neue App (Capstone)**
+
 Today's Focus: Designing for real users requires ongoing research, testing, and humility about our assumptions.
 
 **In class:**
@@ -444,8 +471,9 @@ Today's Focus: Designing for real users requires ongoing research, testing, and 
 
 ---
 
-### Day 18 — Monday, Mar 16
+### Day 19 — Monday, Mar 16
 **Unit D: Neue App (Capstone)**
+
 Today's Focus: Personas, journey maps, and user flows must be grounded in real data.
 
 **In class:**
@@ -463,12 +491,13 @@ Today's Focus: Personas, journey maps, and user flows must be grounded in real d
 - In-depth User Persona due
 - 📚 Read Lupton, *Design Is Storytelling*, p.36–42 (Storyboards and Rules of Threes)
 - Draft Observational/Emotional Journey Map
-- Brand Audit due at beginning of Day 19
+- Brand Audit due at beginning of Day 20
 
 ---
 
-### Day 19 — Wednesday, Mar 18
+### Day 20 — Wednesday, Mar 18
 **Unit D: Neue App (Capstone)**
+
 Today's Focus: A product's visual identity is not separate from its usability—they work together.
 
 **In class:**
@@ -497,8 +526,9 @@ Today's Focus: A product's visual identity is not separate from its usability—
 
 ---
 
-### Day 20 — Monday, Mar 23
+### Day 21 — Monday, Mar 23
 **Unit D: Neue App (Capstone)**
+
 Today's Focus: Good defaults vs. dark patterns—design serves human flourishing.
 
 **In class:**
@@ -522,8 +552,9 @@ Today's Focus: Good defaults vs. dark patterns—design serves human flourishing
 
 ---
 
-### Day 21 — Wednesday, Mar 25
+### Day 22 — Wednesday, Mar 25
 **Unit D: Neue App (Capstone)**
+
 Today's Focus: Good design requires excellence in both forming and rendering.
 
 **In class:**
@@ -543,8 +574,9 @@ Today's Focus: Good design requires excellence in both forming and rendering.
 
 ---
 
-### Day 22 — Monday, Mar 30
+### Day 23 — Monday, Mar 30
 **Unit D: Neue App (Capstone)**
+
 Today's Focus: Users bring mental models shaped by prior experience—leverage existing expectations thoughtfully.
 
 **In class:**
@@ -571,8 +603,9 @@ Today's Focus: Users bring mental models shaped by prior experience—leverage e
 
 ---
 
-### Day 23 — Wednesday, Apr 1
+### Day 24 — Wednesday, Apr 1
 **Unit D: Neue App (Capstone)**
+
 Today's Focus: Branding, type, and color create product identity.
 
 **In class:**
@@ -600,8 +633,9 @@ Today's Focus: Branding, type, and color create product identity.
 
 ---
 
-### Day 24 — Monday, Apr 6
+### Day 25 — Monday, Apr 6
 **Unit D: Neue App (Capstone)**
+
 Today's Focus: Accessibility requirements and inclusive design lead to better solutions for everyone.
 
 **In class:**
@@ -626,8 +660,9 @@ Today's Focus: Accessibility requirements and inclusive design lead to better so
 
 ## E. Thinking Made Visible → Storytelling of Thoughts; Documentation, Case Studies (2 weeks)
 
-### Day 25 — Wednesday, Apr 8
+### Day 26 — Wednesday, Apr 8
 **Unit E: Documentation & Case Studies**
+
 Today's Focus: Documentation and storytelling are essential design skills—a great product poorly communicated will not succeed.
 
 **In class:**
@@ -648,8 +683,9 @@ Today's Focus: Documentation and storytelling are essential design skills—a gr
 
 ---
 
-### Day 26 — Monday, Apr 13
+### Day 27 — Monday, Apr 13
 **Unit E: Documentation & Case Studies**
+
 Today's Focus: Storytelling and presenting within constraints.
 
 **In class:**
@@ -672,11 +708,12 @@ Today's Focus: Storytelling and presenting within constraints.
 
 ---
 
-### Day 27 — Wednesday, Apr 15
+### Day 28 — Wednesday, Apr 15
 **Unit E: Documentation & Case Studies**
+
 Today's Focus: Good design requires excellence in both forming and rendering—the capstone demonstrates the full cycle.
 
-**Last Day of DESGD 260**
+**Last Day of DESG 260**
 
 **In class:**
 - Show Neue App projects in class together

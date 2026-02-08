@@ -12,9 +12,9 @@ Generate a self-contained HTML + CSS + JS slide deck for Day $ARGUMENTS of DESG 
 1. **Determine the unit folder based on day number:**
    - Days 1-4 → `unit_a/`
    - Days 5-8 → `unit_b/`
-   - Days 9-13 → `unit_c/`
-   - Days 14-24 → `unit_d/`
-   - Days 25-27 → `unit_e/`
+   - Days 9-14 → `unit_c/`
+   - Days 15-25 → `unit_d/`
+   - Days 26-28 → `unit_e/`
 
 2. **Read the slide outline** at `unit_X/day_XX_slides.md` — this is your primary content source
 3. **Read the lesson plan** at `unit_X/day_XX.md` — use this for section/activity context and to enrich thin slides

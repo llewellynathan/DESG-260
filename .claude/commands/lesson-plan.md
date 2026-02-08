@@ -26,9 +26,9 @@ Create **simple but information-rich** lesson plans. Provide high-value direct i
 3. **Read the relevant unit files based on day number:**
    - Days 1-4: `unit_a/assignment.md`
    - Days 5-8: `unit_b/assignment.md`
-   - Days 9-13: `unit_c/assignment.md`
-   - Days 14-24: `unit_d/assignment.md`
-   - Days 25-27: `unit_e/assignment.md`
+   - Days 9-14: `unit_c/assignment.md`
+   - Days 15-25: `unit_d/assignment.md`
+   - Days 26-28: `unit_e/assignment.md`
 
 ## Requirements
 1. Create the lesson plan at the appropriate unit folder: `unit_X/day_XX.md`
