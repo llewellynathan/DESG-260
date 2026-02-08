@@ -23,14 +23,14 @@
 - U3: The web has its own constraints and conventions — it's not just "app design in a browser"
 
 **Students Will Know:**
-- K1: The CSS box model and basic web structure concepts
-- K2: How responsive grids work in Figma
-- K3: The components of a Product Detail Page (PDP)
+- K1: What makes web design different from native app design
+- K2: The components of a Product Detail Page (PDP)
+- K3: How to research and document a persona
 
 **Students Will Be Able To:**
-- S1: Set up responsive grids and auto-layout in Figma
-- S2: Research and document a user persona
-- S3: Identify and prioritize content for a PDP based on user needs
+- S1: Research and document a user persona
+- S2: Identify and prioritize content for a PDP based on user needs
+- S3: Explain how responsive design adapts to different devices
 
 ---
 
@@ -53,21 +53,21 @@
    - Today's goal: understand how grids enable responsive design, and meet your new project
    - Connect to forming/rendering: *forming* = understanding who uses your product and on what device; *rendering* = building systems that adapt to that context
 
-3. **Direct Instruction: Responsive Design Fundamentals** (25 min) `[K1, K2, U1, U2, S1]`
+3. **Direct Instruction: Responsive Design Fundamentals** (20 min) `[K1, U1, U2, U3]`
    - **I do:** Explain the core concept: designing for 100,000 devices
-     - The CSS box model: content, padding, border, margin
-     - How browsers render layouts (block vs. inline, flow)
+     - Native apps have fixed dimensions; the web doesn't
+     - Responsive design adapts *presentation* to context — same content, different arrangement
      - Why "pixel-perfect" thinking fails on the web
-   - **I do:** Demo responsive grids in Figma
-     - Setting up columns, margins, gutters
-     - Auto-layout basics: how content reflows
-     - Constraints and responsive resize behavior
-   - **We do:** Together, recreate a simple responsive card component
-     - Start with desktop, resize to mobile
-     - Identify what breaks, what adapts
-   - **You do:** Students replicate the card in their own Figma file (5 min)
+   - **I do:** Show examples of responsive PDPs
+     - Same product page on mobile vs. desktop
+     - What changes: layout, image sizes, navigation
+     - What stays the same: content, hierarchy, brand
+   - **We do:** Analyze a responsive site together
+     - Resize browser window and observe what happens
+     - Identify breakpoints where layout shifts
+     - Discuss: what decisions did the designer make?
 
-4. **Introduce Assignment C: Responsive Product Detail Page** (15 min) `[EQ3, U1, K3, S2, S3]`
+4. **Introduce Assignment C: Responsive Product Detail Page** (20 min) `[EQ3, U1, K2, K3, S1, S2]`
    - Overview: Design a PDP for mobile AND desktop, tailored to a persona
    - Walk through the full project arc (C1 → C5)
    - **C1 due Feb 11:** Persona sheet + product details
@@ -77,8 +77,9 @@
    - Key insight: same product, same information — but *how you prioritize it* depends on your persona
    - Show character options (or explain how to create their own)
    - Frame as forming intent: who is this person, and what do they actually need?
+   - Show 2-3 example PDPs — discuss what each prioritizes and why
 
-5. **Work Session: Persona Research + Content Gathering** (65 min) `[S2, S3, EQ3]`
+5. **Work Session: Persona Research + Content Gathering** (65 min) `[S1, S2, EQ3]`
    - Students choose their character and begin research
    - Start documenting: demographics, interests, values, job-to-be-done
    - Begin gathering product content (images, specs, reviews)
@@ -114,10 +115,10 @@
 | EQ3 | How does forming intent inform rendering? | 2, 4, 5 |
 | U1 | Responsive = adapting presentation | 2, 3, 4 |
 | U2 | Grids provide structural foundation | 2, 3 |
-| U3 | Web has its own constraints | 1, 2 |
-| K1 | CSS box model and web structure | 3 |
-| K2 | Responsive grids in Figma | 3 |
-| K3 | PDP components | 4 |
-| S1 | Set up grids and auto-layout | 3 |
-| S2 | Research and document persona | 4, 5 |
-| S3 | Prioritize content based on user needs | 4, 5 |
+| U3 | Web has its own constraints | 1, 2, 3 |
+| K1 | Web design vs. native app design | 3 |
+| K2 | PDP components | 4 |
+| K3 | Persona research and documentation | 4, 5 |
+| S1 | Research and document persona | 4, 5 |
+| S2 | Prioritize content based on user needs | 4, 5 |
+| S3 | Explain responsive design adaptation | 3 |

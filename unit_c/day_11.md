@@ -23,9 +23,10 @@
 - U3: The same content can be arranged differently across breakpoints while maintaining coherence
 
 **Students Will Know:**
-- K1: How to set up and use layout grids in Figma (columns, margins, gutters)
-- K2: Common grid patterns for mobile and desktop (4-column mobile, 12-column desktop)
-- K3: How content reflows between breakpoints
+- K1: The box model (content, padding, border, margin) and how element size is calculated
+- K2: How to set up and use layout grids in Figma (columns, margins, gutters)
+- K3: The 4px increment system for consistent spacing (implicit grid)
+- K4: Common grid patterns for mobile and desktop (4-column mobile, 12-column desktop)
 
 **Students Will Be Able To:**
 - S1: Create responsive frames in Figma with proper grid setup
@@ -52,10 +53,18 @@
    - Connection to forming/rendering: grids are how we *render* consistency — they're the invisible system that makes designs feel intentional
    - By end of class: your PDP will have proper grid setup for both mobile and desktop
 
-3. **Direct Instruction: Grid Systems in Figma** (25 min) `[K1, K2, K3, U1, U2, S1, S3]`
+3. **Direct Instruction: Grid Systems in Figma** (30 min) `[K1, K2, K3, U1, U2, S1, S3]`
+   - **I do:** The Box Model — see everything as a box
+     - Every element is a box with: content, padding, border, margin (inside → outside)
+     - Total element width = content + padding + border (margin is spacing, not size)
+     - **Margin vs. padding rule:** When backgrounds differ, use both; when backgrounds match, consolidate into padding
+     - Tip: Developers use debug borders to visualize boxes — you can think this way too
    - **I do:** Explain grid fundamentals
-     - Why grids? Alignment, consistency, faster decisions
-     - Anatomy: columns, gutters, margins
+     - **Explicit grid:** columns, gutters, margins — the visible structure
+     - **Implicit grid:** the spacing rhythm between all elements (the "clean" feel)
+     - **4px increment rule:** Use 4, 8, 12, 16, 20, 24... for all spacing decisions
+       - Why 4px? Divides evenly, aligns with browser defaults
+       - Even numbers divide cleanly; avoid 5px or 10px increments
      - Common patterns: 4-column mobile, 12-column desktop
      - Vignelli's perspective: "The grid is an attitude"
    - **I do:** Demo setting up grids in Figma
@@ -77,7 +86,7 @@
    - These wireframes become the foundation for high-fidelity work
    - Reminder: same content, different arrangement — let the grid guide you
 
-5. **Work Session: Grid Setup + Wireframes** (70 min) `[S1, S2, S3, EQ2, EQ3]`
+5. **Work Session: Grid Setup + Wireframes** (65 min) `[S1, S2, S3, EQ2, EQ3]`
    - **Priority 1:** Set up Figma frames with proper grids (mobile + desktop)
    - **Priority 2:** Complete C3 wireframes (due Wed @ 11:59pm)
    - **Priority 3:** Begin placing content from C1 into wireframe structure
@@ -98,10 +107,11 @@
 ---
 
 ### Resources
+- [Box Model reference](resources/box-model.md) — see everything as a box
+- [Implicit Grid reference](resources/implicit-grid.md) — the 4px increment system
 - Vignelli Canon: Grids (p. 40 of PDF)
 - Using grids in Figma: YouTube tutorial
 - Figma: Layout Grids documentation
-- The Enneagram: https://www.enneagraminstitute.com/type-descriptions
 
 ---
 
@@ -115,9 +125,10 @@
 | U1 | Grids create consistency | 1, 3 |
 | U2 | Responsive = thinking in systems | 3, 4 |
 | U3 | Same content, different arrangement | 3, 4 |
-| K1 | Layout grids in Figma | 3 |
-| K2 | Common grid patterns | 1, 3 |
-| K3 | Content reflow between breakpoints | 3 |
+| K1 | Box model and element size calculation | 3 |
+| K2 | Layout grids in Figma | 3 |
+| K3 | 4px increment system (implicit grid) | 3 |
+| K4 | Common grid patterns | 1, 3 |
 | S1 | Create responsive frames with grids | 3, 5 |
 | S2 | Design for mobile and desktop | 4, 5 |
 | S3 | Align elements using grid | 3, 5 |

@@ -238,8 +238,7 @@ Today's Focus: Responsive design adapts presentation to context — one system, 
 
 **In class:**
 - Warm-up: Compare responsive vs. native experiences
-- Responsive design fundamentals: box model, grids, auto-layout
-- Demo: Setting up responsive grids in Figma
+- Responsive design fundamentals: native vs. web, what changes vs. what stays the same
 - Introduce Assignment C: Responsive Product Detail Page
 - Work session: Persona research + content gathering for C1
 
@@ -296,7 +295,8 @@ Today's Focus: Grids are invisible scaffolding — they create consistency and s
 
 **In class:**
 - Warm-up: Grid detective — find the grid on well-designed sites
-- Grid systems in Figma: columns, gutters, margins
+- The box model: content, padding, border, margin
+- Grid systems in Figma: columns, gutters, margins, 4px spacing increments
 - Demo: Setting up 12-column desktop and 4-column mobile grids
 - Introduce C3: Mobile + Desktop Wireframes
 - Work session: Grid setup + wireframes

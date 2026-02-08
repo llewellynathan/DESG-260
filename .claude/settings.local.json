@@ -37,7 +37,8 @@
       "Bash(gh -R llewellynathan/DESG-260-slides run rerun 21608068094)",
       "Bash(git ls-tree:*)",
       "Bash(git fetch:*)",
-      "Skill(unit-plan)"
+      "Skill(unit-plan)",
+      "WebFetch(domain:www.w3schools.com)"
     ]
   }
 }

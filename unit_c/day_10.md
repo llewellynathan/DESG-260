@@ -57,8 +57,14 @@
    - **I do:** Explain type scales and hierarchy
      - What is a type scale? (ratios: 1.25, 1.333, 1.5, etc.)
      - Demo: typescale.com — show how scales create natural hierarchy
-     - The minimum viable type system: H1, H2, H3, Body, Caption
-     - Weight, size, and spacing all contribute to hierarchy
+     - **The four-size rule:** Limit yourself to a maximum of 4 type sizes — constraint creates consistency
+       - Titles (H1), Subtitles (H2/H3), Body, Metadata/Captions
+       - Size jumps should be at least 2px (avoid 14px vs 13px — too subtle)
+       - Create variety with **color, weight, and case** — not more sizes
+     - **Weight for hierarchy:** Use weight to emphasize and de-emphasize
+       - Body copy: Regular (400) or Medium (500)
+       - Headings: Semi-bold (600) or Bold (700)
+       - Light/Hairline weights only for large headlines — hard to read otherwise
    - **I do:** Demo creating Figma text styles
      - Define styles: name, size, weight, line-height
      - Show how styles update globally
@@ -107,6 +113,8 @@
 - Apple Human Interface Guidelines: Typography
 - Google Fonts: https://fonts.google.com
 - Figma: Text Styles documentation
+- [Font Sizes reference](resources/font-sizes.md) — the four-size rule
+- [Font Weight reference](resources/font-weight.md) — weight for hierarchy
 
 ---
 
