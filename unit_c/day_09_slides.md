@@ -5,6 +5,9 @@
 
 ### Slide 1: Warm-Up
 **Warm-Up: Web vs. Native Reflection** (10 min)
+
+Please come take a slice of pizza and then do the following exercise:
+
 - Open a product page on your phone
 - Open the same page on your laptop
 - Document 3 observations: What changed? What stayed the same?
