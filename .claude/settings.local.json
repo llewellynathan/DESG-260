@@ -38,7 +38,8 @@
       "Bash(git ls-tree:*)",
       "Bash(git fetch:*)",
       "Skill(unit-plan)",
-      "WebFetch(domain:www.w3schools.com)"
+      "WebFetch(domain:www.w3schools.com)",
+      "Bash(find:*)"
     ]
   }
 }

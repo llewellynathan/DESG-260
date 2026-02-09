@@ -18,6 +18,26 @@ Generate a slide-by-slide presentation outline for Day $ARGUMENTS of DESG 260.
 
 2. **Read the lesson plan file** at `unit_X/day_XX.md` (use two-digit format)
 
+3. **Read the prayer roll** at `prayer_roll.md` (project root)
+
+## Prayer Roll Selection
+
+Before generating slides, select a student for the Prayer slide:
+
+1. **Parse `prayer_roll.md`** — Read the table of students and their "Last Prayed" dates
+2. **Find eligible students** — Students with an empty "Last Prayed" column
+3. **Reset if needed** — If ALL students have dates (everyone has prayed), clear all dates to start a new cycle
+4. **Randomly select one** — From the eligible students, pick one at random
+5. **Use first name only** — Insert just the first name (e.g., "Annika" not "Annika B.") into the Prayer slide
+6. **Update the prayer roll** — Write today's date (M/D format, e.g., "2/9") in the "Last Prayed" column for the selected student
+
+**Important:** The Prayer slide should contain the actual student name, not `[Name]`. Example:
+```
+### Slide 2: Prayer
+**Prayer**
+Annika, will you pray for us today?
+```
+
 ## Slide Structure Rules
 
 **Key principle:** The Warm-Up is the first thing students see when entering class. Prayer follows, then title, preview, and remaining activities. Target **12–16 slides** for a typical class session — prefer fewer, denser slides over many sparse ones.
@@ -32,7 +52,7 @@ Generate slides in this order:
 ### 2. Prayer Slide
 - Always include a Prayer slide after the warm-up
 - Title: "Prayer"
-- Content: Placeholder text (e.g., "[Name], will you pray for us today?")
+- Content: Use the student name selected from the prayer roll (see "Prayer Roll Selection" above)
 
 ### 3. Title Slide
 - Unit letter and name only (large, centered)
@@ -113,7 +133,7 @@ Use this exact markdown format with `---` as slide separators:
 
 ### Slide 2: Prayer
 **Prayer**
-[Name], will you pray for us today?
+[Student name from prayer roll], will you pray for us today?
 
 ---
 

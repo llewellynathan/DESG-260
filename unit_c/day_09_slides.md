@@ -13,99 +13,118 @@
 
 ### Slide 2: Prayer
 **Prayer**
-[Name], will you pray for us today?
+Brevyn, will you pray for us today?
 
 ---
 
 ### Slide 3: Title
 **Unit C: Hierarchy & Responsive Web**
-One system, many devices — responsive design adapts to context
+One system, infinite screens
 
 ---
 
 ### Slide 4: Today
 **Today**
 - Responsive design fundamentals
-- Introduce Assignment C: Product Detail Page
-- Work session: Persona research + content gathering
+- Assignment C: Responsive Product Detail Page
+- Persona research + content gathering
 
 ---
 
 ### Slide 5: By the end of today...
-**Responsive thinking** — You'll understand how responsive design adapts content to context
+**Responsive thinking** — You'll understand why "pixel-perfect" fails on the web and how responsive design adapts presentation to context
 
-**Persona research** — You'll choose a character and document their values and job-to-be-done
+**Project kickoff** — You'll know what a Product Detail Page (PDP) needs and how to prioritize content for your persona
 
-**PDP content** — You'll identify what content belongs on a product detail page and prioritize it for your persona
+**Persona research** — You'll start documenting your character's background, values, and job-to-be-done
 
 ---
 
 ### Slide 6: Responsive Design Fundamentals
-**Designing for 100,000 Devices**
-The shift from fixed to fluid
+**Responsive Design Fundamentals**
+Designing for 100,000 devices
 
 ---
 
-### Slide 7: Native vs. Web
+### Slide 7: The Core Problem
 **Native apps have fixed dimensions. The web doesn't.**
-- Native: known screen sizes, pixel-perfect control
-- Web: infinite device sizes, content must adapt
-- Responsive design adapts *presentation* to context — same content, different arrangement
+- iOS: design for specific screen sizes
+- Web: your design runs on phones, tablets, laptops, ultrawide monitors, TVs...
+- You can't design a separate layout for every device
+
+> How do we design for devices we've never seen?
 
 ---
 
-### Slide 8: What Changes, What Stays
-**When a PDP goes from desktop to mobile:**
-- **Changes:** Layout, image sizes, navigation, touch targets
-- **Stays the same:** Content, hierarchy, brand, user goals
+### Slide 8: The Responsive Solution
+**Responsive design adapts *presentation* to context**
+- Same content, different arrangement
+- Layout changes; meaning stays the same
+- "Pixel-perfect" thinking fails — embrace fluid systems
 
-> Let's analyze a responsive site together. What decisions did the designer make?
+**What changes:** layout, image sizes, navigation placement
 
----
-
-### Slide 9: Assignment C
-**Responsive Product Detail Page**
-Design a PDP for mobile AND desktop, tailored to a specific persona
+**What stays the same:** content, hierarchy, brand
 
 ---
 
-### Slide 10: The Project Arc
-**C1 → C5**
-- **C1:** Persona sheet + product details (due Feb 11)
-- **C2:** Type hierarchy stylesheet
-- **C3:** Mobile + desktop wireframes
-- **C4:** High-fidelity + user testing
-- **C5:** Final designs + process documentation
+### Slide 9: Live Analysis
+**Let's analyze a responsive site together**
+1. Open a product page in your browser
+2. Slowly resize the window
+3. Watch for breakpoints where layout shifts
+
+> What decisions did the designer make? What triggered each change?
 
 ---
 
-### Slide 11: C1 Requirements
-**Persona Sheet**
-- Background (demographics, interests, family)
-- Core values (what matters to them?)
-- Job-to-be-done (what are they trying to accomplish?)
+### Slide 10: Assignment C
+**Assignment C: Responsive Product Detail Page**
+Design a PDP for mobile AND desktop, tailored to a persona
 
-**Product Details**
-- Name, 3+ images, price, directions
-- Shipping, reviews, related products
+---
+
+### Slide 11: Project Arc
+**The C1 → C5 Journey**
+- **C1:** Persona sheet + product details (due Wed 2/11)
+- **C2:** Low-fi sketches
+- **C3:** Desktop high-fidelity
+- **C4:** Mobile high-fidelity
+- **C5:** Final responsive design
+
+Same product, same information — *how you prioritize it* depends on your persona
+
+---
+
+### Slide 12: C1 Requirements
+**C1: Persona Sheet + Product Details** (due Wed @ 5:15pm)
+
+**Persona:**
+- Background, core values, job-to-be-done
+
+**Product content to gather:**
+- Name, 3+ images, price
+- Directions/specs, shipping info
+- Reviews, related products
 - Returns policy, dimensions
 
----
-
-### Slide 12: The Key Insight
-**Same product. Same information.**
-How you *prioritize* it depends on your persona.
-
-> What would your persona look at first on a product page?
+Optional: announcement bar, subscribe option, gifting, company review replies
 
 ---
 
-### Slide 13: Next Up
-**Work Session** (65 min)
-- Choose your character and begin persona research
+### Slide 13: Example PDPs
+**What does each PDP prioritize?**
+
+> Look at 2-3 example PDPs. Who do you think the target customer is? What content is front and center?
+
+Frame this as forming intent: *Who is this person, and what do they actually need?*
+
+---
+
+### Slide 14: Next Up
+**Next up**
+- Work session: Choose your character and start persona research (~65 min)
 - Document demographics, interests, values, job-to-be-done
-- Start gathering product content (images, specs, reviews)
-
-**Homework**
-- C1: Persona Sheet + Product Details (due Wed, Feb 11 @ 5:15pm)
-- Bring character research and product content to Day 10
+- Begin gathering product content (images, specs, reviews)
+- C1: Persona Sheet + Product Details due Wednesday, Feb 11 @ 5:15pm
+- Bring your research and product content to Day 10
