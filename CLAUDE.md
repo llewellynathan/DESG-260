@@ -86,6 +86,16 @@ Each lesson plan follows this structure:
    → [Lesson Plan](unit_X/day_XX.md)
    ```
 
+## Slides Workflow
+
+HTML slides are hosted via GitHub Pages in a separate repo: `DESG-260-slides`
+
+When generating or editing slides:
+1. Create/edit the HTML file in `unit_x/day_xx_slides.html` (this repo)
+2. Copy the file to `../DESG-260-slides/unit_x/day_xx_slides.html`
+3. Update `../DESG-260-slides/index.html` if adding a new day
+4. **After slide work is complete** (creation or edits), ask the user if they want to commit and push to the slides repo
+
 ## Style Preferences
 
 - Use bold for activity names: **Activity Name** (X min)

@@ -106,7 +106,19 @@ What do they like? What do they dislike? What is important to them? You’ll als
 1. Did you include all the required information on your page?
 2. Is your page clear and easy to navigate?
 3. Is your page built off a strong grid system, and do your elements align to it?
-4. Does your page exhibit thoughtful layout informed by your assigned character’s needs and  “job to be done?”
+4. Does your page exhibit thoughtful layout informed by your assigned character's needs and  "job to be done?"
+
+---
+
+## Rubric
+
+| Criterion | Beginning (1) | Developing (2) | Proficient (3) | Exemplary (4) |
+|-----------|---------------|----------------|----------------|---------------|
+| **Conceptual Depth & Novelty** | Persona connection is unclear; layout choices seem arbitrary or generic | Persona is defined but layout decisions don't clearly reflect their needs or values | Clear persona with layout decisions that logically reflect their priorities and job-to-be-done | Exceptional persona insight; every layout and hierarchy decision demonstrates deep understanding of user needs; prioritization feels inevitable |
+| **Testing & Iteration** | No evidence of user testing or response to feedback | Some testing conducted but feedback response is unclear or superficial | Clear evidence of testing with 2+ users; documented changes based on feedback; summary shows what was learned | Rigorous testing with thoughtful analysis; clear before/after documentation; changes demonstrate genuine learning about user needs |
+| **Responsive Design & Grid Systems** | Mobile and desktop feel unrelated; no clear grid structure; elements misaligned | Some grid structure present but inconsistent; mobile/desktop relationship unclear; alignment issues | Strong grid system on both breakpoints; clear relationship between mobile and desktop; elements align consistently | Masterful grid usage; mobile and desktop feel like one coherent system; every element precisely placed; spacing rhythm is consistent throughout |
+| **Overall Visual Design** | Weak typography hierarchy; poor use of space; brand/product unclear; hard to navigate | Basic hierarchy present but inconsistent; some attention to typography and spacing; navigation is functional | Strong visual hierarchy guides the eye; thoughtful typography choices; effective use of whitespace; clear brand identity | Outstanding hierarchy; typography enhances meaning and brand; masterful use of space creates scannable, inviting page; professional quality |
+| **Process Documentation** | Incomplete documentation; missing persona, wireframes, or iterations | Documentation shows some progression but gaps exist; persona or wireframes are superficial | Complete documentation showing clear progression from persona → wireframes → high-fidelity; iterations are visible | Comprehensive documentation tells the story of design decisions; clear rationale connecting persona needs to final design choices |
 
 ## Characters 
 

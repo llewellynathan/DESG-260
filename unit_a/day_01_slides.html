@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Day 1 — Unit A: Wayfinding Map & Icons</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #111;
+    --fg: #F0EDE6;
+    --fg-dim: #9A958C;
+    --amber: hsl(46, 90%, 53%);
+    --amber-bg: hsl(46, 40%, 8%);
+    --blue: hsl(210, 80%, 62%);
+    --blue-bg: hsl(210, 50%, 9%);
+    --violet: hsl(270, 60%, 65%);
+    --violet-bg: hsl(270, 40%, 9%);
+    --green: hsl(155, 60%, 50%);
+    --green-bg: hsl(155, 35%, 8%);
+    --pad: 80px;
+  }
+
+  html { font-size: 19.2px; }
+  body {
+    height: 100vh;
+    overflow: hidden;
+    background: var(--bg);
+    color: var(--fg);
+    font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── Deck ── */
+  .deck { position: relative; width: 100vw; height: 100vh; }
+
+  .slide {
+    position: absolute; inset: 0;
+    display: flex;
+    opacity: 0; pointer-events: none;
+    transform: translateX(40px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+  .slide.active {
+    opacity: 1; pointer-events: auto;
+    transform: translateX(0);
+  }
+  .slide.exit-left {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  .slide.exit-right {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+
+  /* ── Keyframes ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes scaleUp {
+    from { opacity: 0; transform: scale(0.92); }
+    to   { opacity: 1; transform: scale(1); }
+  }
+  @keyframes popIn {
+    0%   { opacity: 0; transform: scale(0); }
+    70%  { transform: scale(1.2); }
+    100% { opacity: 1; transform: scale(1); }
+  }
+  @keyframes growDown {
+    from { transform: scaleY(0); }
+    to   { transform: scaleY(1); }
+  }
+  @keyframes widen {
+    from { width: 0; }
+    to   { width: 100%; }
+  }
+
+  /* ── Staggered entrance: children of active slides ── */
+  .slide.active > h1, .slide.active > h2, .slide.active > h3,
+  .slide.active > p, .slide.active > div, .slide.active > ol, .slide.active > ul {
+    animation: fadeUp 0.5s ease both;
+  }
+  .slide.active > :nth-child(1) { animation-delay: 0.08s; }
+  .slide.active > :nth-child(2) { animation-delay: 0.18s; }
+  .slide.active > :nth-child(3) { animation-delay: 0.28s; }
+  .slide.active > :nth-child(4) { animation-delay: 0.38s; }
+  .slide.active > :nth-child(5) { animation-delay: 0.46s; }
+  .slide.active > :nth-child(6) { animation-delay: 0.52s; }
+
+  /* Billboard headings: scale entrance */
+  .billboard.active > h1 {
+    animation: scaleUp 0.6s ease both;
+    animation-delay: 0.1s;
+  }
+  .divider.active > h1 {
+    animation: scaleUp 0.6s ease both;
+    animation-delay: 0.1s;
+  }
+
+  /* Cards: stagger individually */
+  .slide.active .card {
+    animation: fadeUp 0.45s ease both;
+  }
+  .slide.active .card:nth-child(1) { animation-delay: 0.2s; }
+  .slide.active .card:nth-child(2) { animation-delay: 0.32s; }
+  .slide.active .card:nth-child(3) { animation-delay: 0.44s; }
+  .slide.active .card:nth-child(4) { animation-delay: 0.56s; }
+
+  /* Card top-border widen effect */
+  .card { border-top-color: transparent; position: relative; }
+  .card::after {
+    content: "";
+    position: absolute; top: -4px; left: 0; height: 4px;
+    width: 0;
+    background: var(--card-color, var(--fg-dim));
+    transition: none;
+  }
+  .slide.active .card::after {
+    animation: widen 0.4s ease both;
+  }
+  .slide.active .card:nth-child(1)::after { animation-delay: 0.35s; }
+  .slide.active .card:nth-child(2)::after { animation-delay: 0.47s; }
+  .slide.active .card:nth-child(3)::after { animation-delay: 0.59s; }
+  .slide.active .card:nth-child(4)::after { animation-delay: 0.71s; }
+
+  /* Timeline items: stagger with dot pop */
+  .slide.active .timeline-item {
+    animation: fadeUp 0.4s ease both;
+  }
+  .slide.active .timeline-item:nth-child(1)  { animation-delay: 0.15s; }
+  .slide.active .timeline-line:nth-child(2)   { animation: fadeUp 0.3s ease both; animation-delay: 0.3s; }
+  .slide.active .timeline-item:nth-child(3)  { animation-delay: 0.4s; }
+  .slide.active .timeline-line:nth-child(4)   { animation: fadeUp 0.3s ease both; animation-delay: 0.55s; }
+  .slide.active .timeline-item:nth-child(5)  { animation-delay: 0.65s; }
+  .slide.active .timeline-line:nth-child(6)   { animation: fadeUp 0.3s ease both; animation-delay: 0.8s; }
+  .slide.active .timeline-item:nth-child(7)  { animation-delay: 0.9s; }
+  .slide.active .timeline-line:nth-child(8)   { animation: fadeUp 0.3s ease both; animation-delay: 1.05s; }
+  .slide.active .timeline-item:nth-child(9)  { animation-delay: 1.15s; }
+  .slide.active .timeline-line:nth-child(10)  { animation: fadeUp 0.3s ease both; animation-delay: 1.3s; }
+  .slide.active .timeline-item:nth-child(11) { animation-delay: 1.4s; }
+
+  .slide.active .timeline-dot {
+    animation: popIn 0.4s ease both;
+  }
+  .slide.active .timeline-item:nth-child(1) .timeline-dot { animation-delay: 0.2s; }
+  .slide.active .timeline-item:nth-child(3) .timeline-dot { animation-delay: 0.45s; }
+  .slide.active .timeline-item:nth-child(5) .timeline-dot { animation-delay: 0.7s; }
+  .slide.active .timeline-item:nth-child(7) .timeline-dot { animation-delay: 0.95s; }
+  .slide.active .timeline-item:nth-child(9) .timeline-dot { animation-delay: 1.2s; }
+  .slide.active .timeline-item:nth-child(11) .timeline-dot { animation-delay: 1.45s; }
+
+  /* Steps: stagger with circle pop */
+  .slide.active .steps li {
+    animation: fadeUp 0.4s ease both;
+  }
+  .slide.active .steps li:nth-child(1) { animation-delay: 0.2s; }
+  .slide.active .steps li:nth-child(2) { animation-delay: 0.35s; }
+  .slide.active .steps li:nth-child(3) { animation-delay: 0.5s; }
+  .slide.active .steps li:nth-child(4) { animation-delay: 0.65s; }
+
+  /* Numbered list stagger */
+  .slide.active .numbered li {
+    animation: fadeUp 0.4s ease both;
+  }
+  .slide.active .numbered li:nth-child(1) { animation-delay: 0.2s; }
+  .slide.active .numbered li:nth-child(2) { animation-delay: 0.32s; }
+  .slide.active .numbered li:nth-child(3) { animation-delay: 0.44s; }
+  .slide.active .numbered li:nth-child(4) { animation-delay: 0.56s; }
+
+  /* Policy pair stagger */
+  .slide.active .policy:nth-child(1) { animation: fadeUp 0.45s ease both; animation-delay: 0.2s; }
+  .slide.active .policy:nth-child(2) { animation: fadeUp 0.45s ease both; animation-delay: 0.38s; }
+
+  /* Section bar: grow from top */
+  .slide.active::before {
+    transform-origin: top;
+    animation: growDown 0.4s ease both;
+    animation-delay: 0s;
+  }
+
+  /* Shortcut row items stagger */
+  .slide.active .shortcut-row span {
+    animation: fadeUp 0.35s ease both;
+  }
+  .slide.active .shortcut-row span:nth-child(1) { animation-delay: 0.4s; }
+  .slide.active .shortcut-row span:nth-child(2) { animation-delay: 0.48s; }
+  .slide.active .shortcut-row span:nth-child(3) { animation-delay: 0.56s; }
+  .slide.active .shortcut-row span:nth-child(4) { animation-delay: 0.64s; }
+  .slide.active .shortcut-row span:nth-child(5) { animation-delay: 0.72s; }
+
+  /* Resource list stagger */
+  .slide.active .resource-list li {
+    animation: fadeUp 0.35s ease both;
+  }
+  .slide.active .resource-list li:nth-child(1) { animation-delay: 0.12s; }
+  .slide.active .resource-list li:nth-child(2) { animation-delay: 0.2s; }
+  .slide.active .resource-list li:nth-child(3) { animation-delay: 0.28s; }
+  .slide.active .resource-list li:nth-child(4) { animation-delay: 0.36s; }
+  .slide.active .resource-list li:nth-child(5) { animation-delay: 0.44s; }
+  .slide.active .resource-list li:nth-child(6) { animation-delay: 0.52s; }
+  .slide.active .resource-list li:nth-child(7) { animation-delay: 0.6s; }
+
+  /* ── Section bar (left edge color indicator) ── */
+  .slide::before {
+    content: "";
+    position: absolute; left: 0; top: 0; bottom: 0;
+    width: 6px;
+    background: var(--section-color, transparent);
+  }
+
+  /* ── Layout: Billboard (centered single statement) ── */
+  .billboard {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: var(--pad);
+  }
+  .billboard h1 {
+    font-size: 4rem;
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    max-width: 900px;
+  }
+  .billboard .sub {
+    font-size: 1.6rem;
+    color: var(--fg-dim);
+    margin-top: 24px;
+    max-width: 650px;
+    line-height: 1.5;
+  }
+
+  /* ── Layout: Section Divider (color wash) ── */
+  .divider {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: var(--pad);
+    background: var(--section-bg, var(--bg));
+  }
+  .divider::before { display: none; }
+  .divider h1 {
+    font-size: 4.2rem;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+  }
+  .divider .sub {
+    font-size: 1.6rem;
+    color: var(--fg-dim);
+    margin-top: 20px;
+    font-weight: 400;
+  }
+
+  /* ── Layout: Content (left-aligned, vertically centered) ── */
+  .content {
+    flex-direction: column;
+    justify-content: center;
+    padding: var(--pad);
+    padding-left: calc(var(--pad) + 20px);
+    gap: 28px;
+  }
+  .content h2 {
+    font-size: 2.6rem;
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+  }
+
+  /* ── Layout: Split (left label + right content) ── */
+  .split {
+    align-items: center;
+    padding: var(--pad);
+    padding-left: calc(var(--pad) + 20px);
+    gap: 60px;
+  }
+  .split .left {
+    flex: 0 0 35%;
+  }
+  .split .left h1 {
+    font-size: 3.2rem;
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+  }
+  .split .right {
+    flex: 1;
+  }
+
+  /* ── Layout: Top-aligned (cards, grids) ── */
+  .top {
+    flex-direction: column;
+    padding: var(--pad);
+    padding-left: calc(var(--pad) + 20px);
+    padding-top: 60px;
+    gap: 20px;
+  }
+  .top h2 {
+    font-size: 2.4rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+
+  /* ── Typography ── */
+  p, li { font-size: 1.5rem; line-height: 1.55; }
+
+  .big-text {
+    font-size: 2.2rem;
+    font-weight: 600;
+    line-height: 1.35;
+  }
+
+  .callout {
+    font-size: 1.5rem;
+    font-weight: 600;
+    line-height: 1.45;
+  }
+
+  .small { font-size: 1.25rem; color: var(--fg-dim); }
+
+  /* ── Cards ── */
+  .card-row {
+    display: grid;
+    gap: 28px;
+    margin-top: 16px;
+  }
+  .card-row.c3 { grid-template-columns: repeat(3, 1fr); }
+  .card-row.c4 { grid-template-columns: repeat(4, 1fr); }
+
+  .card {
+    border-top: 4px solid var(--card-color, var(--fg-dim));
+    padding: 24px 0 0;
+  }
+  .card h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--card-color, var(--fg));
+    margin-bottom: 10px;
+  }
+  .card p {
+    font-size: 1.25rem;
+    color: var(--fg-dim);
+    line-height: 1.5;
+  }
+
+  /* ── Timeline (vertical flow for "Today") ── */
+  .timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-top: 20px;
+  }
+  .timeline-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 16px 0;
+  }
+  .timeline-dot {
+    width: 16px; height: 16px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    background: var(--dot-color, var(--fg-dim));
+  }
+  .timeline-line {
+    width: 2px;
+    height: 20px;
+    margin-left: 7px;
+    background: #333;
+  }
+  .timeline-label {
+    font-size: 1.6rem;
+    font-weight: 500;
+  }
+
+  /* ── Steps (exercise tracker) ── */
+  .steps {
+    counter-reset: step;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .steps li {
+    counter-increment: step;
+    display: flex;
+    gap: 16px;
+    align-items: baseline;
+  }
+  .steps li::before {
+    content: counter(step);
+    flex-shrink: 0;
+    width: 36px; height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: var(--section-color, var(--blue));
+    color: #111;
+    font-weight: 700;
+    font-size: 1.1rem;
+  }
+  .steps li span {
+    font-size: 1.4rem;
+    line-height: 1.45;
+  }
+  .steps .sub-options {
+    display: block;
+    font-size: 1.2rem;
+    color: var(--fg-dim);
+    margin-top: 6px;
+    padding-left: 0;
+  }
+
+  /* ── Numbered points (non-exercise) ── */
+  .numbered {
+    counter-reset: num;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .numbered li {
+    counter-increment: num;
+    font-size: 1.5rem;
+    line-height: 1.5;
+    padding-left: 40px;
+    position: relative;
+  }
+  .numbered li::before {
+    content: counter(num) ".";
+    position: absolute;
+    left: 0;
+    font-weight: 700;
+    color: var(--section-color, var(--blue));
+  }
+
+  /* ── Policy blocks ── */
+  .policy-pair {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    margin-top: 16px;
+  }
+  .policy h3 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+  .policy p {
+    font-size: 1.35rem;
+    color: var(--fg-dim);
+    line-height: 1.5;
+  }
+
+  /* ── Keyboard shortcuts ── */
+  kbd {
+    display: inline-block;
+    background: #222;
+    border: 1px solid #444;
+    border-radius: 6px;
+    padding: 3px 10px;
+    font-family: "SF Mono", "Fira Code", monospace;
+    font-size: 1.15rem;
+    color: var(--fg);
+  }
+  .shortcut-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 16px;
+  }
+  .shortcut-row span {
+    font-size: 1.25rem;
+    color: var(--fg-dim);
+  }
+
+  /* ── Links ── */
+  a { color: var(--blue); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  .resource-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 12px;
+  }
+  .resource-list li { font-size: 1.35rem; }
+  .resource-list .label { font-weight: 600; color: var(--fg); }
+
+  /* ── Counter ── */
+  .counter {
+    position: fixed;
+    bottom: 20px; right: 28px;
+    font-size: 0.85rem;
+    color: #444;
+    font-variant-numeric: tabular-nums;
+    z-index: 100;
+  }
+
+  /* ── Utility ── */
+  .mt { margin-top: 20px; }
+  .mt-lg { margin-top: 36px; }
+  .accent { color: var(--amber); }
+  .accent-blue { color: var(--blue); }
+  .accent-violet { color: var(--violet); }
+  .accent-green { color: var(--green); }
+
+  /* ── Responsive ── */
+  @media (max-width: 1200px) {
+    :root { --pad: 48px; }
+    .billboard h1 { font-size: 3rem; }
+    .divider h1 { font-size: 3.2rem; }
+    .card-row.c4 { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
+</head>
+<body>
+
+<div class="deck">
+
+  <!-- ═══ 1. WELCOME (amber section) ═══ -->
+  <section class="slide content active" style="--section-color: var(--amber); background: var(--amber-bg);">
+    <h2 style="font-size: 3.2rem;">Welcome to DESG 260</h2>
+    <p class="big-text mt" style="color: var(--fg-dim);">Introduce yourself to your neighbors:</p>
+    <p class="big-text" style="color: var(--fg-dim);">Name, year, one thing you're excited about this semester</p>
+  </section>
+
+  <!-- ═══ 2. PRAYER (amber section) ═══ -->
+  <section class="slide billboard" style="--section-color: var(--amber);">
+    <h1>Prayer</h1>
+    <p class="sub">[Name], will you pray for us today?</p>
+  </section>
+
+  <!-- ═══ 3. TITLE ═══ -->
+  <section class="slide billboard">
+    <h1 style="font-size: 4.8rem;">Unit A: Wayfinding Map & Icons</h1>
+    <p class="sub" style="font-size: 1.8rem; max-width: 700px;">Good design requires discovering the right problem AND executing it with skill</p>
+  </section>
+
+  <!-- ═══ 4. TODAY (timeline) ═══ -->
+  <section class="slide content" style="padding-left: 160px;">
+    <h2>Today</h2>
+    <div class="timeline">
+      <div class="timeline-item"><div class="timeline-dot" style="background: var(--amber);"></div><span class="timeline-label">Welcome & Introductions</span></div>
+      <div class="timeline-line"></div>
+      <div class="timeline-item"><div class="timeline-dot" style="background: var(--blue);"></div><span class="timeline-label">Syllabus & Course Overview</span></div>
+      <div class="timeline-line"></div>
+      <div class="timeline-item"><div class="timeline-dot" style="background: var(--blue);"></div><span class="timeline-label">What is Design?</span></div>
+      <div class="timeline-line"></div>
+      <div class="timeline-item"><div class="timeline-dot" style="background: var(--blue);"></div><span class="timeline-label">Principles of Great Design & Learning</span></div>
+      <div class="timeline-line"></div>
+      <div class="timeline-item"><div class="timeline-dot" style="background: var(--violet);"></div><span class="timeline-label">Experience Mapping Gallery Walk</span></div>
+      <div class="timeline-line"></div>
+      <div class="timeline-item"><div class="timeline-dot" style="background: var(--green);"></div><span class="timeline-label">Assignment 1 & Brainstorming</span></div>
+    </div>
+  </section>
+
+  <!-- ═══ 5. BY THE END OF TODAY ═══ -->
+  <section class="slide top">
+    <h2>By the end of today...</h2>
+    <div class="card-row c3 mt">
+      <div class="card" style="--card-color: var(--blue);">
+        <h3>The Core Framework</h3>
+        <p>You'll understand design as "forming and rendering intent" — the central idea of this course</p>
+      </div>
+      <div class="card" style="--card-color: var(--violet);">
+        <h3>Experience Mapping</h3>
+        <p>You'll know what wayfinding, journey maps, and experience maps are and how icons support them</p>
+      </div>
+      <div class="card" style="--card-color: var(--green);">
+        <h3>Your First Project</h3>
+        <p>You'll have brainstormed 5+ journey ideas and know exactly what's due for A1</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 6. COURSE OVERVIEW ═══ -->
+  <section class="slide content" style="--section-color: var(--blue);">
+    <h2>Four Major Projects</h2>
+    <div class="card-row c4 mt">
+      <div class="card" style="--card-color: var(--blue);">
+        <h3>Unit A</h3>
+        <p>Wayfinding Map & Icons</p>
+      </div>
+      <div class="card" style="--card-color: var(--blue);">
+        <h3>Unit B</h3>
+        <p>Make It Better App</p>
+      </div>
+      <div class="card" style="--card-color: var(--blue);">
+        <h3>Unit C</h3>
+        <p>Responsive Website</p>
+      </div>
+      <div class="card" style="--card-color: var(--blue);">
+        <h3>Unit D</h3>
+        <p>Neue App (Capstone)</p>
+      </div>
+    </div>
+    <p class="big-text accent mt-lg">Each builds on the last — forming and rendering intent at increasing complexity.</p>
+  </section>
+
+  <!-- ═══ 7. SECTION DIVIDER: What is Design? ═══ -->
+  <section class="slide divider" style="--section-bg: var(--blue-bg);">
+    <h1 style="color: var(--blue);">What is Design?</h1>
+    <p class="sub">Let's define it together</p>
+  </section>
+
+  <!-- ═══ 8. DISCUSSION: Experience ═══ -->
+  <section class="slide billboard" style="--section-color: var(--blue);">
+    <h1>What is an experience?</h1>
+    <p class="callout accent mt-lg" style="font-size: 1.7rem;">Discuss with a neighbor for 2 minutes.</p>
+  </section>
+
+  <!-- ═══ 9. REVEAL: Experience ═══ -->
+  <section class="slide billboard" style="--section-color: var(--blue);">
+    <p class="small" style="font-size: 1.4rem; margin-bottom: 24px;">An experience is...</p>
+    <h1 style="max-width: 1000px; font-size: 3.4rem;">A period of time in which someone is consciously engaged with their surroundings.</h1>
+  </section>
+
+  <!-- ═══ 10. DISCUSSION: Design ═══ -->
+  <section class="slide billboard" style="--section-color: var(--blue);">
+    <h1>How do you define design?</h1>
+    <p class="sub" style="font-size: 1.6rem;">Give your own definition — don't look it up.</p>
+    <p class="callout accent mt-lg" style="font-size: 1.7rem;">Discuss with a neighbor, then share with the class.</p>
+  </section>
+
+  <!-- ═══ 11. REVEAL: Design ═══ -->
+  <section class="slide billboard" style="--section-color: var(--blue);">
+    <h1 style="max-width: 1000px; font-size: 3.8rem;">Design is the forming<br>and rendering of intent.</h1>
+  </section>
+
+  <!-- ═══ 12. FORMING VS RENDERING ═══ -->
+  <section class="slide content" style="--section-color: var(--blue);">
+    <h2>Forming vs. Rendering</h2>
+    <div class="policy-pair mt">
+      <div class="policy">
+        <h3 style="color: var(--blue);">Forming Intent</h3>
+        <p>Discovering the right problem and envisioning the right solution</p>
+      </div>
+      <div class="policy">
+        <h3 style="color: var(--blue);">Rendering Intent</h3>
+        <p>Executing that vision with skill and craft</p>
+      </div>
+    </div>
+    <p class="big-text mt-lg"><strong>Good design</strong> = excellence in both</p>
+    <p class="big-text"><strong>Bad design</strong> = failure in either one</p>
+    <p class="callout accent mt-lg">Why did I have you discuss your definitions before sharing mine?</p>
+  </section>
+
+  <!-- ═══ 13. PRINCIPLES HEADER ═══ -->
+  <section class="slide billboard" style="--section-color: var(--blue);">
+    <h1 style="font-size: 3.6rem;">If you want to be a great designer,<br>be a great learner.</h1>
+    <p class="sub">These principles apply to both.</p>
+  </section>
+
+  <!-- ═══ 14. PRINCIPLES 1-4 ═══ -->
+  <section class="slide content" style="--section-color: var(--blue);">
+    <h2>Principles of Great Design & Learning</h2>
+    <ol class="numbered mt">
+      <li><strong>Feedback reveals blindspots</strong> — External perspectives show what you cannot see yourself</li>
+      <li><strong>Externalization clarifies thinking</strong> — Explaining your design helps you find gaps</li>
+      <li><strong>Failure is natural</strong> — First attempts are experiments, not final answers</li>
+      <li><strong>Incubation enables breakthroughs</strong> — Your brain works even when you step away</li>
+    </ol>
+  </section>
+
+  <!-- ═══ 15. PRINCIPLES 5-7 ═══ -->
+  <section class="slide content" style="--section-color: var(--blue);">
+    <h2>Principles of Great Design & Learning</h2>
+    <ol class="numbered mt" style="counter-reset: num 4;">
+      <li><strong>Iterate low to high fidelity</strong> — Start simple, progress to complex</li>
+      <li><strong>Teaching deepens understanding</strong> — You don't fully know until you can teach it</li>
+      <li><strong>Reflection accelerates growth</strong> — Without reflection, experience doesn't become learning</li>
+    </ol>
+  </section>
+
+  <!-- ═══ 16. SECTION DIVIDER: Experience Mapping ═══ -->
+  <section class="slide divider" style="--section-bg: var(--violet-bg);">
+    <h1 style="color: var(--violet);">Experience Mapping</h1>
+    <p class="sub">Wayfinding, journey maps, and icons</p>
+  </section>
+
+  <!-- ═══ 17. KEY CONCEPTS ═══ -->
+  <section class="slide content" style="--section-color: var(--violet);">
+    <h2>Three Related Ideas</h2>
+    <div class="card-row c3 mt">
+      <div class="card" style="--card-color: var(--violet);">
+        <h3>Wayfinding</h3>
+        <p>Navigating through space — "How do I get from here to there?"</p>
+      </div>
+      <div class="card" style="--card-color: var(--violet);">
+        <h3>Journey Map</h3>
+        <p>Visualization of experience over time, showing touchpoints and emotions</p>
+      </div>
+      <div class="card" style="--card-color: var(--violet);">
+        <h3>Experience Map</h3>
+        <p>Broader than journey maps — captures any human experience</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 18. GALLERY WALK ═══ -->
+  <section class="slide content" style="--section-color: var(--violet);">
+    <h2>Gallery Walk — 7 Examples</h2>
+    <p class="big-text mt" style="color: var(--fg-dim);">For each example, consider:</p>
+    <ol class="numbered mt">
+      <li>What journey is being mapped? (Physical? Emotional? Metaphorical?)</li>
+      <li>What do the icons represent? (Objects? Emotions? Key moments?)</li>
+      <li>How does the design tell a story from beginning to end?</li>
+      <li>What makes the icon set cohesive? (Line weight? Style? Color?)</li>
+    </ol>
+  </section>
+
+  <!-- ═══ 19. SECTION DIVIDER: Assignment 1 ═══ -->
+  <section class="slide divider" style="--section-bg: var(--green-bg);">
+    <h1 style="color: var(--green);">Assignment 1</h1>
+    <p class="sub">Wayfinding Map & Icons — The arc of Unit A</p>
+  </section>
+
+  <!-- ═══ 20. THE FULL ARC ═══ -->
+  <section class="slide content" style="--section-color: var(--green);">
+    <h2>Unit A Assignments</h2>
+    <div class="card-row c4 mt">
+      <div class="card" style="--card-color: var(--green);">
+        <h3>A1</h3>
+        <p>Sketches<br><span style="color: var(--fg-dim);">due Day 2</span></p>
+      </div>
+      <div class="card" style="--card-color: var(--green);">
+        <h3>A2</h3>
+        <p>Icon Set Draft<br><span style="color: var(--fg-dim);">due Day 3</span></p>
+      </div>
+      <div class="card" style="--card-color: var(--green);">
+        <h3>A3</h3>
+        <p>Vectorized Icons<br><span style="color: var(--fg-dim);">due Day 4</span></p>
+      </div>
+      <div class="card" style="--card-color: var(--green);">
+        <h3>A4</h3>
+        <p>Final Process Book<br><span style="color: var(--fg-dim);">due Day 5</span></p>
+      </div>
+    </div>
+    <div class="policy-pair mt-lg">
+      <div class="policy">
+        <h3 style="color: var(--green);">Forming Intent</h3>
+        <p>What journey will you map? What story will you tell? What must your icons communicate, to whom, in what context?</p>
+      </div>
+      <div class="policy">
+        <h3 style="color: var(--green);">Rendering Intent</h3>
+        <p>How will you execute it with visual clarity and consistency?</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 21. A1 REQUIREMENTS ═══ -->
+  <section class="slide content" style="--section-color: var(--green);">
+    <h2>A1 Requirements</h2>
+    <p class="big-text accent mt">Due Day 2 (Monday, Jan 12) — bring physical sketches</p>
+    <ol class="numbered mt">
+      <li>5+ exploration thumbnails (distinct ideas, not variations)</li>
+      <li>1 larger, more finessed sketch (at least 8.5 × 5.5)</li>
+      <li>Physical sketches to bring to class (printed if digital)</li>
+    </ol>
+    <p class="big-text mt-lg" style="color: var(--fg-dim);">Constraints: Black & white only · No existing icon sets · Must include abstract emotions</p>
+    <p class="callout accent-green mt">Your sketches will be reviewed and tested by peers.</p>
+  </section>
+
+  <!-- ═══ 22. BRAINSTORMING ═══ -->
+  <section class="slide content" style="--section-color: var(--green);">
+    <h2>Brainstorming — Identify Problems Worth Solving</h2>
+    <p class="big-text mt" style="color: var(--fg-dim);">Good design starts with curiosity and empathy:</p>
+    <ol class="steps mt">
+      <li><span>Generate 5+ distinct journey ideas — dreams, stories, metaphors, processes</span></li>
+      <li><span>NOT just physical directions — think about user flows through experiences</span></li>
+      <li><span>Share with a neighbor: What problem does your journey address? Who would benefit?</span></li>
+    </ol>
+  </section>
+
+  <!-- ═══ 23. NEXT UP (green section) ═══ -->
+  <section class="slide top" style="--section-color: var(--green); background: var(--green-bg);">
+    <h2 style="color: var(--green);">Next up</h2>
+    <div class="mt" style="display: flex; flex-direction: column; gap: 20px;">
+      <p><strong>Continue brainstorming</strong> — Refine your journey ideas</p>
+      <p><strong>Complete A1 sketches</strong> — 5+ thumbnails + 1 larger finessed sketch</p>
+      <p><strong>Letter to the professor</strong> — See assignment page for details</p>
+      <p><strong>Bring physical copies</strong> — Your sketches, to Day 2 (Monday, Jan 12)</p>
+    </div>
+    <ul class="resource-list mt-lg">
+      <li><span class="label">Behance</span> — <a href="https://www.behance.net/search/projects/journey%20map" target="_blank">Journey Maps</a></li>
+      <li><span class="label">Dribbble</span> — <a href="https://dribbble.com/search/experience-map" target="_blank">Experience Maps</a></li>
+      <li><span class="label">NN/g</span> — <a href="https://www.nngroup.com/articles/journey-mapping-101/" target="_blank">Journey Mapping 101</a></li>
+    </ul>
+  </section>
+
+</div>
+
+<div class="counter"><span id="cur">1</span> / <span id="tot"></span></div>
+
+<script>
+  const slides = document.querySelectorAll('.slide');
+  const total = slides.length;
+  let current = 0;
+  document.getElementById('tot').textContent = total;
+
+  function goTo(n) {
+    if (n < 0 || n >= total) return;
+    slides[current].classList.remove('active');
+    current = n;
+    slides[current].classList.add('active');
+    document.getElementById('cur').textContent = current + 1;
+  }
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown' || e.key === ' ') { e.preventDefault(); goTo(current + 1); }
+    else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') { e.preventDefault(); goTo(current - 1); }
+    else if (e.key === 'Home') { e.preventDefault(); goTo(0); }
+    else if (e.key === 'End') { e.preventDefault(); goTo(total - 1); }
+  });
+
+  document.addEventListener('click', e => {
+    if (e.target.closest('a')) return;
+    e.clientX / window.innerWidth < 0.33 ? goTo(current - 1) : goTo(current + 1);
+  });
+</script>
+
+</body>
+</html>
