@@ -8,7 +8,7 @@
 
 Please come take a slice of pizza and then do the following exercise:
 
-- Open a product page on your phone
+- Open a product detail page on an e-commerce website on your phone
 - Open the same page on your laptop
 - Document 3 observations: What changed? What stayed the same?
 
