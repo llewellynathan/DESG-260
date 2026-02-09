@@ -19,6 +19,8 @@
     --violet-bg: hsl(270, 40%, 9%);
     --green: hsl(155, 60%, 50%);
     --green-bg: hsl(155, 35%, 8%);
+    --rose: hsl(350, 70%, 60%);
+    --rose-bg: hsl(350, 40%, 9%);
     --pad: 80px;
   }
 
@@ -46,14 +48,6 @@
     opacity: 1; pointer-events: auto;
     transform: translateX(0);
   }
-  .slide.exit-left {
-    opacity: 0;
-    transform: translateX(-40px);
-  }
-  .slide.exit-right {
-    opacity: 0;
-    transform: translateX(40px);
-  }
 
   /* ── Keyframes ── */
   @keyframes fadeUp {
@@ -64,21 +58,16 @@
     from { opacity: 0; transform: scale(0.92); }
     to   { opacity: 1; transform: scale(1); }
   }
-  @keyframes popIn {
-    0%   { opacity: 0; transform: scale(0); }
-    70%  { transform: scale(1.2); }
-    100% { opacity: 1; transform: scale(1); }
+  @keyframes widen {
+    from { width: 0; }
+    to   { width: 100%; }
   }
   @keyframes growDown {
     from { transform: scaleY(0); }
     to   { transform: scaleY(1); }
   }
-  @keyframes widen {
-    from { width: 0; }
-    to   { width: 100%; }
-  }
 
-  /* ── Staggered entrance: children of active slides ── */
+  /* ── Staggered entrance ── */
   .slide.active > h1, .slide.active > h2, .slide.active > h3,
   .slide.active > p, .slide.active > div, .slide.active > ol, .slide.active > ul {
     animation: fadeUp 0.5s ease both;
@@ -90,33 +79,24 @@
   .slide.active > :nth-child(5) { animation-delay: 0.46s; }
   .slide.active > :nth-child(6) { animation-delay: 0.52s; }
 
-  /* Billboard headings: scale entrance */
-  .billboard.active > h1 {
-    animation: scaleUp 0.6s ease both;
-    animation-delay: 0.1s;
-  }
-  .divider.active > h1 {
+  .billboard.active > h1, .divider.active > h1 {
     animation: scaleUp 0.6s ease both;
     animation-delay: 0.1s;
   }
 
-  /* Cards: stagger individually */
   .slide.active .card {
     animation: fadeUp 0.45s ease both;
   }
   .slide.active .card:nth-child(1) { animation-delay: 0.2s; }
   .slide.active .card:nth-child(2) { animation-delay: 0.32s; }
   .slide.active .card:nth-child(3) { animation-delay: 0.44s; }
-  .slide.active .card:nth-child(4) { animation-delay: 0.56s; }
 
-  /* Card top-border widen effect */
   .card { border-top-color: transparent; position: relative; }
   .card::after {
     content: "";
     position: absolute; top: -4px; left: 0; height: 4px;
     width: 0;
     background: var(--card-color, var(--fg-dim));
-    transition: none;
   }
   .slide.active .card::after {
     animation: widen 0.4s ease both;
@@ -124,9 +104,7 @@
   .slide.active .card:nth-child(1)::after { animation-delay: 0.35s; }
   .slide.active .card:nth-child(2)::after { animation-delay: 0.47s; }
   .slide.active .card:nth-child(3)::after { animation-delay: 0.59s; }
-  .slide.active .card:nth-child(4)::after { animation-delay: 0.71s; }
 
-  /* Timeline items: stagger with dot pop */
   .slide.active .timeline-item {
     animation: fadeUp 0.4s ease both;
   }
@@ -137,25 +115,16 @@
   .slide.active .timeline-item:nth-child(5)  { animation-delay: 0.65s; }
   .slide.active .timeline-line:nth-child(6)   { animation: fadeUp 0.3s ease both; animation-delay: 0.8s; }
   .slide.active .timeline-item:nth-child(7)  { animation-delay: 0.9s; }
+  .slide.active .timeline-line:nth-child(8)   { animation: fadeUp 0.3s ease both; animation-delay: 1.05s; }
+  .slide.active .timeline-item:nth-child(9)  { animation-delay: 1.15s; }
 
-  .slide.active .timeline-dot {
-    animation: popIn 0.4s ease both;
-  }
-  .slide.active .timeline-item:nth-child(1) .timeline-dot { animation-delay: 0.2s; }
-  .slide.active .timeline-item:nth-child(3) .timeline-dot { animation-delay: 0.45s; }
-  .slide.active .timeline-item:nth-child(5) .timeline-dot { animation-delay: 0.7s; }
-  .slide.active .timeline-item:nth-child(7) .timeline-dot { animation-delay: 0.95s; }
-
-  /* Steps: stagger with circle pop */
   .slide.active .steps li {
     animation: fadeUp 0.4s ease both;
   }
   .slide.active .steps li:nth-child(1) { animation-delay: 0.2s; }
   .slide.active .steps li:nth-child(2) { animation-delay: 0.35s; }
   .slide.active .steps li:nth-child(3) { animation-delay: 0.5s; }
-  .slide.active .steps li:nth-child(4) { animation-delay: 0.65s; }
 
-  /* Numbered list stagger */
   .slide.active .numbered li {
     animation: fadeUp 0.4s ease both;
   }
@@ -163,41 +132,18 @@
   .slide.active .numbered li:nth-child(2) { animation-delay: 0.32s; }
   .slide.active .numbered li:nth-child(3) { animation-delay: 0.44s; }
   .slide.active .numbered li:nth-child(4) { animation-delay: 0.56s; }
+  .slide.active .numbered li:nth-child(5) { animation-delay: 0.68s; }
 
-  /* Policy pair stagger */
   .slide.active .policy:nth-child(1) { animation: fadeUp 0.45s ease both; animation-delay: 0.2s; }
   .slide.active .policy:nth-child(2) { animation: fadeUp 0.45s ease both; animation-delay: 0.38s; }
 
-  /* Section bar: grow from top */
   .slide.active::before {
     transform-origin: top;
     animation: growDown 0.4s ease both;
     animation-delay: 0s;
   }
 
-  /* Shortcut row items stagger */
-  .slide.active .shortcut-row span {
-    animation: fadeUp 0.35s ease both;
-  }
-  .slide.active .shortcut-row span:nth-child(1) { animation-delay: 0.4s; }
-  .slide.active .shortcut-row span:nth-child(2) { animation-delay: 0.48s; }
-  .slide.active .shortcut-row span:nth-child(3) { animation-delay: 0.56s; }
-  .slide.active .shortcut-row span:nth-child(4) { animation-delay: 0.64s; }
-  .slide.active .shortcut-row span:nth-child(5) { animation-delay: 0.72s; }
-
-  /* Resource list stagger */
-  .slide.active .resource-list li {
-    animation: fadeUp 0.35s ease both;
-  }
-  .slide.active .resource-list li:nth-child(1) { animation-delay: 0.12s; }
-  .slide.active .resource-list li:nth-child(2) { animation-delay: 0.2s; }
-  .slide.active .resource-list li:nth-child(3) { animation-delay: 0.28s; }
-  .slide.active .resource-list li:nth-child(4) { animation-delay: 0.36s; }
-  .slide.active .resource-list li:nth-child(5) { animation-delay: 0.44s; }
-  .slide.active .resource-list li:nth-child(6) { animation-delay: 0.52s; }
-  .slide.active .resource-list li:nth-child(7) { animation-delay: 0.6s; }
-
-  /* ── Section bar (left edge color indicator) ── */
+  /* ── Section bar ── */
   .slide::before {
     content: "";
     position: absolute; left: 0; top: 0; bottom: 0;
@@ -205,7 +151,7 @@
     background: var(--section-color, transparent);
   }
 
-  /* ── Layout: Billboard (centered single statement) ── */
+  /* ── Layout: Billboard ── */
   .billboard {
     flex-direction: column;
     align-items: center;
@@ -228,7 +174,7 @@
     line-height: 1.5;
   }
 
-  /* ── Layout: Section Divider (color wash) ── */
+  /* ── Layout: Divider ── */
   .divider {
     flex-direction: column;
     align-items: center;
@@ -248,10 +194,9 @@
     font-size: 1.6rem;
     color: var(--fg-dim);
     margin-top: 20px;
-    font-weight: 400;
   }
 
-  /* ── Layout: Content (left-aligned, vertically centered) ── */
+  /* ── Layout: Content ── */
   .content {
     flex-direction: column;
     justify-content: center;
@@ -266,27 +211,7 @@
     letter-spacing: -0.02em;
   }
 
-  /* ── Layout: Split (left label + right content) ── */
-  .split {
-    align-items: center;
-    padding: var(--pad);
-    padding-left: calc(var(--pad) + 20px);
-    gap: 60px;
-  }
-  .split .left {
-    flex: 0 0 35%;
-  }
-  .split .left h1 {
-    font-size: 3.2rem;
-    font-weight: 800;
-    line-height: 1.1;
-    letter-spacing: -0.02em;
-  }
-  .split .right {
-    flex: 1;
-  }
-
-  /* ── Layout: Top-aligned (cards, grids) ── */
+  /* ── Layout: Top ── */
   .top {
     flex-direction: column;
     padding: var(--pad);
@@ -302,30 +227,13 @@
 
   /* ── Typography ── */
   p, li { font-size: 1.5rem; line-height: 1.55; }
-
-  .big-text {
-    font-size: 2.2rem;
-    font-weight: 600;
-    line-height: 1.35;
-  }
-
-  .callout {
-    font-size: 1.5rem;
-    font-weight: 600;
-    line-height: 1.45;
-  }
-
+  .big-text { font-size: 2.2rem; font-weight: 600; line-height: 1.35; }
+  .callout { font-size: 1.5rem; font-weight: 600; line-height: 1.45; }
   .small { font-size: 1.25rem; color: var(--fg-dim); }
 
   /* ── Cards ── */
-  .card-row {
-    display: grid;
-    gap: 28px;
-    margin-top: 16px;
-  }
+  .card-row { display: grid; gap: 28px; margin-top: 16px; }
   .card-row.c3 { grid-template-columns: repeat(3, 1fr); }
-  .card-row.c4 { grid-template-columns: repeat(4, 1fr); }
-
   .card {
     border-top: 4px solid var(--card-color, var(--fg-dim));
     padding: 24px 0 0;
@@ -336,157 +244,50 @@
     color: var(--card-color, var(--fg));
     margin-bottom: 10px;
   }
-  .card p {
-    font-size: 1.25rem;
-    color: var(--fg-dim);
-    line-height: 1.5;
-  }
+  .card p { font-size: 1.25rem; color: var(--fg-dim); line-height: 1.5; }
 
-  /* ── Timeline (vertical flow for "Today") ── */
-  .timeline {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-    margin-top: 20px;
-  }
-  .timeline-item {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    padding: 16px 0;
-  }
-  .timeline-dot {
-    width: 16px; height: 16px;
-    border-radius: 50%;
-    flex-shrink: 0;
-    background: var(--dot-color, var(--fg-dim));
-  }
-  .timeline-line {
-    width: 2px;
-    height: 20px;
-    margin-left: 7px;
-    background: #333;
-  }
-  .timeline-label {
-    font-size: 1.6rem;
-    font-weight: 500;
-  }
+  /* ── Timeline ── */
+  .timeline { display: flex; flex-direction: column; gap: 0; margin-top: 20px; }
+  .timeline-item { display: flex; align-items: center; gap: 20px; padding: 14px 0; }
+  .timeline-dot { width: 16px; height: 16px; border-radius: 50%; flex-shrink: 0; background: var(--dot-color, var(--fg-dim)); }
+  .timeline-line { width: 2px; height: 16px; margin-left: 7px; background: #333; }
+  .timeline-label { font-size: 1.5rem; font-weight: 500; }
 
-  /* ── Steps (exercise tracker) ── */
-  .steps {
-    counter-reset: step;
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-  }
-  .steps li {
-    counter-increment: step;
-    display: flex;
-    gap: 16px;
-    align-items: baseline;
-  }
+  /* ── Steps ── */
+  .steps { counter-reset: step; list-style: none; display: flex; flex-direction: column; gap: 16px; }
+  .steps li { counter-increment: step; display: flex; gap: 16px; align-items: baseline; }
   .steps li::before {
     content: counter(step);
     flex-shrink: 0;
     width: 36px; height: 36px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: flex; align-items: center; justify-content: center;
     border-radius: 50%;
     background: var(--section-color, var(--blue));
     color: #111;
     font-weight: 700;
     font-size: 1.1rem;
   }
-  .steps li span {
+  .steps li span { font-size: 1.4rem; line-height: 1.45; }
+
+  /* ── Numbered ── */
+  .numbered { counter-reset: num; list-style: none; display: flex; flex-direction: column; gap: 14px; }
+  .numbered li { counter-increment: num; font-size: 1.5rem; line-height: 1.5; padding-left: 40px; position: relative; }
+  .numbered li::before { content: counter(num) "."; position: absolute; left: 0; font-weight: 700; color: var(--section-color, var(--blue)); }
+
+  /* ── Policy pair ── */
+  .policy-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; margin-top: 16px; }
+  .policy h3 { font-size: 1.6rem; font-weight: 700; margin-bottom: 10px; }
+  .policy p { font-size: 1.35rem; color: var(--fg-dim); line-height: 1.5; }
+
+  /* ── Blockquote ── */
+  blockquote {
+    border-left: 4px solid var(--section-color, var(--fg-dim));
+    padding-left: 20px;
     font-size: 1.4rem;
-    line-height: 1.45;
-  }
-  .steps .sub-options {
-    display: block;
-    font-size: 1.2rem;
+    font-style: italic;
     color: var(--fg-dim);
-    margin-top: 6px;
-    padding-left: 0;
-  }
-
-  /* ── Numbered points (non-exercise) ── */
-  .numbered {
-    counter-reset: num;
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-  }
-  .numbered li {
-    counter-increment: num;
-    font-size: 1.5rem;
-    line-height: 1.5;
-    padding-left: 40px;
-    position: relative;
-  }
-  .numbered li::before {
-    content: counter(num) ".";
-    position: absolute;
-    left: 0;
-    font-weight: 700;
-    color: var(--section-color, var(--blue));
-  }
-
-  /* ── Policy blocks ── */
-  .policy-pair {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 48px;
     margin-top: 16px;
   }
-  .policy h3 {
-    font-size: 1.6rem;
-    font-weight: 700;
-    margin-bottom: 10px;
-  }
-  .policy p {
-    font-size: 1.35rem;
-    color: var(--fg-dim);
-    line-height: 1.5;
-  }
-
-  /* ── Keyboard shortcuts ── */
-  kbd {
-    display: inline-block;
-    background: #222;
-    border: 1px solid #444;
-    border-radius: 6px;
-    padding: 3px 10px;
-    font-family: "SF Mono", "Fira Code", monospace;
-    font-size: 1.15rem;
-    color: var(--fg);
-  }
-  .shortcut-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    margin-top: 16px;
-  }
-  .shortcut-row span {
-    font-size: 1.25rem;
-    color: var(--fg-dim);
-  }
-
-  /* ── Links ── */
-  a { color: var(--blue); text-decoration: none; }
-  a:hover { text-decoration: underline; }
-
-  .resource-list {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    margin-top: 12px;
-  }
-  .resource-list li { font-size: 1.35rem; }
-  .resource-list .label { font-weight: 600; color: var(--fg); }
 
   /* ── Counter ── */
   .counter {
@@ -505,13 +306,12 @@
   .accent-blue { color: var(--blue); }
   .accent-violet { color: var(--violet); }
   .accent-green { color: var(--green); }
+  .accent-rose { color: var(--rose); }
 
-  /* ── Responsive ── */
   @media (max-width: 1200px) {
     :root { --pad: 48px; }
     .billboard h1 { font-size: 3rem; }
     .divider h1 { font-size: 3.2rem; }
-    .card-row.c4 { grid-template-columns: repeat(2, 1fr); }
   }
 </style>
 </head>
@@ -519,7 +319,7 @@
 
 <div class="deck">
 
-  <!-- ═══ 1. WARM-UP (amber section) ═══ -->
+  <!-- ═══ 1. WARM-UP ═══ -->
   <section class="slide content active" style="--section-color: var(--amber); background: var(--amber-bg);">
     <h2 style="font-size: 3.2rem;">Web vs. Native Reflection</h2>
     <p class="big-text mt" style="color: var(--fg-dim);">Open a product page on your phone. Now open the same page on your laptop.</p>
@@ -530,7 +330,7 @@
     </ol>
   </section>
 
-  <!-- ═══ 2. PRAYER (amber section) ═══ -->
+  <!-- ═══ 2. PRAYER ═══ -->
   <section class="slide billboard" style="--section-color: var(--amber);">
     <h1>Prayer</h1>
     <p class="sub">Brevyn, will you pray for us today?</p>
@@ -539,16 +339,18 @@
   <!-- ═══ 3. TITLE ═══ -->
   <section class="slide billboard">
     <h1 style="font-size: 4.8rem;">Unit C: Hierarchy & Responsive Web</h1>
-    <p class="sub" style="font-size: 1.8rem; max-width: 700px;">One system, many devices — responsive design adapts to context</p>
+    <p class="sub" style="font-size: 1.8rem;">One system, infinite screens</p>
   </section>
 
-  <!-- ═══ 4. TODAY (timeline) ═══ -->
+  <!-- ═══ 4. TODAY ═══ -->
   <section class="slide content" style="padding-left: 160px;">
     <h2>Today</h2>
     <div class="timeline">
       <div class="timeline-item"><div class="timeline-dot" style="background: var(--amber);"></div><span class="timeline-label">Web vs. Native Reflection</span></div>
       <div class="timeline-line"></div>
       <div class="timeline-item"><div class="timeline-dot" style="background: var(--blue);"></div><span class="timeline-label">Responsive Design Fundamentals</span></div>
+      <div class="timeline-line"></div>
+      <div class="timeline-item"><div class="timeline-dot" style="background: var(--rose);"></div><span class="timeline-label">Personas & Job-to-be-Done</span></div>
       <div class="timeline-line"></div>
       <div class="timeline-item"><div class="timeline-dot" style="background: var(--violet);"></div><span class="timeline-label">Assignment C: Product Detail Page</span></div>
       <div class="timeline-line"></div>
@@ -562,20 +364,20 @@
     <div class="card-row c3 mt">
       <div class="card" style="--card-color: var(--blue);">
         <h3>Responsive Thinking</h3>
-        <p>You'll understand how responsive design adapts content to context</p>
+        <p>You'll understand why "pixel-perfect" fails on the web and how responsive design adapts to context</p>
       </div>
-      <div class="card" style="--card-color: var(--violet);">
-        <h3>Persona Research</h3>
-        <p>You'll choose a character and document their values and job-to-be-done</p>
+      <div class="card" style="--card-color: var(--rose);">
+        <h3>Personas & JTBD</h3>
+        <p>You'll know how to create a persona and write job stories that capture user motivation</p>
       </div>
       <div class="card" style="--card-color: var(--green);">
-        <h3>PDP Content</h3>
-        <p>You'll identify what content belongs on a product detail page and prioritize it for your persona</p>
+        <h3>Project Kickoff</h3>
+        <p>You'll start researching your character and gathering product content</p>
       </div>
     </div>
   </section>
 
-  <!-- ═══ 6. SECTION DIVIDER: Responsive Design ═══ -->
+  <!-- ═══ 6. SECTION: Responsive Design ═══ -->
   <section class="slide divider" style="--section-bg: var(--blue-bg);">
     <h1 style="color: var(--blue);">Responsive Design Fundamentals</h1>
     <p class="sub">Designing for 100,000 devices</p>
@@ -599,7 +401,7 @@
 
   <!-- ═══ 8. What Changes, What Stays ═══ -->
   <section class="slide content" style="--section-color: var(--blue);">
-    <h2>When a PDP <span style="font-weight: 400; font-size: 0.7em;">(Product Detail Page)</span> goes from desktop to mobile</h2>
+    <h2>When a PDP goes from desktop to mobile</h2>
     <div class="policy-pair mt">
       <div class="policy">
         <h3 style="color: var(--amber);">What changes</h3>
@@ -610,23 +412,106 @@
         <p>Content and information<br>Visual hierarchy<br>Brand identity<br>User goals</p>
       </div>
     </div>
-    <p class="callout accent-blue mt-lg">Let's analyze a responsive site together. What decisions did the designer make?</p>
-    <p class="mt" style="font-size: 1.3rem;"><a href="https://www.timbuk2.com/collections/laptop-backpacks/products/489cust-custom-alcatraz-laptop-backpack?variant=12733979590698" target="_blank">timbuk2.com — Custom Alcatraz Laptop Backpack</a></p>
+    <blockquote style="--section-color: var(--blue);">Let's analyze a responsive site together. What decisions did the designer make?</blockquote>
   </section>
 
-  <!-- ═══ 9. SECTION DIVIDER: Assignment C ═══ -->
+  <!-- ═══ 9. SECTION: Personas & JTBD ═══ -->
+  <section class="slide divider" style="--section-bg: var(--rose-bg);">
+    <h1 style="color: var(--rose);">Personas & Job-to-be-Done</h1>
+    <p class="sub">Designing for someone specific</p>
+  </section>
+
+  <!-- ═══ 10. What is a Persona? ═══ -->
+  <section class="slide content" style="--section-color: var(--rose);">
+    <h2>What is a Persona?</h2>
+    <p class="big-text mt">A fictional but research-based representation of your target user</p>
+    <ul class="mt" style="list-style: none; display: flex; flex-direction: column; gap: 12px;">
+      <li style="font-size: 1.4rem;">NOT a demographic profile — captures <strong>motivations</strong>, <strong>values</strong>, and <strong>context</strong></li>
+      <li style="font-size: 1.4rem;">Helps you make design decisions when you can't ask the user directly</li>
+      <li style="font-size: 1.4rem;">Keeps the team aligned on who you're designing for</li>
+    </ul>
+    <blockquote style="--section-color: var(--rose);">Without a persona, you're designing for yourself.</blockquote>
+  </section>
+
+  <!-- ═══ 11. Bad Persona Example ═══ -->
+  <section class="slide content" style="--section-color: var(--rose);">
+    <h2 style="color: var(--amber);">Bad Persona Example</h2>
+    <div class="mt" style="background: #1a1a1a; padding: 28px 32px; border-radius: 8px; border-left: 4px solid var(--amber);">
+      <p style="font-size: 1.8rem; font-weight: 700; margin-bottom: 12px;">Marcus, 35</p>
+      <p style="font-size: 1.4rem; color: var(--fg-dim);">"Works in tech. Likes gadgets and efficiency. Lives in the city."</p>
+    </div>
+    <div class="mt-lg" style="display: flex; flex-direction: column; gap: 12px;">
+      <p style="font-size: 1.4rem;">What would Marcus prioritize on a product page?</p>
+      <p style="font-size: 1.4rem;">What matters to him when making a purchase?</p>
+      <p class="callout accent mt" style="font-size: 1.5rem;">You don't know — this persona is useless.</p>
+    </div>
+  </section>
+
+  <!-- ═══ 12. Good Persona Example ═══ -->
+  <section class="slide content" style="--section-color: var(--rose);">
+    <h2 style="color: var(--green);">Good Persona Example</h2>
+    <div class="mt" style="display: flex; flex-direction: column; gap: 16px;">
+      <p><strong style="font-size: 1.6rem;">Marcus, 35</strong> <span style="color: var(--fg-dim);">— Software engineer, lives alone in a 600 sq ft apartment</span></p>
+      <p><strong style="color: var(--rose);">Background:</strong> Works long hours, values his limited free time. Small space means every purchase must earn its place. Researches extensively before buying — hates returning things.</p>
+      <p><strong style="color: var(--rose);">Core values:</strong> Efficiency, minimalism, quality over quantity. Would rather pay more for something that lasts.</p>
+      <div style="background: #1a1a1a; padding: 20px 24px; border-radius: 8px; border-left: 4px solid var(--rose);">
+        <p style="font-size: 1.25rem; color: var(--fg-dim); margin-bottom: 8px;">Job story:</p>
+        <p style="font-size: 1.3rem; font-style: italic;">"When I'm considering a new purchase, I want to quickly compare specs and read expert reviews, so I can make a confident decision without second-guessing myself later."</p>
+      </div>
+    </div>
+    <p class="callout accent-green mt">Now you can design: prioritize specs, expert reviews, dimensions, quality indicators.</p>
+  </section>
+
+  <!-- ═══ 13. JTBD Framework ═══ -->
+  <section class="slide content" style="--section-color: var(--rose);">
+    <h2>The Job-to-be-Done Framework</h2>
+    <p class="big-text mt">People don't buy products — they <em>"hire"</em> products to do a job</p>
+    <p class="mt" style="font-size: 1.5rem; color: var(--fg-dim);">Classic example: "People don't want a quarter-inch drill, they want a quarter-inch hole."</p>
+    <p class="mt" style="font-size: 1.5rem;">JTBD focuses on the <strong>outcome</strong> the user wants, not the product features.</p>
+    <blockquote style="--section-color: var(--rose);">What job is your user hiring your product to do?</blockquote>
+  </section>
+
+  <!-- ═══ 14. Job Stories ═══ -->
+  <section class="slide content" style="--section-color: var(--rose);">
+    <h2>Job Stories</h2>
+    <p class="big-text mt" style="color: var(--rose);">"When [situation], I want to [motivation], so I can [expected outcome]."</p>
+    <div class="mt-lg" style="background: #1a1a1a; padding: 28px 32px; border-radius: 8px; border-left: 4px solid var(--rose);">
+      <p style="font-size: 1.4rem; font-style: italic; color: var(--fg);">"When I'm shopping for a gift for my partner, I want to see reviews from people in similar situations, so I can feel confident this is the right choice."</p>
+    </div>
+    <p class="callout mt-lg">The situation and outcome matter as much as the action.</p>
+  </section>
+
+  <!-- ═══ 15. Documenting a Persona ═══ -->
+  <section class="slide content" style="--section-color: var(--rose);">
+    <h2>Documenting a Persona</h2>
+    <div class="mt" style="display: flex; flex-direction: column; gap: 20px;">
+      <p><strong style="color: var(--rose);">Background</strong> — Demographics, interests, family life, daily context</p>
+      <p><strong style="color: var(--rose);">Core values</strong> — What matters most to this person? What do they prioritize?</p>
+      <p><strong style="color: var(--rose);">Job-to-be-done</strong> — What are they trying to accomplish? What's the situation?</p>
+    </div>
+    <p class="callout accent-rose mt-lg">Write 1-2 job stories that capture their motivation.</p>
+  </section>
+
+  <!-- ═══ 16. How Personas Inform Design ═══ -->
+  <section class="slide billboard" style="--section-color: var(--rose);">
+    <p class="small" style="font-size: 1.4rem; margin-bottom: 24px;">Same product. Same information.</p>
+    <h1 style="max-width: 900px; font-size: 3.8rem;">How you <em>prioritize</em> it depends on your persona's job story.</h1>
+    <blockquote style="--section-color: var(--rose); border-left: none; text-align: center; margin-top: 32px;">If your persona is buying a gift vs. buying for themselves — what changes on the product page?</blockquote>
+  </section>
+
+  <!-- ═══ 17. SECTION: Assignment C ═══ -->
   <section class="slide divider" style="--section-bg: var(--violet-bg);">
     <h1 style="color: var(--violet);">Assignment C</h1>
     <p class="sub">Responsive Product Detail Page</p>
   </section>
 
-  <!-- ═══ 10. Assignment overview ═══ -->
+  <!-- ═══ 18. Assignment overview ═══ -->
   <section class="slide billboard" style="--section-color: var(--violet);">
     <h1 style="max-width: 900px;">Design a PDP for mobile AND desktop</h1>
     <p class="sub mt">Tailored to a specific persona's needs and values</p>
   </section>
 
-  <!-- ═══ 11. The Project Arc ═══ -->
+  <!-- ═══ 19. Project Arc ═══ -->
   <section class="slide content" style="--section-color: var(--violet);">
     <h2>C1 → C5</h2>
     <ol class="numbered mt">
@@ -634,42 +519,36 @@
       <li><strong>C2:</strong> Type hierarchy stylesheet</li>
       <li><strong>C3:</strong> Mobile + desktop wireframes</li>
       <li><strong>C4:</strong> High-fidelity + user testing</li>
+      <li><strong>C5:</strong> Final designs + process documentation</li>
     </ol>
-    <p class="big-text mt-lg"><strong>C5:</strong> Final designs + process documentation</p>
   </section>
 
-  <!-- ═══ 12. C1 Requirements ═══ -->
+  <!-- ═══ 20. C1 Requirements ═══ -->
   <section class="slide content" style="--section-color: var(--violet);">
     <h2>C1 Requirements</h2>
     <div class="policy-pair mt">
       <div class="policy">
         <h3>Persona Sheet</h3>
-        <p>Background (demographics, interests, family)<br>Core values (what matters to them?)<br>Job-to-be-done (what are they trying to accomplish?)</p>
+        <p>Background, core values, job-to-be-done<br><strong style="color: var(--fg);">At least one job story</strong></p>
       </div>
       <div class="policy">
         <h3>Product Details</h3>
         <p>Name, 3+ images, price, directions<br>Shipping, reviews, related products<br>Returns policy, dimensions</p>
       </div>
     </div>
+    <p class="callout accent mt-lg">Due Wednesday, Feb 11 @ 5:15pm</p>
   </section>
 
-  <!-- ═══ 13. The Key Insight ═══ -->
-  <section class="slide billboard" style="--section-color: var(--violet);">
-    <p class="small" style="font-size: 1.4rem; margin-bottom: 24px;">Same product. Same information.</p>
-    <h1 style="max-width: 900px; font-size: 3.8rem;">How you <em>prioritize</em> it depends on your persona.</h1>
-    <p class="callout accent mt-lg" style="font-size: 1.7rem;">What would your persona look at first on a product page?</p>
-  </section>
-
-  <!-- ═══ 14. NEXT UP (green section) ═══ -->
+  <!-- ═══ 21. NEXT UP ═══ -->
   <section class="slide top" style="--section-color: var(--green); background: var(--green-bg);">
     <h2 style="color: var(--green);">Next up</h2>
     <div class="mt" style="display: flex; flex-direction: column; gap: 20px;">
-      <p><strong>Work Session</strong> (65 min) — Choose your character and begin persona research</p>
-      <p style="color: var(--fg-dim); font-size: 1.35rem;">Document demographics, interests, values, job-to-be-done &nbsp;&middot;&nbsp; Start gathering product content</p>
+      <p><strong>Work Session</strong> (~50 min) — Choose your character and begin persona research</p>
+      <p style="color: var(--fg-dim); font-size: 1.35rem;">Write at least one job story &nbsp;&middot;&nbsp; Start gathering product content</p>
       <p><strong>C1: Persona Sheet + Product Details</strong> — due Wed, Feb 11 @ 5:15pm</p>
       <p style="color: var(--fg-dim); font-size: 1.35rem;">Bring character research and product content to Day 10</p>
     </div>
-    <p class="callout accent mt-lg">The persona determines what matters most on your PDP.</p>
+    <p class="callout accent mt-lg">Your persona's job story determines what matters most on your PDP.</p>
   </section>
 
 </div>
