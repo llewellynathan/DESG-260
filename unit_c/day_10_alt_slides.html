@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Day 10 (Alt) — Learning to Learn with AI</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #111;
+    --fg: #F0EDE6;
+    --fg-dim: #9A958C;
+    --amber: hsl(46, 90%, 53%);
+    --amber-bg: hsl(46, 40%, 8%);
+    --blue: hsl(210, 80%, 62%);
+    --blue-bg: hsl(210, 50%, 9%);
+    --violet: hsl(270, 60%, 65%);
+    --violet-bg: hsl(270, 40%, 9%);
+    --green: hsl(155, 60%, 50%);
+    --green-bg: hsl(155, 35%, 8%);
+    --red: hsl(0, 70%, 60%);
+    --red-bg: hsl(0, 40%, 9%);
+    --pad: 80px;
+  }
+
+  html { font-size: 19.2px; }
+  body {
+    height: 100vh;
+    overflow: hidden;
+    background: var(--bg);
+    color: var(--fg);
+    font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── Deck ── */
+  .deck { position: relative; width: 100vw; height: 100vh; }
+
+  .slide {
+    position: absolute; inset: 0;
+    display: flex;
+    opacity: 0; pointer-events: none;
+    transform: translateX(40px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+  .slide.active {
+    opacity: 1; pointer-events: auto;
+    transform: translateX(0);
+  }
+
+  /* ── Keyframes ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes scaleUp {
+    from { opacity: 0; transform: scale(0.92); }
+    to   { opacity: 1; transform: scale(1); }
+  }
+  @keyframes popIn {
+    0%   { opacity: 0; transform: scale(0); }
+    70%  { transform: scale(1.2); }
+    100% { opacity: 1; transform: scale(1); }
+  }
+  @keyframes growDown {
+    from { transform: scaleY(0); }
+    to   { transform: scaleY(1); }
+  }
+  @keyframes widen {
+    from { width: 0; }
+    to   { width: 100%; }
+  }
+
+  /* ── Staggered entrance ── */
+  .slide.active > h1, .slide.active > h2, .slide.active > h3,
+  .slide.active > p, .slide.active > div, .slide.active > ol, .slide.active > ul, .slide.active > blockquote {
+    animation: fadeUp 0.5s ease both;
+  }
+  .slide.active > :nth-child(1) { animation-delay: 0.08s; }
+  .slide.active > :nth-child(2) { animation-delay: 0.18s; }
+  .slide.active > :nth-child(3) { animation-delay: 0.28s; }
+  .slide.active > :nth-child(4) { animation-delay: 0.38s; }
+  .slide.active > :nth-child(5) { animation-delay: 0.46s; }
+  .slide.active > :nth-child(6) { animation-delay: 0.52s; }
+
+  .billboard.active > h1 {
+    animation: scaleUp 0.6s ease both;
+    animation-delay: 0.1s;
+  }
+  .divider.active > h1 {
+    animation: scaleUp 0.6s ease both;
+    animation-delay: 0.1s;
+  }
+
+  .slide.active .card {
+    animation: fadeUp 0.45s ease both;
+  }
+  .slide.active .card:nth-child(1) { animation-delay: 0.2s; }
+  .slide.active .card:nth-child(2) { animation-delay: 0.32s; }
+  .slide.active .card:nth-child(3) { animation-delay: 0.44s; }
+  .slide.active .card:nth-child(4) { animation-delay: 0.56s; }
+  .slide.active .card:nth-child(5) { animation-delay: 0.68s; }
+
+  .card { border-top-color: transparent; position: relative; }
+  .card::after {
+    content: "";
+    position: absolute; top: -4px; left: 0; height: 4px;
+    width: 0;
+    background: var(--card-color, var(--fg-dim));
+  }
+  .slide.active .card::after {
+    animation: widen 0.4s ease both;
+  }
+  .slide.active .card:nth-child(1)::after { animation-delay: 0.35s; }
+  .slide.active .card:nth-child(2)::after { animation-delay: 0.47s; }
+  .slide.active .card:nth-child(3)::after { animation-delay: 0.59s; }
+  .slide.active .card:nth-child(4)::after { animation-delay: 0.71s; }
+  .slide.active .card:nth-child(5)::after { animation-delay: 0.83s; }
+
+  .slide.active .timeline-item {
+    animation: fadeUp 0.4s ease both;
+  }
+  .slide.active .timeline-item:nth-child(1)  { animation-delay: 0.15s; }
+  .slide.active .timeline-line:nth-child(2)   { animation: fadeUp 0.3s ease both; animation-delay: 0.3s; }
+  .slide.active .timeline-item:nth-child(3)  { animation-delay: 0.4s; }
+  .slide.active .timeline-line:nth-child(4)   { animation: fadeUp 0.3s ease both; animation-delay: 0.55s; }
+  .slide.active .timeline-item:nth-child(5)  { animation-delay: 0.65s; }
+  .slide.active .timeline-line:nth-child(6)   { animation: fadeUp 0.3s ease both; animation-delay: 0.8s; }
+  .slide.active .timeline-item:nth-child(7)  { animation-delay: 0.9s; }
+  .slide.active .timeline-line:nth-child(8)   { animation: fadeUp 0.3s ease both; animation-delay: 1.05s; }
+  .slide.active .timeline-item:nth-child(9)  { animation-delay: 1.15s; }
+
+  .slide.active .timeline-dot {
+    animation: popIn 0.4s ease both;
+  }
+  .slide.active .timeline-item:nth-child(1) .timeline-dot { animation-delay: 0.2s; }
+  .slide.active .timeline-item:nth-child(3) .timeline-dot { animation-delay: 0.45s; }
+  .slide.active .timeline-item:nth-child(5) .timeline-dot { animation-delay: 0.7s; }
+  .slide.active .timeline-item:nth-child(7) .timeline-dot { animation-delay: 0.95s; }
+  .slide.active .timeline-item:nth-child(9) .timeline-dot { animation-delay: 1.2s; }
+
+  .slide.active .steps li {
+    animation: fadeUp 0.4s ease both;
+  }
+  .slide.active .steps li:nth-child(1) { animation-delay: 0.2s; }
+  .slide.active .steps li:nth-child(2) { animation-delay: 0.35s; }
+  .slide.active .steps li:nth-child(3) { animation-delay: 0.5s; }
+  .slide.active .steps li:nth-child(4) { animation-delay: 0.65s; }
+  .slide.active .steps li:nth-child(5) { animation-delay: 0.8s; }
+
+  .slide.active .numbered li {
+    animation: fadeUp 0.4s ease both;
+  }
+  .slide.active .numbered li:nth-child(1) { animation-delay: 0.2s; }
+  .slide.active .numbered li:nth-child(2) { animation-delay: 0.32s; }
+  .slide.active .numbered li:nth-child(3) { animation-delay: 0.44s; }
+  .slide.active .numbered li:nth-child(4) { animation-delay: 0.56s; }
+  .slide.active .numbered li:nth-child(5) { animation-delay: 0.68s; }
+
+  .slide.active::before {
+    transform-origin: top;
+    animation: growDown 0.4s ease both;
+    animation-delay: 0s;
+  }
+
+  /* ── Section bar ── */
+  .slide::before {
+    content: "";
+    position: absolute; left: 0; top: 0; bottom: 0;
+    width: 6px;
+    background: var(--section-color, transparent);
+  }
+
+  /* ── Layout: Billboard ── */
+  .billboard {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: var(--pad);
+  }
+  .billboard h1 {
+    font-size: 4rem;
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    max-width: 900px;
+  }
+  .billboard .sub {
+    font-size: 1.6rem;
+    color: var(--fg-dim);
+    margin-top: 24px;
+    max-width: 650px;
+    line-height: 1.5;
+  }
+
+  /* ── Layout: Section Divider ── */
+  .divider {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: var(--pad);
+    background: var(--section-bg, var(--bg));
+  }
+  .divider::before { display: none; }
+  .divider h1 {
+    font-size: 4.2rem;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+  }
+  .divider .sub {
+    font-size: 1.6rem;
+    color: var(--fg-dim);
+    margin-top: 20px;
+    font-weight: 400;
+  }
+
+  /* ── Layout: Content ── */
+  .content {
+    flex-direction: column;
+    justify-content: center;
+    padding: var(--pad);
+    padding-left: calc(var(--pad) + 20px);
+    gap: 28px;
+  }
+  .content h2 {
+    font-size: 2.6rem;
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+  }
+
+  /* ── Layout: Top-aligned ── */
+  .top {
+    flex-direction: column;
+    padding: var(--pad);
+    padding-left: calc(var(--pad) + 20px);
+    padding-top: 60px;
+    gap: 20px;
+  }
+  .top h2 {
+    font-size: 2.4rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+
+  /* ── Typography ── */
+  p, li { font-size: 1.5rem; line-height: 1.55; }
+
+  .big-text {
+    font-size: 2.2rem;
+    font-weight: 600;
+    line-height: 1.35;
+  }
+
+  .callout {
+    font-size: 1.5rem;
+    font-weight: 600;
+    line-height: 1.45;
+  }
+
+  .small { font-size: 1.25rem; color: var(--fg-dim); }
+
+  blockquote {
+    font-size: 2rem;
+    font-style: italic;
+    line-height: 1.4;
+    padding-left: 24px;
+    border-left: 4px solid var(--section-color, var(--fg-dim));
+    color: var(--fg);
+  }
+  blockquote cite {
+    display: block;
+    font-size: 1.2rem;
+    font-style: normal;
+    color: var(--fg-dim);
+    margin-top: 16px;
+  }
+
+  /* ── Cards ── */
+  .card-row {
+    display: grid;
+    gap: 28px;
+    margin-top: 16px;
+  }
+  .card-row.c2 { grid-template-columns: repeat(2, 1fr); }
+  .card-row.c3 { grid-template-columns: repeat(3, 1fr); }
+  .card-row.c4 { grid-template-columns: repeat(4, 1fr); }
+  .card-row.c5 { grid-template-columns: repeat(5, 1fr); }
+
+  .card {
+    border-top: 4px solid var(--card-color, var(--fg-dim));
+    padding: 24px 0 0;
+  }
+  .card h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--card-color, var(--fg));
+    margin-bottom: 10px;
+  }
+  .card p {
+    font-size: 1.25rem;
+    color: var(--fg-dim);
+    line-height: 1.5;
+  }
+
+  /* ── Timeline ── */
+  .timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-top: 20px;
+  }
+  .timeline-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 16px 0;
+  }
+  .timeline-dot {
+    width: 16px; height: 16px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    background: var(--dot-color, var(--fg-dim));
+  }
+  .timeline-line {
+    width: 2px;
+    height: 20px;
+    margin-left: 7px;
+    background: #333;
+  }
+  .timeline-label {
+    font-size: 1.6rem;
+    font-weight: 500;
+  }
+
+  /* ── Steps ── */
+  .steps {
+    counter-reset: step;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .steps li {
+    counter-increment: step;
+    display: flex;
+    gap: 16px;
+    align-items: baseline;
+  }
+  .steps li::before {
+    content: counter(step);
+    flex-shrink: 0;
+    width: 36px; height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: var(--section-color, var(--blue));
+    color: #111;
+    font-weight: 700;
+    font-size: 1.1rem;
+  }
+  .steps li span {
+    font-size: 1.4rem;
+    line-height: 1.45;
+  }
+
+  /* ── Numbered points ── */
+  .numbered {
+    counter-reset: num;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .numbered li {
+    counter-increment: num;
+    font-size: 1.5rem;
+    line-height: 1.5;
+    padding-left: 40px;
+    position: relative;
+  }
+  .numbered li::before {
+    content: counter(num) ".";
+    position: absolute;
+    left: 0;
+    font-weight: 700;
+    color: var(--section-color, var(--blue));
+  }
+
+  /* ── Links ── */
+  a { color: var(--blue); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  .resource-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 12px;
+  }
+  .resource-list li { font-size: 1.35rem; }
+  .resource-list .label { font-weight: 600; color: var(--fg); }
+
+  /* ── Counter ── */
+  .counter {
+    position: fixed;
+    bottom: 20px; right: 28px;
+    font-size: 0.85rem;
+    color: #444;
+    font-variant-numeric: tabular-nums;
+    z-index: 100;
+  }
+
+  /* ── Utility ── */
+  .mt { margin-top: 20px; }
+  .mt-lg { margin-top: 36px; }
+  .accent { color: var(--amber); }
+  .accent-blue { color: var(--blue); }
+  .accent-violet { color: var(--violet); }
+  .accent-green { color: var(--green); }
+  .accent-red { color: var(--red); }
+
+  @media (max-width: 1200px) {
+    :root { --pad: 48px; }
+    .billboard h1 { font-size: 3rem; }
+    .divider h1 { font-size: 3.2rem; }
+    .card-row.c4 { grid-template-columns: repeat(2, 1fr); }
+    .card-row.c5 { grid-template-columns: repeat(3, 1fr); }
+  }
+</style>
+</head>
+<body>
+
+<div class="deck">
+
+  <!-- ═══ 1. WARM-UP ═══ -->
+  <section class="slide content active" style="--section-color: var(--amber); background: var(--amber-bg);">
+    <h2 style="font-size: 3.2rem;">Warm-Up</h2>
+    <p class="big-text mt">In your notebook or a blank doc, write for 2 minutes:</p>
+    <p class="callout accent mt-lg" style="font-size: 2rem;">"What do you know about how AI is changing design and creative jobs?"</p>
+    <p class="mt" style="color: var(--fg-dim);">No AI allowed for this one. Just your current understanding.</p>
+  </section>
+
+  <!-- ═══ 2. PRAYER ═══ -->
+  <section class="slide billboard" style="--section-color: var(--amber);">
+    <h1>Prayer</h1>
+    <p class="sub">Cherie, will you pray for us today?</p>
+  </section>
+
+  <!-- ═══ 3. QUOTE 1 ═══ -->
+  <section class="slide content" style="--section-color: var(--amber);">
+    <blockquote style="border-left-color: var(--amber);">
+      "I describe what I want built, in plain English, and it just... appears. Not a rough draft I need to fix. The finished thing."
+      <cite>— Matt Shumer, CEO of HyperWriteAI, Fortune (Feb 2026)</cite>
+    </blockquote>
+  </section>
+
+  <!-- ═══ 4. QUOTE 2 ═══ -->
+  <section class="slide content" style="--section-color: var(--amber);">
+    <blockquote style="border-left-color: var(--amber);">
+      "For years, AI had been improving steadily. Then in 2025, new techniques unlocked a much faster pace of progress. This year, something clicked. Not like a light switch... more like the moment you realize the water has been rising around you and is now at your chest."
+      <cite>— Matt Shumer</cite>
+    </blockquote>
+  </section>
+
+  <!-- ═══ 5. THE PREDICTION ═══ -->
+  <section class="slide billboard" style="--section-color: var(--amber);">
+    <h1 style="color: var(--amber);">50%</h1>
+    <p class="sub" style="font-size: 1.8rem; max-width: 700px;">of entry-level white-collar jobs could be eliminated within 1-5 years</p>
+    <p class="small mt-lg">— Dario Amodei, CEO of Anthropic</p>
+  </section>
+
+  <!-- ═══ 6. AI BUILDING AI ═══ -->
+  <section class="slide content" style="--section-color: var(--amber);">
+    <h2>AI is Building AI</h2>
+    <blockquote class="mt" style="border-left-color: var(--amber); font-size: 1.7rem;">
+      "We essentially have Claude designing the next version of Claude itself... that loop starts to close very fast."
+      <cite>— Dario Amodei, CEO of Anthropic</cite>
+    </blockquote>
+    <blockquote class="mt-lg" style="border-left-color: var(--amber); font-size: 1.7rem;">
+      "GPT-5.3-Codex is our first model that was instrumental in creating itself."
+      <cite>— OpenAI</cite>
+    </blockquote>
+  </section>
+
+  <!-- ═══ 7. DON'T PANIC ═══ -->
+  <section class="slide billboard" style="--section-color: var(--green);">
+    <h1 style="color: var(--green);">Don't Panic</h1>
+    <p class="sub" style="font-size: 1.6rem; max-width: 700px;">This is not meant to scare you. This is meant to prepare you.<br><br>The students who thrive will be those who <strong>learn how to learn</strong>.</p>
+  </section>
+
+  <!-- ═══ 8. BASTIAT'S INSIGHT ═══ -->
+  <section class="slide content" style="--section-color: var(--green);">
+    <h2>The Seen and the Unseen</h2>
+    <blockquote style="border-left-color: var(--green); font-size: 1.6rem;">
+      "The bad economist confines himself to the visible effect; the good economist takes into account both the effect that can be seen and those effects that must be foreseen."
+      <cite>— Frédéric Bastiat, 1850</cite>
+    </blockquote>
+    <p class="mt-lg" style="color: var(--fg-dim);">This 175-year-old insight is the key to understanding every AI doom headline you've ever read.</p>
+  </section>
+
+  <!-- ═══ 9. SEEN VS UNSEEN ═══ -->
+  <section class="slide top" style="--section-color: var(--green);">
+    <h2 style="color: var(--green);">Two Categories of Effects</h2>
+    <div class="card-row c2 mt">
+      <div class="card" style="--card-color: var(--red);">
+        <h3>The Seen</h3>
+        <p>The jobs being disrupted. The writer watching AI produce in seconds what took hours. Visible, emotional, makes for viral headlines.</p>
+        <p class="mt small">Fear is viral. Opportunity is not.</p>
+      </div>
+      <div class="card" style="--card-color: var(--green);">
+        <h3>The Unseen</h3>
+        <p>New industries that don't exist yet. Businesses possible when costs drop. Creative work unlocked when drudgery disappears. The entrepreneur who can now build alone what required a team.</p>
+        <p class="mt small">Harder to see — that's the whole point.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 10. HISTORICAL PATTERN ═══ -->
+  <section class="slide content" style="--section-color: var(--green);">
+    <h2>This Fear Has a Track Record</h2>
+    <p class="big-text accent-green">500 years of being wrong.</p>
+    <ul class="mt" style="list-style: none; padding-left: 0;">
+      <li class="mt"><strong style="color: var(--amber);">1589:</strong> Queen Elizabeth refused to patent the knitting machine, fearing "ruin" for hand knitters. England later became the wealthiest nation on earth <em>because</em> of mechanized textiles.</li>
+      <li class="mt"><strong style="color: var(--amber);">1811:</strong> The Luddites smashed machines in terror. The textile industry then <em>expanded</em> and employed far more people than before.</li>
+      <li class="mt"><strong style="color: var(--amber);">1970s:</strong> ATMs predicted to eliminate 75% of tellers. ATMs grew from 60K to 352K... teller employment <em>grew</em> from 485K to 527K.</li>
+    </ul>
+  </section>
+
+  <!-- ═══ 11. THE PATTERN ═══ -->
+  <section class="slide billboard" style="--section-color: var(--green);">
+    <h1 style="font-size: 2.8rem;">People see what's being disrupted, project catastrophe, and completely miss the explosion of new opportunity forming just outside their field of vision.</h1>
+    <p class="sub" style="font-size: 1.8rem; color: var(--green);">Every. Single. Time.</p>
+  </section>
+
+  <!-- ═══ 12. THE REAL QUESTION ═══ -->
+  <section class="slide billboard" style="--section-color: var(--green);">
+    <h1 style="font-size: 3rem;">The Real Question</h1>
+    <p class="sub" style="font-size: 1.8rem;">Not "will AI replace me?"<br><br>But <strong>"what can I do WITH AI that I couldn't do before?"</strong></p>
+  </section>
+
+  <!-- ═══ 13. SPIRITUAL GUIDANCE ═══ -->
+  <section class="slide content" style="--section-color: var(--violet);">
+    <h2>Seeking Guidance</h2>
+    <p class="big-text mt" style="color: var(--fg-dim);">In times of uncertainty, spiritual guidance is even more important.</p>
+    <p class="mt">God can help us:</p>
+    <ul class="mt" style="list-style: disc; padding-left: 24px;">
+      <li>Navigate change and uncertainty</li>
+      <li>Find purpose in our work</li>
+      <li>Use our gifts to serve others</li>
+      <li>Discern what is good and true</li>
+    </ul>
+    <p class="callout accent-violet mt-lg">Recall what President Oaks said about President Nelson's teaching regarding personal revelation.</p>
+  </section>
+
+  <!-- ═══ 9. TITLE ═══ -->
+  <section class="slide billboard">
+    <h1 style="font-size: 4.2rem;">Learning to Learn<br>with AI</h1>
+    <p class="sub" style="font-size: 1.6rem;">If AI can do the work, what's left for humans?<br><strong>Learning how to learn.</strong></p>
+  </section>
+
+  <!-- ═══ 7. TODAY (timeline) ═══ -->
+  <section class="slide content" style="padding-left: 160px;">
+    <h2>Today</h2>
+    <div class="timeline">
+      <div class="timeline-item"><div class="timeline-dot" style="background: var(--amber);"></div><span class="timeline-label">The AI Reality Check</span></div>
+      <div class="timeline-line"></div>
+      <div class="timeline-item"><div class="timeline-dot" style="background: var(--blue);"></div><span class="timeline-label">How Learning Actually Works</span></div>
+      <div class="timeline-line"></div>
+      <div class="timeline-item"><div class="timeline-dot" style="background: var(--violet);"></div><span class="timeline-label">Five Principles for AI Learning</span></div>
+      <div class="timeline-line"></div>
+      <div class="timeline-item"><div class="timeline-dot" style="background: var(--green);"></div><span class="timeline-label">Typography Learning Lab</span></div>
+    </div>
+  </section>
+
+  <!-- ═══ 8. SECTION DIVIDER: The Core Tension ═══ -->
+  <section class="slide divider" style="--section-bg: var(--blue-bg);">
+    <h1 style="color: var(--blue);">The Core Tension</h1>
+    <p class="sub">Why AI can be your best tool or your worst enemy</p>
+  </section>
+
+  <!-- ═══ 9. THE PARADOX ═══ -->
+  <section class="slide billboard" style="--section-color: var(--blue);">
+    <h1>AI can be the most powerful learning tool ever created...</h1>
+    <p class="sub" style="font-size: 1.8rem;">...or it can make learning <em>nearly impossible</em>.</p>
+    <p class="callout accent-blue mt-lg">It depends entirely on how you use it.</p>
+  </section>
+
+  <!-- ═══ 10. COGNITIVE OFFLOADING ═══ -->
+  <section class="slide content" style="--section-color: var(--blue);">
+    <h2>Cognitive Offloading</h2>
+    <p class="big-text mt" style="color: var(--fg-dim);">Delegating thinking tasks to external tools instead of engaging in them yourself.</p>
+    <div class="mt-lg">
+      <p><strong style="color: var(--blue);">The research:</strong></p>
+      <ul class="mt" style="list-style: disc; padding-left: 24px;">
+        <li>Frequent AI use is negatively correlated with critical thinking (Gerlich, 2025)</li>
+        <li>"Metacognitive laziness" — offloading the thinking needed to synthesize and analyze (Jiang et al., 2024)</li>
+        <li>Students using AI freely performed <em>worse</em> on knowledge outcomes than those who didn't (2025 study)</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ═══ 11. THE CATCH-22 ═══ -->
+  <section class="slide billboard" style="--section-color: var(--blue);">
+    <h1 style="font-size: 3.2rem;">The Catch-22</h1>
+    <p class="sub" style="font-size: 1.8rem;">You need to get better at using AI.<br>But using AI the wrong way makes you worse at everything.</p>
+  </section>
+
+  <!-- ═══ 12. SECTION DIVIDER: How Learning Works ═══ -->
+  <section class="slide divider" style="--section-bg: var(--blue-bg);">
+    <h1 style="color: var(--blue);">How Learning Actually Works</h1>
+    <p class="sub">The science most students don't know</p>
+  </section>
+
+  <!-- ═══ 13. LEARNING STYLES MYTH ═══ -->
+  <section class="slide billboard" style="--section-color: var(--blue);">
+    <h1 style="font-size: 3.2rem;">Learning Styles<br>Are a Myth</h1>
+    <p class="sub" style="font-size: 1.5rem;">There is no scientific evidence that people learn better when taught in their preferred "style" (visual, auditory, kinesthetic).<br><br>This has been debunked repeatedly. What <em>does</em> work is backed by decades of research.</p>
+  </section>
+
+  <!-- ═══ 14. RETRIEVAL PRACTICE ═══ -->
+  <section class="slide content" style="--section-color: var(--blue);">
+    <h2>Retrieval Practice</h2>
+    <p class="big-text accent-blue">Learning is about getting information OUT, not in.</p>
+    <p class="mt" style="color: var(--fg-dim);">Actively pulling information from memory strengthens learning far more than passively reviewing it.</p>
+    <div class="mt-lg" style="background: var(--blue-bg); padding: 20px 24px; border-radius: 8px;">
+      <p><strong>Effect size: 0.50</strong></p>
+      <p class="mt" style="color: var(--fg);">What does that mean? If you'd get a <strong>B-</strong> by re-reading,<br>you'd get a <strong>B or B+</strong> by testing yourself instead.</p>
+      <p class="small mt">That's about half a letter grade — just from changing HOW you study. (Rowland, 2014)</p>
+    </div>
+    <p class="callout accent-blue mt-lg">The mental effort of trying to remember IS the mechanism by which learning occurs.</p>
+  </section>
+
+  <!-- ═══ 14. DESIRABLE DIFFICULTIES ═══ -->
+  <section class="slide content" style="--section-color: var(--blue);">
+    <h2>Desirable Difficulties</h2>
+    <p class="big-text mt" style="color: var(--fg-dim);">Conditions that feel harder produce stronger long-term retention.</p>
+    <ol class="numbered mt">
+      <li><strong>Spacing</strong> practice over time (not cramming)</li>
+      <li><strong>Interleaving</strong> different topics (not blocking)</li>
+      <li><strong>Retrieval</strong> rather than re-reading</li>
+      <li><strong>Generating</strong> answers rather than recognizing them</li>
+    </ol>
+    <p class="callout accent-blue mt-lg">Struggle is not a bug. It's the feature.</p>
+  </section>
+
+  <!-- ═══ 15. THE FLUENCY ILLUSION ═══ -->
+  <section class="slide content" style="--section-color: var(--blue);">
+    <h2>The Fluency Illusion</h2>
+    <p class="big-text accent-blue">"I understood the explanation"<br>≠ "I learned it"</p>
+    <p class="mt" style="color: var(--fg-dim);">Students consistently rate strategies that feel fluent and easy (re-reading, highlighting) as more effective...</p>
+    <p class="mt" style="color: var(--fg-dim);">...when these strategies are actually among the <strong>least effective</strong> for long-term retention.</p>
+    <p class="callout accent-blue mt-lg">AI makes everything feel fluent. That's the danger.</p>
+  </section>
+
+  <!-- ═══ 16. ANTI-PATTERNS ═══ -->
+  <section class="slide top" style="--section-color: var(--red); background: var(--red-bg);">
+    <h2 style="color: var(--red);">Anti-Patterns to Avoid</h2>
+    <div class="card-row c2 mt">
+      <div class="card" style="--card-color: var(--red);">
+        <h3>"Explain this to me"</h3>
+        <p>...without attempting it yourself first. Passive reception creates fluency illusion.</p>
+      </div>
+      <div class="card" style="--card-color: var(--red);">
+        <h3>AI summarizes for you</h3>
+        <p>Having AI summarize what you should read robs you of the processing that creates learning.</p>
+      </div>
+      <div class="card" style="--card-color: var(--red);">
+        <h3>Copy-paste understanding</h3>
+        <p>Using AI output as your own work. You hand in quality, but you learned nothing.</p>
+      </div>
+      <div class="card" style="--card-color: var(--red);">
+        <h3>Avoiding confusion</h3>
+        <p>Confusion is a learning signal. Immediately resolving it short-circuits restructuring.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 17. SECTION DIVIDER: Five Principles ═══ -->
+  <section class="slide divider" style="--section-bg: var(--violet-bg);">
+    <h1 style="color: var(--violet);">Five Principles</h1>
+    <p class="sub">For using AI as a learning tool</p>
+  </section>
+
+  <!-- ═══ 18. PRINCIPLES 1-2 ═══ -->
+  <section class="slide top" style="--section-color: var(--violet);">
+    <h2 style="color: var(--violet);">Principles 1 & 2</h2>
+    <div class="card-row c2 mt">
+      <div class="card" style="--card-color: var(--violet);">
+        <h3>1. Retrieve First, Then Verify</h3>
+        <p>Before asking AI anything, attempt to recall it yourself. Write down what you think you know. <em>Then</em> use AI to check.</p>
+        <p class="mt small">"Here's what I think I know about typography. What did I get right? Wrong? Missing?"</p>
+      </div>
+      <div class="card" style="--card-color: var(--violet);">
+        <h3>2. Ask AI to Quiz You</h3>
+        <p>Don't ask AI to explain — ask it to test you. Practice testing is the highest-utility learning strategy.</p>
+        <p class="mt small">"Generate 10 questions about type hierarchy. Give me one at a time and wait for my answer."</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 19. PRINCIPLES 3-4 ═══ -->
+  <section class="slide top" style="--section-color: var(--violet);">
+    <h2 style="color: var(--violet);">Principles 3 & 4</h2>
+    <div class="card-row c2 mt">
+      <div class="card" style="--card-color: var(--violet);">
+        <h3>3. Struggle Before Scaffolding</h3>
+        <p>When stuck, resist asking for the answer. Ask for the <em>minimum hint</em> needed to get unstuck.</p>
+        <p class="mt small">"I'm stuck on choosing type sizes. Don't give me the answer — give me one hint."</p>
+      </div>
+      <div class="card" style="--card-color: var(--violet);">
+        <h3>4. Use AI as Socratic Tutor</h3>
+        <p>Set up AI to question your understanding, not explain to you.</p>
+        <p class="mt small">"You are a Socratic tutor. Never give direct answers. Ask questions that guide me toward understanding."</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 20. PRINCIPLE 5 ═══ -->
+  <section class="slide content" style="--section-color: var(--violet);">
+    <h2 style="color: var(--violet);">Principle 5</h2>
+    <p class="big-text accent-violet">Reflect After Every Interaction</p>
+    <p class="mt" style="color: var(--fg-dim);">After using AI for learning, explicitly reflect:</p>
+    <ul class="mt" style="list-style: disc; padding-left: 24px;">
+      <li>What did I learn?</li>
+      <li>What am I still confused about?</li>
+      <li>What should I practice next?</li>
+      <li>How confident am I — and how would I test that confidence?</li>
+    </ul>
+    <p class="callout accent-violet mt-lg">This closes the self-regulated learning cycle.</p>
+  </section>
+
+  <!-- ═══ 21. SECTION DIVIDER: Typography Lab ═══ -->
+  <section class="slide divider" style="--section-bg: var(--green-bg);">
+    <h1 style="color: var(--green);">Typography Learning Lab</h1>
+    <p class="sub">Apply the principles to teach yourself typography</p>
+  </section>
+
+  <!-- ═══ 22. LAB PHASES ═══ -->
+  <section class="slide top" style="--section-color: var(--green);">
+    <h2 style="color: var(--green);">The Five Phases</h2>
+    <div class="card-row c5 mt" style="gap: 20px;">
+      <div class="card" style="--card-color: var(--green);">
+        <h3>Phase 1</h3>
+        <p>Retrieve First<br><span class="small">10 min</span></p>
+      </div>
+      <div class="card" style="--card-color: var(--green);">
+        <h3>Phase 2</h3>
+        <p>Identify Gaps<br><span class="small">10 min</span></p>
+      </div>
+      <div class="card" style="--card-color: var(--green);">
+        <h3>Phase 3</h3>
+        <p>AI Quizmaster<br><span class="small">20 min</span></p>
+      </div>
+      <div class="card" style="--card-color: var(--green);">
+        <h3>Phase 4</h3>
+        <p>Socratic Dive<br><span class="small">15 min</span></p>
+      </div>
+      <div class="card" style="--card-color: var(--green);">
+        <h3>Phase 5</h3>
+        <p>Reflect & Apply<br><span class="small">15 min</span></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 23. PHASE 1 INSTRUCTIONS ═══ -->
+  <section class="slide content" style="--section-color: var(--green); background: var(--green-bg);">
+    <h2 style="color: var(--green);">Phase 1: Retrieve First (10 min)</h2>
+    <p class="big-text mt">Write down EVERYTHING you already know about:</p>
+    <ul class="mt" style="list-style: disc; padding-left: 24px;">
+      <li>Typography and type hierarchy</li>
+      <li>Type scales — what are they? How do they work?</li>
+      <li>What makes hierarchy effective?</li>
+      <li>Font sizes, weights, line heights</li>
+    </ul>
+    <p class="callout accent-green mt-lg">No AI yet. Just activate your prior knowledge.</p>
+  </section>
+
+  <!-- ═══ 24. PHASE 2-3 INSTRUCTIONS ═══ -->
+  <section class="slide content" style="--section-color: var(--green);">
+    <h2 style="color: var(--green);">Phases 2 & 3</h2>
+    <p class="big-text accent-green">Phase 2: Identify Gaps (10 min)</p>
+    <p class="mt" style="color: var(--fg-dim);">Share what you wrote with AI. Ask: "What did I get right? Wrong? What am I missing?"</p>
+    <p class="big-text accent-green mt-lg">Phase 3: AI as Quizmaster (20 min)</p>
+    <p class="mt" style="color: var(--fg-dim);">For each concept you need to learn, ask AI to quiz you:</p>
+    <p class="mt small" style="font-style: italic;">"Generate 5 questions about type scales that test deep understanding. Give me one at a time and wait for my answer before feedback."</p>
+  </section>
+
+  <!-- ═══ 25. PHASE 4-5 INSTRUCTIONS ═══ -->
+  <section class="slide content" style="--section-color: var(--green);">
+    <h2 style="color: var(--green);">Phases 4 & 5</h2>
+    <p class="big-text accent-green">Phase 4: Socratic Deep Dive (15 min)</p>
+    <p class="mt" style="color: var(--fg-dim);">Pick your weakest concept. Set up AI as Socratic tutor:</p>
+    <p class="mt small" style="font-style: italic;">"You are a Socratic tutor helping me understand [concept]. Don't give direct answers — ask questions that guide me. If I'm wrong, ask a question that reveals the flaw."</p>
+    <p class="big-text accent-green mt-lg">Phase 5: Reflect & Apply (15 min)</p>
+    <p class="mt" style="color: var(--fg-dim);">Write: What did I learn? What's still confusing? Then apply it: plan your C2 type stylesheet.</p>
+  </section>
+
+  <!-- ═══ 26. C2 REQUIREMENTS ═══ -->
+  <section class="slide content" style="--section-color: var(--violet);">
+    <h2>C2: Type Hierarchy</h2>
+    <p class="small">Due: Feb 17 @ 5:15pm</p>
+    <ol class="numbered mt">
+      <li>H1, H2, H3, Paragraph styles (+ any additional you need)</li>
+      <li>Color choices for your product/brand</li>
+      <li>A logo (can be simple/placeholder for now)</li>
+    </ol>
+    <p class="mt" style="color: var(--fg-dim);">Export as PDF</p>
+    <p class="callout accent-violet mt-lg">These styles will evolve — this is a starting point.</p>
+  </section>
+
+  <!-- ═══ 27. WHAT'S DUE ═══ -->
+  <section class="slide top" style="--section-color: var(--green); background: var(--green-bg);">
+    <h2 style="color: var(--green);">What's Due</h2>
+    <div class="mt" style="display: flex; gap: 48px;">
+      <div>
+        <p class="callout" style="color: var(--green);">Due today @ 5:15pm:</p>
+        <p class="mt" style="color: var(--fg-dim);">C1 Persona Sheet + Product Details</p>
+      </div>
+      <div>
+        <p class="callout" style="color: var(--green);">Due Feb 17:</p>
+        <p class="mt" style="color: var(--fg-dim);">C2 Type Hierarchy</p>
+      </div>
+      <div>
+        <p class="callout" style="color: var(--green);">Before Day 11:</p>
+        <p class="mt" style="color: var(--fg-dim);">Rough wireframe sketches for PDP</p>
+      </div>
+    </div>
+    <div class="mt-lg">
+      <p class="callout" style="color: var(--green);">Resources:</p>
+      <ul class="resource-list mt">
+        <li><a href="https://typescale.com" target="_blank">typescale.com</a> — Type scale calculator</li>
+        <li><a href="https://fonts.google.com" target="_blank">fonts.google.com</a> — Free fonts</li>
+        <li><a href="https://fortune.com/2026/02/11/something-big-is-happening-ai-february-2020-moment-matt-shumer/" target="_blank">Fortune article</a> — Matt Shumer on AI</li>
+      </ul>
+    </div>
+  </section>
+
+</div>
+
+<div class="counter"><span id="cur">1</span> / <span id="tot"></span></div>
+
+<script>
+  const slides = document.querySelectorAll('.slide');
+  const total = slides.length;
+  let current = 0;
+  document.getElementById('tot').textContent = total;
+
+  function goTo(n) {
+    if (n < 0 || n >= total) return;
+    slides[current].classList.remove('active');
+    current = n;
+    slides[current].classList.add('active');
+    document.getElementById('cur').textContent = current + 1;
+  }
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown' || e.key === ' ') { e.preventDefault(); goTo(current + 1); }
+    else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') { e.preventDefault(); goTo(current - 1); }
+    else if (e.key === 'Home') { e.preventDefault(); goTo(0); }
+    else if (e.key === 'End') { e.preventDefault(); goTo(total - 1); }
+  });
+
+  document.addEventListener('click', e => {
+    if (e.target.closest('a')) return;
+    e.clientX / window.innerWidth < 0.33 ? goTo(current - 1) : goTo(current + 1);
+  });
+</script>
+
+</body>
+</html>
