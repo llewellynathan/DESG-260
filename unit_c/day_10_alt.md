@@ -101,25 +101,24 @@
    - **Copy-pasting AI outputs as your own understanding** — you hand in quality work but learn nothing
    - **Using AI to avoid confusion** — confusion is a signal that learning is happening; immediately resolving it short-circuits restructuring
 
-8. **Five Principles for Learning WITH AI** (20 min) `[K4, S1, U3]`
-   - **Principle 1: Retrieve First, Then Verify**
-     - Before asking AI anything about material you're learning, attempt to recall it yourself
-     - Write down what you think you know, then use AI to check and fill gaps
-     - Example: "Here's what I think I know about typography. What did I get right? Wrong? What am I missing?"
-   - **Principle 2: Ask AI to Quiz You, Not Teach You**
-     - Flip the default interaction: instead of AI explaining, AI asks questions
-     - Practice testing is the highest-utility learning strategy
-     - Example: "Generate 10 questions about type hierarchy. Give me one at a time and wait for my answer."
-   - **Principle 3: Demand Struggle Before Scaffolding**
-     - When stuck, resist asking AI for the answer immediately
-     - Ask for the *minimum hint* needed to get unstuck
-     - Example: "I'm stuck on choosing type sizes. Don't give me the answer — give me one hint."
-   - **Principle 4: Use AI as Socratic Tutor**
-     - Set up AI to question your understanding rather than explain
-     - Example prompt: "You are a Socratic tutor. Never give me direct answers. Ask questions that guide me toward understanding."
-   - **Principle 5: Reflect After Every Interaction**
-     - After using AI, explicitly reflect: What did I learn? What am I still confused about? What should I practice next?
-     - This closes the self-regulated learning cycle
+8. **AI Learning Practices Toolkit** (20 min) `[K4, S1, U3]`
+   - These are practices you can use whenever you're learning with AI. Pick what fits your situation.
+
+   | When you're... | Try this practice |
+   |----------------|-------------------|
+   | Starting a new topic | Retrieve First |
+   | Not sure what you don't know | Calibration Check |
+   | Learning new concepts | Quiz Me |
+   | Stuck on something | Minimum Hint |
+   | Confused about *why* something works | Socratic Dialogue |
+   | Done studying | Reflection |
+
+   - **Retrieve First:** Write down what you know before asking AI. Then ask AI to check your understanding.
+   - **Calibration Check:** Explain a topic to AI and ask it to rate your understanding and identify weak spots.
+   - **Quiz Me:** Ask AI to test you instead of explaining. Answer each question before seeing feedback.
+   - **Minimum Hint:** When stuck, ask for the smallest hint — not the answer.
+   - **Socratic Dialogue:** Set up AI to ask *you* questions that guide you toward understanding.
+   - **Reflection:** After any session, answer: What did I learn? What am I still confused about? What should I practice next?
 
 9. **Introduce C2: Type Hierarchy** (10 min) `[K5, S2]`
    - **Due: Feb 17 @ 5:15pm** (but start now)
@@ -132,31 +131,22 @@
    - Show 1-2 examples of type stylesheets
 
 10. **AI-Guided Typography Learning Lab** (60 min) `[S1, S2, S3, EQ3]`
-   - Students use AI to teach themselves typography concepts, applying the five principles:
+   - Students use AI to teach themselves typography concepts using the practices from the toolkit
+   - **Goal:** Learn about type scales, the four-size rule, weight for hierarchy, and line height
+   - **Key principle:** Pick the practices that fit your situation — you don't have to use all of them in order
 
-   **Phase 1: Retrieve First (10 min)**
-   - Write down EVERYTHING you already know about typography, hierarchy, type scales
-   - Include: What is a type scale? What makes hierarchy work? How do sizes relate?
-   - No AI yet — just activate your prior knowledge
+   **Suggested approach:**
+   - *If you're just starting:* Use **Retrieve First** — write what you already know about typography. Then **Calibration Check** — find out what you're missing.
+   - *If you're learning specific concepts:* Use **Quiz Me** for type scales, the four-size rule, weight for hierarchy
+   - *If something doesn't make sense:* Use **Minimum Hint** or **Socratic Dialogue** to work through it
+   - *When you're done:* Use **Reflection** to consolidate what you learned
 
-   **Phase 2: Identify Gaps (10 min)**
-   - Share what you wrote with AI
-   - Prompt: "Here's what I think I know about typography and type hierarchy. What did I get right? What did I get wrong? What important concepts am I missing?"
-   - Create a list of concepts you need to learn
+   **Apply your learning:**
+   - What H1 size will you use? Why?
+   - What ratio are you using? Why?
+   - What weights will you use for headings vs. body?
 
-   **Phase 3: AI as Quizmaster (20 min)**
-   - For each concept you need to learn, ask AI to quiz you rather than explain
-   - Example prompt: "Generate 5 questions about type scales that test deep understanding, not just recall. Give me one at a time and wait for my answer before providing feedback."
-   - Answer each question before seeing feedback
-   - Focus on: type scales, the four-size rule, weight for hierarchy, line height
-
-   **Phase 4: Socratic Deep Dive (15 min)**
-   - Pick one concept you're weakest on
-   - Set up AI as Socratic tutor: "You are a Socratic tutor helping me understand [concept]. Don't give me direct answers — ask me questions that guide me toward understanding. If I'm wrong, don't correct me directly; ask a question that reveals the flaw."
-   - Work through the concept via dialogue
-
-   **Phase 5: Reflect & Apply (15 min)**
-   - Write a brief reflection:
+   **At the end, write a brief reflection:**
      - What did I learn today about typography?
      - What am I still confused about?
      - How confident am I in this material?

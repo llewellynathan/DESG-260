@@ -1,75 +1,126 @@
-# Typography Learning Lab
+# AI Learning Practices Toolkit
 
-Use AI to teach yourself typography concepts by applying these five principles of effective learning.
-
----
-
-## Phase 1: Retrieve First (10 min)
-
-Write down EVERYTHING you already know about typography, hierarchy, and type scales. No AI yet — just activate your prior knowledge.
-
-**Prompts to answer:**
-- What is a type scale?
-- What makes hierarchy effective?
-- How do font sizes relate to each other?
-- What do you know about font weights and line heights?
-
-Write freely. Don't worry about being wrong — the goal is to surface what you already know.
+These are practices you can use whenever you're learning with AI. Pick the ones that fit your situation — you don't need to use all of them, and you don't need to use them in order.
 
 ---
 
-## Phase 2: Identify Gaps (10 min)
+## Quick Reference
 
-Now share what you wrote with AI and ask it to evaluate your understanding.
-
-**Prompt to use:**
-> "Here's what I think I know about typography and type hierarchy. What did I get right? What did I get wrong? What important concepts am I missing?"
-
-Then paste what you wrote in Phase 1.
-
-Create a list of concepts you need to learn based on the feedback.
-
----
-
-## Phase 3: AI as Quizmaster (20 min)
-
-For each concept you need to learn, ask AI to **quiz you** rather than explain.
-
-**Prompt to use:**
-> "Generate 5 questions about [concept] that test deep understanding, not just recall. Give me one at a time and wait for my answer before providing feedback."
-
-**Concepts to cover:**
-- Type scales (ratios like 1.25, 1.333, 1.5)
-- The four-size rule
-- Weight for hierarchy
-- Line height
-
-Answer each question **before** seeing feedback. The struggle is where learning happens.
+| When you're... | Try this practice |
+|----------------|-------------------|
+| Starting a new topic | Retrieve First |
+| Not sure what you don't know | Calibration Check |
+| Learning new concepts | Quiz Me |
+| Stuck on something | Minimum Hint |
+| Confused about why something works | Socratic Dialogue |
+| Done studying | Reflection |
 
 ---
 
-## Phase 4: Socratic Deep Dive (15 min)
+## The Practices
 
-Pick one concept you're weakest on. Set up AI as a Socratic tutor.
+### Retrieve First
+**When to use:** Before asking AI anything about a topic you're trying to learn.
 
-**Prompt to use:**
-> "You are a Socratic tutor helping me understand [concept]. Don't give me direct answers — ask me questions that guide me toward understanding. If I'm wrong, don't correct me directly; ask a question that reveals the flaw in my reasoning."
+**How it works:** Write down everything you think you know *before* involving AI. Then ask AI to check your understanding.
 
-Work through the concept via dialogue. Let AI guide you with questions, not answers.
+**Example prompt:**
+> "Here's what I think I know about [topic]. What did I get right? What did I get wrong? What am I missing?"
+
+**Why it works:** The act of trying to remember strengthens memory more than being given information. Even if you get things wrong, the attempt helps you learn.
 
 ---
 
-## Phase 5: Reflect & Apply (15 min)
+### Calibration Check
+**When to use:** When you're not sure what you actually know vs. what you think you know.
 
-Write a brief reflection:
-- What did I learn today about typography?
+**How it works:** Explain a topic to AI and ask it to rate your understanding and identify weak spots.
+
+**Example prompt:**
+> "I'm going to explain everything I know about [topic]. After I'm done, rate my understanding on a scale of 1-10, identify specific misconceptions, and tell me which areas I'm weakest on."
+
+**Why it works:** We're often overconfident about what we know. AI can reveal blind spots you didn't know you had.
+
+---
+
+### Quiz Me
+**When to use:** When learning new concepts or reviewing material.
+
+**How it works:** Instead of asking AI to explain, ask it to test you. Answer each question before seeing feedback.
+
+**Example prompt:**
+> "Generate 5 questions about [topic] that test deep understanding, not just recall. Give me one at a time and wait for my answer before providing feedback."
+
+**Why it works:** Testing yourself is the highest-impact learning strategy. It's more effective than re-reading, highlighting, or listening to explanations.
+
+---
+
+### Minimum Hint
+**When to use:** When you're stuck on a problem or concept.
+
+**How it works:** Resist asking for the answer. Ask for the smallest hint that might get you unstuck.
+
+**Example prompt:**
+> "I'm stuck on [problem]. Don't give me the answer — just give me one small hint about what direction to look."
+
+**Why it works:** Productive struggle strengthens learning. Getting the full answer robs you of the thinking that builds understanding.
+
+---
+
+### Socratic Dialogue
+**When to use:** When you want to deeply understand *why* something works, not just *what* it is.
+
+**How it works:** Set up AI to ask you questions instead of giving you answers.
+
+**Example prompt:**
+> "You are a Socratic tutor helping me understand [topic]. Don't give me direct answers — ask me questions that guide me toward understanding. If I'm wrong, don't correct me; ask a question that reveals the flaw in my reasoning."
+
+**Why it works:** Generating your own explanations creates deeper understanding than receiving explanations from others.
+
+---
+
+### Reflection
+**When to use:** After any AI learning session.
+
+**How it works:** Before closing out, write brief answers to these questions:
+
+- What did I learn?
 - What am I still confused about?
-- How confident am I in this material?
+- What should I practice next?
+- How confident am I — and how would I test that confidence?
 
-Then apply your learning to your C2 Type Hierarchy assignment:
-- What's your H1 size? Why?
-- What ratio are you using? Why?
-- What weights will you use for headings vs. body text?
+**Why it works:** This closes the learning loop. Without reflection, you may feel like you learned something without actually encoding it to memory.
+
+---
+
+## Applying This to Typography
+
+Here's how you might use these practices to learn about typography for your C2 assignment:
+
+**If you're just starting:**
+- Use *Retrieve First* — write what you already know about type hierarchy, scales, weights
+- Use *Calibration Check* — find out what you're missing
+
+**If you're learning specific concepts:**
+- Use *Quiz Me* for type scales, the four-size rule, weight for hierarchy, line height
+
+**If something doesn't make sense:**
+- Use *Minimum Hint* or *Socratic Dialogue* to work through it
+
+**When you're done:**
+- Use *Reflection* to consolidate what you learned
+- Apply it: What H1 size will you use? What ratio? Why?
+
+---
+
+## Anti-Patterns to Avoid
+
+These feel productive but actually undermine learning:
+
+- **"Explain this to me"** without trying first — creates an illusion of understanding
+- **Having AI summarize** what you should read — robs you of the processing
+- **Copy-pasting AI output** as your own understanding — you hand in quality work but learn nothing
+- **Using AI to avoid confusion** — confusion is a signal that learning is happening
 
 ---
 
