@@ -93,11 +93,60 @@ These are practices you can use whenever you're learning with AI. Pick the ones 
 
 ---
 
+## Quick-Start Prompts
+
+Don't have time to craft the perfect prompt? These short versions work too:
+
+| Practice | Short Prompt |
+|----------|--------------|
+| Starting from Nothing | "What should I learn first about [topic]?" |
+| Retrieve First | "Check my understanding: [what you know]" |
+| Calibration Check | "Rate my explanation 1-10 and find my gaps" |
+| Quiz Me | "Quiz me on [topic]. One question at a time." |
+| Minimum Hint | "I'm stuck on [problem]. One hint only." |
+| Socratic Dialogue | "Be my Socratic tutor for [topic]" |
+
+---
+
+## Starting from Nothing
+
+If you're brand new to a topic and don't know where to begin:
+
+**Example prompt:**
+> "I need to learn about typographic hierarchy for a design project. I know almost nothing about it. What are the 3-5 most important concepts I should understand first? Don't explain them yet — just list them so I can learn them one at a time."
+
+Then pick one concept and use *Quiz Me* or *Socratic Dialogue* to learn it.
+
+---
+
+## Example Prompts for Typography
+
+**Retrieve First:**
+> "Here's what I think I know about typographic hierarchy: it's about using different font sizes to show importance, bigger text = more important, and you should limit yourself to a few sizes. What did I get right? What did I get wrong? What important concepts am I missing?"
+
+**Calibration Check:**
+> "I'm going to explain everything I understand about type scales. A type scale is a set of font sizes that follow a ratio, like 1.25 or 1.5. You multiply each size by the ratio to get the next size up. Rate my understanding 1-10 and tell me what I'm weakest on."
+
+**Quiz Me:**
+> "Generate 5 questions about typographic hierarchy that test deep understanding, not just definitions. Topics: type scales, the four-size rule, using weight for hierarchy, and line height. Give me one question at a time and wait for my answer before giving feedback."
+
+**Minimum Hint:**
+> "I'm trying to choose font sizes for my product page but I don't know where to start. Don't give me the answer — just give me one hint about what I should consider first."
+
+**Socratic Dialogue:**
+> "You are a Socratic tutor helping me understand why type scales use mathematical ratios instead of arbitrary sizes. Don't give me direct answers — ask me questions that guide me toward understanding. If my reasoning is flawed, ask a question that reveals the flaw."
+
+---
+
 ## Applying This to Typography
 
 Here's how you might use these practices to learn about typography for your C2 assignment:
 
-**If you're just starting:**
+**If you're starting from nothing:**
+- Use *Starting from Nothing* — get the 3-5 key concepts first
+- Then pick one and use *Quiz Me* or *Socratic Dialogue*
+
+**If you know a little:**
 - Use *Retrieve First* — write what you already know about type hierarchy, scales, weights
 - Use *Calibration Check* — find out what you're missing
 
