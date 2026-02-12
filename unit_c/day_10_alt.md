@@ -26,12 +26,12 @@
 - K1: The difference between retrieval practice and passive review
 - K2: What desirable difficulties are and why struggle enables learning
 - K3: Common anti-patterns that undermine learning with AI
-- K4: Five principles for using AI as a learning tool
+- K4: The two-phase framework: Taking In (acquisition) vs. Strengthening (retrieval)
 - K5: Basic typography concepts (type scales, hierarchy, text styles)
 
 **Students Will Be Able To:**
-- S1: Apply retrieve-first strategy before asking AI questions
-- S2: Use AI to quiz themselves and provide Socratic guidance
+- S1: Apply acquisition practices (Scope First, Chunk It, Translate) when learning new material
+- S2: Apply strengthening practices (Teach Back, Quiz Me, Socratic Mode) to solidify understanding
 - S3: Create a type stylesheet demonstrating hierarchy
 
 ---
@@ -76,7 +76,11 @@
    - Secondary focus: typography and hierarchy (through self-directed AI learning)
    - By end of class: you'll understand learning science AND have a type stylesheet started
 
-5. **The Core Tension** (15 min) `[EQ2, U1, U2]`
+5. **Direct Instruction: Learning Science & AI Practices** (50 min) `[EQ2, EQ3, K1, K2, K3, K4, U2, U3, S1, S2]`
+
+   **Lecture** (26 min)
+
+   *The Core Tension* (8 min)
    - The paradox: AI can be the most powerful learning tool ever created, OR it can make learning nearly impossible
    - Introduce **cognitive offloading** — delegating thinking tasks to external tools
    - Research findings:
@@ -84,7 +88,7 @@
      - "Metacognitive laziness" — offloading the thinking processes needed to synthesize and analyze (Jiang et al., 2024)
    - The catch-22: You need to get better at using AI, but using AI the wrong way makes you worse at everything
 
-6. **How Learning Actually Works** (15 min) `[K1, K2, U2]`
+   *How Learning Actually Works* (8 min)
    - **First: Learning styles are a myth.** There is no scientific evidence that people learn better when taught in their preferred "style" (visual, auditory, kinesthetic). This has been debunked repeatedly. What *does* work is backed by decades of research.
    - **Retrieval practice** is king: Actively pulling information from memory strengthens learning far more than passive review
      - Meta-analysis found an effect size of 0.50 comparing retrieval practice to re-reading (Rowland, 2014)
@@ -95,32 +99,65 @@
      - Students consistently rate strategies that feel easy (re-reading, highlighting) as more effective, when they're actually least effective
    - Connect to AI: Most AI use removes difficulty, removes retrieval, creates fluency illusion
 
-7. **Anti-Patterns to Avoid** (10 min) `[K3, U2]`
+   *Anti-Patterns to Avoid* (5 min)
    - **"Explain this to me" without prior effort** — passive reception creates fluency illusion
    - **Having AI summarize what you should read** — robs you of the processing that creates learning
    - **Copy-pasting AI outputs as your own understanding** — you hand in quality work but learn nothing
    - **Using AI to avoid confusion** — confusion is a signal that learning is happening; immediately resolving it short-circuits restructuring
 
-8. **AI Learning Practices Toolkit** (20 min) `[K4, S1, U3]`
-   - These are practices you can use whenever you're learning with AI. Pick what fits your situation.
+   *Introduce the Two-Phase Framework* (5 min)
+   - Key insight: "Taking in" and "strengthening" require different AI strategies. Most students default to "explain this to me" (passive acquisition) and skip retrieval entirely. The best learners do BOTH — and they know which phase they're in.
 
-   | When you're... | Try this practice |
-   |----------------|-------------------|
-   | Starting a new topic | Retrieve First |
-   | Not sure what you don't know | Calibration Check |
-   | Learning new concepts | Quiz Me |
-   | Stuck on something | Minimum Hint |
-   | Confused about *why* something works | Socratic Dialogue |
-   | Done studying | Reflection |
+   **Phase 1: Taking In (Acquisition)**
+   *Use these when you're learning something new*
 
-   - **Retrieve First:** Write down what you know before asking AI. Then ask AI to check your understanding.
-   - **Calibration Check:** Explain a topic to AI and ask it to rate your understanding and identify weak spots.
-   - **Quiz Me:** Ask AI to test you instead of explaining. Answer each question before seeing feedback.
-   - **Minimum Hint:** When stuck, ask for the smallest hint — not the answer.
-   - **Socratic Dialogue:** Set up AI to ask *you* questions that guide you toward understanding.
-   - **Reflection:** After any session, answer: What did I learn? What am I still confused about? What should I practice next?
+   | Practice | When to use | What to do |
+   |----------|-------------|------------|
+   | **Scope First** | Starting from zero | Ask AI to break down the topic into sub-topics. Get the map before the journey. |
+   | **Why First** | Before diving into details | Ask AI to explain why this matters and where it fits in the bigger picture. |
+   | **Chunk It** | Topic feels overwhelming | Ask AI to explain one piece at a time. Don't move on until you understand. |
+   | **Translate** | Explanation doesn't click | Ask AI to explain differently — simpler, with an analogy, with a concrete example. |
+   | **Verify** | AI gives you facts | Cross-check against another source. AI can be confident and wrong. |
 
-9. **Introduce C2: Type Hierarchy** (10 min) `[K5, S2]`
+   **Phase 2: Strengthening (Retrieval)**
+   *Use these when you have some knowledge to work with*
+
+   | Practice | When to use | What to do |
+   |----------|-------------|------------|
+   | **Teach Back** | After learning something new | Explain it back to AI in your own words. Ask AI to check your understanding. |
+   | **Quiz Me** | Ready to test yourself | Ask AI to quiz you. Answer BEFORE seeing feedback. |
+   | **Minimum Hint** | Stuck on a problem | Ask for the smallest possible hint — not the answer. |
+   | **Socratic Mode** | Confused about *why* | Ask AI to guide you with questions instead of explanations. |
+
+   **Ongoing: Reflection**
+   After any learning session: What did I learn? What's still fuzzy? What should I practice next?
+
+   **I do / We do / You do: Using the Practices** (24 min)
+
+   *I do: Model Acquisition Practices Live* (8 min)
+   - Topic: **Visual hierarchy** (not typography — saves that for the Lab)
+   - "I want to learn how designers guide the eye. Watch how I use AI."
+   - Demo live with AI:
+     - **Scope First:** "I want to learn about visual hierarchy in design. Can you break this topic down into the main sub-topics I should understand?"
+     - **Chunk It:** "Let's start with just one of those. Explain [first sub-topic] to me."
+     - **Translate:** "Can you give me an analogy for how visual hierarchy works? Something from everyday life?"
+   - Narrate your thinking: "Notice how I'm actively directing the conversation, not just absorbing."
+
+   *We do: Class Practices Acquisition Together* (8 min)
+   - Continue learning visual hierarchy using the practices
+   - Ask class: "What practice should we use next?"
+   - Students suggest which practice to apply (e.g., "Let's use Translate and ask for a real-world example" or "Let's use Why First to understand why this matters")
+   - Instructor types what the class decides, shows AI response
+   - Key: Students are practicing CHOOSING practices, not just watching
+
+   *You do: Pairs Practice Acquisition + Strengthening* (8 min)
+   - Same topic: visual hierarchy
+   - Partner A: Try an acquisition practice (Chunk It or Translate) — learn something new
+   - Partner B: Try a strengthening practice (Teach Back) — explain what you learned so far to AI
+   - Swap roles after 4 minutes
+   - Quick debrief: "What felt different about taking in vs. strengthening?"
+
+6. **Introduce C2: Type Hierarchy** (10 min) `[K5]`
    - **Due: Feb 17 @ 5:15pm** (but start now)
    - Requirements:
      - Define H1, H2, H3, Paragraph (+ any additional styles needed)
@@ -129,17 +166,22 @@
    - Export as PDF
    - Note: These styles will evolve — this is a starting point
    - Show 1-2 examples of type stylesheets
+   - **Connection:** Visual hierarchy IS what typography creates — the concepts link directly
 
-10. **AI-Guided Typography Learning Lab** (60 min) `[S1, S2, S3, EQ3]`
-   - Students use AI to teach themselves typography concepts using the practices from the toolkit
+7. **AI-Guided Typography Learning Lab** (65 min) `[S1, S2, S3, EQ3]`
+   - You've practiced the two phases with visual hierarchy. Now apply them to **typography**.
    - **Goal:** Learn about type scales, the four-size rule, weight for hierarchy, and line height
-   - **Key principle:** Pick the practices that fit your situation — you don't have to use all of them in order
+   - **Key principle:** Know which phase you're in. Am I taking in (new material) or strengthening (testing myself)?
 
-   **Suggested approach:**
-   - *If you're just starting:* Use **Retrieve First** — write what you already know about typography. Then **Calibration Check** — find out what you're missing.
-   - *If you're learning specific concepts:* Use **Quiz Me** for type scales, the four-size rule, weight for hierarchy
-   - *If something doesn't make sense:* Use **Minimum Hint** or **Socratic Dialogue** to work through it
-   - *When you're done:* Use **Reflection** to consolidate what you learned
+   **Phase 1: Taking In (if typography is new to you)**
+   - Use **Scope First** — "What are the key concepts I need to understand about typographic hierarchy?"
+   - Use **Chunk It** — Learn one concept at a time (type scales, then weight, then line height)
+   - Use **Translate** — Ask for examples from real websites, analogies, visual explanations
+
+   **Phase 2: Strengthening (once you have the basics)**
+   - Use **Teach Back** — Explain type scales to AI in your own words. Ask it to check your understanding.
+   - Use **Quiz Me** — "Quiz me on the four-size rule and type hierarchy. Ask one question at a time."
+   - Use **Socratic Mode** — If something doesn't click, ask AI to guide you with questions
 
    **Apply your learning:**
    - What H1 size will you use? Why?
@@ -147,21 +189,18 @@
    - What weights will you use for headings vs. body?
 
    **At the end, write a brief reflection:**
-     - What did I learn today about typography?
-     - What am I still confused about?
-     - How confident am I in this material?
-   - Apply your learning: Begin planning your C2 type stylesheet
-     - What's your H1 size? Why?
-     - What ratio are you using? Why?
-     - What weights will you use?
+   - What did I learn today about typography?
+   - What am I still confused about?
+   - Which practices did I use? Which phase was I in most of the time?
+   - How confident am I in this material?
 
-11. **Work Session: C1 Finalization + C2 Start** (20 min) `[S2, S3]`
+8. **Work Session: C1 Finalization + C2 Start** (20 min) `[S3]`
    - **First priority:** Finish C1 if not complete (due 5:15pm today)
    - **Second priority:** Begin C2 type stylesheet
      - Choose typefaces (Google Fonts, Adobe Fonts, or system fonts)
      - Set up type scale using typescale.com as reference
      - Create Figma text styles
-   - Continue using AI as a learning partner, applying the five principles
+   - Continue using AI as a learning partner, applying the two-phase framework
 
 **Total: 180 min**
 
@@ -190,15 +229,15 @@
 |------|----------------|------------|
 | EQ1 | How is AI changing design? | 1, 2, 4 |
 | EQ2 | Best tool or worst tool? | 4, 5 |
-| EQ3 | How to learn with AI? | 4, 8, 10 |
-| U1 | AI is transforming creative work | 1, 2, 3, 5 |
-| U2 | Cognitive offloading undermines learning | 5, 6, 7 |
-| U3 | Strategic AI use requires deliberate techniques | 8, 10 |
-| K1 | Retrieval practice vs. passive review | 6 |
-| K2 | Desirable difficulties | 6 |
-| K3 | Anti-patterns with AI | 7 |
-| K4 | Five principles for AI learning | 8 |
-| K5 | Typography concepts | 9, 10 |
-| S1 | Apply retrieve-first strategy | 8, 10 |
-| S2 | Use AI for quizzing and Socratic guidance | 8, 10 |
-| S3 | Create type stylesheet | 10, 11 |
+| EQ3 | How to learn with AI? | 4, 5, 7 |
+| U1 | AI is transforming creative work | 1, 2, 3 |
+| U2 | Cognitive offloading undermines learning | 5 |
+| U3 | Strategic AI use requires deliberate techniques | 5, 7 |
+| K1 | Retrieval practice vs. passive review | 5 |
+| K2 | Desirable difficulties | 5 |
+| K3 | Anti-patterns with AI | 5 |
+| K4 | Two-phase framework (Taking In vs. Strengthening) | 5 |
+| K5 | Typography concepts | 6, 7 |
+| S1 | Apply acquisition practices | 5, 7 |
+| S2 | Apply strengthening practices | 5, 7 |
+| S3 | Create type stylesheet | 7, 8 |

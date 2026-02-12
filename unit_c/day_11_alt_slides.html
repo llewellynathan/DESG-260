@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Day 11 (Alt) — Grid Systems</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #111;
+    --fg: #F0EDE6;
+    --fg-dim: #9A958C;
+    --amber: hsl(46, 90%, 53%);
+    --amber-bg: hsl(46, 40%, 8%);
+    --blue: hsl(210, 80%, 62%);
+    --blue-bg: hsl(210, 50%, 9%);
+    --violet: hsl(270, 60%, 65%);
+    --violet-bg: hsl(270, 40%, 9%);
+    --green: hsl(155, 60%, 50%);
+    --green-bg: hsl(155, 35%, 8%);
+    --red: hsl(0, 70%, 60%);
+    --red-bg: hsl(0, 40%, 9%);
+    --pad: 80px;
+  }
+
+  html { font-size: 19.2px; }
+  body {
+    height: 100vh;
+    overflow: hidden;
+    background: var(--bg);
+    color: var(--fg);
+    font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── Deck ── */
+  .deck { position: relative; width: 100vw; height: 100vh; }
+
+  .slide {
+    position: absolute; inset: 0;
+    display: flex;
+    opacity: 0; pointer-events: none;
+    transform: translateX(40px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+  .slide.active {
+    opacity: 1; pointer-events: auto;
+    transform: translateX(0);
+  }
+
+  /* ── Keyframes ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes scaleUp {
+    from { opacity: 0; transform: scale(0.92); }
+    to   { opacity: 1; transform: scale(1); }
+  }
+  @keyframes popIn {
+    0%   { opacity: 0; transform: scale(0); }
+    70%  { transform: scale(1.2); }
+    100% { opacity: 1; transform: scale(1); }
+  }
+  @keyframes growDown {
+    from { transform: scaleY(0); }
+    to   { transform: scaleY(1); }
+  }
+  @keyframes widen {
+    from { width: 0; }
+    to   { width: 100%; }
+  }
+
+  /* ── Staggered entrance ── */
+  .slide.active > h1, .slide.active > h2, .slide.active > h3,
+  .slide.active > p, .slide.active > div, .slide.active > ol, .slide.active > ul, .slide.active > blockquote {
+    animation: fadeUp 0.5s ease both;
+  }
+  .slide.active > :nth-child(1) { animation-delay: 0.08s; }
+  .slide.active > :nth-child(2) { animation-delay: 0.18s; }
+  .slide.active > :nth-child(3) { animation-delay: 0.28s; }
+  .slide.active > :nth-child(4) { animation-delay: 0.38s; }
+  .slide.active > :nth-child(5) { animation-delay: 0.46s; }
+  .slide.active > :nth-child(6) { animation-delay: 0.52s; }
+
+  .billboard.active > h1 {
+    animation: scaleUp 0.6s ease both;
+    animation-delay: 0.1s;
+  }
+  .divider.active > h1 {
+    animation: scaleUp 0.6s ease both;
+    animation-delay: 0.1s;
+  }
+
+  .slide.active .card {
+    animation: fadeUp 0.45s ease both;
+  }
+  .slide.active .card:nth-child(1) { animation-delay: 0.2s; }
+  .slide.active .card:nth-child(2) { animation-delay: 0.32s; }
+  .slide.active .card:nth-child(3) { animation-delay: 0.44s; }
+  .slide.active .card:nth-child(4) { animation-delay: 0.56s; }
+  .slide.active .card:nth-child(5) { animation-delay: 0.68s; }
+
+  .card { border-top-color: transparent; position: relative; }
+  .card::after {
+    content: "";
+    position: absolute; top: -4px; left: 0; height: 4px;
+    width: 0;
+    background: var(--card-color, var(--fg-dim));
+  }
+  .slide.active .card::after {
+    animation: widen 0.4s ease both;
+  }
+  .slide.active .card:nth-child(1)::after { animation-delay: 0.35s; }
+  .slide.active .card:nth-child(2)::after { animation-delay: 0.47s; }
+  .slide.active .card:nth-child(3)::after { animation-delay: 0.59s; }
+  .slide.active .card:nth-child(4)::after { animation-delay: 0.71s; }
+  .slide.active .card:nth-child(5)::after { animation-delay: 0.83s; }
+
+  .slide.active .timeline-item {
+    animation: fadeUp 0.4s ease both;
+  }
+  .slide.active .timeline-item:nth-child(1)  { animation-delay: 0.15s; }
+  .slide.active .timeline-line:nth-child(2)   { animation: fadeUp 0.3s ease both; animation-delay: 0.3s; }
+  .slide.active .timeline-item:nth-child(3)  { animation-delay: 0.4s; }
+  .slide.active .timeline-line:nth-child(4)   { animation: fadeUp 0.3s ease both; animation-delay: 0.55s; }
+  .slide.active .timeline-item:nth-child(5)  { animation-delay: 0.65s; }
+  .slide.active .timeline-line:nth-child(6)   { animation: fadeUp 0.3s ease both; animation-delay: 0.8s; }
+  .slide.active .timeline-item:nth-child(7)  { animation-delay: 0.9s; }
+
+  .slide.active .timeline-dot {
+    animation: popIn 0.4s ease both;
+  }
+  .slide.active .timeline-item:nth-child(1) .timeline-dot { animation-delay: 0.2s; }
+  .slide.active .timeline-item:nth-child(3) .timeline-dot { animation-delay: 0.45s; }
+  .slide.active .timeline-item:nth-child(5) .timeline-dot { animation-delay: 0.7s; }
+  .slide.active .timeline-item:nth-child(7) .timeline-dot { animation-delay: 0.95s; }
+
+  .slide.active .steps li {
+    animation: fadeUp 0.4s ease both;
+  }
+  .slide.active .steps li:nth-child(1) { animation-delay: 0.2s; }
+  .slide.active .steps li:nth-child(2) { animation-delay: 0.35s; }
+  .slide.active .steps li:nth-child(3) { animation-delay: 0.5s; }
+  .slide.active .steps li:nth-child(4) { animation-delay: 0.65s; }
+  .slide.active .steps li:nth-child(5) { animation-delay: 0.8s; }
+
+  .slide.active .numbered li {
+    animation: fadeUp 0.4s ease both;
+  }
+  .slide.active .numbered li:nth-child(1) { animation-delay: 0.2s; }
+  .slide.active .numbered li:nth-child(2) { animation-delay: 0.32s; }
+  .slide.active .numbered li:nth-child(3) { animation-delay: 0.44s; }
+  .slide.active .numbered li:nth-child(4) { animation-delay: 0.56s; }
+  .slide.active .numbered li:nth-child(5) { animation-delay: 0.68s; }
+
+  .slide.active::before {
+    transform-origin: top;
+    animation: growDown 0.4s ease both;
+    animation-delay: 0s;
+  }
+
+  /* ── Section bar ── */
+  .slide::before {
+    content: "";
+    position: absolute; left: 0; top: 0; bottom: 0;
+    width: 6px;
+    background: var(--section-color, transparent);
+  }
+
+  /* ── Layout: Billboard ── */
+  .billboard {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: var(--pad);
+  }
+  .billboard h1 {
+    font-size: 4rem;
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    max-width: 900px;
+  }
+  .billboard .sub {
+    font-size: 1.6rem;
+    color: var(--fg-dim);
+    margin-top: 24px;
+    max-width: 650px;
+    line-height: 1.5;
+  }
+
+  /* ── Layout: Section Divider ── */
+  .divider {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: var(--pad);
+    background: var(--section-bg, var(--bg));
+  }
+  .divider::before { display: none; }
+  .divider h1 {
+    font-size: 4.2rem;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+  }
+  .divider .sub {
+    font-size: 1.6rem;
+    color: var(--fg-dim);
+    margin-top: 20px;
+    font-weight: 400;
+  }
+
+  /* ── Layout: Content ── */
+  .content {
+    flex-direction: column;
+    justify-content: center;
+    padding: var(--pad);
+    padding-left: calc(var(--pad) + 20px);
+    gap: 28px;
+  }
+  .content h2 {
+    font-size: 2.6rem;
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+  }
+
+  /* ── Layout: Top-aligned ── */
+  .top {
+    flex-direction: column;
+    padding: var(--pad);
+    padding-left: calc(var(--pad) + 20px);
+    padding-top: 60px;
+    gap: 20px;
+  }
+  .top h2 {
+    font-size: 2.4rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+
+  /* ── Typography ── */
+  p, li { font-size: 1.5rem; line-height: 1.55; }
+
+  .big-text {
+    font-size: 2.2rem;
+    font-weight: 600;
+    line-height: 1.35;
+  }
+
+  .callout {
+    font-size: 1.5rem;
+    font-weight: 600;
+    line-height: 1.45;
+  }
+
+  .small { font-size: 1.25rem; color: var(--fg-dim); }
+
+  blockquote {
+    font-size: 2rem;
+    font-style: italic;
+    line-height: 1.4;
+    padding-left: 24px;
+    border-left: 4px solid var(--section-color, var(--fg-dim));
+    color: var(--fg);
+  }
+  blockquote cite {
+    display: block;
+    font-size: 1.2rem;
+    font-style: normal;
+    color: var(--fg-dim);
+    margin-top: 16px;
+  }
+
+  /* ── Cards ── */
+  .card-row {
+    display: grid;
+    gap: 28px;
+    margin-top: 16px;
+  }
+  .card-row.c2 { grid-template-columns: repeat(2, 1fr); }
+  .card-row.c3 { grid-template-columns: repeat(3, 1fr); }
+  .card-row.c4 { grid-template-columns: repeat(4, 1fr); }
+  .card-row.c5 { grid-template-columns: repeat(5, 1fr); }
+
+  .card {
+    border-top: 4px solid var(--card-color, var(--fg-dim));
+    padding: 24px 0 0;
+  }
+  .card h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--card-color, var(--fg));
+    margin-bottom: 10px;
+  }
+  .card p {
+    font-size: 1.25rem;
+    color: var(--fg-dim);
+    line-height: 1.5;
+  }
+
+  /* ── Timeline ── */
+  .timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-top: 20px;
+  }
+  .timeline-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 16px 0;
+  }
+  .timeline-dot {
+    width: 16px; height: 16px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    background: var(--dot-color, var(--fg-dim));
+  }
+  .timeline-line {
+    width: 2px;
+    height: 20px;
+    margin-left: 7px;
+    background: #333;
+  }
+  .timeline-label {
+    font-size: 1.6rem;
+    font-weight: 500;
+  }
+
+  /* ── Steps ── */
+  .steps {
+    counter-reset: step;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .steps li {
+    counter-increment: step;
+    display: flex;
+    gap: 16px;
+    align-items: baseline;
+  }
+  .steps li::before {
+    content: counter(step);
+    flex-shrink: 0;
+    width: 36px; height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: var(--section-color, var(--blue));
+    color: #111;
+    font-weight: 700;
+    font-size: 1.1rem;
+  }
+  .steps li span {
+    font-size: 1.4rem;
+    line-height: 1.45;
+  }
+
+  /* ── Numbered points ── */
+  .numbered {
+    counter-reset: num;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .numbered li {
+    counter-increment: num;
+    font-size: 1.5rem;
+    line-height: 1.5;
+    padding-left: 40px;
+    position: relative;
+  }
+  .numbered li::before {
+    content: counter(num) ".";
+    position: absolute;
+    left: 0;
+    font-weight: 700;
+    color: var(--section-color, var(--blue));
+  }
+
+  /* ── Links ── */
+  a { color: var(--blue); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  .resource-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 12px;
+  }
+  .resource-list li { font-size: 1.35rem; }
+  .resource-list .label { font-weight: 600; color: var(--fg); }
+
+  /* ── Counter ── */
+  .counter {
+    position: fixed;
+    bottom: 20px; right: 28px;
+    font-size: 0.85rem;
+    color: #444;
+    font-variant-numeric: tabular-nums;
+    z-index: 100;
+  }
+
+  /* ── Utility ── */
+  .mt { margin-top: 20px; }
+  .mt-lg { margin-top: 36px; }
+  .accent { color: var(--amber); }
+  .accent-blue { color: var(--blue); }
+  .accent-violet { color: var(--violet); }
+  .accent-green { color: var(--green); }
+  .accent-red { color: var(--red); }
+
+  @media (max-width: 1200px) {
+    :root { --pad: 48px; }
+    .billboard h1 { font-size: 3rem; }
+    .divider h1 { font-size: 3.2rem; }
+    .card-row.c4 { grid-template-columns: repeat(2, 1fr); }
+    .card-row.c5 { grid-template-columns: repeat(3, 1fr); }
+  }
+</style>
+</head>
+<body>
+
+<div class="deck">
+
+  <!-- ═══ 1. WARM-UP ═══ -->
+  <section class="slide content active" style="--section-color: var(--amber); background: var(--amber-bg);">
+    <h2 style="font-size: 3.2rem;">Warm-Up: Grid Detective</h2>
+    <p class="big-text mt">Open a well-designed website.</p>
+    <p class="callout accent mt-lg" style="font-size: 2rem;">Can you find the grid?<br>How many columns?<br>Where are the margins?</p>
+    <p class="mt" style="color: var(--fg-dim);">Screenshot and annotate with your grid overlay guesses.</p>
+  </section>
+
+  <!-- ═══ 2. TITLE ═══ -->
+  <section class="slide billboard">
+    <h1 style="font-size: 4.2rem;">Grid Systems</h1>
+    <p class="sub" style="font-size: 1.6rem;">Grids are invisible scaffolding — they create consistency and speed up every design decision.</p>
+  </section>
+
+  <!-- ═══ 3. TODAY (timeline) ═══ -->
+  <section class="slide content" style="padding-left: 160px;">
+    <h2>Today</h2>
+    <div class="timeline">
+      <div class="timeline-item"><div class="timeline-dot" style="background: var(--amber);"></div><span class="timeline-label">Grid Detective Warm-Up</span></div>
+      <div class="timeline-line"></div>
+      <div class="timeline-item"><div class="timeline-dot" style="background: var(--violet);"></div><span class="timeline-label">Framework Review + Practice</span></div>
+      <div class="timeline-line"></div>
+      <div class="timeline-item"><div class="timeline-dot" style="background: var(--green);"></div><span class="timeline-label">Grid Systems Learning Lab</span></div>
+      <div class="timeline-line"></div>
+      <div class="timeline-item"><div class="timeline-dot" style="background: var(--blue);"></div><span class="timeline-label">Work Session: Wireframes</span></div>
+    </div>
+  </section>
+
+  <!-- ═══ 4. FRAMEWORK REMINDER ═══ -->
+  <section class="slide billboard" style="--section-color: var(--violet);">
+    <h1 style="font-size: 3rem;">Remember the<br>Two-Phase Framework?</h1>
+    <p class="sub" style="font-size: 1.6rem;">You practiced it with typography. Today we apply it to grids.</p>
+  </section>
+
+  <!-- ═══ 5. PHASE 1 QUICK REVIEW ═══ -->
+  <section class="slide top" style="--section-color: var(--violet);">
+    <h2 style="color: var(--violet);">Phase 1: Taking In (Acquisition)</h2>
+    <p class="mt" style="color: var(--fg-dim);">Use when learning something new</p>
+    <div class="card-row c5 mt">
+      <div class="card" style="--card-color: var(--violet);">
+        <h3>Scope First</h3>
+        <p>Break down the topic into sub-topics. Get the map.</p>
+      </div>
+      <div class="card" style="--card-color: var(--violet);">
+        <h3>Why First</h3>
+        <p>Why does this matter? Where does it fit?</p>
+      </div>
+      <div class="card" style="--card-color: var(--violet);">
+        <h3>Chunk It</h3>
+        <p>One piece at a time. Don't move on until you get it.</p>
+      </div>
+      <div class="card" style="--card-color: var(--violet);">
+        <h3>Translate</h3>
+        <p>Ask for analogies, examples, different explanations.</p>
+      </div>
+      <div class="card" style="--card-color: var(--violet);">
+        <h3>Verify</h3>
+        <p>Cross-check facts. AI can be confident and wrong.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 6. PHASE 2 QUICK REVIEW ═══ -->
+  <section class="slide top" style="--section-color: var(--violet);">
+    <h2 style="color: var(--violet);">Phase 2: Strengthening (Retrieval)</h2>
+    <p class="mt" style="color: var(--fg-dim);">Use when you have some knowledge to work with</p>
+    <div class="card-row c4 mt">
+      <div class="card" style="--card-color: var(--violet);">
+        <h3>Teach Back</h3>
+        <p>Explain it to AI in your own words. Ask for feedback.</p>
+      </div>
+      <div class="card" style="--card-color: var(--violet);">
+        <h3>Quiz Me</h3>
+        <p>Ask AI to quiz you. Answer BEFORE seeing feedback.</p>
+      </div>
+      <div class="card" style="--card-color: var(--violet);">
+        <h3>Minimum Hint</h3>
+        <p>Ask for the smallest possible hint — not the answer.</p>
+      </div>
+      <div class="card" style="--card-color: var(--violet);">
+        <h3>Socratic Mode</h3>
+        <p>Ask AI to guide you with questions, not explanations.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 7. SECTION DIVIDER: I do / We do / You do ═══ -->
+  <section class="slide divider" style="--section-bg: var(--violet-bg);">
+    <h1 style="color: var(--violet);">Let's Practice</h1>
+    <p class="sub">I do / We do / You do</p>
+  </section>
+
+  <!-- ═══ 8. I DO: INTRO ═══ -->
+  <section class="slide billboard" style="--section-color: var(--violet);">
+    <h1 style="font-size: 3rem;">I do: Watch Me Learn</h1>
+    <p class="sub" style="font-size: 1.6rem;">Topic: <strong>Visual Rhythm and Spacing</strong><br><br>"I want to learn about visual rhythm in design. Watch how I use AI."</p>
+  </section>
+
+  <!-- ═══ 9. I DO: DEMO ═══ -->
+  <section class="slide content" style="--section-color: var(--violet); background: var(--violet-bg);">
+    <h2 style="color: var(--violet);">I do: Acquisition Practices Live</h2>
+    <ol class="numbered mt">
+      <li><strong>Scope First:</strong> "I want to learn about visual rhythm and spacing in design. Can you break this topic down into the main sub-topics I should understand?"</li>
+      <li><strong>Chunk It:</strong> "Let's start with just one of those. Explain [first sub-topic] to me."</li>
+      <li><strong>Translate:</strong> "Can you give me an analogy for how visual rhythm works? Something from everyday life?"</li>
+    </ol>
+    <p class="callout accent-violet mt-lg">Notice: I'm actively directing the conversation, not just absorbing.</p>
+  </section>
+
+  <!-- ═══ 10. WE DO ═══ -->
+  <section class="slide content" style="--section-color: var(--violet);">
+    <h2 style="color: var(--violet);">We do: Your Turn to Choose</h2>
+    <p class="big-text mt">We'll continue learning about visual rhythm together.</p>
+    <p class="mt" style="color: var(--fg-dim);">What practice should we use next?</p>
+    <div class="card-row c2 mt-lg">
+      <div class="card" style="--card-color: var(--violet);">
+        <h3>More Acquisition?</h3>
+        <p>Chunk It (learn another piece)<br>Translate (ask for examples)<br>Why First (understand importance)</p>
+      </div>
+      <div class="card" style="--card-color: var(--violet);">
+        <h3>Try Strengthening?</h3>
+        <p>Teach Back (explain what we learned)<br>Quiz Me (test ourselves)</p>
+      </div>
+    </div>
+    <p class="callout accent-violet mt-lg">You're practicing CHOOSING practices, not just watching.</p>
+  </section>
+
+  <!-- ═══ 11. YOU DO ═══ -->
+  <section class="slide content" style="--section-color: var(--violet); background: var(--violet-bg);">
+    <h2 style="color: var(--violet);">You do: Pairs Practice</h2>
+    <p class="big-text mt">Same topic: visual rhythm</p>
+    <div class="card-row c2 mt">
+      <div class="card" style="--card-color: var(--violet);">
+        <h3>Partner A: Acquisition</h3>
+        <p>Try <strong>Chunk It</strong> or <strong>Translate</strong> — learn something new about visual rhythm using AI.</p>
+      </div>
+      <div class="card" style="--card-color: var(--violet);">
+        <h3>Partner B: Strengthening</h3>
+        <p>Try <strong>Teach Back</strong> — explain what you've learned so far to AI and ask it to check your understanding.</p>
+      </div>
+    </div>
+    <p class="mt-lg" style="color: var(--fg-dim);">Swap roles after 4 minutes.</p>
+    <p class="callout accent-violet mt">Debrief: What felt different about taking in vs. strengthening?</p>
+  </section>
+
+  <!-- ═══ 12. SECTION DIVIDER: Grid Lab ═══ -->
+  <section class="slide divider" style="--section-bg: var(--green-bg);">
+    <h1 style="color: var(--green);">Grid Systems Lab</h1>
+    <p class="sub">Apply the two-phase framework to learn grids</p>
+  </section>
+
+  <!-- ═══ 13. LAB CONNECTION ═══ -->
+  <section class="slide billboard" style="--section-color: var(--green);">
+    <h1 style="font-size: 3rem;">Visual Rhythm<br><span style="color: var(--green);">IS</span><br>What Grids Create</h1>
+    <p class="sub" style="font-size: 1.5rem;">Just as visual hierarchy is what typography creates.<br>You practiced the framework. Now apply it to a new topic.</p>
+  </section>
+
+  <!-- ═══ 14. LAB TOPICS ═══ -->
+  <section class="slide content" style="--section-color: var(--green);">
+    <h2 style="color: var(--green);">Topics to Explore</h2>
+    <p class="big-text mt" style="color: var(--fg-dim);">Use the two-phase framework to learn these grid concepts:</p>
+    <ul class="mt" style="list-style: disc; padding-left: 24px;">
+      <li><strong>The Box Model</strong> — content, padding, border, margin</li>
+      <li><strong>Layout Grids</strong> — columns, margins, gutters</li>
+      <li><strong>4px Increment System</strong> — the implicit grid for spacing</li>
+      <li><strong>Responsive Patterns</strong> — 4-column mobile, 12-column desktop</li>
+      <li><strong>Mobile-first vs. Desktop-first</strong> — which approach and why</li>
+    </ul>
+    <p class="callout accent-green mt-lg">Key question: Am I taking in (new material) or strengthening (testing myself)?</p>
+  </section>
+
+  <!-- ═══ 15. LAB: PHASE 1 ═══ -->
+  <section class="slide content" style="--section-color: var(--green); background: var(--green-bg);">
+    <h2 style="color: var(--green);">Phase 1: Taking In</h2>
+    <p class="mt" style="color: var(--fg-dim);">If grids are new to you:</p>
+    <ul class="mt" style="list-style: disc; padding-left: 24px;">
+      <li><strong>Scope First</strong> — "What are the key concepts I need to understand about grid systems in web/UI design?"</li>
+      <li><strong>Chunk It</strong> — Learn one concept at a time (box model, then layout grids, then 4px system)</li>
+      <li><strong>Translate</strong> — Ask for real website examples, analogies, visual explanations</li>
+    </ul>
+  </section>
+
+  <!-- ═══ 16. LAB: PHASE 2 ═══ -->
+  <section class="slide content" style="--section-color: var(--green); background: var(--green-bg);">
+    <h2 style="color: var(--green);">Phase 2: Strengthening</h2>
+    <p class="mt" style="color: var(--fg-dim);">Once you have the basics:</p>
+    <ul class="mt" style="list-style: disc; padding-left: 24px;">
+      <li><strong>Teach Back</strong> — Explain the box model to AI in your own words. Ask it to check your understanding.</li>
+      <li><strong>Quiz Me</strong> — "Quiz me on layout grids and the 4px increment system. Ask one question at a time."</li>
+      <li><strong>Socratic Mode</strong> — If something doesn't click, ask AI to guide you with questions.</li>
+    </ul>
+  </section>
+
+  <!-- ═══ 17. LAB: APPLY ═══ -->
+  <section class="slide content" style="--section-color: var(--green);">
+    <h2 style="color: var(--green);">Apply Your Learning</h2>
+    <p class="big-text mt" style="color: var(--fg-dim);">As you set up grids in Figma, ask yourself:</p>
+    <ul class="mt" style="list-style: disc; padding-left: 24px;">
+      <li>What margins and gutters will you use? <strong>Why?</strong></li>
+      <li>How many columns for mobile? For desktop? <strong>Why?</strong></li>
+      <li>How does the grid help you place content consistently?</li>
+    </ul>
+    <p class="callout accent-green mt-lg">At the end, write a reflection: What did I learn? What's still fuzzy? Which practices did I use?</p>
+  </section>
+
+  <!-- ═══ 18. C3 REQUIREMENTS ═══ -->
+  <section class="slide content" style="--section-color: var(--blue);">
+    <h2>C3: Mobile + Desktop Wireframes</h2>
+    <p class="small">Due: Wed, Feb 18 @ 11:59pm</p>
+    <ol class="numbered mt">
+      <li>Simple wireframes for both mobile and desktop PDP</li>
+      <li>Show: product title + details, image placements, button placements, page layout</li>
+      <li>Focus on structure, not visual polish</li>
+    </ol>
+    <p class="mt" style="color: var(--fg-dim);">These wireframes become the foundation for high-fidelity work.</p>
+    <p class="callout accent-blue mt-lg">Same content, different arrangement — let the grid guide you.</p>
+  </section>
+
+  <!-- ═══ 19. WHAT'S DUE ═══ -->
+  <section class="slide top" style="--section-color: var(--green); background: var(--green-bg);">
+    <h2 style="color: var(--green);">What's Due</h2>
+    <div class="mt" style="display: flex; gap: 48px;">
+      <div>
+        <p class="callout" style="color: var(--green);">Due before class:</p>
+        <p class="mt" style="color: var(--fg-dim);">C2: Type Hierarchy</p>
+      </div>
+      <div>
+        <p class="callout" style="color: var(--green);">Due Wed @ 11:59pm:</p>
+        <p class="mt" style="color: var(--fg-dim);">C3: Mobile + Desktop Wireframes</p>
+      </div>
+    </div>
+    <div class="mt-lg">
+      <p class="callout" style="color: var(--green);">Resources:</p>
+      <ul class="resource-list mt">
+        <li>Vignelli Canon: Grids (p. 40 of PDF)</li>
+        <li>Figma: Layout Grids documentation</li>
+        <li><a href="../lesson_plans/AI-self-directed-learning.md">AI Self-Directed Learning Guide</a></li>
+      </ul>
+    </div>
+  </section>
+
+</div>
+
+<div class="counter"><span id="cur">1</span> / <span id="tot"></span></div>
+
+<script>
+  const slides = document.querySelectorAll('.slide');
+  const total = slides.length;
+  let current = 0;
+  document.getElementById('tot').textContent = total;
+
+  function goTo(n) {
+    if (n < 0 || n >= total) return;
+    slides[current].classList.remove('active');
+    current = n;
+    slides[current].classList.add('active');
+    document.getElementById('cur').textContent = current + 1;
+  }
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown' || e.key === ' ') { e.preventDefault(); goTo(current + 1); }
+    else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') { e.preventDefault(); goTo(current - 1); }
+    else if (e.key === 'Home') { e.preventDefault(); goTo(0); }
+    else if (e.key === 'End') { e.preventDefault(); goTo(total - 1); }
+  });
+
+  document.addEventListener('click', e => {
+    if (e.target.closest('a')) return;
+    e.clientX / window.innerWidth < 0.33 ? goTo(current - 1) : goTo(current + 1);
+  });
+</script>
+
+</body>
+</html>
