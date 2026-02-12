@@ -13,7 +13,7 @@
 
 ### Slide 2: Prayer
 **Prayer**
-[Name], will you pray for us today?
+Kalli, will you pray for us today?
 
 ---
 
@@ -25,8 +25,8 @@ Typography is structure — hierarchy, readability, and personality all flow fro
 
 ### Slide 4: Today
 **Today**
-- Typography systems
-- Type scales & the four-size rule
+- Typography systems & type scales
+- The four-size rule
 - Figma text styles
 - C2 Type Hierarchy introduction
 - Work session
@@ -34,11 +34,11 @@ Typography is structure — hierarchy, readability, and personality all flow fro
 ---
 
 ### Slide 5: By the end of today...
-**Type Scales** — You'll understand how type scales create natural hierarchy (ratios, sizes, spacing)
+**Type Scales** — You'll understand how type scales create natural hierarchy using mathematical ratios
 
-**Figma Styles** — You'll be able to set up reusable text styles that update globally
+**Figma Styles** — You'll be able to create reusable text styles that update globally across your design
 
-**Your Stylesheet** — You'll have started a working type stylesheet for your product page
+**Your Stylesheet** — You'll have a working type stylesheet started for your product page
 
 ---
 
@@ -54,7 +54,7 @@ It tells users what to read first, second, and third
 - Each step up multiplies the previous size by the ratio
 - Creates natural, harmonious relationships between heading levels
 
-> Demo: typescale.com — show how scales create natural hierarchy
+> Demo: typescale.com — watch how changing the ratio affects hierarchy
 
 ---
 
@@ -65,7 +65,7 @@ It tells users what to read first, second, and third
 3. **Body** — paragraph text
 4. **Metadata/Captions** — small supporting text
 
-Size jumps should be at least 2px (avoid 14px vs 13px — too subtle)
+Size jumps should be at least 2px (14px vs 13px is too subtle to read as different)
 
 **Create variety with color, weight, and case — not more sizes**
 
@@ -103,25 +103,37 @@ When you update a style, it updates everywhere it's used.
 
 ---
 
-### Slide 12: Apply Type Thinking
-**Map your PDP content to hierarchy levels:**
+### Slide 12: We Do — Apply Type Thinking
+**Let's map PDP content to hierarchy levels together**
+
+> As a class: What's the H1 on a product page?
+
 - **H1** — Product name (one per page)
 - **H2** — Section headers (Reviews, Shipping, Features)
 - **H3** — Subsections within those
 - **Body** — Descriptions, details
 - **Caption** — Metadata, disclaimers, fine print
 
-> What hierarchy structure does your product page need?
+---
+
+### Slide 13: You Do — Map Your Content
+**Identify your PDP's hierarchy structure** (5 min)
+
+1. Open your C1 product content
+2. Label each piece of content: H1, H2, H3, Body, or Caption
+3. Note any content that doesn't fit cleanly — we'll discuss
+
+> You have 5 minutes. This becomes the foundation for your type stylesheet.
 
 ---
 
-### Slide 13: C2 Type Hierarchy
+### Slide 14: C2 Type Hierarchy
 **Create Your Type Stylesheet**
 Due: Feb 17 @ 5:15pm
 
 ---
 
-### Slide 14: C2 Requirements
+### Slide 15: C2 Requirements
 **Your stylesheet must include:**
 1. H1, H2, H3, Paragraph styles (+ any additional styles you need)
 2. Color choices for your product/brand
@@ -133,9 +145,9 @@ Export as PDF
 
 ---
 
-### Slide 15: Next Up
+### Slide 16: Next Up
 **Next up**
-- Work Session: Finish C1 first (due 5:15pm today), then start C2 type stylesheet
+- **Work Session:** Finish C1 first (due 5:15pm today), then start C2 type stylesheet
 - Choose typefaces (Google Fonts, Adobe Fonts, or system fonts)
 - Use typescale.com to set up your scale
 - Create Figma text styles
@@ -147,9 +159,7 @@ Export as PDF
 
 ---
 
-### Slide 16: Resources
+### Slide 17: Resources
 **Type Scale:** typescale.com
 **Google Fonts:** fonts.google.com
 **Figma:** Text Styles documentation
-**Reference files:** font-sizes.md, font-weight.md (in lesson plan)
-

@@ -79,6 +79,23 @@ For each activity in the lesson plan (starting from Activity 2, since Warm-Up is
 
 **Consolidation rule:** Prefer merging related concepts into a single slide rather than splitting every sub-point. If two consecutive content points support the same idea, combine them. Aim for roughly 1 slide per major idea.
 
+**I Do / We Do / You Do structure:** When a Direct Instruction activity in the lesson plan has explicit "I do," "We do," and "You do" phases, preserve this pedagogical structure in the slides:
+
+1. **I do phases** — Generate standard content slides. The instructor is presenting, demonstrating, or explaining. Use appropriate layouts (content slides, billboard for key statements). These form the bulk of the lecture slides.
+
+2. **We do phases** — Generate slides with discussion prompts/callouts. Frame the content as participatory:
+   - Use blockquote callouts for discussion questions
+   - Include prompts like "Let's try this together..." or "As a class..."
+   - Example: A slide titled "Apply Type Thinking" with content + blockquote asking "What's the H1 on your product page?"
+
+3. **You do phases** — Generate hands-on exercise slides with numbered instructions. Students work independently:
+   - Use numbered step format (not bullets)
+   - Include time allocation if specified in the lesson plan
+   - Frame as "do this" instructions, not descriptions
+   - Example: "1. Open your PDP content  2. Identify what should be H1, H2, H3  3. Note any hierarchy decisions you're unsure about (5 min)"
+
+**Important:** Don't skip "You do" phases even if they're brief. These are critical practice moments that let students apply what they just learned before moving on. Always generate a slide with clear instructions for student work.
+
 **Activity section header** (for major activities like lectures or demos):
 - Activity name as title
 - Optional subtitle synthesized from the activity's theme (e.g., "The good, the bad, and the ugly")
