@@ -28,6 +28,7 @@
 - K3: The 4px increment system for consistent spacing (implicit grid)
 - K4: Common grid patterns for mobile and desktop (4-column mobile, 12-column desktop)
 - K5: How Figma auto-layout maps to the box model (padding yes, margin no, gap instead)
+- K6: What makes an effective wireframe (clarity, hierarchy, no distracting details)
 
 **Students Will Be Able To:**
 - S1: Create responsive frames in Figma with proper grid setup
@@ -88,7 +89,13 @@
      - Discuss: what changed? What stayed the same?
    - **You do:** Students set up grids on their own PDP frames (5 min)
 
-4. **Introduce C3: Mobile + Desktop Wireframes** (10 min) `[S2, U2, U3]`
+4. **Introduce C3: Mobile + Desktop Wireframes** (15 min) `[S2, U2, U3, K6]`
+   - **I do:** What makes an effective wireframe
+     - Clarity: Can someone understand the layout at a glance?
+     - Hierarchy: Is it obvious what's most important?
+     - No distracting details: Use boxes and text labels, not real content
+     - Wireframes separate structure decisions from visual decisions
+     - Show example: cluttered wireframe vs. clear wireframe
    - **Due: Wed, Feb 18 @ 11:59pm**
    - Requirements:
      - Simple wireframes for both mobile and desktop PDP
@@ -97,7 +104,7 @@
    - These wireframes become the foundation for high-fidelity work
    - Reminder: same content, different arrangement — let the grid guide you
 
-5. **Work Session: Grid Setup + Wireframes** (65 min) `[S1, S2, S3, EQ2, EQ3]`
+5. **Work Session: Grid Setup + Wireframes** (60 min) `[S1, S2, S3, EQ2, EQ3]`
    - **Priority 1:** Set up Figma frames with proper grids (mobile + desktop)
    - **Priority 2:** Complete C3 wireframes (due Wed @ 11:59pm)
    - **Priority 3:** Begin placing content from C1 into wireframe structure
@@ -141,6 +148,7 @@
 | K3 | 4px increment system (implicit grid) | 3 |
 | K4 | Common grid patterns | 1, 3 |
 | K5 | Auto-layout maps to box model | 3 |
+| K6 | What makes an effective wireframe | 4 |
 | S1 | Create responsive frames with grids | 3, 5 |
 | S2 | Design for mobile and desktop | 4, 5 |
 | S3 | Align elements using grid | 3, 5 |

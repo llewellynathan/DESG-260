@@ -298,6 +298,7 @@ Today's Focus: Grids are invisible scaffolding — they create consistency and s
 - The box model: content, padding, border, margin
 - Grid systems in Figma: columns, gutters, margins, 4px spacing increments
 - Demo: Setting up 12-column desktop and 4-column mobile grids
+- Wireframe fundamentals: clarity, hierarchy, no distracting details
 - Introduce C3: Mobile + Desktop Wireframes
 - Work session: Grid setup + wireframes
 

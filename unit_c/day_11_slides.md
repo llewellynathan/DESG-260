@@ -147,7 +147,24 @@ Same content, different column spans.
 
 ---
 
-### Slide 18: C3 — Mobile + Desktop Wireframes
+### Slide 18: What Makes a Good Wireframe?
+**Three qualities of effective wireframes:**
+1. **Clarity** — Can someone understand the layout at a glance?
+2. **Hierarchy** — Is it obvious what's most important?
+3. **No distracting details** — Use boxes and text labels, not real content
+
+> Wireframes separate structure decisions from visual decisions.
+
+---
+
+### Slide 19: Wireframe Example
+**Cluttered vs. Clear**
+- Before: Too much detail, real images, actual text — distracts from layout decisions
+- After: Simple boxes, placeholder labels — lets you focus on structure
+
+---
+
+### Slide 20: C3 — Mobile + Desktop Wireframes
 **Due: Wednesday, Feb 18 @ 11:59pm**
 - Simple wireframes for both mobile AND desktop PDP
 - Show: product title + details, image placements, button placements, page layout
@@ -159,7 +176,7 @@ These wireframes become the foundation for your high-fidelity work.
 
 ---
 
-### Slide 19: Next Up
+### Slide 21: Next Up
 **Next up**
 - Work session: Set up grids, then start C3 wireframes
 - Get feedback on grid setup and content alignment
