@@ -53,12 +53,13 @@ DESG 260/
 Each lesson plan follows this structure:
 1. Title: `# Day X — [Weekday], [Date]`
 2. Unit: `## Unit [A-E]: [Name]`
-3. Focus: One-line theme
-4. Desired Results (EQs, Understandings, Know, Do, Learning Outcomes)
-5. Assignments Due
-6. Activities (numbered, with time in parentheses)
-7. Homework
-8. Resources
+3. Focus: One-line theme (Big Idea)
+4. **Why This Matters:** 1-2 sentences connecting the topic to real design work (answers "Why should I care?")
+5. Desired Results (EQs, Understandings, Know, Do, Learning Outcomes)
+6. Assignments Due
+7. Activities (numbered, with time in parentheses)
+8. Homework
+9. Resources
 
 ## Key Decisions
 

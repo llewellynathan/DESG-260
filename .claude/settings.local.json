@@ -43,7 +43,9 @@
       "WebFetch(domain:x.com)",
       "WebFetch(domain:fortune.com)",
       "Bash(git checkout:*)",
-      "Bash(gh pr create:*)"
+      "Bash(gh pr create:*)",
+      "Bash(grep:*)",
+      "WebFetch(domain:www.blind3y3design.com)"
     ]
   }
 }

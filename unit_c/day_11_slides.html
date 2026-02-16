@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Day 11 — Unit C: Hierarchy & Responsive Web</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #111;
+    --fg: #F0EDE6;
+    --fg-dim: #9A958C;
+    --amber: hsl(46, 90%, 53%);
+    --amber-bg: hsl(46, 40%, 8%);
+    --blue: hsl(210, 80%, 62%);
+    --blue-bg: hsl(210, 50%, 9%);
+    --violet: hsl(270, 60%, 65%);
+    --violet-bg: hsl(270, 40%, 9%);
+    --green: hsl(155, 60%, 50%);
+    --green-bg: hsl(155, 35%, 8%);
+    --pad: 80px;
+  }
+
+  html { font-size: 19.2px; }
+  body {
+    height: 100vh;
+    overflow: hidden;
+    background: var(--bg);
+    color: var(--fg);
+    font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── Deck ── */
+  .deck { position: relative; width: 100vw; height: 100vh; }
+
+  .slide {
+    position: absolute; inset: 0;
+    display: flex;
+    opacity: 0; pointer-events: none;
+    transform: translateX(40px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+  .slide.active {
+    opacity: 1; pointer-events: auto;
+    transform: translateX(0);
+  }
+  .slide.exit-left {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  .slide.exit-right {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+
+  /* ── Keyframes ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes scaleUp {
+    from { opacity: 0; transform: scale(0.92); }
+    to   { opacity: 1; transform: scale(1); }
+  }
+  @keyframes popIn {
+    0%   { opacity: 0; transform: scale(0); }
+    70%  { transform: scale(1.2); }
+    100% { opacity: 1; transform: scale(1); }
+  }
+  @keyframes growDown {
+    from { transform: scaleY(0); }
+    to   { transform: scaleY(1); }
+  }
+  @keyframes widen {
+    from { width: 0; }
+    to   { width: 100%; }
+  }
+
+  /* ── Staggered entrance: children of active slides ── */
+  .slide.active > h1, .slide.active > h2, .slide.active > h3,
+  .slide.active > p, .slide.active > div, .slide.active > ol, .slide.active > ul {
+    animation: fadeUp 0.5s ease both;
+  }
+  .slide.active > :nth-child(1) { animation-delay: 0.08s; }
+  .slide.active > :nth-child(2) { animation-delay: 0.18s; }
+  .slide.active > :nth-child(3) { animation-delay: 0.28s; }
+  .slide.active > :nth-child(4) { animation-delay: 0.38s; }
+  .slide.active > :nth-child(5) { animation-delay: 0.46s; }
+  .slide.active > :nth-child(6) { animation-delay: 0.52s; }
+
+  /* Billboard headings: scale entrance */
+  .billboard.active > h1 {
+    animation: scaleUp 0.6s ease both;
+    animation-delay: 0.1s;
+  }
+  .divider.active > h1 {
+    animation: scaleUp 0.6s ease both;
+    animation-delay: 0.1s;
+  }
+
+  /* Cards: stagger individually */
+  .slide.active .card {
+    animation: fadeUp 0.45s ease both;
+  }
+  .slide.active .card:nth-child(1) { animation-delay: 0.2s; }
+  .slide.active .card:nth-child(2) { animation-delay: 0.32s; }
+  .slide.active .card:nth-child(3) { animation-delay: 0.44s; }
+  .slide.active .card:nth-child(4) { animation-delay: 0.56s; }
+
+  /* Card top-border widen effect */
+  .card { border-top-color: transparent; position: relative; }
+  .card::after {
+    content: "";
+    position: absolute; top: -4px; left: 0; height: 4px;
+    width: 0;
+    background: var(--card-color, var(--fg-dim));
+    transition: none;
+  }
+  .slide.active .card::after {
+    animation: widen 0.4s ease both;
+  }
+  .slide.active .card:nth-child(1)::after { animation-delay: 0.35s; }
+  .slide.active .card:nth-child(2)::after { animation-delay: 0.47s; }
+  .slide.active .card:nth-child(3)::after { animation-delay: 0.59s; }
+  .slide.active .card:nth-child(4)::after { animation-delay: 0.71s; }
+
+  /* Timeline items: stagger with dot pop */
+  .slide.active .timeline-item {
+    animation: fadeUp 0.4s ease both;
+  }
+  .slide.active .timeline-item:nth-child(1)  { animation-delay: 0.15s; }
+  .slide.active .timeline-line:nth-child(2)   { animation: fadeUp 0.3s ease both; animation-delay: 0.3s; }
+  .slide.active .timeline-item:nth-child(3)  { animation-delay: 0.4s; }
+  .slide.active .timeline-line:nth-child(4)   { animation: fadeUp 0.3s ease both; animation-delay: 0.55s; }
+  .slide.active .timeline-item:nth-child(5)  { animation-delay: 0.65s; }
+  .slide.active .timeline-line:nth-child(6)   { animation: fadeUp 0.3s ease both; animation-delay: 0.8s; }
+  .slide.active .timeline-item:nth-child(7)  { animation-delay: 0.9s; }
+
+  .slide.active .timeline-dot {
+    animation: popIn 0.4s ease both;
+  }
+  .slide.active .timeline-item:nth-child(1) .timeline-dot { animation-delay: 0.2s; }
+  .slide.active .timeline-item:nth-child(3) .timeline-dot { animation-delay: 0.45s; }
+  .slide.active .timeline-item:nth-child(5) .timeline-dot { animation-delay: 0.7s; }
+  .slide.active .timeline-item:nth-child(7) .timeline-dot { animation-delay: 0.95s; }
+
+  /* Steps: stagger with circle pop */
+  .slide.active .steps li {
+    animation: fadeUp 0.4s ease both;
+  }
+  .slide.active .steps li:nth-child(1) { animation-delay: 0.2s; }
+  .slide.active .steps li:nth-child(2) { animation-delay: 0.35s; }
+  .slide.active .steps li:nth-child(3) { animation-delay: 0.5s; }
+  .slide.active .steps li:nth-child(4) { animation-delay: 0.65s; }
+
+  /* Numbered list stagger */
+  .slide.active .numbered li {
+    animation: fadeUp 0.4s ease both;
+  }
+  .slide.active .numbered li:nth-child(1) { animation-delay: 0.2s; }
+  .slide.active .numbered li:nth-child(2) { animation-delay: 0.32s; }
+  .slide.active .numbered li:nth-child(3) { animation-delay: 0.44s; }
+  .slide.active .numbered li:nth-child(4) { animation-delay: 0.56s; }
+
+  /* Policy pair stagger */
+  .slide.active .policy:nth-child(1) { animation: fadeUp 0.45s ease both; animation-delay: 0.2s; }
+  .slide.active .policy:nth-child(2) { animation: fadeUp 0.45s ease both; animation-delay: 0.38s; }
+
+  /* Section bar: grow from top */
+  .slide.active::before {
+    transform-origin: top;
+    animation: growDown 0.4s ease both;
+    animation-delay: 0s;
+  }
+
+  /* Shortcut row items stagger */
+  .slide.active .shortcut-row span {
+    animation: fadeUp 0.35s ease both;
+  }
+  .slide.active .shortcut-row span:nth-child(1) { animation-delay: 0.4s; }
+  .slide.active .shortcut-row span:nth-child(2) { animation-delay: 0.48s; }
+  .slide.active .shortcut-row span:nth-child(3) { animation-delay: 0.56s; }
+  .slide.active .shortcut-row span:nth-child(4) { animation-delay: 0.64s; }
+  .slide.active .shortcut-row span:nth-child(5) { animation-delay: 0.72s; }
+
+  /* Resource list stagger */
+  .slide.active .resource-list li {
+    animation: fadeUp 0.35s ease both;
+  }
+  .slide.active .resource-list li:nth-child(1) { animation-delay: 0.12s; }
+  .slide.active .resource-list li:nth-child(2) { animation-delay: 0.2s; }
+  .slide.active .resource-list li:nth-child(3) { animation-delay: 0.28s; }
+  .slide.active .resource-list li:nth-child(4) { animation-delay: 0.36s; }
+  .slide.active .resource-list li:nth-child(5) { animation-delay: 0.44s; }
+  .slide.active .resource-list li:nth-child(6) { animation-delay: 0.52s; }
+  .slide.active .resource-list li:nth-child(7) { animation-delay: 0.6s; }
+
+  /* ── Section bar (left edge color indicator) ── */
+  .slide::before {
+    content: "";
+    position: absolute; left: 0; top: 0; bottom: 0;
+    width: 6px;
+    background: var(--section-color, transparent);
+  }
+
+  /* ── Layout: Billboard (centered single statement) ── */
+  .billboard {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: var(--pad);
+  }
+  .billboard h1 {
+    font-size: 4rem;
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    max-width: 900px;
+  }
+  .billboard .sub {
+    font-size: 1.6rem;
+    color: var(--fg-dim);
+    margin-top: 24px;
+    max-width: 650px;
+    line-height: 1.5;
+  }
+
+  /* ── Layout: Section Divider (color wash) ── */
+  .divider {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: var(--pad);
+    background: var(--section-bg, var(--bg));
+  }
+  .divider::before { display: none; }
+  .divider h1 {
+    font-size: 4.2rem;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+  }
+  .divider .sub {
+    font-size: 1.6rem;
+    color: var(--fg-dim);
+    margin-top: 20px;
+    font-weight: 400;
+  }
+
+  /* ── Layout: Content (left-aligned, vertically centered) ── */
+  .content {
+    flex-direction: column;
+    justify-content: center;
+    padding: var(--pad);
+    padding-left: calc(var(--pad) + 20px);
+    gap: 28px;
+  }
+  .content h2 {
+    font-size: 2.6rem;
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+  }
+
+  /* ── Layout: Split (left label + right content) ── */
+  .split {
+    align-items: center;
+    padding: var(--pad);
+    padding-left: calc(var(--pad) + 20px);
+    gap: 60px;
+  }
+  .split .left {
+    flex: 0 0 35%;
+  }
+  .split .left h1 {
+    font-size: 3.2rem;
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+  }
+  .split .right {
+    flex: 1;
+  }
+
+  /* ── Layout: Top-aligned (cards, grids) ── */
+  .top {
+    flex-direction: column;
+    padding: var(--pad);
+    padding-left: calc(var(--pad) + 20px);
+    padding-top: 60px;
+    gap: 20px;
+  }
+  .top h2 {
+    font-size: 2.4rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+
+  /* ── Typography ── */
+  p, li { font-size: 1.5rem; line-height: 1.55; }
+
+  .big-text {
+    font-size: 2.2rem;
+    font-weight: 600;
+    line-height: 1.35;
+  }
+
+  .callout {
+    font-size: 1.5rem;
+    font-weight: 600;
+    line-height: 1.45;
+  }
+
+  .small { font-size: 1.25rem; color: var(--fg-dim); }
+
+  /* ── Cards ── */
+  .card-row {
+    display: grid;
+    gap: 28px;
+    margin-top: 16px;
+  }
+  .card-row.c3 { grid-template-columns: repeat(3, 1fr); }
+  .card-row.c4 { grid-template-columns: repeat(4, 1fr); }
+
+  .card {
+    border-top: 4px solid var(--card-color, var(--fg-dim));
+    padding: 24px 0 0;
+  }
+  .card h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--card-color, var(--fg));
+    margin-bottom: 10px;
+  }
+  .card p {
+    font-size: 1.25rem;
+    color: var(--fg-dim);
+    line-height: 1.5;
+  }
+
+  /* ── Timeline (vertical flow for "Today") ── */
+  .timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-top: 20px;
+  }
+  .timeline-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 16px 0;
+  }
+  .timeline-dot {
+    width: 16px; height: 16px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    background: var(--dot-color, var(--fg-dim));
+  }
+  .timeline-line {
+    width: 2px;
+    height: 20px;
+    margin-left: 7px;
+    background: #333;
+  }
+  .timeline-label {
+    font-size: 1.6rem;
+    font-weight: 500;
+  }
+
+  /* ── Steps (exercise tracker) ── */
+  .steps {
+    counter-reset: step;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .steps li {
+    counter-increment: step;
+    display: flex;
+    gap: 16px;
+    align-items: baseline;
+  }
+  .steps li::before {
+    content: counter(step);
+    flex-shrink: 0;
+    width: 36px; height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: var(--section-color, var(--blue));
+    color: #111;
+    font-weight: 700;
+    font-size: 1.1rem;
+  }
+  .steps li span {
+    font-size: 1.4rem;
+    line-height: 1.45;
+  }
+  .steps .sub-options {
+    display: block;
+    font-size: 1.2rem;
+    color: var(--fg-dim);
+    margin-top: 6px;
+    padding-left: 0;
+  }
+
+  /* ── Numbered points (non-exercise) ── */
+  .numbered {
+    counter-reset: num;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .numbered li {
+    counter-increment: num;
+    font-size: 1.5rem;
+    line-height: 1.5;
+    padding-left: 40px;
+    position: relative;
+  }
+  .numbered li::before {
+    content: counter(num) ".";
+    position: absolute;
+    left: 0;
+    font-weight: 700;
+    color: var(--section-color, var(--blue));
+  }
+
+  /* ── Policy blocks ── */
+  .policy-pair {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    margin-top: 16px;
+  }
+  .policy h3 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+  .policy p {
+    font-size: 1.35rem;
+    color: var(--fg-dim);
+    line-height: 1.5;
+  }
+
+  /* ── Keyboard shortcuts ── */
+  kbd {
+    display: inline-block;
+    background: #222;
+    border: 1px solid #444;
+    border-radius: 6px;
+    padding: 3px 10px;
+    font-family: "SF Mono", "Fira Code", monospace;
+    font-size: 1.15rem;
+    color: var(--fg);
+  }
+  .shortcut-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 16px;
+  }
+  .shortcut-row span {
+    font-size: 1.25rem;
+    color: var(--fg-dim);
+  }
+
+  /* ── Links ── */
+  a { color: var(--blue); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  .resource-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 12px;
+  }
+  .resource-list li { font-size: 1.35rem; }
+  .resource-list .label { font-weight: 600; color: var(--fg); }
+
+  /* ── Counter ── */
+  .counter {
+    position: fixed;
+    bottom: 20px; right: 28px;
+    font-size: 0.85rem;
+    color: #444;
+    font-variant-numeric: tabular-nums;
+    z-index: 100;
+  }
+
+  /* ── Utility ── */
+  .mt { margin-top: 20px; }
+  .mt-lg { margin-top: 36px; }
+  .accent { color: var(--amber); }
+  .accent-blue { color: var(--blue); }
+  .accent-violet { color: var(--violet); }
+  .accent-green { color: var(--green); }
+
+  /* ── Responsive ── */
+  @media (max-width: 1200px) {
+    :root { --pad: 48px; }
+    .billboard h1 { font-size: 3rem; }
+    .divider h1 { font-size: 3.2rem; }
+    .card-row.c4 { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  /* ── Prompt box ── */
+  .prompt-box {
+    background: #1a1a1a;
+    border: 1px solid #333;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 1.2rem;
+    line-height: 1.5;
+    color: var(--fg-dim);
+    margin-top: 12px;
+  }
+  .prompt-box code {
+    color: var(--fg);
+    font-family: inherit;
+  }
+</style>
+</head>
+<body>
+
+<div class="deck">
+
+  <!-- ═══ 1. WARM-UP ═══ -->
+  <section class="slide content active" style="--section-color: var(--amber); background: var(--amber-bg);">
+    <h2 style="font-size: 2.8rem;">Warm-Up: Learn About Visual Rhythm</h2>
+    <ol class="steps mt">
+      <li><span>Open Claude or ChatGPT</span></li>
+      <li><span>Send: "I want to learn about visual rhythm and spacing in design. Can you break this topic down into the main sub-topics I should understand?"</span></li>
+      <li><span>Follow up: "Let's start with just one of those. What's the first thing I should learn? Please explain it to me, including why it is important, and provide me with trusted resources for digging deeper."</span></li>
+      <li><span>Be ready to share what you learned</span></li>
+    </ol>
+  </section>
+
+  <!-- ═══ 2. PRAYER ═══ -->
+  <section class="slide billboard" style="--section-color: var(--amber);">
+    <h1>Prayer</h1>
+    <p class="sub">Mira, will you pray for us today?</p>
+  </section>
+
+  <!-- ═══ 3. TITLE ═══ -->
+  <section class="slide billboard">
+    <h1 style="font-size: 4.8rem;">Unit C: Hierarchy & Responsive Web</h1>
+    <p class="sub" style="font-size: 1.8rem; max-width: 700px;">Grids are invisible scaffolding — the system that makes designs feel intentional.</p>
+  </section>
+
+  <!-- ═══ 4. TODAY ═══ -->
+  <section class="slide content" style="padding-left: 160px;">
+    <h2>Today</h2>
+    <div class="timeline">
+      <div class="timeline-item"><div class="timeline-dot" style="background: var(--amber);"></div><span class="timeline-label">Visual Rhythm Share-out</span></div>
+      <div class="timeline-line"></div>
+      <div class="timeline-item"><div class="timeline-dot" style="background: var(--blue);"></div><span class="timeline-label">Grid Systems in Figma</span></div>
+      <div class="timeline-line"></div>
+      <div class="timeline-item"><div class="timeline-dot" style="background: var(--violet);"></div><span class="timeline-label">C3: Mobile + Desktop Wireframes</span></div>
+      <div class="timeline-line"></div>
+      <div class="timeline-item"><div class="timeline-dot" style="background: var(--green);"></div><span class="timeline-label">Work Session</span></div>
+    </div>
+  </section>
+
+  <!-- ═══ 5. WHY THIS MATTERS ═══ -->
+  <section class="slide content" style="--section-color: var(--amber); background: var(--amber-bg);">
+    <h2 style="color: var(--amber);">Why this matters</h2>
+    <p class="big-text mt">Without grids, you're guessing.</p>
+    <p class="mt" style="color: var(--fg-dim);">Every spacing decision becomes a debate with yourself.</p>
+    <p class="big-text accent mt-lg">Grids reduce the amount of decision-making you have to do about layout.</p>
+    <p class="mt" style="color: var(--fg-dim);">That's how professionals work fast without sacrificing quality.</p>
+  </section>
+
+  <!-- ═══ 6. BY THE END OF TODAY ═══ -->
+  <section class="slide top">
+    <h2>By the end of today...</h2>
+    <div class="card-row c3 mt">
+      <div class="card" style="--card-color: var(--blue);">
+        <h3>Grid Fundamentals</h3>
+        <p>You'll understand the box model, how auto-layout relates to it, and the 4px spacing system</p>
+      </div>
+      <div class="card" style="--card-color: var(--violet);">
+        <h3>Figma Grids</h3>
+        <p>You'll set up proper layout grids for both mobile (4-column) and desktop (12-column) frames</p>
+      </div>
+      <div class="card" style="--card-color: var(--green);">
+        <h3>Responsive Thinking</h3>
+        <p>You'll see how the same content adapts across breakpoints while staying consistent</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 7. SECTION DIVIDER: Grid Systems ═══ -->
+  <section class="slide divider" style="--section-bg: var(--blue-bg);">
+    <h1 style="color: var(--blue);">Grid Systems</h1>
+    <p class="sub">The invisible structure behind every good design</p>
+  </section>
+
+  <!-- ═══ 8. THE BOX MODEL ═══ -->
+  <section class="slide content" style="--section-color: var(--blue);">
+    <h2>Every element is a box</h2>
+    <p class="big-text mt" style="color: var(--fg-dim);">Content → Padding → Border → Margin</p>
+    <ol class="numbered mt">
+      <li>Total width = content + padding + border</li>
+      <li>Margin is spacing <em>between</em> boxes, not part of the box itself</li>
+    </ol>
+    <p class="callout accent mt-lg">Developers use debug borders to visualize boxes — you can think this way too.</p>
+  </section>
+
+  <!-- ═══ 9. MARGIN VS PADDING ═══ -->
+  <section class="slide content" style="--section-color: var(--blue);">
+    <h2>Margin vs. Padding</h2>
+    <p class="big-text mt" style="color: var(--fg-dim);">When to use which?</p>
+    <div class="policy-pair mt">
+      <div class="policy">
+        <h3 style="color: var(--blue);">Different backgrounds</h3>
+        <p>Use both — margin creates gap, padding creates internal space</p>
+      </div>
+      <div class="policy">
+        <h3 style="color: var(--blue);">Same backgrounds</h3>
+        <p>Consolidate into padding</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 10. AUTO-LAYOUT ≠ BOX MODEL ═══ -->
+  <section class="slide content" style="--section-color: var(--blue);">
+    <h2>Auto-Layout ≠ Box Model</h2>
+    <p class="big-text mt" style="color: var(--fg-dim);">Figma auto-layout is closer to CSS Flexbox</p>
+    <ol class="numbered mt">
+      <li><strong style="color: var(--green);">Has padding</strong> — internal spacing inside frames ✓</li>
+      <li><strong style="color: var(--green);">Has gap</strong> — spacing between child elements ✓</li>
+      <li><strong style="color: var(--amber);">No margin</strong> — no external spacing property</li>
+    </ol>
+  </section>
+
+  <!-- ═══ 11. GAP VS MARGIN ═══ -->
+  <section class="slide content" style="--section-color: var(--blue);">
+    <h2>Gap vs. Margin</h2>
+    <p class="big-text mt" style="color: var(--fg-dim);">Gap only creates space BETWEEN children</p>
+    <div class="policy-pair mt">
+      <div class="policy">
+        <h3 style="color: var(--blue);">Margin</h3>
+        <p>Space on ALL sides of each element (including outer edges)</p>
+      </div>
+      <div class="policy">
+        <h3 style="color: var(--blue);">Gap</h3>
+        <p>Space only BETWEEN siblings (not on outer edges)</p>
+      </div>
+    </div>
+    <p class="callout accent mt-lg">To add space around an auto-layout frame, wrap it in a parent and use padding.</p>
+  </section>
+
+  <!-- ═══ 12. EXPLICIT VS IMPLICIT ═══ -->
+  <section class="slide content" style="--section-color: var(--blue);">
+    <h2>Two types of grid</h2>
+    <div class="policy-pair mt">
+      <div class="policy">
+        <h3 style="color: var(--blue);">Explicit Grid</h3>
+        <p>Columns, gutters, margins — the visible structure you set up in Figma</p>
+      </div>
+      <div class="policy">
+        <h3 style="color: var(--blue);">Implicit Grid</h3>
+        <p>The spacing rhythm between <em>all</em> elements — what creates the "clean" feel</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 13. THE 4PX RULE ═══ -->
+  <section class="slide billboard" style="--section-color: var(--blue);">
+    <h1 style="font-size: 3.6rem;">Use 4px increments<br>for all spacing</h1>
+    <p class="sub" style="font-size: 2rem; color: var(--blue);">4, 8, 12, 16, 20, 24, 32, 40, 48...</p>
+    <p class="sub" style="font-size: 1.4rem; margin-top: 32px;">Why 4px? Divides evenly, aligns with browser defaults.<br>Even numbers divide cleanly. Avoid 5px or 10px increments.</p>
+  </section>
+
+  <!-- ═══ 14. VIGNELLI ═══ -->
+  <section class="slide billboard" style="--section-color: var(--blue);">
+    <h1 style="font-size: 3.8rem; font-style: italic;">"The grid is an attitude."</h1>
+    <p class="sub">— Massimo Vignelli</p>
+  </section>
+
+  <!-- ═══ 15. COMMON PATTERNS ═══ -->
+  <section class="slide content" style="--section-color: var(--blue);">
+    <h2>Common Grid Patterns</h2>
+    <div class="policy-pair mt">
+      <div class="policy">
+        <h3 style="color: var(--blue);">Mobile</h3>
+        <p>4 columns<br>375px frame</p>
+      </div>
+      <div class="policy">
+        <h3 style="color: var(--blue);">Desktop</h3>
+        <p>12 columns<br>1440px frame</p>
+      </div>
+    </div>
+    <p class="callout accent mt-lg">Same content, different column spans.</p>
+  </section>
+
+  <!-- ═══ 16. SECTION DIVIDER: Demo ═══ -->
+  <section class="slide divider" style="--section-bg: var(--violet-bg);">
+    <h1 style="color: var(--violet);">Figma Grid Setup</h1>
+    <p class="sub">Watch, then try together</p>
+  </section>
+
+  <!-- ═══ 17. DEMO STEPS ═══ -->
+  <section class="slide content" style="--section-color: var(--violet);">
+    <h2 style="color: var(--violet);">Demo: Setting Up Grids</h2>
+    <ol class="steps mt">
+      <li><span>Create desktop frame (1440px) with 12-column grid</span></li>
+      <li><span>Create mobile frame (375px) with 4-column grid</span></li>
+      <li><span>See how same content aligns to different grids</span></li>
+    </ol>
+  </section>
+
+  <!-- ═══ 18. WE DO ═══ -->
+  <section class="slide content" style="--section-color: var(--violet); background: var(--violet-bg);">
+    <h2 style="color: var(--violet);">Let's Try Together</h2>
+    <p class="big-text mt">Place a product card on both grids</p>
+    <div class="policy-pair mt">
+      <div class="policy">
+        <h3 style="color: var(--violet);">Desktop</h3>
+        <p>Card spans 4 columns</p>
+      </div>
+      <div class="policy">
+        <h3 style="color: var(--violet);">Mobile</h3>
+        <p>Card spans full width</p>
+      </div>
+    </div>
+    <p class="callout accent-violet mt-lg">What changed? What stayed the same?</p>
+  </section>
+
+  <!-- ═══ 19. YOU DO ═══ -->
+  <section class="slide content" style="--section-color: var(--violet);">
+    <h2 style="color: var(--violet);">Your Turn: Set Up Grids</h2>
+    <ol class="steps mt">
+      <li><span>Create or select your desktop frame (1440px)</span></li>
+      <li><span>Add a 12-column layout grid</span></li>
+      <li><span>Create or select your mobile frame (375px)</span></li>
+      <li><span>Add a 4-column layout grid</span></li>
+    </ol>
+    <p class="small mt-lg">5 minutes — raise your hand if you need help</p>
+  </section>
+
+  <!-- ═══ 20. C3 INTRO ═══ -->
+  <section class="slide content" style="--section-color: var(--violet);">
+    <h2>C3: Mobile + Desktop Wireframes</h2>
+    <p class="small">Due: Wednesday, Feb 18 @ 11:59pm</p>
+    <ol class="numbered mt">
+      <li>Simple wireframes for both mobile AND desktop PDP</li>
+      <li>Show: product title + details, image placements, button placements, page layout</li>
+      <li>Focus on structure, not visual polish</li>
+    </ol>
+    <p class="mt" style="color: var(--fg-dim);">These wireframes become the foundation for your high-fidelity work.</p>
+    <p class="callout accent-violet mt-lg">Same content, different arrangement — let the grid guide you.</p>
+  </section>
+
+  <!-- ═══ 21. NEXT UP ═══ -->
+  <section class="slide top" style="--section-color: var(--green); background: var(--green-bg);">
+    <h2 style="color: var(--green);">Next up</h2>
+    <div class="mt" style="display: flex; flex-direction: column; gap: 20px;">
+      <p><strong>Work session</strong> — Set up grids, then start C3 wireframes</p>
+      <p><strong>Get feedback</strong> — Grid setup, content alignment, thumb-zone navigation for mobile</p>
+    </div>
+    <div class="mt-lg">
+      <p class="callout" style="color: var(--green);">Homework</p>
+      <p class="mt" style="color: var(--fg-dim);">C3: Mobile + Desktop Wireframes (due Wed @ 11:59pm)</p>
+      <p style="color: var(--fg-dim);">Begin high-fidelity PDP designs</p>
+    </div>
+  </section>
+
+</div>
+
+<div class="counter"><span id="cur">1</span> / <span id="tot"></span></div>
+
+<script>
+  const slides = document.querySelectorAll('.slide');
+  const total = slides.length;
+  let current = 0;
+  document.getElementById('tot').textContent = total;
+
+  function goTo(n) {
+    if (n < 0 || n >= total) return;
+    slides[current].classList.remove('active');
+    current = n;
+    slides[current].classList.add('active');
+    document.getElementById('cur').textContent = current + 1;
+  }
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown' || e.key === ' ') { e.preventDefault(); goTo(current + 1); }
+    else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') { e.preventDefault(); goTo(current - 1); }
+    else if (e.key === 'Home') { e.preventDefault(); goTo(0); }
+    else if (e.key === 'End') { e.preventDefault(); goTo(total - 1); }
+  });
+
+  document.addEventListener('click', e => {
+    if (e.target.closest('a')) return;
+    e.clientX / window.innerWidth < 0.33 ? goTo(current - 1) : goTo(current + 1);
+  });
+</script>
+
+</body>
+</html>

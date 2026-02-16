@@ -48,6 +48,8 @@ Create **simple but information-rich** lesson plans. Provide high-value direct i
 
 **Focus:** [One-line Big Idea — what should students remember from this class?]
 
+**Why This Matters:** [1-2 sentences connecting today's topic to students' real design work. Answer: "Why should I care about this?" Frame it in terms of what students will be able to DO better as designers, or what problems they'll avoid. Be specific and practical, not abstract.]
+
 **Targeted Learning Outcomes:** [From course_schedule.md]
 
 ---
@@ -87,8 +89,8 @@ Create **simple but information-rich** lesson plans. Provide high-value direct i
    - Late arrivals aren't disadvantaged
 
 2. **Today's Learning Goals** (5 min) `[all tags]`
-   - Review Desired Results with students
-   - Preview what activities will address each
+   - **Why this matters:** [Connect to real design work — what will students do better?]
+   - Preview what activities will address each learning goal
    - Frame the day's learning in terms of forming/rendering intent
 
 3. **[Direct Instruction Activity]** (~15-25 min) `[relevant tags]`
@@ -130,9 +132,10 @@ Create **simple but information-rich** lesson plans. Provide high-value direct i
 
 ## Guiding Principles
 
-1. **Desired Results drive activities** — Activities should directly address EQs, Understandings, and Skills
-2. **Review Desired Results each class** — Activity 2 previews learning goals
-3. **Include Direct Instruction** — Each lesson needs information-rich, teacher-led teaching
-4. **Consolidate related content** — Combine items into fewer, high-value activities
-5. **Work session is the main event** — Instruction prepares students for productive work time
-6. **Pull exact requirements from assignment files** — Dimensions, formats, due dates
+1. **Start with why** — Every lesson needs a clear "Why This Matters" that connects to real design work
+2. **Desired Results drive activities** — Activities should directly address EQs, Understandings, and Skills
+3. **Review Desired Results each class** — Activity 2 previews learning goals with the "why" framing
+4. **Include Direct Instruction** — Each lesson needs information-rich, teacher-led teaching
+5. **Consolidate related content** — Combine items into fewer, high-value activities
+6. **Work session is the main event** — Instruction prepares students for productive work time
+7. **Pull exact requirements from assignment files** — Dimensions, formats, due dates

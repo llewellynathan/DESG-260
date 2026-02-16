@@ -64,7 +64,16 @@ Generate slides in this order:
 - List the main activities as a **bullet list** (not arrows)
 - This previews what the class will cover
 
-### 5. "By the end of today..." Slide
+### 5. "Why This Matters" Slide
+- Title: **Why this matters**
+- Pull from the lesson plan's "Why This Matters" field
+- Frame as a direct answer to "Why should I care about this?"
+- Connect today's topic to real design work students will do
+- Keep it to 1-3 punchy statements — this is motivation, not a lecture
+- Use language like "Without this, you'll..." or "This lets you..." or "Professional designers use this to..."
+- Can include a concrete example or scenario that makes it tangible
+
+### 6. "By the end of today..." Slide
 - If a learning goals activity exists in the lesson plan, generate this slide
 - Use **named categories** — each learning goal gets a short bold label (2-3 words) and a plain-language description
 - Draw from the lesson's Desired Results, but write as things students will *do* or *make* — not academic language
@@ -74,7 +83,7 @@ Generate slides in this order:
   - **Digital prototyping** — You'll start translating your paper prototype into an interactive digital prototype in Figma
   - **AI Policy** — You'll understand the B3/B4 AI policy: AI is welcome for B3, but B4 must be your own Figma work
 
-### 6. Activity Slides
+### 7. Activity Slides
 For each activity in the lesson plan (starting from Activity 2, since Warm-Up is Slide 1), create slides based on its content.
 
 **Consolidation rule:** Prefer merging related concepts into a single slide rather than splitting every sub-point. If two consecutive content points support the same idea, combine them. Aim for roughly 1 slide per major idea.
@@ -116,7 +125,7 @@ These serve as prompts for the instructor to facilitate discussion — they are 
 
 **Reveal/key takeaway:** If the instructor shares a definition or answer after discussion, include it on the same content slide (or as a follow-up content slide if the reveal is substantial). Use bold for emphasis.
 
-### 7. "Next Up" Slide
+### 8. "Next Up" Slide
 - Replaces separate work session, homework, and due date slides
 - Title: **Next up**
 - Combine into a single slide:
@@ -126,7 +135,7 @@ These serve as prompts for the instructor to facilitate discussion — they are 
   - Due dates
 - Only split into multiple slides if the combined content is genuinely too dense for one slide (4+ distinct homework items AND work session instructions)
 
-### 8. Resources Slide (only if needed)
+### 9. Resources Slide (only if needed)
 - Only include a Resources slide if there are specific tools or links students need to access during class
 - If resources are just reference material, skip this slide — students can find them in the lesson plan
 
@@ -169,7 +178,14 @@ Use this exact markdown format with `---` as slide separators:
 
 ---
 
-### Slide 5: By the end of today...
+### Slide 5: Why This Matters
+**Why this matters**
+[1-3 punchy statements connecting today's topic to real design work]
+[Frame as: "Without this..." or "This lets you..." or concrete scenario]
+
+---
+
+### Slide 6: By the end of today...
 **[Label 1]** — [Plain-language description]
 
 **[Label 2]** — [Plain-language description]
@@ -178,13 +194,13 @@ Use this exact markdown format with `---` as slide separators:
 
 ---
 
-### Slide 6: [Activity Section Header]
+### Slide 7: [Activity Section Header]
 **[Activity Name]**
 [Optional subtitle]
 
 ---
 
-### Slide 7: [Content]
+### Slide 8: [Content]
 **[Concept or topic]**
 - [Point 1]
 - [Point 2]

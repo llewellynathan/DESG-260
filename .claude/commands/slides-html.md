@@ -77,6 +77,7 @@ Map markdown content patterns to HTML elements:
 | `### Slide N: Prayer` | Billboard layout | Amber section color |
 | `### Slide N: Title` | Billboard layout | Large font-size on h1 (4.8rem), no section color |
 | `### Slide N: Today` | Content layout with `.timeline` | Use timeline dots + lines with section colors |
+| `### Slide N: Why This Matters` | Content layout | Use amber section color + amber-bg; h2 title "Why this matters" in amber; big-text for key statements |
 | `### Slide N: By the end of today...` | Top layout with `.card-row.c3` | Cards with colored top-borders |
 | Section headers (activity names) | Divider layout | Tinted background |
 | Bullet lists (≤4 items) | `<ul>` or `<ol class="numbered">` | Use numbered for ordered points |
@@ -118,6 +119,7 @@ The slide outline markdown is your primary source, but it may be sparse. When ge
 3. **Add instructor cues** — If the lesson plan mentions discussion prompts or "we do" activities that aren't in the slide outline, add them as `callout` paragraphs.
 4. **Use the Question → Reveal pattern** — When a key concept can be framed as a question first, split it into two slides: a billboard question, then a billboard answer.
 5. **Synthesize subtitles** — Section divider slides should have a subtitle that captures the angle/energy of the section, not just repeat the title.
+6. **Make "Why This Matters" punchy** — This slide should hit hard. Use the billboard layout with a single compelling statement, or 2-3 short punchy lines. Avoid academic language — frame it as "Without this, your designs will..." or "This is how professionals..."
 
 ## Animation System
 
@@ -156,6 +158,7 @@ After writing both files, run `open [path]` to open the local copy in the browse
 - [ ] Section colors assigned via `--section-color` inline styles
 - [ ] Section dividers use tinted `background` and `--section-bg`
 - [ ] "Today" uses timeline component with colored dots
+- [ ] "Why This Matters" slide is present with punchy, motivating content
 - [ ] "By the end of today" uses card grid
 - [ ] Exercises use `<ol class="steps">`
 - [ ] Instructor cues use `<p class="callout accent">`

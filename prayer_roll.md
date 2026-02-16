@@ -14,7 +14,7 @@ Once everyone has prayed, the cycle resets.
 | Peter H. | 2/2 |
 | Carol K. | |
 | Lucy L. | |
-| Mira P. | |
+| Mira P. | 2/17 |
 | Cherie P. | 2/11 |
 | Brayden S. | |
 | Mercy T. | |

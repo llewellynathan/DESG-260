@@ -27,6 +27,7 @@
 - K2: How to set up and use layout grids in Figma (columns, margins, gutters)
 - K3: The 4px increment system for consistent spacing (implicit grid)
 - K4: Common grid patterns for mobile and desktop (4-column mobile, 12-column desktop)
+- K5: How Figma auto-layout maps to the box model (padding yes, margin no, gap instead)
 
 **Students Will Be Able To:**
 - S1: Create responsive frames in Figma with proper grid setup
@@ -53,12 +54,22 @@
    - Connection to forming/rendering: grids are how we *render* consistency — they're the invisible system that makes designs feel intentional
    - By end of class: your PDP will have proper grid setup for both mobile and desktop
 
-3. **Direct Instruction: Grid Systems in Figma** (30 min) `[K1, K2, K3, U1, U2, S1, S3]`
+3. **Direct Instruction: Grid Systems in Figma** (30 min) `[K1, K2, K3, K5, U1, U2, S1, S3]`
    - **I do:** The Box Model — see everything as a box
      - Every element is a box with: content, padding, border, margin (inside → outside)
      - Total element width = content + padding + border (margin is spacing, not size)
      - **Margin vs. padding rule:** When backgrounds differ, use both; when backgrounds match, consolidate into padding
      - Tip: Developers use debug borders to visualize boxes — you can think this way too
+   - **I do:** Auto-Layout and the Box Model
+     - Figma auto-layout is NOT the same as the CSS box model — it's closer to CSS Flexbox
+     - **What auto-layout HAS:**
+       - Padding (internal spacing inside a frame) — same as CSS
+       - Gap (spacing between child elements) — like CSS Flexbox gap
+     - **What auto-layout DOESN'T have:**
+       - Margin (external spacing around a frame)
+     - **Key difference:** Gap only creates space BETWEEN children, not on the outside edges
+     - **Practical tip:** To add space around an auto-layout frame, wrap it in a parent frame and use that parent's padding
+     - Demo: Show padding vs. gap in a simple auto-layout frame
    - **I do:** Explain grid fundamentals
      - **Explicit grid:** columns, gutters, margins — the visible structure
      - **Implicit grid:** the spacing rhythm between all elements (the "clean" feel)
@@ -129,6 +140,7 @@
 | K2 | Layout grids in Figma | 3 |
 | K3 | 4px increment system (implicit grid) | 3 |
 | K4 | Common grid patterns | 1, 3 |
+| K5 | Auto-layout maps to box model | 3 |
 | S1 | Create responsive frames with grids | 3, 5 |
 | S2 | Design for mobile and desktop | 4, 5 |
 | S3 | Align elements using grid | 3, 5 |
