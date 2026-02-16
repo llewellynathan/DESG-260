@@ -51,18 +51,18 @@
 
 2. **Today's Learning Goals** (5 min) `[EQ1, EQ2, EQ3]`
    - Today's focus: applying AI learning practices to grid systems
-   - You practiced the two-phase framework with typography. Today you apply it to grids.
+   - We'll use a two-phase framework for learning with AI — then apply it to grids.
    - By end of class: understand grids AND have them set up in Figma for your PDP
 
-3. **Brief Review: Two-Phase Framework** (5 min) `[U3, K5]`
-   - Quick visual reminder of Phase 1 (Taking In) and Phase 2 (Strengthening)
-   - **Taking In:** Scope First, Why First, Chunk It, Translate, Verify
-   - **Strengthening:** Teach Back, Quiz Me, Minimum Hint, Socratic Mode
-   - "You practiced this with typography. Today we apply it to a new topic: grids."
+3. **Introduce: The Two-Phase Framework** (5 min) `[U3, K5]`
+   - Learning has two phases — and AI can help with both:
+   - **Phase 1: Taking In** — Scope First, Why First, Chunk It, Translate, Verify
+   - **Phase 2: Strengthening** — Teach Back, Quiz Me, Minimum Hint, Socratic Mode
+   - The key is knowing which phase you're in and using the right practices for each.
 
 4. **I do / We do / You do: Learning with AI** (24 min) `[EQ3, U3, K5, S1]`
 
-   *I do: Model Acquisition Practices Live* (8 min)
+   *I do: Model Phase 1 Practices Live* (8 min)
    - Topic: **Visual rhythm and spacing** (not grids yet)
    - "I want to learn about visual rhythm in design. Watch how I use AI."
    - Demo live with AI:
@@ -76,7 +76,7 @@
    - Ask class: "What practice should we use next?"
    - Students suggest which practice to apply
    - Instructor types what the class decides, shows AI response
-   - Key: Students are practicing CHOOSING practices, not just watching
+   - Key: Students are learning to CHOOSE practices, not just watch
 
    *You do: Pairs Practice* (8 min)
    - Same topic: visual rhythm

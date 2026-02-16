@@ -39,7 +39,13 @@
       "Bash(git fetch:*)",
       "Skill(unit-plan)",
       "WebFetch(domain:www.w3schools.com)",
-      "Bash(find:*)"
+      "Bash(find:*)",
+      "WebFetch(domain:x.com)",
+      "WebFetch(domain:fortune.com)",
+      "Bash(git checkout:*)",
+      "Bash(gh pr create:*)",
+      "Bash(grep:*)",
+      "WebFetch(domain:www.blind3y3design.com)"
     ]
   }
 }
