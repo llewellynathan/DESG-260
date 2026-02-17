@@ -463,7 +463,7 @@
       <div class="timeline-line"></div>
       <div class="timeline-item"><div class="timeline-dot" style="background: var(--violet);"></div><span class="timeline-label">Two-Phase Framework + Practice</span></div>
       <div class="timeline-line"></div>
-      <div class="timeline-item"><div class="timeline-dot" style="background: var(--green);"></div><span class="timeline-label">Grid Systems Learning Lab</span></div>
+      <div class="timeline-item"><div class="timeline-dot" style="background: var(--blue);"></div><span class="timeline-label">Grid Systems + Practice</span></div>
       <div class="timeline-line"></div>
       <div class="timeline-item"><div class="timeline-dot" style="background: var(--blue);"></div><span class="timeline-label">Work Session: Wireframes</span></div>
     </div>
@@ -586,82 +586,246 @@
     <p class="callout accent-violet mt">Debrief: What felt different about taking in vs. strengthening?</p>
   </section>
 
-  <!-- ═══ 13. SECTION DIVIDER: Grid Lab ═══ -->
-  <section class="slide divider" style="--section-bg: var(--green-bg);">
-    <h1 style="color: var(--green);">Grid Systems Lab</h1>
-    <p class="sub">Apply the two-phase framework to learn grids</p>
+  <!-- ═══ 13. SECTION DIVIDER: Grid Systems ═══ -->
+  <section class="slide divider" style="--section-bg: var(--blue-bg);">
+    <h1 style="color: var(--blue);">Grid Systems</h1>
+    <p class="sub">The invisible structure behind every good design</p>
   </section>
 
-  <!-- ═══ 14. LAB CONNECTION ═══ -->
-  <section class="slide billboard" style="--section-color: var(--green);">
-    <h1 style="font-size: 3rem;">Visual Rhythm<br><span style="color: var(--green);">IS</span><br>What Grids Create</h1>
-    <p class="sub" style="font-size: 1.5rem;">Just as visual hierarchy is what typography creates.<br>Now let's apply this framework to a new topic.</p>
+  <!-- ═══ 14. WHY THIS MATTERS ═══ -->
+  <section class="slide billboard" style="--section-color: var(--blue);">
+    <h1 style="font-size: 2.6rem;">Without grids, you're guessing.<br><span style="color: var(--fg-dim); font-size: 2.2rem;">Every spacing decision becomes a debate with yourself.</span></h1>
+    <p class="sub" style="font-size: 1.6rem; margin-top: 32px;">Grids reduce decision-making.<br>That's how professionals work fast without sacrificing quality.</p>
   </section>
 
-  <!-- ═══ 15. LAB TOPICS ═══ -->
-  <section class="slide content" style="--section-color: var(--green);">
-    <h2 style="color: var(--green);">Topics to Explore</h2>
-    <p class="big-text mt" style="color: var(--fg-dim);">Use the framework to learn these grid concepts:</p>
-    <ul class="mt" style="list-style: disc; padding-left: 24px;">
-      <li><strong>The Box Model</strong> — content, padding, border, margin</li>
-      <li><strong>Layout Grids</strong> — columns, margins, gutters</li>
-      <li><strong>4px Increment System</strong> — the implicit grid for spacing</li>
-      <li><strong>Responsive Patterns</strong> — 4-column mobile, 12-column desktop</li>
-      <li><strong>Mobile-first vs. Desktop-first</strong> — which approach and why</li>
+  <!-- ═══ 15. BY THE END OF TODAY ═══ -->
+  <section class="slide top" style="--section-color: var(--blue);">
+    <h2 style="color: var(--blue);">By the End of Today</h2>
+    <div class="card-row c3 mt">
+      <div class="card" style="--card-color: var(--blue);">
+        <h3>Grid Fundamentals</h3>
+        <p>Box model, auto-layout, 4px spacing system</p>
+      </div>
+      <div class="card" style="--card-color: var(--blue);">
+        <h3>Figma Grids</h3>
+        <p>Mobile 4-column, desktop 12-column</p>
+      </div>
+      <div class="card" style="--card-color: var(--blue);">
+        <h3>Responsive Thinking</h3>
+        <p>Same content adapts across breakpoints</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 16. THE BOX MODEL ═══ -->
+  <section class="slide content" style="--section-color: var(--blue);">
+    <h2 style="color: var(--blue);">Every Element is a Box</h2>
+    <div class="timeline mt">
+      <div class="timeline-item"><div class="timeline-dot" style="background: var(--blue);"></div><span class="timeline-label">Content</span></div>
+      <div class="timeline-line"></div>
+      <div class="timeline-item"><div class="timeline-dot" style="background: var(--blue);"></div><span class="timeline-label">Padding</span></div>
+      <div class="timeline-line"></div>
+      <div class="timeline-item"><div class="timeline-dot" style="background: var(--blue);"></div><span class="timeline-label">Border</span></div>
+      <div class="timeline-line"></div>
+      <div class="timeline-item"><div class="timeline-dot" style="background: var(--blue);"></div><span class="timeline-label">Margin</span></div>
+    </div>
+    <p class="mt-lg" style="color: var(--fg-dim);">Total width = content + padding + border<br>Margin is spacing <em>between</em> boxes, not part of the box itself</p>
+    <blockquote class="mt" style="border-color: var(--blue);">Developers use debug borders to visualize boxes — you can think this way too.</blockquote>
+  </section>
+
+  <!-- ═══ 17. MARGIN VS. PADDING ═══ -->
+  <section class="slide top" style="--section-color: var(--blue);">
+    <h2 style="color: var(--blue);">When to Use Which?</h2>
+    <div class="card-row c2 mt">
+      <div class="card" style="--card-color: var(--blue);">
+        <h3>Different Backgrounds</h3>
+        <p>Use both — margin creates gap, padding creates internal space</p>
+      </div>
+      <div class="card" style="--card-color: var(--blue);">
+        <h3>Same Backgrounds</h3>
+        <p>Consolidate into padding</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 18. AUTO-LAYOUT ≠ BOX MODEL ═══ -->
+  <section class="slide content" style="--section-color: var(--blue); background: var(--blue-bg);">
+    <h2 style="color: var(--blue);">Auto-Layout ≠ Box Model</h2>
+    <p class="big-text mt" style="color: var(--fg-dim);">Figma auto-layout is NOT the CSS box model.<br>It's closer to CSS Flexbox.</p>
+    <ul class="mt-lg" style="list-style: none; font-size: 1.5rem;">
+      <li style="margin-bottom: 12px;"><span style="color: var(--green);">✓</span> <strong>Has padding</strong> — internal spacing inside frames</li>
+      <li style="margin-bottom: 12px;"><span style="color: var(--green);">✓</span> <strong>Has gap</strong> — spacing between child elements</li>
+      <li><span style="color: var(--red);">✗</span> <strong>No margin</strong> — no external spacing property</li>
     </ul>
-    <p class="callout accent-green mt-lg">Key question: Am I taking in (new material) or strengthening (testing myself)?</p>
   </section>
 
-  <!-- ═══ 16. LAB: PHASE 1 ═══ -->
+  <!-- ═══ 19. GAP VS. MARGIN ═══ -->
+  <section class="slide content" style="--section-color: var(--blue);">
+    <h2 style="color: var(--blue);">Gap vs. Margin</h2>
+    <div class="card-row c2 mt">
+      <div class="card" style="--card-color: var(--amber);">
+        <h3>Margin</h3>
+        <p>Space on ALL sides of each element (including outer edges)</p>
+      </div>
+      <div class="card" style="--card-color: var(--blue);">
+        <h3>Gap</h3>
+        <p>Space only BETWEEN siblings (not on outer edges)</p>
+      </div>
+    </div>
+    <blockquote class="mt-lg" style="border-color: var(--blue);">To add space around an auto-layout frame, wrap it in a parent and use padding.</blockquote>
+  </section>
+
+  <!-- ═══ 20. EXPLICIT VS. IMPLICIT GRID ═══ -->
+  <section class="slide top" style="--section-color: var(--blue);">
+    <h2 style="color: var(--blue);">Two Types of Grid</h2>
+    <div class="card-row c2 mt">
+      <div class="card" style="--card-color: var(--blue);">
+        <h3>Explicit Grid</h3>
+        <p>Columns, gutters, margins — the visible structure you set up</p>
+      </div>
+      <div class="card" style="--card-color: var(--violet);">
+        <h3>Implicit Grid</h3>
+        <p>The spacing rhythm between <em>all</em> elements — what creates the "clean" feel</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 21. THE 4PX RULE ═══ -->
+  <section class="slide billboard" style="--section-color: var(--blue); background: var(--blue-bg);">
+    <h1 style="font-size: 3rem; color: var(--blue);">4, 8, 12, 16, 20, 24, 32, 40, 48...</h1>
+    <p class="sub" style="font-size: 1.5rem; max-width: 700px;">Use 4px increments for all spacing.<br><br>Why 4px? Divides evenly, aligns with browser defaults.<br>Avoid 5px or 10px increments.</p>
+    <blockquote class="mt-lg" style="border-color: var(--blue); text-align: left; max-width: 500px;">"The grid is an attitude."<cite>— Massimo Vignelli</cite></blockquote>
+  </section>
+
+  <!-- ═══ 22. COMMON GRID PATTERNS ═══ -->
+  <section class="slide top" style="--section-color: var(--blue);">
+    <h2 style="color: var(--blue);">Common Grid Patterns</h2>
+    <div class="card-row c2 mt">
+      <div class="card" style="--card-color: var(--blue);">
+        <h3>Mobile: 4 Columns</h3>
+        <p>375px frame width</p>
+      </div>
+      <div class="card" style="--card-color: var(--blue);">
+        <h3>Desktop: 12 Columns</h3>
+        <p>1440px frame width</p>
+      </div>
+    </div>
+    <p class="callout accent-blue mt-lg">Same content, different column spans.</p>
+  </section>
+
+  <!-- ═══ 23. DEMO: SETTING UP GRIDS (I DO) ═══ -->
   <section class="slide content" style="--section-color: var(--green); background: var(--green-bg);">
-    <h2 style="color: var(--green);">Phase 1: Taking In</h2>
-    <p class="mt" style="color: var(--fg-dim);">If grids are new to you:</p>
-    <ul class="mt" style="list-style: disc; padding-left: 24px;">
-      <li><strong>Scope First</strong> — "What are the key concepts I need to understand about grid systems in web/UI design?"</li>
-      <li><strong>Chunk It</strong> — Learn one concept at a time (box model, then layout grids, then 4px system)</li>
-      <li><strong>Translate</strong> — Ask for real website examples, analogies, visual explanations</li>
-    </ul>
+    <p class="small" style="color: var(--green); font-weight: 600;">I DO</p>
+    <h2 style="color: var(--green);">Demo: Setting Up Grids</h2>
+    <ol class="numbered mt">
+      <li>Create desktop frame (1440px) with 12-column grid</li>
+      <li>Create mobile frame (375px) with 4-column grid</li>
+      <li>See how same content aligns to different grids</li>
+    </ol>
   </section>
 
-  <!-- ═══ 17. LAB: PHASE 2 ═══ -->
-  <section class="slide content" style="--section-color: var(--green); background: var(--green-bg);">
-    <h2 style="color: var(--green);">Phase 2: Strengthening</h2>
-    <p class="mt" style="color: var(--fg-dim);">Once you have the basics:</p>
-    <ul class="mt" style="list-style: disc; padding-left: 24px;">
-      <li><strong>Teach Back</strong> — Explain the box model to AI in your own words. Ask it to check your understanding.</li>
-      <li><strong>Quiz Me</strong> — "Quiz me on layout grids and the 4px increment system. Ask one question at a time."</li>
-      <li><strong>Socratic Mode</strong> — If something doesn't click, ask AI to guide you with questions.</li>
-    </ul>
-  </section>
-
-  <!-- ═══ 18. LAB: APPLY ═══ -->
+  <!-- ═══ 24. BUILD A PRODUCT CARD (WE DO) ═══ -->
   <section class="slide content" style="--section-color: var(--green);">
-    <h2 style="color: var(--green);">Apply Your Learning</h2>
-    <p class="big-text mt" style="color: var(--fg-dim);">As you set up grids in Figma, ask yourself:</p>
-    <ul class="mt" style="list-style: disc; padding-left: 24px;">
-      <li>What margins and gutters will you use? <strong>Why?</strong></li>
-      <li>How many columns for mobile? For desktop? <strong>Why?</strong></li>
-      <li>How does the grid help you place content consistently?</li>
-    </ul>
-    <p class="callout accent-green mt-lg">At the end, write a reflection: What did I learn? What's still fuzzy? Which practices did I use?</p>
+    <p class="small" style="color: var(--green); font-weight: 600;">WE DO</p>
+    <h2 style="color: var(--green);">Build a Product Card</h2>
+    <p class="mt" style="color: var(--fg-dim);">Create a simple card with these elements:</p>
+    <ol class="numbered mt">
+      <li>Image placeholder (gray rectangle)</li>
+      <li>Product title</li>
+      <li>Price</li>
+    </ol>
+    <div class="mt-lg" style="display: flex; gap: 40px; align-items: flex-end;">
+      <div style="width: 140px; background: #222; border: 1px solid #333; padding: 12px; border-radius: 8px;">
+        <div style="background: #444; height: 100px; border-radius: 4px; margin-bottom: 12px;"></div>
+        <div style="font-size: 1rem; font-weight: 600; margin-bottom: 4px;">Product Title</div>
+        <div style="font-size: 0.9rem; color: var(--green);">$49.99</div>
+      </div>
+      <p class="small" style="color: var(--fg-dim);">Mobile example →</p>
+    </div>
   </section>
 
-  <!-- ═══ 19. C3 REQUIREMENTS ═══ -->
+  <!-- ═══ 25. PLACE YOUR CARD (WE DO) ═══ -->
+  <section class="slide content" style="--section-color: var(--green); background: var(--green-bg);">
+    <p class="small" style="color: var(--green); font-weight: 600;">WE DO</p>
+    <h2 style="color: var(--green);">Place Your Card on Both Grids</h2>
+    <p class="mt" style="color: var(--fg-dim);">Experiment with placement:</p>
+    <div class="card-row c2 mt">
+      <div class="card" style="--card-color: var(--green);">
+        <h3>Desktop (12-col)</h3>
+        <p>Try spanning 3 or 4 columns. How does it feel?</p>
+      </div>
+      <div class="card" style="--card-color: var(--green);">
+        <h3>Mobile (4-col)</h3>
+        <p>Try full width or 2 columns side-by-side.</p>
+      </div>
+    </div>
+    <p class="callout accent-green mt-lg">What changed? What stayed the same?</p>
+  </section>
+
+  <!-- ═══ 26. YOUR TURN (YOU DO) ═══ -->
+  <section class="slide content" style="--section-color: var(--green);">
+    <p class="small" style="color: var(--green); font-weight: 600;">YOU DO</p>
+    <h2 style="color: var(--green);">Set Up Grids on Your PDP Frames</h2>
+    <p class="small mt">5 minutes</p>
+    <ol class="steps mt">
+      <li><span>Create or select your desktop frame (1440px)</span></li>
+      <li><span>Add a 12-column layout grid</span></li>
+      <li><span>Create or select your mobile frame (375px)</span></li>
+      <li><span>Add a 4-column layout grid</span></li>
+    </ol>
+  </section>
+
+  <!-- ═══ 27. WHAT MAKES A GOOD WIREFRAME ═══ -->
+  <section class="slide top" style="--section-color: var(--amber);">
+    <h2 style="color: var(--amber);">What Makes a Good Wireframe?</h2>
+    <div class="card-row c3 mt">
+      <div class="card" style="--card-color: var(--amber);">
+        <h3>Clarity</h3>
+        <p>Can someone understand the layout at a glance?</p>
+      </div>
+      <div class="card" style="--card-color: var(--amber);">
+        <h3>Hierarchy</h3>
+        <p>Is it obvious what's most important?</p>
+      </div>
+      <div class="card" style="--card-color: var(--amber);">
+        <h3>No Distracting Details</h3>
+        <p>Use boxes and text labels, not real content</p>
+      </div>
+    </div>
+    <blockquote class="mt-lg" style="border-color: var(--amber);">Wireframes separate structure decisions from visual decisions.</blockquote>
+  </section>
+
+  <!-- ═══ 28. WIREFRAME EXAMPLE ═══ -->
+  <section class="slide top" style="--section-color: var(--amber); background: var(--amber-bg);">
+    <h2 style="color: var(--amber);">Cluttered vs. Clear</h2>
+    <div class="card-row c2 mt">
+      <div class="card" style="--card-color: var(--red);">
+        <h3>Before</h3>
+        <p>Too much detail, real images, actual text — distracts from layout decisions</p>
+      </div>
+      <div class="card" style="--card-color: var(--green);">
+        <h3>After</h3>
+        <p>Simple boxes, placeholder labels — lets you focus on structure</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 29. C3 REQUIREMENTS ═══ -->
   <section class="slide content" style="--section-color: var(--blue);">
     <h2>C3: Mobile + Desktop Wireframes</h2>
-    <p class="small">Due: Wed, Feb 18 @ 11:59pm</p>
+    <p class="small">Due: Wednesday, Feb 18 @ 11:59pm</p>
     <ol class="numbered mt">
-      <li>Simple wireframes for both mobile and desktop PDP</li>
+      <li>Simple wireframes for both mobile AND desktop PDP</li>
       <li>Show: product title + details, image placements, button placements, page layout</li>
       <li>Focus on structure, not visual polish</li>
     </ol>
-    <p class="mt" style="color: var(--fg-dim);">These wireframes become the foundation for high-fidelity work.</p>
+    <p class="mt" style="color: var(--fg-dim);">These wireframes become the foundation for your high-fidelity work.</p>
     <p class="callout accent-blue mt-lg">Same content, different arrangement — let the grid guide you.</p>
   </section>
 
-  <!-- ═══ 20. WHAT'S DUE ═══ -->
+  <!-- ═══ 30. WHAT'S DUE / NEXT UP ═══ -->
   <section class="slide top" style="--section-color: var(--green); background: var(--green-bg);">
-    <h2 style="color: var(--green);">What's Due</h2>
+    <h2 style="color: var(--green);">What's Due / Next Up</h2>
     <div class="mt" style="display: flex; gap: 48px;">
       <div>
         <p class="callout" style="color: var(--green);">Due before class:</p>
@@ -673,11 +837,18 @@
       </div>
     </div>
     <div class="mt-lg">
-      <p class="callout" style="color: var(--green);">Resources:</p>
+      <p class="callout" style="color: var(--green);">Next Up:</p>
       <ul class="resource-list mt">
-        <li>Vignelli Canon: Grids (p. 40 of PDF)</li>
-        <li>Figma: Layout Grids documentation</li>
-        <li><a href="../lesson_plans/AI-self-directed-learning.md">AI Self-Directed Learning Guide</a></li>
+        <li>Work session: Set up grids, then start C3 wireframes</li>
+        <li>Get feedback on grid setup and content alignment</li>
+        <li>Think about thumb-zone navigation for mobile</li>
+      </ul>
+    </div>
+    <div class="mt-lg">
+      <p class="callout" style="color: var(--green);">Homework:</p>
+      <ul class="resource-list mt">
+        <li>C3: Mobile + Desktop Wireframes (due Wed @ 11:59pm)</li>
+        <li>Begin high-fidelity PDP designs</li>
       </ul>
     </div>
   </section>

@@ -83,9 +83,11 @@
      - Create desktop frame (1440px) with 12-column grid
      - Create mobile frame (375px) with 4-column grid
      - Show how same content aligns to different grids
-   - **We do:** Together, place a product card on both grids
-     - Desktop: card spans 4 columns
-     - Mobile: card spans full width
+   - **We do:** Build and place a product card
+     - First, create a simple product card together (image placeholder, title, price)
+     - Then experiment with placing it on both grids:
+       - Desktop: try spanning 3 or 4 columns
+       - Mobile: try full width or 2 columns side-by-side
      - Discuss: what changed? What stayed the same?
    - **You do:** Students set up grids on their own PDP frames (5 min)
 
