@@ -23,8 +23,7 @@
 - U3: The same content requires different layout solutions on mobile vs. desktop
 
 **Students Will Know:**
-- K1: What makes an effective wireframe (clarity, hierarchy, no distracting details)
-- K2: How to give constructive feedback on layout and structure
+- K1: How to give constructive feedback on layout and structure
 
 **Students Will Be Able To:**
 - S1: Create clear wireframes that communicate layout intent
@@ -60,8 +59,8 @@
    - Focus feedback on structure and hierarchy, not aesthetics
    - Note: This is about the layout, not the type choices or colors
 
-4. **Direct Instruction: Responsive Layout Patterns** (20 min) `[U3, K1, S1]`
-   - **I do:** Show common responsive patterns
+4. **Direct Instruction: Responsive Layout Patterns** (20 min) `[U3, S1]`
+   - **I do:** Show common responsive patterns for refinement
      - Stacking (desktop columns → mobile stack)
      - Reordering (what's most important on mobile?)
      - Hiding/revealing (what can be collapsed on mobile?)
@@ -108,8 +107,7 @@
 | U1 | Wireframes separate structure from visual | 1, 2 |
 | U2 | Early feedback saves time | 2, 3 |
 | U3 | Same content, different layout solutions | 3, 4 |
-| K1 | What makes effective wireframes | 4 |
-| K2 | How to give constructive feedback | 3 |
+| K1 | How to give constructive feedback | 3 |
 | S1 | Create clear wireframes | 4, 5 |
 | S2 | Give and receive feedback | 3 |
 | S3 | Iterate based on feedback | 3, 5 |
