@@ -6,7 +6,7 @@ Once everyone has prayed, the cycle resets.
 | Student | Last Prayed |
 |---------|-------------|
 | Annika B. | |
-| Ya Chi C. | |
+| Ya Chi C. | 2/23 |
 | Kalli F. | 2/18 |
 | Brevyn G. | 2/9 |
 | Elizabeth G. | 2/4 |
@@ -16,6 +16,6 @@ Once everyone has prayed, the cycle resets.
 | Lucy L. | |
 | Mira P. | 2/17 |
 | Cherie P. | 2/11 |
-| Brayden S. | |
+| Brayden S. | 2/25 |
 | Mercy T. | |
 | Lucy W. | |

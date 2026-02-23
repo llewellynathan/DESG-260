@@ -45,7 +45,14 @@
       "Bash(git checkout:*)",
       "Bash(gh pr create:*)",
       "Bash(grep:*)",
-      "WebFetch(domain:www.blind3y3design.com)"
+      "WebFetch(domain:www.blind3y3design.com)",
+      "Bash(git remote set-url:*)",
+      "Bash(git -C /Users/nathanllewellyn/Projects/DESG-260 status)",
+      "Bash(git -C /Users/nathanllewellyn/Projects/DESG-260 add unit_c/day_12_slides.html)",
+      "Bash(git -C /Users/nathanllewellyn/Projects/DESG-260 commit -m \"$\\(cat <<''EOF''\nchore: Remove demo slide from Day 12\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\nEOF\n\\)\")",
+      "Bash(git -C /Users/nathanllewellyn/Projects/DESG-260 push)",
+      "WebFetch(domain:medium.muz.li)"
     ]
-  }
+  },
+  "outputStyle": "Explanatory"
 }
