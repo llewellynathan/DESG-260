@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Day 14 — Unit C: Hierarchy & Responsive Web</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #111;
+    --fg: #F0EDE6;
+    --fg-dim: #9A958C;
+    --amber: hsl(46, 90%, 53%);
+    --amber-bg: hsl(46, 40%, 8%);
+    --blue: hsl(210, 80%, 62%);
+    --blue-bg: hsl(210, 50%, 9%);
+    --violet: hsl(270, 60%, 65%);
+    --violet-bg: hsl(270, 40%, 9%);
+    --green: hsl(155, 60%, 50%);
+    --green-bg: hsl(155, 35%, 8%);
+    --pad: 80px;
+  }
+
+  html { font-size: 19.2px; }
+  body {
+    height: 100vh;
+    overflow: hidden;
+    background: var(--bg);
+    color: var(--fg);
+    font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── Deck ── */
+  .deck { position: relative; width: 100vw; height: 100vh; }
+
+  .slide {
+    position: absolute; inset: 0;
+    display: flex;
+    opacity: 0; pointer-events: none;
+    transform: translateX(40px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+  .slide.active {
+    opacity: 1; pointer-events: auto;
+    transform: translateX(0);
+  }
+
+  /* ── Keyframes ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes scaleUp {
+    from { opacity: 0; transform: scale(0.92); }
+    to   { opacity: 1; transform: scale(1); }
+  }
+  @keyframes popIn {
+    0%   { opacity: 0; transform: scale(0); }
+    70%  { transform: scale(1.2); }
+    100% { opacity: 1; transform: scale(1); }
+  }
+  @keyframes growDown {
+    from { transform: scaleY(0); }
+    to   { transform: scaleY(1); }
+  }
+  @keyframes widen {
+    from { width: 0; }
+    to   { width: 100%; }
+  }
+
+  /* ── Staggered entrance ── */
+  .slide.active > h1, .slide.active > h2, .slide.active > h3,
+  .slide.active > p, .slide.active > div, .slide.active > ol, .slide.active > ul {
+    animation: fadeUp 0.5s ease both;
+  }
+  .slide.active > :nth-child(1) { animation-delay: 0.08s; }
+  .slide.active > :nth-child(2) { animation-delay: 0.18s; }
+  .slide.active > :nth-child(3) { animation-delay: 0.28s; }
+  .slide.active > :nth-child(4) { animation-delay: 0.38s; }
+  .slide.active > :nth-child(5) { animation-delay: 0.46s; }
+  .slide.active > :nth-child(6) { animation-delay: 0.52s; }
+
+  .billboard.active > h1, .divider.active > h1 {
+    animation: scaleUp 0.6s ease both;
+    animation-delay: 0.1s;
+  }
+
+  .slide.active .card { animation: fadeUp 0.45s ease both; }
+  .slide.active .card:nth-child(1) { animation-delay: 0.2s; }
+  .slide.active .card:nth-child(2) { animation-delay: 0.32s; }
+  .slide.active .card:nth-child(3) { animation-delay: 0.44s; }
+  .slide.active .card:nth-child(4) { animation-delay: 0.56s; }
+  .slide.active .card:nth-child(5) { animation-delay: 0.68s; }
+
+  .card { border-top-color: transparent; position: relative; }
+  .card::after {
+    content: "";
+    position: absolute; top: -4px; left: 0; height: 4px;
+    width: 0;
+    background: var(--card-color, var(--fg-dim));
+  }
+  .slide.active .card::after { animation: widen 0.4s ease both; }
+  .slide.active .card:nth-child(1)::after { animation-delay: 0.35s; }
+  .slide.active .card:nth-child(2)::after { animation-delay: 0.47s; }
+  .slide.active .card:nth-child(3)::after { animation-delay: 0.59s; }
+  .slide.active .card:nth-child(4)::after { animation-delay: 0.71s; }
+  .slide.active .card:nth-child(5)::after { animation-delay: 0.83s; }
+
+  .slide.active .timeline-item { animation: fadeUp 0.4s ease both; }
+  .slide.active .timeline-item:nth-child(1)  { animation-delay: 0.15s; }
+  .slide.active .timeline-line:nth-child(2)   { animation: fadeUp 0.3s ease both; animation-delay: 0.3s; }
+  .slide.active .timeline-item:nth-child(3)  { animation-delay: 0.4s; }
+  .slide.active .timeline-line:nth-child(4)   { animation: fadeUp 0.3s ease both; animation-delay: 0.55s; }
+  .slide.active .timeline-item:nth-child(5)  { animation-delay: 0.65s; }
+  .slide.active .timeline-line:nth-child(6)   { animation: fadeUp 0.3s ease both; animation-delay: 0.8s; }
+  .slide.active .timeline-item:nth-child(7)  { animation-delay: 0.9s; }
+  .slide.active .timeline-line:nth-child(8)   { animation: fadeUp 0.3s ease both; animation-delay: 1.05s; }
+  .slide.active .timeline-item:nth-child(9)  { animation-delay: 1.15s; }
+
+  .slide.active .timeline-dot { animation: popIn 0.4s ease both; }
+  .slide.active .timeline-item:nth-child(1) .timeline-dot { animation-delay: 0.2s; }
+  .slide.active .timeline-item:nth-child(3) .timeline-dot { animation-delay: 0.45s; }
+  .slide.active .timeline-item:nth-child(5) .timeline-dot { animation-delay: 0.7s; }
+  .slide.active .timeline-item:nth-child(7) .timeline-dot { animation-delay: 0.95s; }
+  .slide.active .timeline-item:nth-child(9) .timeline-dot { animation-delay: 1.2s; }
+
+  .slide.active .steps li { animation: fadeUp 0.4s ease both; }
+  .slide.active .steps li:nth-child(1) { animation-delay: 0.2s; }
+  .slide.active .steps li:nth-child(2) { animation-delay: 0.35s; }
+  .slide.active .steps li:nth-child(3) { animation-delay: 0.5s; }
+  .slide.active .steps li:nth-child(4) { animation-delay: 0.65s; }
+
+  .slide.active .numbered li { animation: fadeUp 0.4s ease both; }
+  .slide.active .numbered li:nth-child(1) { animation-delay: 0.2s; }
+  .slide.active .numbered li:nth-child(2) { animation-delay: 0.32s; }
+  .slide.active .numbered li:nth-child(3) { animation-delay: 0.44s; }
+  .slide.active .numbered li:nth-child(4) { animation-delay: 0.56s; }
+
+  .slide.active .policy:nth-child(1) { animation: fadeUp 0.45s ease both; animation-delay: 0.2s; }
+  .slide.active .policy:nth-child(2) { animation: fadeUp 0.45s ease both; animation-delay: 0.38s; }
+
+  .slide.active::before {
+    transform-origin: top;
+    animation: growDown 0.4s ease both;
+    animation-delay: 0s;
+  }
+
+  /* Checklist stagger */
+  .slide.active .checklist li { animation: fadeUp 0.35s ease both; }
+  .slide.active .checklist li:nth-child(1) { animation-delay: 0.2s; }
+  .slide.active .checklist li:nth-child(2) { animation-delay: 0.28s; }
+  .slide.active .checklist li:nth-child(3) { animation-delay: 0.36s; }
+  .slide.active .checklist li:nth-child(4) { animation-delay: 0.44s; }
+  .slide.active .checklist li:nth-child(5) { animation-delay: 0.52s; }
+  .slide.active .checklist li:nth-child(6) { animation-delay: 0.6s; }
+
+  /* ── Section bar ── */
+  .slide::before {
+    content: "";
+    position: absolute; left: 0; top: 0; bottom: 0;
+    width: 6px;
+    background: var(--section-color, transparent);
+  }
+
+  /* ── Layout: Billboard ── */
+  .billboard {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: var(--pad);
+  }
+  .billboard h1 {
+    font-size: 4rem;
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    max-width: 900px;
+  }
+  .billboard .sub {
+    font-size: 1.6rem;
+    color: var(--fg-dim);
+    margin-top: 24px;
+    max-width: 650px;
+    line-height: 1.5;
+  }
+
+  /* ── Layout: Section Divider ── */
+  .divider {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: var(--pad);
+    background: var(--section-bg, var(--bg));
+  }
+  .divider::before { display: none; }
+  .divider h1 {
+    font-size: 4.2rem;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+  }
+  .divider .sub {
+    font-size: 1.6rem;
+    color: var(--fg-dim);
+    margin-top: 20px;
+  }
+
+  /* ── Layout: Content ── */
+  .content {
+    flex-direction: column;
+    justify-content: center;
+    padding: var(--pad);
+    padding-left: calc(var(--pad) + 20px);
+    gap: 28px;
+  }
+  .content h2 {
+    font-size: 2.6rem;
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+  }
+
+  /* ── Layout: Top-aligned ── */
+  .top {
+    flex-direction: column;
+    padding: var(--pad);
+    padding-left: calc(var(--pad) + 20px);
+    padding-top: 60px;
+    gap: 20px;
+  }
+  .top h2 {
+    font-size: 2.4rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+
+  /* ── Typography ── */
+  p, li { font-size: 1.5rem; line-height: 1.55; }
+  .big-text { font-size: 2.2rem; font-weight: 600; line-height: 1.35; }
+  .callout { font-size: 1.5rem; font-weight: 600; line-height: 1.45; }
+  .small { font-size: 1.25rem; color: var(--fg-dim); }
+
+  /* ── Cards ── */
+  .card-row { display: grid; gap: 28px; margin-top: 16px; }
+  .card-row.c3 { grid-template-columns: repeat(3, 1fr); }
+  .card-row.c4 { grid-template-columns: repeat(4, 1fr); }
+  .card-row.c5 { grid-template-columns: repeat(5, 1fr); }
+
+  .card {
+    border-top: 4px solid var(--card-color, var(--fg-dim));
+    padding: 24px 0 0;
+  }
+  .card h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--card-color, var(--fg));
+    margin-bottom: 10px;
+  }
+  .card p {
+    font-size: 1.25rem;
+    color: var(--fg-dim);
+    line-height: 1.5;
+  }
+
+  /* ── Timeline ── */
+  .timeline { display: flex; flex-direction: column; gap: 0; margin-top: 20px; }
+  .timeline-item { display: flex; align-items: center; gap: 20px; padding: 14px 0; }
+  .timeline-dot { width: 16px; height: 16px; border-radius: 50%; flex-shrink: 0; }
+  .timeline-line { width: 2px; height: 16px; margin-left: 7px; background: #333; }
+  .timeline-label { font-size: 1.5rem; font-weight: 500; }
+
+  /* ── Steps ── */
+  .steps { counter-reset: step; list-style: none; display: flex; flex-direction: column; gap: 16px; }
+  .steps li { counter-increment: step; display: flex; gap: 16px; align-items: baseline; }
+  .steps li::before {
+    content: counter(step);
+    flex-shrink: 0;
+    width: 36px; height: 36px;
+    display: flex; align-items: center; justify-content: center;
+    border-radius: 50%;
+    background: var(--section-color, var(--blue));
+    color: #111;
+    font-weight: 700;
+    font-size: 1.1rem;
+  }
+  .steps li span { font-size: 1.4rem; line-height: 1.45; }
+  .steps .sub-options { display: block; font-size: 1.2rem; color: var(--fg-dim); margin-top: 6px; }
+
+  /* ── Numbered points ── */
+  .numbered { counter-reset: num; list-style: none; display: flex; flex-direction: column; gap: 14px; }
+  .numbered li { counter-increment: num; font-size: 1.5rem; line-height: 1.5; padding-left: 40px; position: relative; }
+  .numbered li::before { content: counter(num) "."; position: absolute; left: 0; font-weight: 700; color: var(--section-color, var(--blue)); }
+
+  /* ── Policy blocks ── */
+  .policy-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; margin-top: 16px; }
+  .policy h3 { font-size: 1.6rem; font-weight: 700; margin-bottom: 10px; }
+  .policy p { font-size: 1.35rem; color: var(--fg-dim); line-height: 1.5; }
+
+  /* ── Checklist ── */
+  .checklist { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+  .checklist li { font-size: 1.35rem; line-height: 1.5; padding-left: 36px; position: relative; }
+  .checklist li::before { content: "☐"; position: absolute; left: 0; font-size: 1.2rem; color: var(--fg-dim); }
+
+  /* ── Counter ── */
+  .counter {
+    position: fixed;
+    bottom: 20px; right: 28px;
+    font-size: 0.85rem;
+    color: #444;
+    font-variant-numeric: tabular-nums;
+    z-index: 100;
+  }
+
+  /* ── Utility ── */
+  .mt { margin-top: 20px; }
+  .mt-lg { margin-top: 36px; }
+  .accent { color: var(--amber); }
+  .accent-blue { color: var(--blue); }
+  .accent-violet { color: var(--violet); }
+  .accent-green { color: var(--green); }
+
+  /* ── Responsive ── */
+  @media (max-width: 1200px) {
+    :root { --pad: 48px; }
+    .billboard h1 { font-size: 3rem; }
+    .divider h1 { font-size: 3.2rem; }
+    .card-row.c4 { grid-template-columns: repeat(2, 1fr); }
+    .card-row.c5 { grid-template-columns: repeat(3, 1fr); }
+  }
+</style>
+</head>
+<body>
+
+<div class="deck">
+
+  <!-- ═══ 1. WARM-UP ═══ -->
+  <section class="slide content active" style="--section-color: var(--amber); background: var(--amber-bg);">
+    <h2 style="font-size: 3rem;">Final Checklist Self-Review</h2>
+    <ul class="checklist mt">
+      <li>All required content included (price, reviews, shipping, etc.)</li>
+      <li>Mobile AND desktop versions complete</li>
+      <li>Grid alignment consistent throughout</li>
+      <li>Type hierarchy clear and consistent</li>
+      <li>Design reflects persona's priorities</li>
+    </ul>
+    <p class="callout accent mt">Mark items that need attention. Identify your top 2-3 polish priorities.</p>
+  </section>
+
+  <!-- ═══ 2. PRAYER ═══ -->
+  <section class="slide billboard" style="--section-color: var(--amber);">
+    <h1>Prayer</h1>
+    <p class="sub">Brayden, will you pray for us today?</p>
+  </section>
+
+  <!-- ═══ 3. TITLE ═══ -->
+  <section class="slide billboard">
+    <h1 style="font-size: 4.2rem;">The details are not the details.</h1>
+    <p class="sub" style="font-size: 2rem; color: var(--fg);">They make the design.</p>
+    <p class="sub" style="margin-top: 32px; font-size: 1.3rem;">— Charles Eames</p>
+  </section>
+
+  <!-- ═══ 4. TODAY ═══ -->
+  <section class="slide content" style="padding-left: 140px;">
+    <h2>Today</h2>
+    <div class="timeline">
+      <div class="timeline-item"><div class="timeline-dot" style="background: var(--amber);"></div><span class="timeline-label">Final Checklist Self-Review</span></div>
+      <div class="timeline-line"></div>
+      <div class="timeline-item"><div class="timeline-dot" style="background: var(--blue);"></div><span class="timeline-label">C4 Testing Debrief</span></div>
+      <div class="timeline-line"></div>
+      <div class="timeline-item"><div class="timeline-dot" style="background: var(--violet);"></div><span class="timeline-label">The Details Are Not the Details</span></div>
+      <div class="timeline-line"></div>
+      <div class="timeline-item"><div class="timeline-dot" style="background: var(--violet);"></div><span class="timeline-label">Detail Audit</span></div>
+      <div class="timeline-line"></div>
+      <div class="timeline-item"><div class="timeline-dot" style="background: var(--green);"></div><span class="timeline-label">Work Session + C5 Submission</span></div>
+    </div>
+  </section>
+
+  <!-- ═══ 5. WHY THIS MATTERS ═══ -->
+  <section class="slide billboard" style="--section-color: var(--amber); background: var(--amber-bg);">
+    <h1 style="font-size: 3.4rem; max-width: 900px;">This is your last Unit C class.</h1>
+    <p class="sub" style="max-width: 700px;">C5 is due tonight. Today's focus: applying what you learned from testing, and sweating the details.</p>
+    <p class="big-text accent mt-lg">Submit work you're genuinely proud of.</p>
+  </section>
+
+  <!-- ═══ 6. SECTION DIVIDER: Testing Debrief ═══ -->
+  <section class="slide divider" style="--section-bg: var(--blue-bg);">
+    <h1 style="color: var(--blue);">C4 Testing Debrief</h1>
+    <p class="sub">What did you learn?</p>
+  </section>
+
+  <!-- ═══ 7. TESTING QUESTIONS ═══ -->
+  <section class="slide content" style="--section-color: var(--blue);">
+    <h2>What surprised you?</h2>
+    <ol class="numbered mt">
+      <li>Did testers find what they were looking for?</li>
+      <li>Where did they hesitate or get confused?</li>
+      <li>What assumptions did you have that were wrong?</li>
+    </ol>
+    <p class="callout accent mt-lg">Testing reveals blind spots — this is how you grow as a designer.</p>
+  </section>
+
+  <!-- ═══ 8. ONE THING ═══ -->
+  <section class="slide billboard" style="--section-color: var(--blue);">
+    <h1 style="font-size: 3.6rem; max-width: 900px;">What's the #1 thing you need to fix based on testing?</h1>
+    <p class="sub">Write it down. That's your top priority for today.</p>
+  </section>
+
+  <!-- ═══ 9. SECTION DIVIDER: Details ═══ -->
+  <section class="slide divider" style="--section-bg: var(--violet-bg);">
+    <h1 style="color: var(--violet);">The Details Are Not the Details</h1>
+    <p class="sub">Why attention to detail matters</p>
+  </section>
+
+  <!-- ═══ 10. WHY DETAILS MATTER ═══ -->
+  <section class="slide content" style="--section-color: var(--violet);">
+    <h2 style="color: var(--violet);">Why this matters professionally</h2>
+    <ol class="numbered mt">
+      <li>Portfolio reviewers notice inconsistent spacing <em>in seconds</em></li>
+      <li>Clients equate visual sloppiness with unreliability</li>
+      <li>Details signal: "I care about my work and I'll care about yours"</li>
+    </ol>
+  </section>
+
+  <!-- ═══ 11. WHY WE MISS DETAILS ═══ -->
+  <section class="slide content" style="--section-color: var(--violet);">
+    <h2 style="color: var(--violet);">Why we miss details</h2>
+    <ol class="numbered mt">
+      <li><strong>Familiarity blindness</strong> — you've looked at your design so many times</li>
+      <li><strong>"I'll fix it later" syndrome</strong> — but later never comes</li>
+      <li><strong>Not knowing what to look for</strong> — you can't see what you don't know to check</li>
+    </ol>
+  </section>
+
+  <!-- ═══ 12. THE MINDSET SHIFT ═══ -->
+  <section class="slide content" style="--section-color: var(--violet);">
+    <h2 style="color: var(--violet);">The mindset shift</h2>
+    <ol class="numbered mt">
+      <li>Don't treat polish as a final step — build it into how you work</li>
+      <li>Slow down: zoom to 100%, check every element</li>
+      <li>Fresh eyes help: take a break, or have someone else look</li>
+    </ol>
+    <p class="callout mt-lg" style="color: var(--violet);">This isn't about perfection — it's about <em>intention</em>. Every pixel should be deliberate.</p>
+  </section>
+
+  <!-- ═══ 13. HABIT NOT STEP ═══ -->
+  <section class="slide billboard" style="--section-color: var(--violet); background: var(--violet-bg);">
+    <h1 style="font-size: 3.4rem; max-width: 900px;">Attention to detail is a habit to develop, not a step to add at the end.</h1>
+  </section>
+
+  <!-- ═══ 14. SECTION DIVIDER: Detail Audit ═══ -->
+  <section class="slide divider" style="--section-bg: var(--violet-bg);">
+    <h1 style="color: var(--violet);">Detail Audit</h1>
+    <p class="sub">Systematic review activity</p>
+  </section>
+
+  <!-- ═══ 15. ALIGNMENT AUDIT ═══ -->
+  <section class="slide content" style="--section-color: var(--violet);">
+    <h2>Alignment</h2>
+    <ul class="checklist mt">
+      <li>All text left edges align to the same grid lines</li>
+      <li>Images and cards snap to grid</li>
+      <li>No elements that are "close but not quite" aligned</li>
+    </ul>
+    <p class="small mt-lg">Check now: Turn on your grid in Figma. Is everything snapping?</p>
+  </section>
+
+  <!-- ═══ 16. SPACING AUDIT ═══ -->
+  <section class="slide content" style="--section-color: var(--violet);">
+    <h2>Spacing</h2>
+    <ul class="checklist mt">
+      <li>Consistent padding inside all containers</li>
+      <li>Consistent margins between sections</li>
+      <li>Related items grouped tightly; unrelated items have clear separation</li>
+    </ul>
+    <p class="small mt-lg">Remember Gestalt: proximity creates relationships.</p>
+  </section>
+
+  <!-- ═══ 17. TYPOGRAPHY AUDIT ═══ -->
+  <section class="slide content" style="--section-color: var(--violet);">
+    <h2>Typography</h2>
+    <ul class="checklist mt">
+      <li>No more than 2-3 type sizes used intentionally</li>
+      <li>Line lengths between 45-75 characters</li>
+      <li>No orphans (single words on a line) or widows</li>
+      <li>All text is actual text, not placeholder</li>
+    </ul>
+  </section>
+
+  <!-- ═══ 18. RESPONSIVE AUDIT ═══ -->
+  <section class="slide content" style="--section-color: var(--violet);">
+    <h2>Responsive</h2>
+    <ul class="checklist mt">
+      <li>Mobile text is readable (16px+ body)</li>
+      <li>Touch targets are 44px+ minimum</li>
+      <li>Nothing cut off or awkwardly wrapped</li>
+    </ul>
+  </section>
+
+  <!-- ═══ 19. CONSISTENCY AUDIT ═══ -->
+  <section class="slide content" style="--section-color: var(--violet);">
+    <h2>Consistency</h2>
+    <ul class="checklist mt">
+      <li>Button styles match throughout</li>
+      <li>Icon styles are consistent (outline OR filled, not mixed)</li>
+      <li>Colors match your defined palette exactly</li>
+    </ul>
+    <p class="callout accent mt-lg">Mark issues as you find them. This is your fix-it list.</p>
+  </section>
+
+  <!-- ═══ 20. SECTION DIVIDER: Work Session ═══ -->
+  <section class="slide divider" style="--section-bg: var(--green-bg);">
+    <h1 style="color: var(--green);">Work Session</h1>
+    <p class="sub">Final polish + documentation</p>
+  </section>
+
+  <!-- ═══ 21. WORK SESSION PRIORITIES ═══ -->
+  <section class="slide content" style="--section-color: var(--green);">
+    <h2>Your priorities</h2>
+    <ol class="steps mt">
+      <li><span>Fix issues from your detail audit</span></li>
+      <li><span>Address feedback from C4 user testing</span></li>
+      <li><span>Compile process documentation<span class="sub-options">Persona sheet &nbsp;&middot;&nbsp; Typography stylesheet &nbsp;&middot;&nbsp; Wireframes &nbsp;&middot;&nbsp; Iterations</span></span></li>
+      <li><span>Export final PDF (full page lengths, no cropping)</span></li>
+    </ol>
+  </section>
+
+  <!-- ═══ 22. BEFORE YOU EXPORT ═══ -->
+  <section class="slide billboard" style="--section-color: var(--green);">
+    <h1 style="font-size: 3.4rem; max-width: 900px;">Before you export: do one final zoom-to-100% review.</h1>
+    <p class="sub">Check every element. Is it intentional?</p>
+  </section>
+
+  <!-- ═══ 23. C5 REQUIREMENTS ═══ -->
+  <section class="slide content" style="--section-color: var(--green);">
+    <h2 style="color: var(--green);">C5: Final High Fidelity Designs</h2>
+    <p class="big-text accent">Due tonight @ 5:15pm</p>
+    <ol class="numbered mt">
+      <li>Desktop PDP (full page length)</li>
+      <li>Mobile PDP (full page length)</li>
+      <li>Process documentation (persona, type stylesheet, wireframes, iterations)</li>
+      <li>Single PDF, all pages</li>
+    </ol>
+  </section>
+
+  <!-- ═══ 24. NEXT UP ═══ -->
+  <section class="slide top" style="--section-color: var(--green); background: var(--green-bg);">
+    <h2 style="color: var(--green);">Next up</h2>
+    <div class="mt" style="display: flex; flex-direction: column; gap: 20px;">
+      <p><strong>Work session continues</strong> — I'm available for 1:1 feedback</p>
+      <p><strong>C5: Final High Fidelity Designs</strong> — Due tonight @ 5:15pm</p>
+      <p><strong>Reading for Unit D</strong> — "On Combination Play" + Idea Generation</p>
+      <p style="color: var(--fg-dim); font-size: 1.35rem;">Unit D starts next class — new project, new challenges</p>
+    </div>
+    <p class="callout accent mt-lg">Submit work you're proud of.</p>
+  </section>
+
+</div>
+
+<div class="counter"><span id="cur">1</span> / <span id="tot"></span></div>
+
+<script>
+  const slides = document.querySelectorAll('.slide');
+  const total = slides.length;
+  let current = 0;
+  document.getElementById('tot').textContent = total;
+
+  function goTo(n) {
+    if (n < 0 || n >= total) return;
+    slides[current].classList.remove('active');
+    current = n;
+    slides[current].classList.add('active');
+    document.getElementById('cur').textContent = current + 1;
+  }
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown' || e.key === ' ') { e.preventDefault(); goTo(current + 1); }
+    else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') { e.preventDefault(); goTo(current - 1); }
+    else if (e.key === 'Home') { e.preventDefault(); goTo(0); }
+    else if (e.key === 'End') { e.preventDefault(); goTo(total - 1); }
+  });
+
+  document.addEventListener('click', e => {
+    if (e.target.closest('a')) return;
+    e.clientX / window.innerWidth < 0.33 ? goTo(current - 1) : goTo(current + 1);
+  });
+</script>
+
+</body>
+</html>
