@@ -339,14 +339,16 @@ Today's Focus: Wireframes are thinking tools — they let you solve layout probl
 ### Day 13 — Monday, Feb 23
 **Unit C: Hierarchy & Responsive Web**
 
-Today's Focus: Design for the person, not the screen — empathy drives every layout decision.
+Today's Focus: Design for the person, not the screen — and give yourself the tools to do it well.
 
 **In class:**
-- Warm-up: Reflection on reading — attention and design
+- Warm-up: Persona priority mapping
 - Discussion: Empathy, attention, and design ethics
 - Typography for mobile + type pairing strategies
+- Gestalt principles: why spacing, alignment, and consistency matter
+- Common polish issues to watch for
 - Introduce C4: High Fidelity V1 + Testing
-- Work session: High-fidelity PDP + peer feedback round
+- Work session: High-fidelity PDP
 
 **Come to class having done:**
 - 📚 Read: "Some Hopeful Words on Media and Agency" (Amy Petersen Jensen)
@@ -362,13 +364,14 @@ Today's Focus: Design for the person, not the screen — empathy drives every la
 ### Day 14 — Wednesday, Feb 25
 **Unit C: Hierarchy & Responsive Web**
 
-Today's Focus: Final polish — the last 10% of craft work makes the difference between good and great.
+Today's Focus: The details are not the details — they make the design.
 
 **In class:**
 - Warm-up: Final checklist self-review
-- Quick tips: Common polish issues (alignment, spacing, type, responsive)
+- C4 testing debrief: What did you learn?
+- The details are not the details: why attention to detail matters professionally
+- Detail audit: systematic review activity
 - Work session: Final polish + process documentation
-- Guest discussion on BFA programs (optional)
 
 **Come to class having done:**
 - ⛳ C4: High Fidelity V1 + Testing
