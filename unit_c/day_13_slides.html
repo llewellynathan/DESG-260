@@ -362,6 +362,61 @@
   .continuity-wrap.jagged .continuity-dot:nth-child(8) { left: 245px; top: 40px; }
   .continuity-wrap.jagged .continuity-dot { background: var(--fg-dim); }
 
+  /* Closure Demo */
+  .closure-grid { display: flex; gap: 48px; align-items: center; }
+  .closure-circle {
+    width: 80px; height: 80px;
+    border: 6px solid var(--violet);
+    border-radius: 50%;
+    border-right-color: transparent;
+    transform: rotate(-45deg);
+  }
+  .closure-square {
+    width: 70px; height: 70px;
+    border: 6px solid var(--violet);
+    border-bottom: none;
+    border-radius: 4px 4px 0 0;
+  }
+  .closure-implied-square { position: relative; width: 80px; height: 80px; }
+  .closure-implied-square .corner {
+    position: absolute;
+    width: 24px; height: 24px;
+    border: 6px solid var(--violet);
+  }
+  .closure-implied-square .corner:nth-child(1) { top: 0; left: 0; border-right: none; border-bottom: none; }
+  .closure-implied-square .corner:nth-child(2) { top: 0; right: 0; border-left: none; border-bottom: none; }
+  .closure-implied-square .corner:nth-child(3) { bottom: 0; left: 0; border-right: none; border-top: none; }
+  .closure-implied-square .corner:nth-child(4) { bottom: 0; right: 0; border-left: none; border-top: none; }
+
+  /* Common Region Demo */
+  .region-demo { display: flex; gap: 48px; align-items: center; }
+  .region-box {
+    border: 3px solid var(--violet);
+    border-radius: 12px;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(2, 28px);
+    gap: 12px;
+  }
+  .region-box .dot { width: 28px; height: 28px; border-radius: 50%; background: var(--violet); }
+  .region-scattered { display: grid; grid-template-columns: repeat(2, 28px); gap: 12px; }
+  .region-scattered .dot { width: 28px; height: 28px; border-radius: 50%; background: var(--fg-dim); }
+
+  /* Common Fate Demo */
+  .fate-demo { display: flex; gap: 60px; align-items: center; }
+  .fate-group { display: flex; flex-direction: column; align-items: center; gap: 12px; }
+  .fate-row { display: flex; gap: 16px; align-items: center; }
+  .fate-arrow { display: flex; align-items: center; gap: 8px; }
+  .fate-arrow .dot { width: 20px; height: 20px; border-radius: 50%; background: var(--violet); }
+  .fate-arrow .chevron { width: 0; height: 0; border-style: solid; }
+  .fate-arrow .chevron.right { border-width: 8px 0 8px 12px; border-color: transparent transparent transparent var(--violet); }
+  .fate-arrow .chevron.left { border-width: 8px 12px 8px 0; border-color: transparent var(--fg-dim) transparent transparent; }
+  .fate-arrow .chevron.up { border-width: 0 8px 12px 8px; border-color: transparent transparent var(--fg-dim) transparent; }
+  .fate-arrow .chevron.down { border-width: 12px 8px 0 8px; border-color: var(--fg-dim) transparent transparent transparent; }
+  .fate-arrow.dim .dot { background: var(--fg-dim); }
+  .fate-arrow.dim .chevron.right { border-color: transparent transparent transparent var(--fg-dim); }
+  .fate-arrow.vertical { flex-direction: column; }
+
   /* ── Counter ── */
   .counter {
     position: fixed;
@@ -604,13 +659,112 @@
     <p class="callout mt" style="color: var(--violet);">→ This is why <strong>alignment</strong> matters in your designs</p>
   </section>
 
-  <!-- ═══ 18. THE PERCEPTION GAP ═══ -->
+  <!-- ═══ 18. CLOSURE ═══ -->
+  <section class="slide top" style="--section-color: var(--violet);">
+    <h2 style="color: var(--violet);">Closure</h2>
+    <p class="big-text">We perceive incomplete shapes as complete — our brain fills in the gaps</p>
+    <div class="gestalt-demo" style="gap: 100px;">
+      <div class="demo-panel">
+        <div class="closure-grid">
+          <div class="closure-circle"></div>
+        </div>
+        <span class="demo-label">Still a circle</span>
+      </div>
+      <div class="demo-panel">
+        <div class="closure-grid">
+          <div class="closure-square"></div>
+        </div>
+        <span class="demo-label">Still a square</span>
+      </div>
+      <div class="demo-panel">
+        <div class="closure-implied-square">
+          <div class="corner"></div>
+          <div class="corner"></div>
+          <div class="corner"></div>
+          <div class="corner"></div>
+        </div>
+        <span class="demo-label">Square appears</span>
+      </div>
+    </div>
+    <p class="callout mt" style="color: var(--violet);">→ Simplify icons and graphics — users will fill in the rest</p>
+  </section>
+
+  <!-- ═══ 19. COMMON REGION ═══ -->
+  <section class="slide top" style="--section-color: var(--violet);">
+    <h2 style="color: var(--violet);">Common Region</h2>
+    <p class="big-text">Elements within a bounded area are perceived as grouped</p>
+    <div class="gestalt-demo" style="gap: 100px;">
+      <div class="demo-panel">
+        <div class="region-demo">
+          <div class="region-scattered">
+            <div class="dot"></div><div class="dot"></div>
+            <div class="dot"></div><div class="dot"></div>
+          </div>
+        </div>
+        <span class="demo-label">No boundary — just dots</span>
+      </div>
+      <div class="demo-panel">
+        <div class="region-demo">
+          <div class="region-box">
+            <div class="dot"></div><div class="dot"></div>
+            <div class="dot"></div><div class="dot"></div>
+          </div>
+        </div>
+        <span class="demo-label">With boundary — a group</span>
+      </div>
+      <div class="demo-panel">
+        <div class="region-demo" style="gap: 24px;">
+          <div class="region-box" style="padding: 14px;">
+            <div class="dot" style="width: 20px; height: 20px;"></div><div class="dot" style="width: 20px; height: 20px;"></div>
+          </div>
+          <div class="region-box" style="padding: 14px;">
+            <div class="dot" style="width: 20px; height: 20px;"></div><div class="dot" style="width: 20px; height: 20px;"></div>
+          </div>
+        </div>
+        <span class="demo-label">Two distinct groups</span>
+      </div>
+    </div>
+    <p class="callout mt" style="color: var(--violet);">→ Cards, sections, and containers create visual grouping</p>
+  </section>
+
+  <!-- ═══ 20. COMMON FATE ═══ -->
+  <section class="slide top" style="--section-color: var(--violet);">
+    <h2 style="color: var(--violet);">Common Fate</h2>
+    <p class="big-text">Elements moving in the same direction are perceived as related</p>
+    <div class="gestalt-demo" style="gap: 120px;">
+      <div class="demo-panel">
+        <div class="fate-group">
+          <div class="fate-row">
+            <div class="fate-arrow"><div class="dot"></div><div class="chevron right"></div></div>
+            <div class="fate-arrow"><div class="dot"></div><div class="chevron right"></div></div>
+          </div>
+          <div class="fate-row">
+            <div class="fate-arrow"><div class="dot"></div><div class="chevron right"></div></div>
+            <div class="fate-arrow"><div class="dot"></div><div class="chevron right"></div></div>
+          </div>
+        </div>
+        <span class="demo-label">Same direction — unified</span>
+      </div>
+      <div class="demo-panel">
+        <div class="fate-group" style="height: 100px; width: 140px; position: relative;">
+          <div class="fate-arrow dim vertical" style="position: absolute; top: 5px; left: 30px;"><div class="chevron up"></div><div class="dot"></div></div>
+          <div class="fate-arrow dim" style="position: absolute; top: 55px; left: 90px;"><div class="chevron left"></div><div class="dot"></div></div>
+          <div class="fate-arrow dim vertical" style="position: absolute; top: 15px; left: 95px;"><div class="dot"></div><div class="chevron down"></div></div>
+          <div class="fate-arrow dim" style="position: absolute; top: 65px; left: 25px;"><div class="dot"></div><div class="chevron right"></div></div>
+        </div>
+        <span class="demo-label">Different directions — chaotic</span>
+      </div>
+    </div>
+    <p class="callout mt" style="color: var(--violet);">→ Animations and transitions should move elements together intentionally</p>
+  </section>
+
+  <!-- ═══ 21. THE PERCEPTION GAP ═══ -->
   <section class="slide billboard" style="--section-color: var(--violet); background: var(--violet-bg);">
     <h1 style="font-size: 3.2rem; max-width: 950px;">When polish is off, users feel friction they can't articulate.</h1>
     <p class="sub" style="max-width: 750px;">They won't say "your margins are inconsistent" — they'll say "something feels off."</p>
   </section>
 
-  <!-- ═══ 19. COMMON POLISH ISSUES ═══ -->
+  <!-- ═══ 22. COMMON POLISH ISSUES ═══ -->
   <section class="slide top" style="--section-color: var(--violet);">
     <h2>Common issues to watch for</h2>
     <div class="card-row c5 mt">
@@ -638,13 +792,13 @@
     <p class="callout accent mt-lg">These details separate "student work" from "portfolio piece."</p>
   </section>
 
-  <!-- ═══ 20. SECTION DIVIDER: C4 ═══ -->
+  <!-- ═══ 23. SECTION DIVIDER: C4 ═══ -->
   <section class="slide divider" style="--section-bg: var(--green-bg);">
     <h1 style="color: var(--green);">C4: High Fidelity V1 + Testing</h1>
     <p class="sub">Due tonight @ 11:59pm</p>
   </section>
 
-  <!-- ═══ 21. C4 REQUIREMENTS ═══ -->
+  <!-- ═══ 24. C4 REQUIREMENTS ═══ -->
   <section class="slide content" style="--section-color: var(--green);">
     <h2>What you'll submit</h2>
     <ol class="steps mt">
@@ -654,7 +808,7 @@
     </ol>
   </section>
 
-  <!-- ═══ 22. USER TESTING TIPS ═══ -->
+  <!-- ═══ 25. USER TESTING TIPS ═══ -->
   <section class="slide content" style="--section-color: var(--green);">
     <h2>How to test effectively</h2>
     <ol class="steps mt">
@@ -664,13 +818,13 @@
     </ol>
   </section>
 
-  <!-- ═══ 23. WORK SESSION ═══ -->
+  <!-- ═══ 26. WORK SESSION ═══ -->
   <section class="slide divider" style="--section-bg: var(--green-bg);">
     <h1 style="color: var(--green);">Work Session</h1>
     <p class="sub">High-Fidelity PDP</p>
   </section>
 
-  <!-- ═══ 24. WORK SESSION PRIORITIES ═══ -->
+  <!-- ═══ 27. WORK SESSION PRIORITIES ═══ -->
   <section class="slide content" style="--section-color: var(--green);">
     <h2>Your priorities for this session</h2>
     <ol class="steps mt">
@@ -681,7 +835,7 @@
     <p class="callout accent mt-lg">C4 is due tonight — complete user testing with 2 people after class.</p>
   </section>
 
-  <!-- ═══ 25. NEXT UP ═══ -->
+  <!-- ═══ 28. NEXT UP ═══ -->
   <section class="slide top" style="--section-color: var(--green); background: var(--green-bg);">
     <h2 style="color: var(--green);">Next up</h2>
     <div class="mt" style="display: flex; flex-direction: column; gap: 20px;">
