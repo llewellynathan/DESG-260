@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Day 14 — Unit C: Hierarchy & Responsive Web</title>
+<title>Day 14 — Unit C → Unit D Transition Day</title>
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -46,6 +46,14 @@
     opacity: 1; pointer-events: auto;
     transform: translateX(0);
   }
+  .slide.exit-left {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  .slide.exit-right {
+    opacity: 0;
+    transform: translateX(40px);
+  }
 
   /* ── Keyframes ── */
   @keyframes fadeUp {
@@ -70,7 +78,7 @@
     to   { width: 100%; }
   }
 
-  /* ── Staggered entrance ── */
+  /* ── Staggered entrance: children of active slides ── */
   .slide.active > h1, .slide.active > h2, .slide.active > h3,
   .slide.active > p, .slide.active > div, .slide.active > ol, .slide.active > ul {
     animation: fadeUp 0.5s ease both;
@@ -82,33 +90,48 @@
   .slide.active > :nth-child(5) { animation-delay: 0.46s; }
   .slide.active > :nth-child(6) { animation-delay: 0.52s; }
 
-  .billboard.active > h1, .divider.active > h1 {
+  /* Billboard headings: scale entrance */
+  .billboard.active > h1 {
+    animation: scaleUp 0.6s ease both;
+    animation-delay: 0.1s;
+  }
+  .divider.active > h1 {
     animation: scaleUp 0.6s ease both;
     animation-delay: 0.1s;
   }
 
-  .slide.active .card { animation: fadeUp 0.45s ease both; }
+  /* Cards: stagger individually */
+  .slide.active .card {
+    animation: fadeUp 0.45s ease both;
+  }
   .slide.active .card:nth-child(1) { animation-delay: 0.2s; }
   .slide.active .card:nth-child(2) { animation-delay: 0.32s; }
   .slide.active .card:nth-child(3) { animation-delay: 0.44s; }
   .slide.active .card:nth-child(4) { animation-delay: 0.56s; }
   .slide.active .card:nth-child(5) { animation-delay: 0.68s; }
 
+  /* Card top-border widen effect */
   .card { border-top-color: transparent; position: relative; }
   .card::after {
     content: "";
     position: absolute; top: -4px; left: 0; height: 4px;
     width: 0;
     background: var(--card-color, var(--fg-dim));
+    transition: none;
   }
-  .slide.active .card::after { animation: widen 0.4s ease both; }
+  .slide.active .card::after {
+    animation: widen 0.4s ease both;
+  }
   .slide.active .card:nth-child(1)::after { animation-delay: 0.35s; }
   .slide.active .card:nth-child(2)::after { animation-delay: 0.47s; }
   .slide.active .card:nth-child(3)::after { animation-delay: 0.59s; }
   .slide.active .card:nth-child(4)::after { animation-delay: 0.71s; }
   .slide.active .card:nth-child(5)::after { animation-delay: 0.83s; }
 
-  .slide.active .timeline-item { animation: fadeUp 0.4s ease both; }
+  /* Timeline items: stagger with dot pop */
+  .slide.active .timeline-item {
+    animation: fadeUp 0.4s ease both;
+  }
   .slide.active .timeline-item:nth-child(1)  { animation-delay: 0.15s; }
   .slide.active .timeline-line:nth-child(2)   { animation: fadeUp 0.3s ease both; animation-delay: 0.3s; }
   .slide.active .timeline-item:nth-child(3)  { animation-delay: 0.4s; }
@@ -116,47 +139,42 @@
   .slide.active .timeline-item:nth-child(5)  { animation-delay: 0.65s; }
   .slide.active .timeline-line:nth-child(6)   { animation: fadeUp 0.3s ease both; animation-delay: 0.8s; }
   .slide.active .timeline-item:nth-child(7)  { animation-delay: 0.9s; }
-  .slide.active .timeline-line:nth-child(8)   { animation: fadeUp 0.3s ease both; animation-delay: 1.05s; }
-  .slide.active .timeline-item:nth-child(9)  { animation-delay: 1.15s; }
 
-  .slide.active .timeline-dot { animation: popIn 0.4s ease both; }
+  .slide.active .timeline-dot {
+    animation: popIn 0.4s ease both;
+  }
   .slide.active .timeline-item:nth-child(1) .timeline-dot { animation-delay: 0.2s; }
   .slide.active .timeline-item:nth-child(3) .timeline-dot { animation-delay: 0.45s; }
   .slide.active .timeline-item:nth-child(5) .timeline-dot { animation-delay: 0.7s; }
   .slide.active .timeline-item:nth-child(7) .timeline-dot { animation-delay: 0.95s; }
-  .slide.active .timeline-item:nth-child(9) .timeline-dot { animation-delay: 1.2s; }
 
-  .slide.active .steps li { animation: fadeUp 0.4s ease both; }
-  .slide.active .steps li:nth-child(1) { animation-delay: 0.2s; }
-  .slide.active .steps li:nth-child(2) { animation-delay: 0.35s; }
-  .slide.active .steps li:nth-child(3) { animation-delay: 0.5s; }
-  .slide.active .steps li:nth-child(4) { animation-delay: 0.65s; }
+  /* Checklist stagger */
+  .slide.active .checklist li {
+    animation: fadeUp 0.35s ease both;
+  }
+  .slide.active .checklist li:nth-child(1) { animation-delay: 0.2s; }
+  .slide.active .checklist li:nth-child(2) { animation-delay: 0.28s; }
+  .slide.active .checklist li:nth-child(3) { animation-delay: 0.36s; }
+  .slide.active .checklist li:nth-child(4) { animation-delay: 0.44s; }
+  .slide.active .checklist li:nth-child(5) { animation-delay: 0.52s; }
 
-  .slide.active .numbered li { animation: fadeUp 0.4s ease both; }
+  /* Numbered list stagger */
+  .slide.active .numbered li {
+    animation: fadeUp 0.4s ease both;
+  }
   .slide.active .numbered li:nth-child(1) { animation-delay: 0.2s; }
   .slide.active .numbered li:nth-child(2) { animation-delay: 0.32s; }
   .slide.active .numbered li:nth-child(3) { animation-delay: 0.44s; }
   .slide.active .numbered li:nth-child(4) { animation-delay: 0.56s; }
 
-  .slide.active .policy:nth-child(1) { animation: fadeUp 0.45s ease both; animation-delay: 0.2s; }
-  .slide.active .policy:nth-child(2) { animation: fadeUp 0.45s ease both; animation-delay: 0.38s; }
-
+  /* Section bar: grow from top */
   .slide.active::before {
     transform-origin: top;
     animation: growDown 0.4s ease both;
     animation-delay: 0s;
   }
 
-  /* Checklist stagger */
-  .slide.active .checklist li { animation: fadeUp 0.35s ease both; }
-  .slide.active .checklist li:nth-child(1) { animation-delay: 0.2s; }
-  .slide.active .checklist li:nth-child(2) { animation-delay: 0.28s; }
-  .slide.active .checklist li:nth-child(3) { animation-delay: 0.36s; }
-  .slide.active .checklist li:nth-child(4) { animation-delay: 0.44s; }
-  .slide.active .checklist li:nth-child(5) { animation-delay: 0.52s; }
-  .slide.active .checklist li:nth-child(6) { animation-delay: 0.6s; }
-
-  /* ── Section bar ── */
+  /* ── Section bar (left edge color indicator) ── */
   .slide::before {
     content: "";
     position: absolute; left: 0; top: 0; bottom: 0;
@@ -164,7 +182,7 @@
     background: var(--section-color, transparent);
   }
 
-  /* ── Layout: Billboard ── */
+  /* ── Layout: Billboard (centered single statement) ── */
   .billboard {
     flex-direction: column;
     align-items: center;
@@ -187,7 +205,7 @@
     line-height: 1.5;
   }
 
-  /* ── Layout: Section Divider ── */
+  /* ── Layout: Section Divider (color wash) ── */
   .divider {
     flex-direction: column;
     align-items: center;
@@ -207,9 +225,10 @@
     font-size: 1.6rem;
     color: var(--fg-dim);
     margin-top: 20px;
+    font-weight: 400;
   }
 
-  /* ── Layout: Content ── */
+  /* ── Layout: Content (left-aligned, vertically centered) ── */
   .content {
     flex-direction: column;
     justify-content: center;
@@ -224,7 +243,7 @@
     letter-spacing: -0.02em;
   }
 
-  /* ── Layout: Top-aligned ── */
+  /* ── Layout: Top-aligned (cards, grids) ── */
   .top {
     flex-direction: column;
     padding: var(--pad);
@@ -240,12 +259,27 @@
 
   /* ── Typography ── */
   p, li { font-size: 1.5rem; line-height: 1.55; }
-  .big-text { font-size: 2.2rem; font-weight: 600; line-height: 1.35; }
-  .callout { font-size: 1.5rem; font-weight: 600; line-height: 1.45; }
+
+  .big-text {
+    font-size: 2.2rem;
+    font-weight: 600;
+    line-height: 1.35;
+  }
+
+  .callout {
+    font-size: 1.5rem;
+    font-weight: 600;
+    line-height: 1.45;
+  }
+
   .small { font-size: 1.25rem; color: var(--fg-dim); }
 
   /* ── Cards ── */
-  .card-row { display: grid; gap: 28px; margin-top: 16px; }
+  .card-row {
+    display: grid;
+    gap: 28px;
+    margin-top: 16px;
+  }
   .card-row.c3 { grid-template-columns: repeat(3, 1fr); }
   .card-row.c4 { grid-template-columns: repeat(4, 1fr); }
   .card-row.c5 { grid-template-columns: repeat(5, 1fr); }
@@ -266,44 +300,140 @@
     line-height: 1.5;
   }
 
-  /* ── Timeline ── */
-  .timeline { display: flex; flex-direction: column; gap: 0; margin-top: 20px; }
-  .timeline-item { display: flex; align-items: center; gap: 20px; padding: 14px 0; }
-  .timeline-dot { width: 16px; height: 16px; border-radius: 50%; flex-shrink: 0; }
-  .timeline-line { width: 2px; height: 16px; margin-left: 7px; background: #333; }
-  .timeline-label { font-size: 1.5rem; font-weight: 500; }
-
-  /* ── Steps ── */
-  .steps { counter-reset: step; list-style: none; display: flex; flex-direction: column; gap: 16px; }
-  .steps li { counter-increment: step; display: flex; gap: 16px; align-items: baseline; }
-  .steps li::before {
-    content: counter(step);
-    flex-shrink: 0;
-    width: 36px; height: 36px;
-    display: flex; align-items: center; justify-content: center;
-    border-radius: 50%;
-    background: var(--section-color, var(--blue));
-    color: #111;
-    font-weight: 700;
-    font-size: 1.1rem;
+  /* ── Timeline (vertical flow for "Today") ── */
+  .timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-top: 20px;
   }
-  .steps li span { font-size: 1.4rem; line-height: 1.45; }
-  .steps .sub-options { display: block; font-size: 1.2rem; color: var(--fg-dim); margin-top: 6px; }
-
-  /* ── Numbered points ── */
-  .numbered { counter-reset: num; list-style: none; display: flex; flex-direction: column; gap: 14px; }
-  .numbered li { counter-increment: num; font-size: 1.5rem; line-height: 1.5; padding-left: 40px; position: relative; }
-  .numbered li::before { content: counter(num) "."; position: absolute; left: 0; font-weight: 700; color: var(--section-color, var(--blue)); }
-
-  /* ── Policy blocks ── */
-  .policy-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; margin-top: 16px; }
-  .policy h3 { font-size: 1.6rem; font-weight: 700; margin-bottom: 10px; }
-  .policy p { font-size: 1.35rem; color: var(--fg-dim); line-height: 1.5; }
+  .timeline-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 16px 0;
+  }
+  .timeline-dot {
+    width: 16px; height: 16px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    background: var(--dot-color, var(--fg-dim));
+  }
+  .timeline-line {
+    width: 2px;
+    height: 20px;
+    margin-left: 7px;
+    background: #333;
+  }
+  .timeline-label {
+    font-size: 1.6rem;
+    font-weight: 500;
+  }
 
   /* ── Checklist ── */
-  .checklist { list-style: none; display: flex; flex-direction: column; gap: 12px; }
-  .checklist li { font-size: 1.35rem; line-height: 1.5; padding-left: 36px; position: relative; }
-  .checklist li::before { content: "☐"; position: absolute; left: 0; font-size: 1.2rem; color: var(--fg-dim); }
+  .checklist {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 12px;
+  }
+  .checklist li {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-size: 1.4rem;
+  }
+  .checklist .box {
+    width: 22px; height: 22px;
+    border: 2px solid var(--fg-dim);
+    border-radius: 4px;
+    flex-shrink: 0;
+  }
+
+  /* ── Numbered points ── */
+  .numbered {
+    counter-reset: num;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .numbered li {
+    counter-increment: num;
+    font-size: 1.5rem;
+    line-height: 1.5;
+    padding-left: 40px;
+    position: relative;
+  }
+  .numbered li::before {
+    content: counter(num) ".";
+    position: absolute;
+    left: 0;
+    font-weight: 700;
+    color: var(--section-color, var(--blue));
+  }
+
+  /* ── Quote block ── */
+  .quote {
+    border-left: 4px solid var(--section-color, var(--blue));
+    padding-left: 24px;
+    font-style: italic;
+    color: var(--fg-dim);
+    font-size: 1.5rem;
+    line-height: 1.6;
+    margin-top: 16px;
+  }
+
+  /* ── Format box ── */
+  .format-box {
+    background: rgba(255,255,255,0.05);
+    border-radius: 12px;
+    padding: 24px 28px;
+    margin-top: 16px;
+  }
+  .format-box code {
+    font-family: "SF Mono", "Fira Code", monospace;
+    font-size: 1.4rem;
+    line-height: 1.6;
+    color: var(--fg);
+  }
+  .format-box .placeholder {
+    color: var(--blue);
+    font-style: italic;
+  }
+
+  /* ── Example block ── */
+  .example {
+    background: rgba(255,255,255,0.03);
+    border-left: 3px solid var(--fg-dim);
+    padding: 20px 24px;
+    margin-top: 16px;
+    font-size: 1.35rem;
+    line-height: 1.55;
+    color: var(--fg-dim);
+    font-style: italic;
+  }
+
+  /* ── Comparison pair ── */
+  .compare-pair {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    margin-top: 24px;
+  }
+  .compare-item h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+  .compare-item p {
+    font-size: 1.35rem;
+    color: var(--fg-dim);
+    line-height: 1.5;
+  }
+  .compare-item.bad h3 { color: #e07070; }
+  .compare-item.good h3 { color: var(--green); }
 
   /* ── Counter ── */
   .counter {
@@ -337,225 +467,266 @@
 
 <div class="deck">
 
-  <!-- ═══ 1. WARM-UP ═══ -->
+  <!-- ═══ 1. WARM-UP (amber section) ═══ -->
   <section class="slide content active" style="--section-color: var(--amber); background: var(--amber-bg);">
-    <h2 style="font-size: 3rem;">Final Checklist Self-Review</h2>
-    <ul class="checklist mt">
-      <li>All required content included (price, reviews, shipping, etc.)</li>
-      <li>Mobile AND desktop versions complete</li>
-      <li>Grid alignment consistent throughout</li>
-      <li>Type hierarchy clear and consistent</li>
-      <li>Design reflects persona's priorities</li>
+    <h2 style="font-size: 2.8rem;">Final Checklist Self-Review</h2>
+    <p class="big-text" style="color: var(--fg-dim);">Review your C4 design against this checklist:</p>
+    <ul class="checklist">
+      <li><span class="box"></span>All required content included (price, reviews, shipping, etc.)</li>
+      <li><span class="box"></span>Mobile AND desktop versions complete</li>
+      <li><span class="box"></span>Grid alignment consistent throughout</li>
+      <li><span class="box"></span>Type hierarchy clear and consistent</li>
+      <li><span class="box"></span>Design reflects persona's priorities</li>
     </ul>
-    <p class="callout accent mt">Mark items that need attention. Identify your top 2-3 polish priorities.</p>
+    <p class="callout accent mt-lg">Mark items that need attention. Identify your top 2-3 polish priorities for today.</p>
   </section>
 
-  <!-- ═══ 2. PRAYER ═══ -->
+  <!-- ═══ 2. PRAYER (amber section) ═══ -->
   <section class="slide billboard" style="--section-color: var(--amber);">
     <h1>Prayer</h1>
-    <p class="sub">Brayden, will you pray for us today?</p>
+    <p class="sub">Carol, will you pray for us today?</p>
   </section>
 
   <!-- ═══ 3. TITLE ═══ -->
   <section class="slide billboard">
-    <h1 style="font-size: 4.2rem;">The details are not the details.</h1>
-    <p class="sub" style="font-size: 2rem; color: var(--fg);">They make the design.</p>
-    <p class="sub" style="margin-top: 32px; font-size: 1.3rem;">— Charles Eames</p>
+    <h1 style="font-size: 4.2rem;">Transition Day</h1>
+    <p class="sub" style="font-size: 1.8rem;">Finish Unit C strong, then launch into capstone ideation.</p>
   </section>
 
-  <!-- ═══ 4. TODAY ═══ -->
-  <section class="slide content" style="padding-left: 140px;">
+  <!-- ═══ 4. TODAY (timeline) ═══ -->
+  <section class="slide content" style="padding-left: 160px;">
     <h2>Today</h2>
     <div class="timeline">
-      <div class="timeline-item"><div class="timeline-dot" style="background: var(--amber);"></div><span class="timeline-label">Final Checklist Self-Review</span></div>
+      <div class="timeline-item"><div class="timeline-dot" style="background: var(--amber);"></div><span class="timeline-label">Final checklist + orientation</span></div>
       <div class="timeline-line"></div>
-      <div class="timeline-item"><div class="timeline-dot" style="background: var(--blue);"></div><span class="timeline-label">C4 Testing Debrief</span></div>
+      <div class="timeline-item"><div class="timeline-dot" style="background: var(--blue);"></div><span class="timeline-label">Unit D Introduction: Jobs to Be Done & Job Stories</span></div>
       <div class="timeline-line"></div>
-      <div class="timeline-item"><div class="timeline-dot" style="background: var(--violet);"></div><span class="timeline-label">The Details Are Not the Details</span></div>
+      <div class="timeline-item"><div class="timeline-dot" style="background: var(--blue);"></div><span class="timeline-label">Opportunity Statements & Ideation</span></div>
       <div class="timeline-line"></div>
-      <div class="timeline-item"><div class="timeline-dot" style="background: var(--violet);"></div><span class="timeline-label">Detail Audit</span></div>
-      <div class="timeline-line"></div>
-      <div class="timeline-item"><div class="timeline-dot" style="background: var(--green);"></div><span class="timeline-label">Work Session + C5 Submission</span></div>
+      <div class="timeline-item"><div class="timeline-dot" style="background: var(--green);"></div><span class="timeline-label">Work Session — C5 Final Polish</span></div>
     </div>
   </section>
 
-  <!-- ═══ 5. WHY THIS MATTERS ═══ -->
-  <section class="slide billboard" style="--section-color: var(--amber); background: var(--amber-bg);">
-    <h1 style="font-size: 3.4rem; max-width: 900px;">This is your last Unit C class.</h1>
-    <p class="sub" style="max-width: 700px;">C5 is due tonight. Today's focus: applying what you learned from testing, and sweating the details.</p>
-    <p class="big-text accent mt-lg">Submit work you're genuinely proud of.</p>
+  <!-- ═══ 5. BY THE END OF TODAY ═══ -->
+  <section class="slide top">
+    <h2>By the end of today...</h2>
+    <div class="card-row c5 mt">
+      <div class="card" style="--card-color: var(--amber);">
+        <h3>Detail Audit</h3>
+        <p>You'll know what to look for when polishing a design</p>
+      </div>
+      <div class="card" style="--card-color: var(--blue);">
+        <h3>Jobs to Be Done</h3>
+        <p>You'll understand why people "hire" products to make progress</p>
+      </div>
+      <div class="card" style="--card-color: var(--blue);">
+        <h3>Job Stories</h3>
+        <p>You'll write hypotheses: "When [situation], I want [motivation], so I can [outcome]"</p>
+      </div>
+      <div class="card" style="--card-color: var(--blue);">
+        <h3>Opportunity Statements</h3>
+        <p>You'll frame design challenges that hint at differentiation</p>
+      </div>
+      <div class="card" style="--card-color: var(--green);">
+        <h3>D1 Ready</h3>
+        <p>You'll leave prepared to ideate for your capstone project</p>
+      </div>
+    </div>
   </section>
 
-  <!-- ═══ 6. SECTION DIVIDER: Testing Debrief ═══ -->
+  <!-- ═══ 7. TRANSITION DAY STRUCTURE ═══ -->
+  <section class="slide content" style="--section-color: var(--amber);">
+    <h2>This is a transition day</h2>
+    <p><strong class="accent">Part A:</strong> Quick warm-up and orientation (done!)</p>
+    <p><strong class="accent-blue">Part B:</strong> Learn the frameworks that will guide your capstone ideation</p>
+    <p><strong class="accent-green">Work Session:</strong> Final polish on C5 (due tonight)</p>
+    <p class="callout mt-lg" style="color: var(--fg-dim);">Today we finish <em>rendering</em> Unit C with excellence, then begin <em>forming</em> intent for Unit D.</p>
+  </section>
+
+  <!-- ═══ 8. SECTION DIVIDER: Unit D ═══ -->
   <section class="slide divider" style="--section-bg: var(--blue-bg);">
-    <h1 style="color: var(--blue);">C4 Testing Debrief</h1>
-    <p class="sub">What did you learn?</p>
+    <h1 style="color: var(--blue);">Unit D: Neue App</h1>
+    <p class="sub">The Capstone Project</p>
   </section>
 
-  <!-- ═══ 7. TESTING QUESTIONS ═══ -->
+  <!-- ═══ 9. WHAT IS UNIT D ═══ -->
   <section class="slide content" style="--section-color: var(--blue);">
-    <h2>What surprised you?</h2>
+    <h2>What is Unit D?</h2>
     <ol class="numbered mt">
-      <li>Did testers find what they were looking for?</li>
-      <li>Where did they hesitate or get confused?</li>
-      <li>What assumptions did you have that were wrong?</li>
+      <li>Design a brand-new digital product from scratch</li>
+      <li>Personal improvement focus: education, productivity, health/fitness, or finance</li>
+      <li>You'll take it through the entire design process over 6 weeks</li>
+      <li><strong class="accent">D1 is due before Day 15</strong> — you need to leave today ready to ideate</li>
     </ol>
-    <p class="callout accent mt-lg">Testing reveals blind spots — this is how you grow as a designer.</p>
   </section>
 
-  <!-- ═══ 8. ONE THING ═══ -->
+  <!-- ═══ 10. JOBS TO BE DONE ═══ -->
   <section class="slide billboard" style="--section-color: var(--blue);">
-    <h1 style="font-size: 3.6rem; max-width: 900px;">What's the #1 thing you need to fix based on testing?</h1>
-    <p class="sub">Write it down. That's your top priority for today.</p>
+    <h1 style="max-width: 950px;">Jobs to Be Done</h1>
+    <p class="sub" style="font-size: 2rem;">People don't buy products — they <strong>"hire"</strong> them to make progress.</p>
   </section>
 
-  <!-- ═══ 9. SECTION DIVIDER: Details ═══ -->
-  <section class="slide divider" style="--section-bg: var(--violet-bg);">
-    <h1 style="color: var(--violet);">The Details Are Not the Details</h1>
-    <p class="sub">Why attention to detail matters</p>
+  <!-- ═══ 11. THE DRILL EXAMPLE ═══ -->
+  <section class="slide content" style="--section-color: var(--blue);">
+    <h2>The classic example</h2>
+    <p class="big-text">People don't want a quarter-inch drill.</p>
+    <p class="big-text" style="color: var(--fg-dim);">They want a quarter-inch hole.</p>
+    <p class="big-text accent-blue mt"><strong>Better:</strong> They want to hang a picture to make their home feel complete.</p>
+    <p class="callout mt-lg" style="color: var(--fg-dim);">The <strong>job</strong> is the progress someone wants to make in a particular circumstance.</p>
   </section>
 
-  <!-- ═══ 10. WHY DETAILS MATTER ═══ -->
-  <section class="slide content" style="--section-color: var(--violet);">
-    <h2 style="color: var(--violet);">Why this matters professionally</h2>
+  <!-- ═══ 12. JOB STORIES FORMAT ═══ -->
+  <section class="slide content" style="--section-color: var(--blue);">
+    <h2>Job Stories</h2>
+    <p class="callout" style="color: var(--fg-dim);">The format:</p>
+    <div class="format-box">
+      <code>"<span class="placeholder">When</span> [situation], <span class="placeholder">I want to</span> [motivation], <span class="placeholder">so I can</span> [expected outcome]."</code>
+    </div>
+  </section>
+
+  <!-- ═══ 13. JOB STORY EXAMPLE ═══ -->
+  <section class="slide content" style="--section-color: var(--blue);">
+    <h2>Job Story Example</h2>
+    <div class="example">
+      "When I'm trying to fall asleep but my mind is racing, I want a simple way to quiet my thoughts, so I can get rest before an important day."
+    </div>
+    <p class="callout accent-blue mt-lg">Key insight: Job stories are <strong>hypotheses to test</strong>, not features to build.</p>
+    <p class="small mt">You'll validate these through user research (Mom Test interviews).</p>
+  </section>
+
+  <!-- ═══ 14. TRANSFORM AN IDEA ═══ -->
+  <section class="slide content" style="--section-color: var(--blue);">
+    <h2>Let's transform a bad idea together</h2>
+    <div class="compare-pair">
+      <div class="compare-item bad">
+        <h3>Bad</h3>
+        <p>"An app that tracks water intake"</p>
+      </div>
+      <div class="compare-item good">
+        <h3>Better</h3>
+        <p>"When I'm at work and forget to drink water, I want gentle reminders, so I can stay hydrated and avoid afternoon headaches."</p>
+      </div>
+    </div>
+    <p class="callout accent mt-lg">What's wrong with the bad version? What's missing?</p>
+  </section>
+
+  <!-- ═══ 15. OPPORTUNITY STATEMENTS ═══ -->
+  <section class="slide content" style="--section-color: var(--blue);">
+    <h2>Opportunity Statements</h2>
+    <p class="callout" style="color: var(--fg-dim);">The format:</p>
+    <div class="format-box">
+      <code>"<span class="placeholder">I want to help</span> [target audience] <span class="placeholder">who want to</span> [user need] <span class="placeholder">by</span> [avoiding pain point] <span class="placeholder">and</span> [improving value added] <span class="placeholder">unlike</span> [competitors]"</code>
+    </div>
+  </section>
+
+  <!-- ═══ 16. OPPORTUNITY STATEMENT EXAMPLE ═══ -->
+  <section class="slide content" style="--section-color: var(--blue);">
+    <h2>Opportunity Statement Example</h2>
+    <div class="example">
+      "I want to help <strong>busy professionals</strong> who want to <strong>learn a new language</strong> by <strong>avoiding rigid schedules</strong> and <strong>improving contextual learning</strong> unlike <strong>Duolingo's gamified approach</strong>"
+    </div>
+    <p class="callout mt-lg" style="color: var(--fg-dim);">This frames your design challenge and hints at differentiation.</p>
+  </section>
+
+  <!-- ═══ 17. VALUE CREATION VS. ENGAGEMENT ═══ -->
+  <section class="slide content" style="--section-color: var(--blue);">
+    <h2>Value Creation vs. Engagement</h2>
+    <div class="compare-pair">
+      <div class="compare-item good">
+        <h3>Value creation</h3>
+        <p>Genuinely helps people make progress</p>
+      </div>
+      <div class="compare-item bad">
+        <h3>Engagement optimization</h3>
+        <p>Captures attention without delivering value</p>
+      </div>
+    </div>
+    <p class="callout mt-lg">Unit D requires value creation — your app must actually help people.</p>
+    <p class="callout accent mt">Ask yourself: Would users be grateful this exists, or just addicted to it?</p>
+  </section>
+
+  <!-- ═══ 18. IDEATION METHODS ═══ -->
+  <section class="slide content" style="--section-color: var(--blue);">
+    <h2>Ideation Methods</h2>
     <ol class="numbered mt">
-      <li>Portfolio reviewers notice inconsistent spacing <em>in seconds</em></li>
-      <li>Clients equate visual sloppiness with unreliability</li>
-      <li>Details signal: "I care about my work and I'll care about yours"</li>
+      <li><strong>Brainstorming</strong> — Generate many ideas without judgment</li>
+      <li><strong>Observation</strong> — Watch how people currently solve problems</li>
+      <li><strong>SCAMPER</strong> — Substitute, Combine, Adapt, Modify, Put to other uses, Eliminate, Rearrange</li>
     </ol>
+    <p class="callout mt-lg">Generate many ideas, then narrow to 3 with job stories or opportunity statements.</p>
+    <p class="callout accent-blue mt">The goal: <strong>discover a problem worth solving</strong>, not invent a solution.</p>
   </section>
 
-  <!-- ═══ 11. WHY WE MISS DETAILS ═══ -->
-  <section class="slide content" style="--section-color: var(--violet);">
-    <h2 style="color: var(--violet);">Why we miss details</h2>
-    <ol class="numbered mt">
-      <li><strong>Familiarity blindness</strong> — you've looked at your design so many times</li>
-      <li><strong>"I'll fix it later" syndrome</strong> — but later never comes</li>
-      <li><strong>Not knowing what to look for</strong> — you can't see what you don't know to check</li>
-    </ol>
+  <!-- ═══ 19. D1 ASSIGNMENT ═══ -->
+  <section class="slide content" style="--section-color: var(--blue);">
+    <h2>D1: Ideation</h2>
+    <p class="big-text">Due: <strong class="accent">Mar 2 @ 5:15pm</strong> (before Day 15)</p>
+    <p class="mt" style="font-size: 1.6rem;">Submit <strong>3 opportunity statements</strong> OR <strong>3 job stories</strong></p>
+    <p class="mt" style="color: var(--fg-dim);">These are hypotheses you'll validate through user research.</p>
+    <p class="callout accent mt-lg">You're NOT committing to an app idea yet — that comes after validation (D2).</p>
   </section>
 
-  <!-- ═══ 12. THE MINDSET SHIFT ═══ -->
-  <section class="slide content" style="--section-color: var(--violet);">
-    <h2 style="color: var(--violet);">The mindset shift</h2>
-    <ol class="numbered mt">
-      <li>Don't treat polish as a final step — build it into how you work</li>
-      <li>Slow down: zoom to 100%, check every element</li>
-      <li>Fresh eyes help: take a break, or have someone else look</li>
-    </ol>
-    <p class="callout mt-lg" style="color: var(--violet);">This isn't about perfection — it's about <em>intention</em>. Every pixel should be deliberate.</p>
+  <!-- ═══ 20. AI IN UNIT D ═══ -->
+  <section class="slide top" style="--section-color: var(--blue);">
+    <h2>AI Throughout Unit D</h2>
+    <p class="mt" style="color: var(--fg-dim);">AI tools will assist at every stage:</p>
+    <div class="card-row c4 mt">
+      <div class="card" style="--card-color: var(--blue);">
+        <h3>Ideation</h3>
+        <p>Brainstorm and refine ideas</p>
+      </div>
+      <div class="card" style="--card-color: var(--blue);">
+        <h3>Research</h3>
+        <p>Competitive analysis and insights</p>
+      </div>
+      <div class="card" style="--card-color: var(--blue);">
+        <h3>Prototyping</h3>
+        <p>Translate sketches to digital</p>
+      </div>
+      <div class="card" style="--card-color: var(--blue);">
+        <h3>Brand exploration</h3>
+        <p>Generate visual directions</p>
+      </div>
+    </div>
+    <p class="callout mt-lg">Paper sketches → AI → digital prototypes</p>
+    <p class="callout accent">The key: AI expands possibilities, but <strong>you make the decisions</strong>.</p>
   </section>
 
-  <!-- ═══ 13. HABIT NOT STEP ═══ -->
-  <section class="slide billboard" style="--section-color: var(--violet); background: var(--violet-bg);">
-    <h1 style="font-size: 3.4rem; max-width: 900px;">Attention to detail is a habit to develop, not a step to add at the end.</h1>
+  <!-- ═══ 20. WHY THIS MATTERS ═══ -->
+  <section class="slide content" style="--section-color: var(--blue);">
+    <h2>Why this matters</h2>
+    <p class="big-text">Discovering problems beats inventing solutions.</p>
+    <p style="color: var(--fg-dim);">Job stories and opportunity statements force you to articulate <em>who</em> you're helping, <em>why</em> they need help, and <em>what progress</em> they're trying to make — before you design anything.</p>
+    <p class="big-text mt">Details communicate professionalism.</p>
+    <p style="color: var(--fg-dim);">As you polish C5 today, remember: portfolio reviewers notice inconsistent spacing in seconds. Sweating the details signals care.</p>
   </section>
 
-  <!-- ═══ 14. SECTION DIVIDER: Detail Audit ═══ -->
-  <section class="slide divider" style="--section-bg: var(--violet-bg);">
-    <h1 style="color: var(--violet);">Detail Audit</h1>
-    <p class="sub">Systematic review activity</p>
-  </section>
-
-  <!-- ═══ 15. ALIGNMENT AUDIT ═══ -->
-  <section class="slide content" style="--section-color: var(--violet);">
-    <h2>Alignment</h2>
-    <ul class="checklist mt">
-      <li>All text left edges align to the same grid lines</li>
-      <li>Images and cards snap to grid</li>
-      <li>No elements that are "close but not quite" aligned</li>
-    </ul>
-    <p class="small mt-lg">Check now: Turn on your grid in Figma. Is everything snapping?</p>
-  </section>
-
-  <!-- ═══ 16. SPACING AUDIT ═══ -->
-  <section class="slide content" style="--section-color: var(--violet);">
-    <h2>Spacing</h2>
-    <ul class="checklist mt">
-      <li>Consistent padding inside all containers</li>
-      <li>Consistent margins between sections</li>
-      <li>Related items grouped tightly; unrelated items have clear separation</li>
-    </ul>
-    <p class="small mt-lg">Remember Gestalt: proximity creates relationships.</p>
-  </section>
-
-  <!-- ═══ 17. TYPOGRAPHY AUDIT ═══ -->
-  <section class="slide content" style="--section-color: var(--violet);">
-    <h2>Typography</h2>
-    <ul class="checklist mt">
-      <li>No more than 2-3 type sizes used intentionally</li>
-      <li>Line lengths between 45-75 characters</li>
-      <li>No orphans (single words on a line) or widows</li>
-      <li>All text is actual text, not placeholder</li>
-    </ul>
-  </section>
-
-  <!-- ═══ 18. RESPONSIVE AUDIT ═══ -->
-  <section class="slide content" style="--section-color: var(--violet);">
-    <h2>Responsive</h2>
-    <ul class="checklist mt">
-      <li>Mobile text is readable (16px+ body)</li>
-      <li>Touch targets are 44px+ minimum</li>
-      <li>Nothing cut off or awkwardly wrapped</li>
-    </ul>
-  </section>
-
-  <!-- ═══ 19. CONSISTENCY AUDIT ═══ -->
-  <section class="slide content" style="--section-color: var(--violet);">
-    <h2>Consistency</h2>
-    <ul class="checklist mt">
-      <li>Button styles match throughout</li>
-      <li>Icon styles are consistent (outline OR filled, not mixed)</li>
-      <li>Colors match your defined palette exactly</li>
-    </ul>
-    <p class="callout accent mt-lg">Mark issues as you find them. This is your fix-it list.</p>
-  </section>
-
-  <!-- ═══ 20. SECTION DIVIDER: Work Session ═══ -->
-  <section class="slide divider" style="--section-bg: var(--green-bg);">
-    <h1 style="color: var(--green);">Work Session</h1>
-    <p class="sub">Final polish + documentation</p>
-  </section>
-
-  <!-- ═══ 21. WORK SESSION PRIORITIES ═══ -->
-  <section class="slide content" style="--section-color: var(--green);">
-    <h2>Your priorities</h2>
-    <ol class="steps mt">
-      <li><span>Fix issues from your detail audit</span></li>
-      <li><span>Address feedback from C4 user testing</span></li>
-      <li><span>Compile process documentation<span class="sub-options">Persona sheet &nbsp;&middot;&nbsp; Typography stylesheet &nbsp;&middot;&nbsp; Wireframes &nbsp;&middot;&nbsp; Iterations</span></span></li>
-      <li><span>Export final PDF (full page lengths, no cropping)</span></li>
-    </ol>
-  </section>
-
-  <!-- ═══ 22. BEFORE YOU EXPORT ═══ -->
-  <section class="slide billboard" style="--section-color: var(--green);">
-    <h1 style="font-size: 3.4rem; max-width: 900px;">Before you export: do one final zoom-to-100% review.</h1>
-    <p class="sub">Check every element. Is it intentional?</p>
-  </section>
-
-  <!-- ═══ 23. C5 REQUIREMENTS ═══ -->
-  <section class="slide content" style="--section-color: var(--green);">
-    <h2 style="color: var(--green);">C5: Final High Fidelity Designs</h2>
-    <p class="big-text accent">Due tonight @ 5:15pm</p>
-    <ol class="numbered mt">
-      <li>Desktop PDP (full page length)</li>
-      <li>Mobile PDP (full page length)</li>
-      <li>Process documentation (persona, type stylesheet, wireframes, iterations)</li>
-      <li>Single PDF, all pages</li>
-    </ol>
-  </section>
-
-  <!-- ═══ 24. NEXT UP ═══ -->
+  <!-- ═══ 21. NEXT UP (green section) ═══ -->
   <section class="slide top" style="--section-color: var(--green); background: var(--green-bg);">
     <h2 style="color: var(--green);">Next up</h2>
-    <div class="mt" style="display: flex; flex-direction: column; gap: 20px;">
-      <p><strong>Work session continues</strong> — I'm available for 1:1 feedback</p>
-      <p><strong>C5: Final High Fidelity Designs</strong> — Due tonight @ 5:15pm</p>
-      <p><strong>Reading for Unit D</strong> — "On Combination Play" + Idea Generation</p>
-      <p style="color: var(--fg-dim); font-size: 1.35rem;">Unit D starts next class — new project, new challenges</p>
-    </div>
-    <p class="callout accent mt-lg">Submit work you're proud of.</p>
+    <p class="big-text mt">Work Session: C5 Final Polish <span style="font-weight: 400; color: var(--fg-dim);">(120 min)</span></p>
+    <ol class="numbered mt">
+      <li>Start with a <strong>Detail Audit</strong> (15-20 min) — use the checklist to find issues</li>
+      <li>Fix issues from your audit</li>
+      <li>Address feedback from C4 user testing</li>
+      <li>Compile process documentation (persona, type stylesheet, wireframes, iterations)</li>
+      <li>Export final PDF (full page lengths, no cropping)</li>
+    </ol>
+    <p class="small mt-lg"><strong>Due tonight @ 5:15pm:</strong> C5 Final High Fidelity Designs (single PDF, all pages)</p>
+    <p class="small"><strong>Due Mar 2 @ 5:15pm:</strong> D1 Ideation — 3 opportunity statements OR 3 job stories</p>
+  </section>
+
+  <!-- ═══ 22. DETAIL AUDIT CHECKLIST ═══ -->
+  <section class="slide content" style="--section-color: var(--green);">
+    <h2>Detail Audit Checklist</h2>
+    <ul class="checklist mt">
+      <li><span class="box"></span><strong>Alignment:</strong> Text edges align to grid; images/cards snap to grid</li>
+      <li><span class="box"></span><strong>Spacing:</strong> Consistent padding and margins; related items grouped tightly</li>
+      <li><span class="box"></span><strong>Typography:</strong> 2-3 intentional sizes; 45-75 character line lengths; no orphans/widows</li>
+      <li><span class="box"></span><strong>Responsive:</strong> Mobile text 16px+; touch targets 44px+; nothing cut off</li>
+      <li><span class="box"></span><strong>Consistency:</strong> Button styles match; icon styles consistent; colors match palette</li>
+    </ul>
+    <p class="callout accent mt-lg">Mark issues as you find them — this becomes your fix-it list.</p>
   </section>
 
 </div>

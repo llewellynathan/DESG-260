@@ -1,11 +1,14 @@
 # Day 14 — Wednesday, Feb 25
-## Unit C: Hierarchy & Responsive Web
+## Unit C → Unit D Transition Day
 
-**Focus:** The details are not the details — they make the design.
+**Focus:** Finish Unit C strong, then launch into capstone ideation.
+
+**Why This Matters:** Today marks a pivot point. You'll close out Unit C by applying attention to detail — a skill that separates amateur work from professional portfolios. Then you'll launch Unit D by learning how to identify problems worth solving. The capstone project requires you to *discover* a genuine user need, not just execute someone else's brief. The frameworks you learn today (Jobs to Be Done, job stories, opportunity statements) will guide your ideation and help you avoid building something nobody wants.
 
 **Targeted Learning Outcomes:**
 - Better Interactions & Experiences
 - Detailed Documentation
+- Problem Discovery & Research
 
 ---
 
@@ -14,23 +17,29 @@
 **Essential Questions:**
 - EQ1: What separates good design from great design?
 - EQ2: How do you know when a design is "done"?
-- EQ3: Why do details matter, and how do you train yourself to see them?
+- EQ3: Why do details matter professionally?
+- EQ4: How do you identify a problem worth solving?
+- EQ5: What makes an idea a hypothesis rather than a solution?
 
 **Understandings:**
 - U1: Good design requires excellence in both forming and rendering — a brilliant idea poorly executed fails
 - U2: Details communicate professionalism, care, and credibility
-- U3: Attention to detail is a habit to develop, not a step to add at the end
+- U3: People "hire" products to make progress in their lives (Jobs to Be Done)
+- U4: Ideas are hypotheses to test, not solutions to build
 
 **Students Will Know:**
 - K1: What to look for in a systematic detail audit
-- K2: How to document their design process effectively
-- K3: The professional stakes of polish (portfolios, client perception, trust)
+- K2: The Jobs to Be Done framework and job story format
+- K3: How to write an opportunity statement
+- K4: The difference between value creation and engagement optimization
+- K5: How AI tools will be used throughout Unit D
 
 **Students Will Be Able To:**
 - S1: Self-assess their work against project requirements
 - S2: Apply final polish based on feedback and systematic review
 - S3: Compile process documentation for submission
-- S4: Identify and fix detail issues they previously overlooked
+- S4: Write job stories that act as testable hypotheses
+- S5: Write opportunity statements that frame design challenges
 
 ---
 
@@ -41,6 +50,8 @@
 
 ### Activities
 
+## Part A: Unit C Wrap-Up
+
 1. **Warm-Up: Final Checklist Self-Review** (10 min) `[EQ2, K1, S1]`
    - Checklist on screen — students review their own work:
      - [ ] All required content included (price, reviews, shipping, etc.)
@@ -49,65 +60,93 @@
      - [ ] Type hierarchy clear and consistent
      - [ ] Design reflects persona's priorities
    - Mark items that need attention before submission
-   - Identify your top 2-3 polish priorities for today
+   - Identify your top 2-3 polish priorities for the work session
 
-2. **Today's Learning Goals** (5 min) `[EQ1, EQ2, EQ3, U1, U2, U3]`
-   - This is our final Unit C class — C5 is due tonight
-   - Today's focus: applying what you learned from testing, and sweating the details
-   - Connection to forming/rendering: you've *formed* your intent through persona research and testing; today is about *rendering* it with excellence
-   - The goal: submit work you're genuinely proud of
+2. **Today's Learning Goals** (5 min) `[EQ1, EQ2, EQ3, EQ4, EQ5, U1, U2, U3, U4]`
+   - **This is a transition day** — we close Unit C and launch Unit D
+   - **Part A:** Quick warm-up and orientation
+   - **Part B:** Learn the frameworks that will guide your capstone ideation
+   - **Work Session:** Final polish on C5 (due tonight) — apply what you learned from testing; sweat the details
+   - Connection to forming/rendering: Today we finish *rendering* Unit C with excellence, then begin *forming* intent for Unit D
 
-3. **C4 Testing Debrief: What Did You Learn?** (15 min) `[EQ1, S1, S2]`
-   - Quick share-out: What surprised you from user testing?
-   - Common patterns to discuss:
-     - Did testers find what they were looking for?
-     - Where did they hesitate or get confused?
-     - What assumptions did you have that were wrong?
-   - The point: testing reveals blind spots — this is how you grow as a designer
-   - Make a note: What's the #1 thing you need to fix based on testing?
+---
 
-4. **The Details Are Not the Details** (15 min) `[EQ3, U2, U3, K3]`
-   - Charles Eames: "The details are not the details. They make the design."
-   - **Why this matters professionally:**
-     - Portfolio reviewers notice inconsistent spacing in seconds
-     - Clients equate visual sloppiness with unreliability
-     - Details signal: "I care about my work and I'll care about yours"
-   - **Why we miss details:**
-     - Familiarity blindness — you've looked at your design so many times
-     - "I'll fix it later" syndrome — but later never comes
-     - Not knowing what to look for
-   - **The mindset shift:**
-     - Don't treat polish as a final step — build it into how you work
-     - Slow down: zoom to 100%, check every element
-     - Fresh eyes help: take a break, or have someone else look
-   - This isn't about perfection — it's about *intention*. Every pixel should be deliberate.
+## Part B: Unit D Introduction
 
-5. **Detail Audit: Systematic Review** (20 min) `[K1, S2, S4]`
-   - Students work through a granular checklist (different from the warm-up):
-   - **Alignment:**
-     - [ ] All text left edges align to the same grid lines
-     - [ ] Images/cards snap to grid
-     - [ ] No elements that are "close but not quite" aligned
-   - **Spacing:**
-     - [ ] Consistent padding inside all containers
-     - [ ] Consistent margins between sections
-     - [ ] Related items grouped tightly; unrelated items have clear separation
-   - **Typography:**
-     - [ ] No more than 2-3 type sizes used intentionally
-     - [ ] Line lengths between 45-75 characters
-     - [ ] No orphans (single words on a line) or widows (single lines on a page)
-     - [ ] All text is actual text, not placeholder
-   - **Responsive:**
-     - [ ] Mobile text is readable (16px+ body)
-     - [ ] Touch targets are 44px+ minimum
-     - [ ] Nothing cut off or awkwardly wrapped
-   - **Consistency:**
-     - [ ] Button styles match throughout
-     - [ ] Icon styles are consistent (outline OR filled, not mixed)
-     - [ ] Colors match your defined palette exactly
-   - Mark issues as you find them. This is your fix-it list for the work session.
+3. **Direct Instruction: Jobs to Be Done & Job Stories** (20 min) `[EQ4, EQ5, U3, U4, K2, S4]`
 
-6. **Work Session: Final Polish + Documentation** (110 min) `[S1, S2, S3, S4, EQ1, EQ2]`
+   **What is Unit D?** (3 min)
+   - The capstone: design a brand-new digital product from scratch
+   - Personal improvement focus: education, productivity, health/fitness, or finance
+   - You'll take it through the entire design process over 6 weeks
+   - D1 is due before Day 15 — you need to leave today ready to ideate
+
+   **Jobs to Be Done Framework** (7 min)
+   - **I do:** Explain the core concept
+     - People don't buy products — they "hire" them to make progress
+     - Classic example: People don't want a quarter-inch drill; they want a quarter-inch hole
+     - Better: They want to hang a picture to make their home feel complete
+   - The job is the progress someone wants to make in a particular circumstance
+
+   **Job Stories** (10 min)
+   - **I do:** Introduce the format
+     - "When [situation], I want to [motivation], so I can [expected outcome]."
+     - Example: "When I'm trying to fall asleep but my mind is racing, I want a simple way to quiet my thoughts, so I can get rest before an important day."
+   - **Key insight:** Job stories are **hypotheses to test**, not features to build
+   - You'll validate these through user research (Mom Test interviews)
+   - **We do:** Transform a bad idea into a job story together
+     - Bad: "An app that tracks water intake"
+     - Better: "When I'm at work and forget to drink water, I want gentle reminders, so I can stay hydrated and avoid afternoon headaches."
+
+4. **Direct Instruction: Opportunity Statements & Ideation** (15 min) `[EQ4, K3, K4, S5]`
+
+   **Opportunity Statements** (7 min)
+   - **I do:** Introduce the format
+     - "I want to help [target audience] who want to [user need] by [avoiding pain point] and [improving value added] unlike [competitors]"
+   - Example: "I want to help busy professionals who want to learn a new language by avoiding rigid schedules and improving contextual learning unlike Duolingo's gamified approach"
+   - This frames your design challenge and hints at differentiation
+
+   **Value Creation vs. Engagement** (5 min)
+   - **Value creation:** genuinely helps people make progress
+   - **Engagement optimization:** captures attention without delivering value
+   - Unit D requires value creation — your app must actually help people
+   - Ask yourself: Would users be grateful this exists, or just addicted to it?
+
+   **Ideation Methods Preview** (3 min)
+   - Brainstorming, observation, combination play
+   - You'll generate many ideas, then narrow to 3 with job stories or opportunity statements
+   - The goal: discover a problem worth solving, not invent a solution
+
+5. **D1 Assignment & AI Preview** (10 min) `[K5, S4, S5]`
+
+   **D1: Ideation** (due Mar 2 @ 5:15pm, before Day 15)
+   - Submit 3 opportunity statements OR 3 job stories
+   - These are hypotheses you'll validate through user research
+   - You're NOT committing to an app idea yet — that comes after validation (D2)
+
+   **AI Throughout Unit D** (preview)
+   - AI tools will assist at every stage: ideation, research, prototyping, brand exploration
+   - Paper sketches → AI → digital prototypes
+   - User flows → AI → wireframes
+   - The key: AI expands possibilities, but you make the decisions
+   - You'll learn to evaluate and refine AI output, not just accept it
+
+---
+
+## Work Session
+
+6. **Work Session: C5 Final Polish** (120 min) `[S1, S2, S3, K1, EQ1, EQ2]`
+
+   **Start with a Detail Audit** (first 15-20 min)
+   - Work through this systematic checklist before fixing anything:
+   - **Alignment:** Text edges align to grid; images/cards snap to grid
+   - **Spacing:** Consistent padding and margins; related items grouped tightly
+   - **Typography:** 2-3 intentional sizes; 45-75 character line lengths; no orphans/widows
+   - **Responsive:** Mobile text 16px+; touch targets 44px+; nothing cut off
+   - **Consistency:** Button styles match; icon styles consistent; colors match palette
+   - Mark issues as you find them — this becomes your fix-it list
+
+   **Then work through priorities:**
    - **Priority 1:** Fix issues from your detail audit
    - **Priority 2:** Address feedback from C4 user testing
    - **Priority 3:** Compile process documentation:
@@ -116,17 +155,9 @@
      - Wireframes
      - Any saved iterations
    - **Priority 4:** Export final PDF (full page lengths, no cropping)
-   - Instructor available for 1:1 feedback and troubleshooting
-   - **Before you export:** Do one final zoom-to-100% review. Check every element.
 
-7. **C5 Requirements Reminder** (5 min) `[K2, S3]`
-   - **Due tonight @ 5:15pm**
-   - Deliverables:
-     - Desktop PDP (full page length)
-     - Mobile PDP (full page length)
-     - Process documentation (persona, type stylesheet, wireframes, iterations)
-     - Single PDF, all pages
-   - Double-check: Is your PDF exported at full page length? Are all pages included?
+   - Instructor available for 1:1 feedback and troubleshooting
+   - **Before you export:** Do one final zoom-to-100% review
 
 **Total: 180 min**
 
@@ -138,7 +169,7 @@
   - Mobile PDP (full page length)
   - Process documentation (persona, type stylesheet, wireframes, iterations)
   - Single PDF, all pages
-- 📚 Read "On Combination Play" and Idea Generation (for Unit D)
+- ⛳ D1: Ideation — 3 opportunity statements OR 3 job stories (due Mar 2 @ 5:15pm, before Day 15)
 
 ---
 
@@ -146,6 +177,7 @@
 - Figma: Exporting to PDF
 - Mobbin: Reference for PDP examples
 - Unit C Assignment brief for final requirements
+- Unit D Assignment brief for D1 requirements
 
 ---
 
@@ -153,16 +185,22 @@
 
 | Code | Desired Result | Activities |
 |------|----------------|------------|
-| EQ1 | What separates good from great? | 2, 3, 6 |
+| EQ1 | What separates good from great? | 2, 6 |
 | EQ2 | How do you know when it's done? | 1, 2, 6 |
-| EQ3 | Why do details matter? How to see them? | 2, 4, 5 |
+| EQ3 | Why do details matter? | 2 |
+| EQ4 | How do you identify a problem worth solving? | 2, 3, 4 |
+| EQ5 | What makes an idea a hypothesis? | 2, 3 |
 | U1 | Excellence in forming AND rendering | 2 |
-| U2 | Details communicate professionalism | 4 |
-| U3 | Attention to detail is a habit | 4 |
-| K1 | What to look for in detail audit | 1, 5 |
-| K2 | Process documentation | 7 |
-| K3 | Professional stakes of polish | 4 |
-| S1 | Self-assess against requirements | 1, 3, 6 |
-| S2 | Apply final polish | 3, 5, 6 |
-| S3 | Compile process documentation | 6, 7 |
-| S4 | Identify and fix overlooked details | 5, 6 |
+| U2 | Details communicate professionalism | 2 |
+| U3 | People "hire" products (JTBD) | 3 |
+| U4 | Ideas are hypotheses to test | 3 |
+| K1 | What to look for in detail audit | 1, 6 |
+| K2 | JTBD framework and job stories | 3 |
+| K3 | Opportunity statements | 4 |
+| K4 | Value creation vs. engagement | 4 |
+| K5 | AI tools in Unit D | 5 |
+| S1 | Self-assess against requirements | 1, 6 |
+| S2 | Apply final polish | 6 |
+| S3 | Compile process documentation | 6 |
+| S4 | Write job stories as hypotheses | 3, 5 |
+| S5 | Write opportunity statements | 4, 5 |
