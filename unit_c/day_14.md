@@ -29,7 +29,7 @@
 
 **Students Will Know:**
 - K1: What to look for in a systematic detail audit
-- K2: The Jobs to Be Done framework and job story format
+- K2: The Jobs to Be Done framework and two job story formats
 - K3: How to write an opportunity statement
 - K4: The difference between value creation and engagement optimization
 - K5: How AI tools will be used throughout Unit D
@@ -89,14 +89,16 @@
    - The job is the progress someone wants to make in a particular circumstance
 
    **Job Stories** (10 min)
-   - **I do:** Introduce the format
-     - "When [situation], I want to [motivation], so I can [expected outcome]."
-     - Example: "When I'm trying to fall asleep but my mind is racing, I want a simple way to quiet my thoughts, so I can get rest before an important day."
+   - **I do:** Introduce two formats
+     - **Format A (Motivation-focused):** "When [situation], I want to [motivation], so I can [expected outcome]."
+     - **Format B (Barrier-focused):** "When I [context], but [barrier], help me [goal], so I [outcome]."
+   - Example using Format A: "When I'm trying to fall asleep but my mind is racing, I want a simple way to quiet my thoughts, so I can get rest before an important day."
+   - Same example using Format B: "When I'm trying to fall asleep, but my mind keeps racing, help me quiet my thoughts, so I can get rest before an important day."
    - **Key insight:** Job stories are **hypotheses to test**, not features to build
    - You'll validate these through user research (Mom Test interviews)
    - **We do:** Transform a bad idea into a job story together
      - Bad: "An app that tracks water intake"
-     - Better: "When I'm at work and forget to drink water, I want gentle reminders, so I can stay hydrated and avoid afternoon headaches."
+     - Better (Format A): "When I'm at work and forget to drink water, I want gentle reminders, so I can stay hydrated and avoid afternoon headaches."
 
 4. **Direct Instruction: Opportunity Statements & Ideation** (15 min) `[EQ4, K3, K4, S5]`
 
@@ -113,7 +115,7 @@
    - Ask yourself: Would users be grateful this exists, or just addicted to it?
 
    **Ideation Methods Preview** (3 min)
-   - Brainstorming, observation, combination play
+   - Brainstorming, observation, SCAMPER (Substitute, Combine, Adapt, Modify, Put to other uses, Eliminate, Rearrange)
    - You'll generate many ideas, then narrow to 3 with job stories or opportunity statements
    - The goal: discover a problem worth solving, not invent a solution
 
