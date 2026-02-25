@@ -362,23 +362,36 @@ Today's Focus: Design for the person, not the screen — and give yourself the t
 ---
 
 ### Day 14 — Wednesday, Feb 25
-**Unit C: Hierarchy & Responsive Web**
+**Unit C → Unit D Transition Day**
 
-Today's Focus: The details are not the details — they make the design.
+Today's Focus: Finish Unit C strong, then launch into capstone ideation.
 
 **In class:**
+
+*Part A: Unit C Wrap-Up (~90 min)*
 - Warm-up: Final checklist self-review
 - C4 testing debrief: What did you learn?
 - The details are not the details: why attention to detail matters professionally
 - Detail audit: systematic review activity
 - Work session: Final polish + process documentation
 
+*Part B: Unit D Introduction (~90 min)*
+- What is Unit D? Overview of the capstone project
+- Jobs to Be Done framework: people "hire" products to make progress
+- Job Stories: "When [situation], I want to [motivation], so I can [outcome]"
+  - Job stories as **hypotheses to test** through user research
+- Opportunity Statements: "I want to help [target audience] who want to [user need] by [avoiding pain point] and [improving value added] unlike [competitors]"
+- Ideation methods: brainstorming, observation, combination play
+- Value Creation vs. Engagement: making something helpful vs. merely engaging
+- Preview: AI-enhanced design workflow throughout Unit D
+- D1 Assignment introduction
+
 **Come to class having done:**
 - ⛳ C4: High Fidelity V1 + Testing
 
 **Assignments due before next class:**
 - 🚩 C5: Final High Fidelity Designs (due tonight @ 5:15pm)
-- 📚 Read "On Combination Play" and Idea Generation
+- ⛳ D1: Ideation — 3 opportunity statements OR 3 job stories (due Mar 2 @ 5:15pm, before Day 15)
 
 → [Lesson Plan](unit_c/day_14.md)
 
@@ -389,138 +402,166 @@ Today's Focus: The details are not the details — they make the design.
 ### Day 15 — Monday, Mar 2
 **Unit D: Neue App (Capstone)**
 
-Today's Focus: The best design opportunities come from observation and curiosity, not from briefs.
+Today's Focus: Treating your ideas as hypotheses — "What if I'm wrong?"
 
 **In class:**
-- Introduction of Project D (Neue Application)
-- Forming vs. rendering intent revisited
-- Methods for idea generation and validation
+- Review D1 submissions: Share and discuss opportunity statements/job stories
+- Risk minimization mindset: "What if I'm wrong?"
+- Why validation matters: don't build something nobody wants
+- Mom Test introduction: user research without leading the witness
+- How to conduct validation interviews
+- Preparing for D2: What questions will you ask? Who will you talk to?
 
 **Come to class having done:**
-- 🚩 C. Hierarchy & Responsive Web Due
-- 📚 Read "On Combination Play" and Idea Generation
+- 🚩 C5: Final High Fidelity Designs (submitted)
+- ⛳ D1: Ideation — 3 opportunity statements OR 3 job stories
 
 **Assignments due before next class:**
-- Watch Variants/Interactive Components tutorial
-- Take Enneagram quiz (optional)
-- Come with 3 app ideas
+- ⛳ D2: Validation Interviews + Research (due Mar 4 @ 5:15pm)
+  - Talk to 4+ potential users using Mom Test style
+  - Document key insights — what surprised you?
 
 **Resources:**
-- Enneagram video
+- The Mom Test summary
 
 ---
 
 ### Day 16 — Wednesday, Mar 4
 **Unit D: Neue App (Capstone)**
 
-Today's Focus: Empathy, curiosity, and humility are essential for forming intent.
+Today's Focus: Validation reveals truth — now commit to a direction.
 
 **In class:**
-- How to Generate Ideas
-- Combination Play
-- Early Stage Research
+- D2 Debrief: What did you learn from validation interviews?
+- Synthesis: Which of your 3 hypotheses has the strongest signal?
+- **Commit to your app direction** based on validation findings
+- Competitive analysis methods: who else is solving this problem?
+- AI-assisted competitive research: summarizing competitor apps, reviews, positioning
+- Critical: AI research must be validated against actual product usage
 
 **Come to class having done:**
-- 📚 Read "On Combination Play" and Idea Generation
-- 3 app ideas prepared
+- ⛳ D2: Validation Interviews + Research
 
 **Assignments due before next class:**
-- 📚 Read/Skim *Technique for Producing Ideas*
-- Refine to best idea + two backup ideas
+- ⛳ D3: Competitive Analysis (due Mar 9 @ 11:59pm)
+  - Analysis of 4 competing products
+  - Competitive positioning matrix
+  - Summary of who's in the space
 
 **Resources:**
-- Idea template: "I want to help [target audience] who want to [user need] by [avoiding current pain point] and [improving value added] unlike [current competitors]"
+- Competitive analysis templates
 
 ---
 
 ### Day 17 — Monday, Mar 9
 **Unit D: Neue App (Capstone)**
 
-Today's Focus: Research and testing are design activities, not separate phases.
+Today's Focus: Understanding the landscape helps you find your unique position.
 
 **In class:**
-- Early Stage Idea Validation
-- Problem solving vs. problem seeking
-- Strategy and design (competing futures)
-- Validation Interviews/Research for discovery
+- D3 Review: Share competitive analyses
+- What did you learn? How will you differentiate?
+- User flow fundamentals: mapping the core experience
+- Paper prototyping introduction: sketch before you commit
+- User flows designed to guide AI prototyping later
+- Work session: Begin user flow + paper prototype sketches
 
 **Come to class having done:**
-- 📚 Read/Skim *Technique for Producing Ideas*
-- Best idea for Project D + two backup ideas
+- ⛳ D3: Competitive Analysis
 
 **Assignments due before next class:**
-- Begin competitive analysis for Project D
-- 📚 Read/Skim *The Mom Test*
+- ⛳ D4: User Flow Diagram + Paper Prototype (due Mar 11 @ 5:15pm)
+  - User flow for core function (3-4 screens + onboarding)
+  - Paper prototype sketches (5-6 screens main feature, 3-4 secondary)
+
+**Resources:**
+- Paper prototyping video (NNGroup)
 
 ---
 
 ### Day 18 — Wednesday, Mar 11
 **Unit D: Neue App (Capstone)**
 
-Today's Focus: Designing for real users requires ongoing research, testing, and humility about our assumptions.
+Today's Focus: Testing reveals what you can't see on your own.
 
 **In class:**
-- Scope (how to scope a product)
-- Competitive Analysis deep dive
-- Validation Interviews (part II)
+- Paper prototype testing in class (Usability Test Round 1)
+- 5 Act Method for usability testing
+- Usability testing facilitation techniques
+- Document findings: What surprised you? What needs to change?
+- AI experimentation preview: how paper sketches become digital prototypes
 
 **Come to class having done:**
-- 📚 Read/Skim *The Mom Test*
-- Competitive analysis in progress
+- ⛳ D4: User Flow Diagram + Paper Prototype
+- Watch: Usability Test Facilitation (NNGroup)
 
 **Assignments due before next class:**
-- Competitive Analysis for Project D due
-- Observational/Emotional Journey Map and User Flow due
-- Talk to 4+ people "Mom Test" style
+- ⛳ D5: Usability Testing Rd. 1 (due Mar 16 @ 5:15pm)
+  - Testing documentation with distilled insights
+  - Notes on what to change based on feedback
+
+**Resources:**
+- Usability Test Facilitation video (NNGroup)
 
 ---
 
 ### Day 19 — Monday, Mar 16
 **Unit D: Neue App (Capstone)**
 
-Today's Focus: Personas, journey maps, and user flows must be grounded in real data.
+Today's Focus: Iterate based on what you learned — wireframes bridge paper to digital.
 
 **In class:**
-- Observational/Emotional Journey Maps
-- User Personas
-- Branding concepts
-- Process Books introduction
+- D5 Debrief: What did usability testing reveal?
+- Synthesis: prioritizing changes based on user feedback
+- AI prototyping workshop: paper sketches → AI → digital wireframes
+  - Photograph paper prototypes
+  - Prompt AI tools (V0, Lovable, Figma Make)
+  - Compare AI output to design intent
+  - Learn what AI needs: clear flows, annotations, context
+- Work session: Create digital wireframes
 
 **Come to class having done:**
-- Competitive Analysis for Project D
-- Observational/Emotional Journey Map and User Flow
-- Notes from 4+ "Mom Test" interviews
+- ⛳ D5: Usability Testing Rd. 1
 
 **Assignments due before next class:**
-- In-depth User Persona due
-- 📚 Read Lupton, *Design Is Storytelling*, p.36–42 (Storyboards and Rules of Threes)
-- Draft Observational/Emotional Journey Map
-- Brand Audit due at beginning of Day 20
+- ⛳ D6: Wireframe (due Mar 18 @ 5:15pm)
+  - Digital wireframes for all flows
+  - Both primary and secondary interfaces
+
+**Resources:**
+- V0 by Vercel: https://v0.dev/
+- Lovable: https://lovable.dev/
+- Figma Make: https://www.figma.com/ai/
 
 ---
 
 ### Day 20 — Wednesday, Mar 18
 **Unit D: Neue App (Capstone)**
 
-Today's Focus: A product's visual identity is not separate from its usability—they work together.
+Today's Focus: Visual identity serves usability — brand and function work together.
 
 **In class:**
-- Brand Audit review
-- Branding, typography, and iconography
-- Visual identity development
+- D6 Wireframe review and feedback
+- Brand exploration with AI:
+  - AI for generating brand directions (color palettes, type pairings)
+  - Evaluate AI output against persona needs
+  - Critical: AI suggests, you decide
+- Typography hierarchy development
+- Visual identity fundamentals
+- Work session: Hierarchy sheet + iterations
 
 **Come to class having done:**
-- 📚 Read Lupton, *Design Is Storytelling*, p.36–42
-- Draft Observational/Emotional Journey Map
-- Brand Audit (due at beginning of class)
+- ⛳ D6: Wireframe
 
 **Assignments due before next class:**
-- Paper Prototype for Primary Screen (5-6 screens for main feature, 3-4 for side features)
-- Watch: Usability Test Facilitation (NNGroup)
+- ⛳ D7: Hierarchy sheet + 5 iterations (due Mar 23 @ 5:15pm)
+  - Typography hierarchy
+  - Color palette
+  - 5 design iterations showing exploration
 
 **Resources:**
-- Customer Journey Mapping: https://www.nngroup.com/articles/customer-journey-mapping/
-- The Crystal Goblet
+- TypeTogether's Guide to Pairing Type
+- BYU Graphic Design Type Library
 
 ---
 
@@ -533,25 +574,27 @@ Today's Focus: A product's visual identity is not separate from its usability—
 ### Day 21 — Monday, Mar 23
 **Unit D: Neue App (Capstone)**
 
-Today's Focus: Good defaults vs. dark patterns—design serves human flourishing.
+Today's Focus: High fidelity requires every choice to be intentional.
 
 **In class:**
-- Ethics of design discussion
-- Usability Test No.1 (in class)
-- Paper prototype testing
+- D7 Hierarchy review and feedback
+- High-fidelity design techniques
+- Using your style guide consistently
+- Gestalt principles in practice
+- Motion design introduction: purpose-driven animation
+- Work session: High-fidelity screens
 
 **Come to class having done:**
-- Paper Prototype for Primary Screen (5-6 screens for main feature, 3-4 for side features)
-- Watch: Usability Test Facilitation (NNGroup)
+- ⛳ D7: Hierarchy sheet + 5 iterations
 
 **Assignments due before next class:**
-- Speculative Observational Storyboard (Learning Suite)
-- Emotional Journey Map (Learning Suite)
-- 5 User Interviews due (11:55pm)
+- ⛳ D8: High Fidelity Prototype (due Mar 25 @ 11:59pm)
+  - Complete high-fidelity screens for all flows
+  - Interactive Figma prototype
+- Watch: Microanimations, SmartAnimate tutorial
 
 **Resources:**
-- TypeTogether's Guide to Pairing Type
-- Paper Prototyping video (NNGroup)
+- Figma Variants and Interactive Components
 - Elements and Principles of Design
 
 ---
@@ -559,75 +602,77 @@ Today's Focus: Good defaults vs. dark patterns—design serves human flourishing
 ### Day 22 — Wednesday, Mar 25
 **Unit D: Neue App (Capstone)**
 
-Today's Focus: Good design requires excellence in both forming and rendering.
+Today's Focus: Test high-fidelity prototypes to catch issues before final polish.
 
 **In class:**
-- Branding Pt 1
-- Visual identity refinement
-- Prototype iteration
+- D8 High-fidelity critique (in-class)
+- Usability Testing Round 2: Testing high-fidelity prototypes
+- Testing with clickable prototypes vs. paper
+- Document findings: What still needs work?
+- Motion design work session
 
 **Come to class having done:**
-- Speculative Observational Storyboard
-- Emotional Journey Map
-- 5 User Interviews
+- ⛳ D8: High Fidelity Prototype
+- Watch: Microanimations, SmartAnimate tutorial
 
 **Assignments due before next class:**
-- Revised prototype with full flow screens
-- Sourced content
-- Branding Style Sheet Draft
+- ⛳ D9: Usability Testing Rd. 2 (due Mar 30 @ 5:15pm)
+  - Testing documentation
+  - Specific changes made in response to findings
+
+**Resources:**
+- Figma Smart Animate documentation
 
 ---
 
 ### Day 23 — Monday, Mar 30
 **Unit D: Neue App (Capstone)**
 
-Today's Focus: Users bring mental models shaped by prior experience—leverage existing expectations thoughtfully.
+Today's Focus: Iterate based on testing — motion and polish complete the experience.
 
 **In class:**
-- Branding / Expressive Type
-- UX Laws
-- Motion in Figma (Auto-animation, GIFs)
-- Motion Design as usability
+- D9 Testing debrief: What did Round 2 reveal?
+- Final iteration based on testing feedback
+- Motion design workshop: at least 2 custom microinteractions
+- Accessibility check: contrast, touch targets
+- Documentation preparation: what goes in the case study?
 
 **Come to class having done:**
-- Revised prototype with full flow screens
-- Sourced content
-- Branding Style Sheet Draft
+- ⛳ D9: Usability Testing Rd. 2
 
 **Assignments due before next class:**
-- Wireframes check-in
-- Selected type for high fidelity
-- Watch: Microanimations, SmartAnimate, Auto-automation tutorial
+- ⛳ D10: Draft Documentation + Animated Prototype (due Apr 1 @ 11:55pm)
+  - Screen recording walkthrough (1-3 min)
+  - Draft case study sections
 
 **Resources:**
-- BYU Graphic Design Type Library (PDF; email byugraphicdesigninfo@gmail.com)
-- Fontstand ($20 student credit): https://fontstand.com/students
-- On pairing type: typography.com articles
-- Figma Variants and Interactive Components
+- UX & Motion: https://www.nngroup.com/articles/animation-purpose-ux/
+- Color contrast checker: https://webaim.org/resources/contrastchecker/
 
 ---
 
 ### Day 24 — Wednesday, Apr 1
 **Unit D: Neue App (Capstone)**
 
-Today's Focus: Branding, type, and color create product identity.
+Today's Focus: Documentation tells the story of your design decisions.
 
 **In class:**
-- Branding, Type, Color (pt.1)
-- High Fidelity App in-class critique
+- D10 Draft review and feedback
+- Case study structure: telling a compelling story
+- AI usage documentation: what did you use, keep, change, and why?
+- In-class 1:1 meetings for documentation review
+- Work session: Final documentation polish
 
 **Come to class having done:**
-- Wireframes check-in
-- Selected type for high fidelity
-- Watch: Microanimations, SmartAnimate, Auto-automation tutorial
+- ⛳ D10: Draft Documentation + Animated Prototype
 
 **Assignments due before next class:**
-- High Fidelity App with branding (continue refining)
-- 📚📺 Watch: Microanimations, SmartAnimate, Auto-automation tutorial (if not done)
+- ⛳ D11: Neue App Case Study Documentation (due Apr 6 @ 11:59pm)
+  - Complete case study PDF
+  - Final animated walkthrough video
 
 **Resources:**
-- Storytelling example: Ocarina of Time, A Masterclass in Subtext
-- Design dissection: The Animation of Cuphead
+- Case study examples and templates
 
 ---
 
@@ -638,27 +683,25 @@ Today's Focus: Branding, type, and color create product identity.
 ---
 
 ### Day 25 — Monday, Apr 6
-**Unit D: Neue App (Capstone)**
+**Unit D: Neue App (Capstone) — Final Day**
 
-Today's Focus: Accessibility requirements and inclusive design lead to better solutions for everyone.
+Today's Focus: The capstone demonstrates excellence in both forming and rendering intent.
 
 **In class:**
-- Color (pt.2) & Accessibility (pt.1)
-- High-fidelity x5 in-class critique
-- Motion work session
+- D11 Case Study presentations and sharing
+- Reflection: What did you learn? What would you do differently?
+- Peer feedback and celebration
+- Unit E preview: Process Books
 
 **Come to class having done:**
-- High-fidelity x5 screens
-- 📚📺 Watch: Microanimations, SmartAnimate, Auto-automation tutorial
+- ⛳ D11: Neue App Case Study Documentation
 
 **Assignments due before next class:**
-- High Fidelity review complete
-- Motion due (linked prototype, interactive states, 1 custom animation)
-- Full High Fidelity close to done
+- 🚩 D. Neue App complete (D11 was final deliverable)
+- Begin Process Book preparation
 
 **Resources:**
-- Color & UX: interaction-design.org, toptal.com
-- Color contrast checker: https://webaim.org/resources/contrastchecker/
+- Process Book examples
 
 ---
 
@@ -670,20 +713,19 @@ Today's Focus: Accessibility requirements and inclusive design lead to better so
 Today's Focus: Documentation and storytelling are essential design skills—a great product poorly communicated will not succeed.
 
 **In class:**
-- Documentation & Storytelling
-- In-class meetings for documentation/process book reviews
+- Process Book structure and requirements
+- Documentation as storytelling
+- What makes a compelling case study?
+- Work session: Begin Process Book
 
 **Come to class having done:**
-- Full High Fidelity close to done
-- Motion complete
-- 📚📺 Watch Microanimations/SmartAnimate tutorials
+- 🚩 D11: Neue App Case Study Documentation (submitted)
 
 **Assignments due before next class:**
-- 🚩 D. Neue App final due 11:59pm
-- Begin Process Book
+- Continue Process Book work
 
 **Resources:**
-- UX & Motion: https://www.nngroup.com/articles/animation-purpose-ux/
+- Process Book examples
 
 ---
 
@@ -693,18 +735,20 @@ Today's Focus: Documentation and storytelling are essential design skills—a gr
 Today's Focus: Storytelling and presenting within constraints.
 
 **In class:**
-- Accessibility (pt.2)
-- Storytelling and presenting
-- In-class meetings for documentation/process book reviews
+- Process Book feedback and review
+- Accessibility considerations in documentation
+- Storytelling and presenting your work
+- Practice presenting
 
 **Come to class having done:**
-- 🚩 D. Neue App final submitted
 - Process Book in progress
 
+**Assignments due tonight:**
+- ⛳ E1: Draft Process Book (due tonight @ 11:55pm)
+
 **Assignments due before next class:**
-- 🚩 D. Neue App main DRAFT due (PDF of static screens + Figma clickable prototype link)
-- 🚩 E. Process Book draft due
-- Practice presenting Neue App 3+ times (1 must be in front of another human)
+- Refine Process Book based on feedback
+- Practice presenting 3+ times (1 must be in front of another human)
 
 **Resources:**
 - Resolution and Documentation guide
@@ -724,13 +768,11 @@ Today's Focus: Good design requires excellence in both forming and rendering—t
 - Final presentations and celebration
 
 **Come to class having done:**
-- Practice presenting Neue App 3+ times (1 must be in front of another human)
-- 🚩 D. Neue App main DRAFT
-- 🚩 E. Process Book draft
+- ⛳ E1: Draft Process Book (submitted)
+- Practice presenting 3+ times (1 must be in front of another human)
 
-**Assignments due before next class:**
-- Final revisions based on feedback
-- Prepare for final submission during Finals Week
+**Assignments due tonight:**
+- 🚩 E2: Process Book Final (due tonight @ 11:59pm)
 
 ---
 
@@ -745,16 +787,13 @@ Today's Focus: Good design requires excellence in both forming and rendering—t
 
 ### Finals Week — Apr 17–23
 
-**All final work due by April 23, Noon**
-
 No in-person final exam.
 
-**Final Assignments:**
-- 🚩 D. & E. Final Neue App case study and whole class process book due
-- Include clickable hyperlinks to prototypes in Process Books
+All major work was due by end of Day 28 (Apr 15).
 
 **Resources:**
 - Use Adobe Acrobat's "Reduced Size PDF" for large documents
+- Available for any final questions or support
 
 ---
 
