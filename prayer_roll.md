@@ -5,7 +5,7 @@ Once everyone has prayed, the cycle resets.
 
 | Student | Last Prayed |
 |---------|-------------|
-| Annika B. | |
+| Annika B. | 3/2 |
 | Ya Chi C. | 2/23 |
 | Kalli F. | 2/18 |
 | Brevyn G. | 2/9 |
