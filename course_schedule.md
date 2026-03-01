@@ -424,6 +424,8 @@ Today's Focus: Treating your ideas as hypotheses — "What if I'm wrong?"
 **Resources:**
 - The Mom Test summary
 
+→ [Lesson Plan](unit_d/day_15.md)
+
 ---
 
 ### Day 16 — Wednesday, Mar 4
