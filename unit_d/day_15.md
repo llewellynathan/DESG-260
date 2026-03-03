@@ -45,11 +45,11 @@
 
 ### Activities
 
-1. **Warm-Up: D1 Gallery Walk** (10 min) `[EQ1, EQ2, K4, S1]`
-   - Students post their 3 opportunity statements or job stories (on paper or laptop screen)
-   - Silent gallery walk: read at least 5 classmates' submissions
-   - While reading, note: Which ideas feel like real problems? Which feel like invented solutions?
-   - No verbal feedback yet — just observe and think
+1. **Warm-Up: Share with Your Neighbors** (10 min) `[EQ1, EQ2, K4, S1]`
+   - Turn to 2-3 people near you and take turns sharing your favorite opportunity statement or job story
+   - As you listen, consider: Does this sound like a real problem or an invented solution?
+   - Quick reactions only — save deeper feedback for Activity 4
+   - Goal: Get your ideas out of your head and hear how they land with others
 
 2. **Today's Learning Goals** (5 min) `[EQ1, EQ2, EQ3, U1, U2, U3]`
    - **Why this matters:** You have ideas — but you don't know yet if they solve real problems. Today you'll learn how to find out.
