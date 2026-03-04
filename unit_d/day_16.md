@@ -91,60 +91,59 @@
    - **Confirm or pivot:** By end of class, you should know if your idea was validated — or if you need to adjust
    - This doesn't mean your idea is locked forever — but you need a direction to research
 
-   **Part C: Competitive Analysis** (15 min)
+   **Part C: Competitive Analysis — The Scaffolded Approach** (15 min)
    - **I do:** Why competitive analysis matters
      - If your idea is truly novel, that's often a warning sign (maybe nobody needs it)
      - Good ideas exist in a space with competitors — your job is to understand them and differentiate
      - You're not copying — you're learning from what exists
-   - **I do:** Components of competitive analysis
-     - **Identify 4 competitors** (any mix of digital/physical products that solve your problem)
-     - **Competitive positioning matrix:** 2x2 chart with two key differentiating dimensions
-       - Example axes: Simple ↔ Complex, Social ↔ Individual
-       - Plot competitors and identify whitespace
-     - **Summary:** 2-paragraph overview of who's in the space
-   - **I do:** Using AI for competitive research
-     - AI can help: summarize app store reviews, identify competitors you missed, analyze feature sets
-     - AI limitations: doesn't know what users actually experience — you must download and use the apps yourself
-     - Critical: AI research supplements hands-on research, never replaces it
+   - **I do:** The scaffolded approach (don't start with the matrix!)
+     - **Step 1: Experience the competitors** — Download and use 2-4 apps, 15-20 min each
+     - **Step 2: Mine user reviews** — Read 10-15 reviews per competitor, extract patterns
+     - **Step 3: Strengths & weaknesses** — Synthesize findings into structured summaries
+     - **Step 4: Positioning matrix** — Now axes emerge naturally from your research
+   - **I do:** Using AI throughout the process
+     - AI can help: process reviews quickly, identify competitors you missed, suggest differentiating dimensions
+     - AI limitations: doesn't know what it *feels like* to use an app, can hallucinate, misses nuance
+     - Critical: AI supplements hands-on research, never replaces it
    - **We do:** Quick positioning exercise
      - Pick a well-known problem space (e.g., fitness tracking)
-     - Class suggests 4 competitors
-     - Together, we identify 2 differentiating axes and plot them
+     - Class suggests 4 competitors — what do we know about each?
+     - Together, we identify trade-offs and let axes emerge from the discussion
 
 ---
 
 4. **D3 Assignment Introduction** (10 min) `[EQ3, U3, K3, S3, S4]`
    - **D3: Competitive Analysis** (due Mon, Mar 9 @ 11:59pm)
-   - Requirements from assignment brief:
-     - Top-level analysis of **4 competing products** (any mix of physical/digital)
-     - **2-paragraph summary** of who's in the space and what they're doing
-     - **Competitive Analysis Matrix** (quadrant positioning chart)
-     - Validate choices with evidence of market share or audience usage
-   - Tips:
-     - Actually download and use the apps — screenshots from app stores aren't enough
-     - Look at app store reviews for pain points competitors haven't solved
-     - The positioning matrix should reveal where YOUR app will sit (whitespace = opportunity)
+   - Follow the scaffolded approach (~7 pages total):
+     1. **Competitor overview** (1 page) — 4 competitors with brief descriptions
+     2. **Strengths & weaknesses** (4 pages) — 1 page per competitor with screenshots
+     3. **Positioning matrix** (1 page) — 2x2 with labeled axes and your app's position
+     4. **Summary** (½ page) — Opportunity identified and how you'll differentiate
+     5. **AI usage** (½ page) — What AI helped with, what you did yourself
+   - Emphasis: The axes should emerge from Steps 1-3, not be invented beforehand
    - Preview of what's next: D3 informs D4 (Brand Audit) — you'll visually analyze these same competitors
+   - Reference: See d3_competitive_analysis.md for detailed guidance
 
-5. **Work Session: Commit + Begin D3** (110 min) `[EQ1, EQ2, EQ3, U1, U2, U3, K1, K2, K3, S1, S2, S3, S4]`
-   - **First 20 min:** Final synthesis and commitment
+5. **Work Session: Confirm + Begin D3** (110 min) `[EQ1, EQ2, EQ3, U1, U2, U3, K1, K2, K3, S1, S2, S3, S4]`
+   - **First 20 min:** Final synthesis and confirmation
      - Review your D2 interview notes
      - Write 3-4 synthesized insights (patterns, not individual quotes)
-     - **Make your decision:** Which app direction are you pursuing? Write a one-sentence commitment.
+     - **Make your decision:** Confirm your direction or decide to pivot. Write a one-sentence commitment.
      - Share your commitment with a neighbor (saying it out loud makes it real)
-   - **Next 30 min:** Identify competitors
-     - Search app stores, Product Hunt, Google
+   - **Next 30 min:** Step 1 — Experience competitors
+     - Search app stores, Product Hunt, Google to identify 4 competitors
      - Use AI to help identify competitors you might have missed (but verify they exist)
-     - Download at least 2 competitor apps and actually use them
-     - Start taking notes on features, UX patterns, and what they do well/poorly
-   - **Remaining 60 min:** Begin competitive analysis
-     - Draft your 2-paragraph summary
-     - Start sketching your positioning matrix (what are the key differentiating dimensions?)
-     - Document competitors with screenshots and notes
+     - Download at least 2 competitor apps and actually use them (15-20 min each)
+     - Note: first impressions, core flow, friction points, delights
+   - **Remaining 60 min:** Steps 2-3 — Reviews and analysis
+     - Read 10-15 app store reviews per competitor (AI can help process more)
+     - Extract common praise, complaints, and unmet needs
+     - Begin drafting strengths/weaknesses summaries for each competitor
+     - Start noticing trade-offs that could become your matrix axes
    - Instructor circulates for 1:1 feedback on:
      - Is your chosen direction supported by evidence from interviews?
      - Are you looking at the right competitors?
-     - Does your positioning matrix reveal meaningful differentiation?
+     - What trade-offs are you noticing that could inform your positioning?
 
 **Total: 180 min**
 
@@ -173,10 +172,11 @@
 
 ### Homework
 - ⛳ D3: Competitive Analysis (due Mon, Mar 9 @ 11:59pm)
-  - Analysis of 4 competing products
-  - Competitive positioning matrix (2x2 quadrant chart)
-  - 2-paragraph summary of who's in the space
+  - Follow the scaffolded approach (~7 pages total)
+  - Competitor overview + strengths/weaknesses + positioning matrix + summary
+  - Document AI usage throughout
   - Submit: PDF to Learning Suite
+  - Reference: unit_d/d3_competitive_analysis.md for detailed guidance
 
 ---
 

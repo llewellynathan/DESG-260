@@ -136,89 +136,133 @@ Maybe nobody needs it.
 
 Good ideas exist in a space with competitors — your job is to understand them and differentiate.
 
-You're not copying. You're learning from what exists.
+---
+
+### Slide 16: The Scaffolded Approach
+**Don't start with the positioning matrix. Start with experience.**
+
+| Step 1 | Step 2 | Step 3 | Step 4 |
+|--------|--------|--------|--------|
+| Experience the competitors (hands-on) | Mine user reviews | Strengths & weaknesses | Positioning matrix |
+
+> The axes emerge from your research — not from guessing.
 
 ---
 
-### Slide 16: Components of Competitive Analysis
-**What D3 requires:**
-- **4 competitors** (any mix of digital/physical products)
-- **Positioning matrix:** 2x2 chart with differentiating dimensions
-  - Example axes: Simple ↔ Complex, Social ↔ Individual
-  - Plot competitors and identify whitespace
-- **2-paragraph summary:** Who's in the space and what they're doing
+### Slide 17: Step 1: Experience the Competitors
+**Download and actually use 2-4 competitor apps. Spend 15-20 min with each.**
+
+1. **First impressions:** What's the onboarding like? How do you feel?
+2. **Core flow:** How easy is it to accomplish the main task?
+3. **Friction points:** Where do you get stuck or frustrated?
+4. **Delights:** What's surprisingly good or clever?
+
+> You cannot analyze what you haven't experienced. App store descriptions aren't enough.
 
 ---
 
-### Slide 17: AI for Competitive Research
-**AI can help:**
-- Summarize app store reviews
-- Identify competitors you missed
-- Analyze feature sets
+### Slide 18: Step 2: Mine User Reviews
+**Read 10-15 app store reviews per competitor. Look for patterns.**
 
-**AI limitations:**
-- Doesn't know what users actually experience
-- You must download and use the apps yourself
+**What to extract:**
+- Common praise: "I love how simple it is"
+- Common complaints: "Crashes constantly"
+- Unmet needs: "I wish it had..."
 
-**Critical:** AI supplements hands-on research. Never replaces it.
+**AI can help here:**
+- "Summarize the top 5 complaints from these reviews"
+- "What features do users praise most often?"
+- ⚠️ Always verify — AI can miss nuance
 
----
-
-### Slide 18: Choosing Axes
-**How to choose your axes**
-The axes make or break your matrix. Bad axes = useless exercise.
-
-**Good axes:**
-- Represent trade-offs users care about
-- Differentiate competitors (they spread out)
-- Come from your interview findings
-- Examples: Simple ↔ Feature-rich, Social ↔ Individual, Guided ↔ Self-directed
-
-**Bad axes:**
-- Binary features (has X / doesn't have X)
-- Everyone clusters in one quadrant
-- Users don't actually care about this dimension
-- Examples: Has dark mode ↔ No dark mode, Good ↔ Bad, Simple ↔ Easy (same thing)
-
-> Test: Would your interviewees describe this as a meaningful trade-off?
+> Note the specific language users use — this is how your audience talks.
 
 ---
 
-### Slide 19: Positioning Exercise
+### Slide 19: Step 3: Strengths & Weaknesses
+**For each competitor, synthesize what you learned.**
+
+Template:
+- **[Competitor Name]** — What it is (one sentence)
+- **Strengths (3-4 bullets)** — What they do well
+- **Weaknesses (3-4 bullets)** — What users complain about
+- **Key insight** — One sentence
+
+**Be specific, not generic:**
+- ❌ "Good UI" → ✓ "Calming color palette reinforces meditation brand"
+- ❌ "Users like it" → ✓ "Structured courses make it easy for beginners"
+
+---
+
+### Slide 20: Step 4: Positioning Matrix
+**Now — and only now — create your 2x2 matrix. Axes emerge from Steps 1-3.**
+
+**Finding your axes:**
+Look at your strengths/weaknesses. What trade-offs did you notice?
+- Simple ↔ Feature-rich
+- Habit-focused ↔ Goal-focused
+- Social ↔ Individual
+- Guided ↔ Self-directed
+
+**Test your axes:**
+- Do competitors spread across quadrants?
+- Would interviewees call this a meaningful trade-off?
+- Does the whitespace represent a real opportunity?
+
+> If all competitors cluster in one quadrant, pick different axes.
+
+---
+
+### Slide 21: AI Throughout the Process
+**AI accelerates research, but cannot replace hands-on experience.**
+
+**Where AI helps:**
+- Finding competitors you missed
+- Processing 50+ reviews quickly
+- Suggesting dimensions that differentiate apps
+- Drafting initial summaries (you edit)
+
+**Where AI fails:**
+- Doesn't know what it *feels like* to use an app
+- Can hallucinate features or competitors
+- Reflects existing content, not your interviews
+- Can miss nuance in user sentiment
+
+> AI supplements your research. You must download and use the apps yourself.
+
+---
+
+### Slide 22: Positioning Exercise
 **Let's build a positioning matrix together**
 1. Pick a problem space (e.g., fitness tracking)
-2. Name 4 competitors
-3. Identify 2 differentiating axes
+2. Name 4 competitors — what do we know about each?
+3. What trade-offs do we notice? What axes emerge?
 4. Plot them on a 2x2 matrix
-5. Where's the whitespace?
+5. Where's the whitespace? Is it a real opportunity?
 
 > What competitors come to mind? What makes them different from each other?
 
 ---
 
-### Slide 20: D3 Requirements
-**D3: Competitive Analysis** (due Mon, Mar 9 @ 11:59pm)
-- Analysis of **4 competing products** (digital or physical)
-- **Competitive positioning matrix** (2x2 quadrant chart)
-- **2-paragraph summary** of who's in the space
-- Validate with evidence of market share or usage
+### Slide 23: D3 Requirements
+**D3: Competitive Analysis** (due Mon, Mar 9 @ 11:59pm · ~7 pages PDF)
 
-**Tips:**
-- Actually download and use the apps
-- Look at app store reviews for unsolved pain points
-- Your matrix should reveal where YOUR app will sit
+1. **Competitor overview** (1 page) — 4 competitors with brief descriptions
+2. **Strengths & weaknesses** (4 pages) — 1 page per competitor with screenshots
+3. **Positioning matrix** (1 page) — 2x2 with labeled axes and your app's position
+4. **Summary** (½ page) — Opportunity identified and how you'll differentiate
+5. **AI usage** (½ page) — What AI helped with, what you did yourself
 
 ---
 
-### Slide 21: Next Up
+### Slide 24: Next Up
 **Next up**
 Work session (110 min):
-- **First 20 min:** Final synthesis — write 3-4 insights, then confirm or adjust your direction
-- **Next 30 min:** Identify competitors — search app stores, Product Hunt, download 2+ apps
-- **Remaining 60 min:** Begin D3 — draft summary, sketch positioning matrix
+- **First 20 min:** Final synthesis — write 3-4 insights, confirm or adjust direction
+- **Next 30 min:** Find & download 2+ competitor apps, start using them
+- **Remaining 60 min:** Mine reviews, draft strengths/weaknesses, sketch matrix
 
 **Due:**
 - D3: Competitive Analysis (Mon, Mar 9 @ 11:59pm)
-  - 4 competitors analyzed
-  - Positioning matrix
-  - 2-paragraph summary
+  - Follow the scaffolded approach
+  - Document AI usage
+  - Submit PDF to Learning Suite
