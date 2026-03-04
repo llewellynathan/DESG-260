@@ -1,7 +1,7 @@
 # Day 16 — Wednesday, Mar 4
 ## Unit D: Neue App (Capstone)
 
-**Focus:** Validation reveals truth — now commit to a direction.
+**Focus:** Validation reveals truth — confirm your direction or pivot.
 
 **Why This Matters:** You've talked to real people. Some of what you heard confirmed your assumptions; some of it didn't. Today you'll learn how to interpret those signals and make a confident decision about which direction to pursue. You'll also learn competitive analysis — because before you design anything, you need to understand who else is solving this problem and how you'll be different. Skipping this step is how designers build products that are slightly worse versions of things that already exist.
 
@@ -16,7 +16,7 @@
 
 **Essential Questions:**
 - EQ1: What did your validation interviews reveal about your hypotheses?
-- EQ2: How do you know when you have enough evidence to commit to a direction?
+- EQ2: How do you know if your interviews validated your idea?
 - EQ3: Why does understanding competitors matter before you start designing?
 
 **Understandings:**
@@ -53,14 +53,14 @@
      - "The most surprising thing I heard was..."
      - "The thing that challenged my assumptions was..."
      - "The thing that confirmed my hypothesis was..."
-   - Partner asks: "Based on what you heard, which of your 3 ideas has the strongest signal?"
+   - Partner asks: "Based on what you heard, do you feel confident your idea solves a real problem?"
    - Switch and repeat
    - Goal: Verbalize your findings before we analyze them formally
 
 2. **Today's Learning Goals** (5 min) `[EQ1, EQ2, EQ3, U1, U2, U3]`
    - **Why this matters:** You have data now. Today you'll learn to interpret it, make a decision, and understand the competitive landscape before you start designing.
    - Preview:
-     - Synthesis: How to read your interview findings and commit to a direction
+     - Synthesis: How to read your interview findings and confirm your direction
      - Competitive analysis: Who else is solving this problem? How will you be different?
      - Work session: Begin D3 competitive analysis
    - Connection to forming/rendering: This is the pivot point — we're finishing *forming intent* (choosing the right problem) and preparing to start *rendering intent* (designing the solution)
@@ -88,7 +88,7 @@
      - **Current solutions:** Are they already trying to solve it? (Good sign — proves the need exists)
      - **Willingness to act:** Have they spent time/money/effort on this problem?
    - The goal is NOT to find a problem nobody has — it's to find a problem people actually care about solving
-   - **Commit today:** By end of class, you should know which direction you're pursuing
+   - **Confirm or pivot:** By end of class, you should know if your idea was validated — or if you need to adjust
    - This doesn't mean your idea is locked forever — but you need a direction to research
 
    **Part C: Competitive Analysis** (15 min)

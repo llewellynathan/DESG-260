@@ -10,13 +10,13 @@
   - "The most surprising thing I heard was..."
   - "The thing that challenged my assumptions was..."
   - "The thing that confirmed my hypothesis was..."
-- Partner asks: "Based on what you heard, which of your 3 ideas has the strongest signal?"
+- Partner asks: "Based on what you heard, do you feel confident your idea solves a real problem?"
 
 ---
 
 ### Slide 2: Prayer
 **Prayer**
-Lucy, will you pray for us today?
+Lucy L., will you pray for us today?
 
 ---
 
@@ -30,7 +30,7 @@ Your data tells a story — today you learn to read it and commit
 **Today**
 - Interview debrief
 - Synthesis: Reading your validation data
-- Decision: Committing to a direction
+- Decision: Confirm your direction
 - Competitive analysis methods
 - Work session: Begin D3
 
@@ -39,7 +39,7 @@ Your data tells a story — today you learn to read it and commit
 ### Slide 5: By the end of today...
 **Synthesis** — You'll know how to extract patterns from interview data and identify strong vs. weak signals
 
-**Commitment** — You'll have decided which app direction to pursue, backed by evidence from your interviews
+**Validation** — You'll know whether your interviews validated your idea — and what to do if they didn't
 
 **Competitive landscape** — You'll understand who else is solving your problem and how to differentiate
 
@@ -79,7 +79,7 @@ From quotes to patterns
 **From notes to insights**
 - Show a set of interview notes
 - Extract 3-4 key insights (patterns across multiple interviews)
-- Identify which hypothesis has the strongest signal
+- Determine: Was your hypothesis validated? What did you learn?
 
 > Watch for: Which quotes describe actual behavior? Which are just opinions?
 
@@ -96,13 +96,13 @@ From quotes to patterns
 ---
 
 ### Slide 11: Decision Section Header
-**Committing to a Direction**
-Evidence, not enthusiasm
+**Confirming Your Direction**
+Was your hypothesis validated?
 
 ---
 
 ### Slide 12: Decision Criteria
-**How to choose your direction**
+**How to know if your idea is validated**
 - **Frequency:** Did multiple people describe this problem?
 - **Intensity:** How much does it actually bother them?
 - **Current solutions:** Are they already trying to solve it? (Good sign — proves the need)
@@ -112,13 +112,14 @@ The goal is NOT to find a problem nobody has — it's to find a problem people a
 
 ---
 
-### Slide 13: Commit Today
+### Slide 13: Confirm or Pivot
 **By end of class today:**
-Write a one-sentence commitment to your app direction.
+Confirm your direction — or decide to pivot.
 
-This doesn't mean your idea is locked forever — but you need a direction to research.
+If your interviews validated the problem, proceed with confidence.
+If they didn't, that's valuable data — consider adjusting your approach.
 
-Share your commitment with a neighbor. Saying it out loud makes it real.
+Share your decision with a neighbor. Saying it out loud makes it real.
 
 ---
 
@@ -192,7 +193,7 @@ You're not copying. You're learning from what exists.
 ### Slide 20: Next Up
 **Next up**
 Work session (110 min):
-- **First 20 min:** Final synthesis — write 3-4 insights, then commit to your direction
+- **First 20 min:** Final synthesis — write 3-4 insights, then confirm or adjust your direction
 - **Next 30 min:** Identify competitors — search app stores, Product Hunt, download 2+ apps
 - **Remaining 60 min:** Begin D3 — draft summary, sketch positioning matrix
 
