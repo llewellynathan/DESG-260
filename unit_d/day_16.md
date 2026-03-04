@@ -114,12 +114,12 @@
 
 4. **D3 Assignment Introduction** (10 min) `[EQ3, U3, K3, S3, S4]`
    - **D3: Competitive Analysis** (due Mon, Mar 9 @ 11:59pm)
-   - Follow the scaffolded approach (~7 pages total):
-     1. **Competitor overview** (1 page) — 4 competitors with brief descriptions
-     2. **Strengths & weaknesses** (4 pages) — 1 page per competitor with screenshots
-     3. **Positioning matrix** (1 page) — 2x2 with labeled axes and your app's position
-     4. **Summary** (½ page) — Opportunity identified and how you'll differentiate
-     5. **AI usage** (½ page) — What AI helped with, what you did yourself
+   - Follow the scaffolded approach:
+     1. **Competitor overview** — 4 competitors with one-sentence descriptions + why you chose them
+     2. **Strengths & weaknesses** — Per competitor: 3-4 strengths, 3-4 weaknesses, key insight, 2-3 screenshots
+     3. **Positioning matrix** — 2x2 with labeled axes, all 4 plotted, annotation on why these axes, your app's position
+     4. **Summary** — 2 paragraphs: competitive landscape + your opportunity
+     5. **AI usage** — What tools you used, what AI helped with, what you did yourself
    - Emphasis: The axes should emerge from Steps 1-3, not be invented beforehand
    - Preview of what's next: D3 informs D4 (Brand Audit) — you'll visually analyze these same competitors
    - Reference: See d3_competitive_analysis.md for detailed guidance
@@ -172,7 +172,7 @@
 
 ### Homework
 - ⛳ D3: Competitive Analysis (due Mon, Mar 9 @ 11:59pm)
-  - Follow the scaffolded approach (~7 pages total)
+  - Follow the scaffolded approach
   - Competitor overview + strengths/weaknesses + positioning matrix + summary
   - Document AI usage throughout
   - Submit: PDF to Learning Suite
