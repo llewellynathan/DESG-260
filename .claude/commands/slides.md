@@ -64,17 +64,8 @@ Generate slides in this order:
 - List the main activities as a **bullet list** (not arrows)
 - This previews what the class will cover
 
-### 5. "Why This Matters" Slide
-- Title: **Why this matters**
-- Pull from the lesson plan's "Why This Matters" field
-- Frame as a direct answer to "Why should I care about this?"
-- Connect today's topic to real design work students will do
-- Keep it to 1-3 punchy statements — this is motivation, not a lecture
-- Use language like "Without this, you'll..." or "This lets you..." or "Professional designers use this to..."
-- Can include a concrete example or scenario that makes it tangible
-
-### 6. "By the end of today..." Slide
-- If a learning goals activity exists in the lesson plan, generate this slide
+### 5. "By the end of today..." Slide
+- Generate this slide to establish what students will learn before explaining why it matters
 - Use **named categories** — each learning goal gets a short bold label (2-3 words) and a plain-language description
 - Draw from the lesson's Desired Results, but write as things students will *do* or *make* — not academic language
 - Format each as: **Label** — Description
@@ -82,6 +73,16 @@ Generate slides in this order:
   - **AI Tools** — You'll know the current landscape of AI prototyping tools and what each is good (and bad) at
   - **Digital prototyping** — You'll start translating your paper prototype into an interactive digital prototype in Figma
   - **AI Policy** — You'll understand the B3/B4 AI policy: AI is welcome for B3, but B4 must be your own Figma work
+
+### 6. "Why This Matters" Slide
+- Title: **Why this matters**
+- This slide follows the outcomes slide so students know what "this" refers to
+- Pull from the lesson plan's "Why This Matters" field
+- Frame as a direct answer to "Why should I care about this?"
+- Connect today's topic to real design work students will do
+- Keep it to 1-3 punchy statements — this is motivation, not a lecture
+- Use language like "Without this, you'll..." or "This lets you..." or "Professional designers use this to..."
+- Can include a concrete example or scenario that makes it tangible
 
 ### 7. Activity Slides
 For each activity in the lesson plan (starting from Activity 2, since Warm-Up is Slide 1), create slides based on its content.
@@ -178,19 +179,19 @@ Use this exact markdown format with `---` as slide separators:
 
 ---
 
-### Slide 5: Why This Matters
-**Why this matters**
-[1-3 punchy statements connecting today's topic to real design work]
-[Frame as: "Without this..." or "This lets you..." or concrete scenario]
-
----
-
-### Slide 6: By the end of today...
+### Slide 5: By the end of today...
 **[Label 1]** — [Plain-language description]
 
 **[Label 2]** — [Plain-language description]
 
 **[Label 3]** — [Plain-language description]
+
+---
+
+### Slide 6: Why This Matters
+**Why this matters**
+[1-3 punchy statements connecting today's topic to real design work]
+[Now that students know what they'll learn, explain why it matters]
 
 ---
 

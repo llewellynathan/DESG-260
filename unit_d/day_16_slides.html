@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Day 16 — Unit D: Neue App (Capstone)</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #111;
+    --fg: #F0EDE6;
+    --fg-dim: #9A958C;
+    --amber: hsl(46, 90%, 53%);
+    --amber-bg: hsl(46, 40%, 8%);
+    --blue: hsl(210, 80%, 62%);
+    --blue-bg: hsl(210, 50%, 9%);
+    --violet: hsl(270, 60%, 65%);
+    --violet-bg: hsl(270, 40%, 9%);
+    --green: hsl(155, 60%, 50%);
+    --green-bg: hsl(155, 35%, 8%);
+    --red: hsl(0, 65%, 55%);
+    --pad: 80px;
+  }
+
+  html { font-size: 19.2px; }
+  body {
+    height: 100vh;
+    overflow: hidden;
+    background: var(--bg);
+    color: var(--fg);
+    font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── Deck ── */
+  .deck { position: relative; width: 100vw; height: 100vh; }
+
+  .slide {
+    position: absolute; inset: 0;
+    display: flex;
+    opacity: 0; pointer-events: none;
+    transform: translateX(40px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+  .slide.active {
+    opacity: 1; pointer-events: auto;
+    transform: translateX(0);
+  }
+  .slide.exit-left {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  .slide.exit-right {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+
+  /* ── Keyframes ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes scaleUp {
+    from { opacity: 0; transform: scale(0.92); }
+    to   { opacity: 1; transform: scale(1); }
+  }
+  @keyframes popIn {
+    0%   { opacity: 0; transform: scale(0); }
+    70%  { transform: scale(1.2); }
+    100% { opacity: 1; transform: scale(1); }
+  }
+  @keyframes growDown {
+    from { transform: scaleY(0); }
+    to   { transform: scaleY(1); }
+  }
+  @keyframes widen {
+    from { width: 0; }
+    to   { width: 100%; }
+  }
+
+  /* ── Staggered entrance: children of active slides ── */
+  .slide.active > h1, .slide.active > h2, .slide.active > h3,
+  .slide.active > p, .slide.active > div, .slide.active > ol, .slide.active > ul {
+    animation: fadeUp 0.5s ease both;
+  }
+  .slide.active > :nth-child(1) { animation-delay: 0.08s; }
+  .slide.active > :nth-child(2) { animation-delay: 0.18s; }
+  .slide.active > :nth-child(3) { animation-delay: 0.28s; }
+  .slide.active > :nth-child(4) { animation-delay: 0.38s; }
+  .slide.active > :nth-child(5) { animation-delay: 0.46s; }
+  .slide.active > :nth-child(6) { animation-delay: 0.52s; }
+
+  /* Billboard headings: scale entrance */
+  .billboard.active > h1 {
+    animation: scaleUp 0.6s ease both;
+    animation-delay: 0.1s;
+  }
+  .divider.active > h1 {
+    animation: scaleUp 0.6s ease both;
+    animation-delay: 0.1s;
+  }
+
+  /* Cards: stagger individually */
+  .slide.active .card {
+    animation: fadeUp 0.45s ease both;
+  }
+  .slide.active .card:nth-child(1) { animation-delay: 0.2s; }
+  .slide.active .card:nth-child(2) { animation-delay: 0.32s; }
+  .slide.active .card:nth-child(3) { animation-delay: 0.44s; }
+  .slide.active .card:nth-child(4) { animation-delay: 0.56s; }
+
+  /* Card top-border widen effect */
+  .card { border-top-color: transparent; position: relative; }
+  .card::after {
+    content: "";
+    position: absolute; top: -4px; left: 0; height: 4px;
+    width: 0;
+    background: var(--card-color, var(--fg-dim));
+    transition: none;
+  }
+  .slide.active .card::after {
+    animation: widen 0.4s ease both;
+  }
+  .slide.active .card:nth-child(1)::after { animation-delay: 0.35s; }
+  .slide.active .card:nth-child(2)::after { animation-delay: 0.47s; }
+  .slide.active .card:nth-child(3)::after { animation-delay: 0.59s; }
+  .slide.active .card:nth-child(4)::after { animation-delay: 0.71s; }
+
+  /* Timeline items: stagger with dot pop */
+  .slide.active .timeline-item {
+    animation: fadeUp 0.4s ease both;
+  }
+  .slide.active .timeline-item:nth-child(1)  { animation-delay: 0.15s; }
+  .slide.active .timeline-line:nth-child(2)   { animation: fadeUp 0.3s ease both; animation-delay: 0.3s; }
+  .slide.active .timeline-item:nth-child(3)  { animation-delay: 0.4s; }
+  .slide.active .timeline-line:nth-child(4)   { animation: fadeUp 0.3s ease both; animation-delay: 0.55s; }
+  .slide.active .timeline-item:nth-child(5)  { animation-delay: 0.65s; }
+  .slide.active .timeline-line:nth-child(6)   { animation: fadeUp 0.3s ease both; animation-delay: 0.8s; }
+  .slide.active .timeline-item:nth-child(7)  { animation-delay: 0.9s; }
+  .slide.active .timeline-line:nth-child(8)   { animation: fadeUp 0.3s ease both; animation-delay: 1.05s; }
+  .slide.active .timeline-item:nth-child(9)  { animation-delay: 1.15s; }
+
+  .slide.active .timeline-dot {
+    animation: popIn 0.4s ease both;
+  }
+  .slide.active .timeline-item:nth-child(1) .timeline-dot { animation-delay: 0.2s; }
+  .slide.active .timeline-item:nth-child(3) .timeline-dot { animation-delay: 0.45s; }
+  .slide.active .timeline-item:nth-child(5) .timeline-dot { animation-delay: 0.7s; }
+  .slide.active .timeline-item:nth-child(7) .timeline-dot { animation-delay: 0.95s; }
+  .slide.active .timeline-item:nth-child(9) .timeline-dot { animation-delay: 1.2s; }
+
+  /* Steps: stagger with circle pop */
+  .slide.active .steps li {
+    animation: fadeUp 0.4s ease both;
+  }
+  .slide.active .steps li:nth-child(1) { animation-delay: 0.2s; }
+  .slide.active .steps li:nth-child(2) { animation-delay: 0.35s; }
+  .slide.active .steps li:nth-child(3) { animation-delay: 0.5s; }
+  .slide.active .steps li:nth-child(4) { animation-delay: 0.65s; }
+  .slide.active .steps li:nth-child(5) { animation-delay: 0.8s; }
+
+  /* Numbered list stagger */
+  .slide.active .numbered li {
+    animation: fadeUp 0.4s ease both;
+  }
+  .slide.active .numbered li:nth-child(1) { animation-delay: 0.2s; }
+  .slide.active .numbered li:nth-child(2) { animation-delay: 0.32s; }
+  .slide.active .numbered li:nth-child(3) { animation-delay: 0.44s; }
+  .slide.active .numbered li:nth-child(4) { animation-delay: 0.56s; }
+
+  /* Policy pair stagger */
+  .slide.active .policy:nth-child(1) { animation: fadeUp 0.45s ease both; animation-delay: 0.2s; }
+  .slide.active .policy:nth-child(2) { animation: fadeUp 0.45s ease both; animation-delay: 0.38s; }
+
+  /* Section bar: grow from top */
+  .slide.active::before {
+    transform-origin: top;
+    animation: growDown 0.4s ease both;
+    animation-delay: 0s;
+  }
+
+  /* Resource list stagger */
+  .slide.active .resource-list li {
+    animation: fadeUp 0.35s ease both;
+  }
+  .slide.active .resource-list li:nth-child(1) { animation-delay: 0.12s; }
+  .slide.active .resource-list li:nth-child(2) { animation-delay: 0.2s; }
+  .slide.active .resource-list li:nth-child(3) { animation-delay: 0.28s; }
+  .slide.active .resource-list li:nth-child(4) { animation-delay: 0.36s; }
+  .slide.active .resource-list li:nth-child(5) { animation-delay: 0.44s; }
+
+  /* ── Section bar (left edge color indicator) ── */
+  .slide::before {
+    content: "";
+    position: absolute; left: 0; top: 0; bottom: 0;
+    width: 6px;
+    background: var(--section-color, transparent);
+  }
+
+  /* ── Layout: Billboard (centered single statement) ── */
+  .billboard {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: var(--pad);
+  }
+  .billboard h1 {
+    font-size: 4rem;
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    max-width: 900px;
+  }
+  .billboard .sub {
+    font-size: 1.6rem;
+    color: var(--fg-dim);
+    margin-top: 24px;
+    max-width: 650px;
+    line-height: 1.5;
+  }
+
+  /* ── Layout: Section Divider (color wash) ── */
+  .divider {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: var(--pad);
+    background: var(--section-bg, var(--bg));
+  }
+  .divider::before { display: none; }
+  .divider h1 {
+    font-size: 4.2rem;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+  }
+  .divider .sub {
+    font-size: 1.6rem;
+    color: var(--fg-dim);
+    margin-top: 20px;
+    font-weight: 400;
+  }
+
+  /* ── Layout: Content (left-aligned, vertically centered) ── */
+  .content {
+    flex-direction: column;
+    justify-content: center;
+    padding: var(--pad);
+    padding-left: calc(var(--pad) + 20px);
+    gap: 28px;
+  }
+  .content h2 {
+    font-size: 2.6rem;
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+  }
+
+  /* ── Layout: Split (left label + right content) ── */
+  .split {
+    align-items: center;
+    padding: var(--pad);
+    padding-left: calc(var(--pad) + 20px);
+    gap: 60px;
+  }
+  .split .left {
+    flex: 0 0 35%;
+  }
+  .split .left h1 {
+    font-size: 3.2rem;
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+  }
+  .split .right {
+    flex: 1;
+  }
+
+  /* ── Layout: Top-aligned (cards, grids) ── */
+  .top {
+    flex-direction: column;
+    padding: var(--pad);
+    padding-left: calc(var(--pad) + 20px);
+    padding-top: 60px;
+    gap: 20px;
+  }
+  .top h2 {
+    font-size: 2.4rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+
+  /* ── Typography ── */
+  p, li { font-size: 1.5rem; line-height: 1.55; }
+
+  .big-text {
+    font-size: 2.2rem;
+    font-weight: 600;
+    line-height: 1.35;
+  }
+
+  .callout {
+    font-size: 1.5rem;
+    font-weight: 600;
+    line-height: 1.45;
+  }
+
+  .small { font-size: 1.25rem; color: var(--fg-dim); }
+
+  /* ── Cards ── */
+  .card-row {
+    display: grid;
+    gap: 28px;
+    margin-top: 16px;
+  }
+  .card-row.c3 { grid-template-columns: repeat(3, 1fr); }
+  .card-row.c4 { grid-template-columns: repeat(4, 1fr); }
+  .card-row.c2 { grid-template-columns: repeat(2, 1fr); }
+
+  .card {
+    border-top: 4px solid var(--card-color, var(--fg-dim));
+    padding: 24px 0 0;
+  }
+  .card h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--card-color, var(--fg));
+    margin-bottom: 10px;
+  }
+  .card p {
+    font-size: 1.25rem;
+    color: var(--fg-dim);
+    line-height: 1.5;
+  }
+
+  /* ── Timeline (vertical flow for "Today") ── */
+  .timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-top: 20px;
+  }
+  .timeline-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 16px 0;
+  }
+  .timeline-dot {
+    width: 16px; height: 16px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    background: var(--dot-color, var(--fg-dim));
+  }
+  .timeline-line {
+    width: 2px;
+    height: 20px;
+    margin-left: 7px;
+    background: #333;
+  }
+  .timeline-label {
+    font-size: 1.6rem;
+    font-weight: 500;
+  }
+
+  /* ── Steps (exercise tracker) ── */
+  .steps {
+    counter-reset: step;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .steps li {
+    counter-increment: step;
+    display: flex;
+    gap: 16px;
+    align-items: baseline;
+  }
+  .steps li::before {
+    content: counter(step);
+    flex-shrink: 0;
+    width: 36px; height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: var(--section-color, var(--blue));
+    color: #111;
+    font-weight: 700;
+    font-size: 1.1rem;
+  }
+  .steps li span {
+    font-size: 1.4rem;
+    line-height: 1.45;
+  }
+  .steps .sub-options {
+    display: block;
+    font-size: 1.2rem;
+    color: var(--fg-dim);
+    margin-top: 6px;
+    padding-left: 0;
+  }
+
+  /* ── Numbered points (non-exercise) ── */
+  .numbered {
+    counter-reset: num;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .numbered li {
+    counter-increment: num;
+    font-size: 1.5rem;
+    line-height: 1.5;
+    padding-left: 40px;
+    position: relative;
+  }
+  .numbered li::before {
+    content: counter(num) ".";
+    position: absolute;
+    left: 0;
+    font-weight: 700;
+    color: var(--section-color, var(--blue));
+  }
+
+  /* ── Policy blocks ── */
+  .policy-pair {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    margin-top: 16px;
+  }
+  .policy h3 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+  .policy p {
+    font-size: 1.35rem;
+    color: var(--fg-dim);
+    line-height: 1.5;
+  }
+
+  /* ── Links ── */
+  a { color: var(--blue); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  .resource-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 12px;
+  }
+  .resource-list li { font-size: 1.35rem; }
+  .resource-list .label { font-weight: 600; color: var(--fg); }
+
+  /* ── Counter ── */
+  .counter {
+    position: fixed;
+    bottom: 20px; right: 28px;
+    font-size: 0.85rem;
+    color: #444;
+    font-variant-numeric: tabular-nums;
+    z-index: 100;
+  }
+
+  /* ── Utility ── */
+  .mt { margin-top: 20px; }
+  .mt-lg { margin-top: 36px; }
+  .accent { color: var(--amber); }
+  .accent-blue { color: var(--blue); }
+  .accent-violet { color: var(--violet); }
+  .accent-green { color: var(--green); }
+
+  /* ── Responsive ── */
+  @media (max-width: 1200px) {
+    :root { --pad: 48px; }
+    .billboard h1 { font-size: 3rem; }
+    .divider h1 { font-size: 3.2rem; }
+    .card-row.c4 { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
+</head>
+<body>
+
+<div class="deck">
+
+  <!-- ═══ 1. WARM-UP (amber section) ═══ -->
+  <section class="slide content active" style="--section-color: var(--amber); background: var(--amber-bg);">
+    <h2 style="font-size: 3.2rem;">Interview Debrief Pairs</h2>
+    <p class="big-text mt" style="color: var(--fg-dim);">Find a partner (not someone in your problem space)</p>
+    <ol class="steps mt" style="--section-color: var(--amber);">
+      <li><span>Take turns sharing (3 min each):<span class="sub-options">"The most surprising thing I heard was..."<br>"The thing that challenged my assumptions was..."<br>"The thing that confirmed my hypothesis was..."</span></span></li>
+      <li><span>Partner asks: "Based on what you heard, which of your 3 ideas has the strongest signal?"</span></li>
+      <li><span>Switch and repeat</span></li>
+    </ol>
+  </section>
+
+  <!-- ═══ 2. PRAYER (amber section) ═══ -->
+  <section class="slide billboard" style="--section-color: var(--amber);">
+    <h1>Prayer</h1>
+    <p class="sub">Lucy, will you pray for us today?</p>
+  </section>
+
+  <!-- ═══ 3. TITLE ═══ -->
+  <section class="slide billboard">
+    <h1 style="font-size: 4.8rem;">Unit D: Neue App</h1>
+    <p class="sub" style="font-size: 1.8rem; max-width: 700px;">Your data tells a story — today you learn to read it and commit</p>
+  </section>
+
+  <!-- ═══ 4. TODAY (timeline) ═══ -->
+  <section class="slide content" style="padding-left: 160px;">
+    <h2>Today</h2>
+    <div class="timeline">
+      <div class="timeline-item"><div class="timeline-dot" style="background: var(--amber);"></div><span class="timeline-label">Interview Debrief</span></div>
+      <div class="timeline-line"></div>
+      <div class="timeline-item"><div class="timeline-dot" style="background: var(--blue);"></div><span class="timeline-label">Synthesis: Reading Your Data</span></div>
+      <div class="timeline-line"></div>
+      <div class="timeline-item"><div class="timeline-dot" style="background: var(--violet);"></div><span class="timeline-label">Decision: Commit to a Direction</span></div>
+      <div class="timeline-line"></div>
+      <div class="timeline-item"><div class="timeline-dot" style="background: var(--green);"></div><span class="timeline-label">Competitive Analysis</span></div>
+      <div class="timeline-line"></div>
+      <div class="timeline-item"><div class="timeline-dot" style="background: var(--fg-dim);"></div><span class="timeline-label">Work Session — Begin D3</span></div>
+    </div>
+  </section>
+
+  <!-- ═══ 5. BY THE END OF TODAY ═══ -->
+  <section class="slide top">
+    <h2>By the end of today...</h2>
+    <div class="card-row c4 mt">
+      <div class="card" style="--card-color: var(--blue);">
+        <h3>Synthesis</h3>
+        <p>You'll know how to extract patterns from interview data and identify strong vs. weak signals</p>
+      </div>
+      <div class="card" style="--card-color: var(--violet);">
+        <h3>Commitment</h3>
+        <p>You'll have decided which app direction to pursue, backed by evidence from your interviews</p>
+      </div>
+      <div class="card" style="--card-color: var(--green);">
+        <h3>Landscape</h3>
+        <p>You'll understand who else is solving your problem and how to differentiate</p>
+      </div>
+      <div class="card" style="--card-color: var(--fg-dim);">
+        <h3>D3 Started</h3>
+        <p>You'll have identified competitors and begun your competitive analysis</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 6. WHY THIS MATTERS (amber) ═══ -->
+  <section class="slide content" style="--section-color: var(--amber); background: var(--amber-bg);">
+    <h2 style="color: var(--amber);">Why this matters</h2>
+    <p class="big-text">You've talked to real people. Some confirmed your assumptions; some didn't.</p>
+    <p class="big-text">Skipping synthesis is how designers build products that are slightly worse versions of things that already exist.</p>
+    <p class="callout accent mt">Today you'll interpret those signals, make a confident decision, and understand who else is solving this problem.</p>
+  </section>
+
+  <!-- ═══ 7. SECTION DIVIDER: Synthesis ═══ -->
+  <section class="slide divider" style="--section-bg: var(--blue-bg);">
+    <h1 style="color: var(--blue);">Synthesizing Your Interviews</h1>
+    <p class="sub">From quotes to patterns</p>
+  </section>
+
+  <!-- ═══ 8. SYNTHESIS FRAMEWORK ═══ -->
+  <section class="slide content" style="--section-color: var(--blue);">
+    <h2>Look for patterns, not quotes</h2>
+    <ol class="numbered mt">
+      <li><strong>Frequency:</strong> How many people mentioned it?</li>
+      <li><strong>Intensity:</strong> How much did it bother them?</li>
+      <li><strong>Behavior vs. opinion:</strong> What people <em>do</em> matters more than what they <em>say</em> they'd do.</li>
+    </ol>
+    <div class="policy-pair mt-lg">
+      <div class="policy">
+        <h3 style="color: var(--red);">Weak signal</h3>
+        <p>"I would totally use that!"</p>
+        <p style="font-size: 1.15rem; margin-top: 8px;">Hypothetical. They're being nice.</p>
+      </div>
+      <div class="policy">
+        <h3 style="color: var(--green);">Strong signal</h3>
+        <p>"I spent 2 hours last week trying to solve this."</p>
+        <p style="font-size: 1.15rem; margin-top: 8px;">Real pain. Actual behavior.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 9. EXAMPLE SYNTHESIS ═══ -->
+  <section class="slide content" style="--section-color: var(--blue);">
+    <h2>From notes to insights</h2>
+    <ol class="numbered mt">
+      <li>Review all your interview notes together</li>
+      <li>Extract 3-4 key insights (patterns across multiple interviews)</li>
+      <li>Identify which hypothesis has the strongest signal</li>
+    </ol>
+    <p class="callout accent-blue mt-lg">Which quotes describe actual behavior? Which are just opinions?</p>
+  </section>
+
+  <!-- ═══ 10. WE DO: SYNTHESIS EXERCISE ═══ -->
+  <section class="slide content" style="--section-color: var(--blue);">
+    <h2>Strong or weak signal?</h2>
+    <p class="small">Let's evaluate some interview quotes together.</p>
+    <ol class="steps mt" style="--section-color: var(--blue);">
+      <li><span>Read each interview quote</span></li>
+      <li><span>Identify: Is this a strong or weak signal? Why?</span></li>
+      <li><span>What pattern would you look for across multiple interviews?</span></li>
+    </ol>
+    <p class="callout accent mt-lg">Let's try a few together...</p>
+  </section>
+
+  <!-- ═══ 11. SECTION DIVIDER: Decision ═══ -->
+  <section class="slide divider" style="--section-bg: var(--violet-bg);">
+    <h1 style="color: var(--violet);">Committing to a Direction</h1>
+    <p class="sub">Evidence, not enthusiasm</p>
+  </section>
+
+  <!-- ═══ 12. DECISION CRITERIA ═══ -->
+  <section class="slide content" style="--section-color: var(--violet);">
+    <h2>How to choose your direction</h2>
+    <ol class="numbered mt">
+      <li><strong>Frequency:</strong> Did multiple people describe this problem?</li>
+      <li><strong>Intensity:</strong> How much does it actually bother them?</li>
+      <li><strong>Current solutions:</strong> Are they already trying to solve it? (Good sign — proves the need)</li>
+      <li><strong>Willingness to act:</strong> Have they spent time/money/effort?</li>
+    </ol>
+    <p class="callout accent mt-lg">The goal is NOT to find a problem nobody has — it's to find a problem people actually care about solving.</p>
+  </section>
+
+  <!-- ═══ 13. COMMIT TODAY ═══ -->
+  <section class="slide billboard" style="--section-color: var(--violet);">
+    <p class="small" style="font-size: 1.4rem; margin-bottom: 24px;">By the end of class today:</p>
+    <h1 style="max-width: 1000px; font-size: 3.4rem;">Write a one-sentence commitment to your app direction.</h1>
+    <p class="callout mt-lg" style="font-size: 1.5rem; color: var(--fg-dim);">This doesn't mean your idea is locked forever — but you need a direction to research.</p>
+    <p class="callout accent-violet mt" style="font-size: 1.6rem;">Share your commitment with a neighbor. Saying it out loud makes it real.</p>
+  </section>
+
+  <!-- ═══ 14. SECTION DIVIDER: Competitive Analysis ═══ -->
+  <section class="slide divider" style="--section-bg: var(--green-bg);">
+    <h1 style="color: var(--green);">Competitive Analysis</h1>
+    <p class="sub">Understanding the landscape before you design</p>
+  </section>
+
+  <!-- ═══ 15. WHY COMPETITORS MATTER ═══ -->
+  <section class="slide billboard" style="--section-color: var(--green);">
+    <p class="small" style="font-size: 1.4rem; margin-bottom: 24px;">If your idea is truly novel...</p>
+    <h1 style="max-width: 900px; font-size: 3.4rem;">That's often a warning sign.</h1>
+    <p class="callout mt-lg" style="font-size: 1.5rem; color: var(--fg-dim);">Maybe nobody needs it.</p>
+    <p class="callout accent-green mt" style="font-size: 1.6rem;">Good ideas exist in a space with competitors — your job is to understand them and differentiate.</p>
+  </section>
+
+  <!-- ═══ 16. COMPONENTS OF COMPETITIVE ANALYSIS ═══ -->
+  <section class="slide content" style="--section-color: var(--green);">
+    <h2>What D3 requires</h2>
+    <ol class="numbered mt">
+      <li><strong>4 competitors</strong> — any mix of digital/physical products</li>
+      <li><strong>Positioning matrix</strong> — 2x2 chart with differentiating dimensions<span class="sub-options" style="display: block; margin-top: 6px; margin-left: 40px; color: var(--fg-dim);">Example axes: Simple ↔ Complex, Social ↔ Individual</span></li>
+      <li><strong>2-paragraph summary</strong> — who's in the space and what they're doing</li>
+    </ol>
+    <p class="callout accent-green mt-lg">Plot competitors on the matrix and identify whitespace — that's your opportunity.</p>
+  </section>
+
+  <!-- ═══ 17. AI FOR COMPETITIVE RESEARCH ═══ -->
+  <section class="slide content" style="--section-color: var(--green);">
+    <h2>AI for Competitive Research</h2>
+    <div class="policy-pair mt">
+      <div class="policy">
+        <h3 style="color: var(--green);">AI can help</h3>
+        <p>Summarize app store reviews</p>
+        <p>Identify competitors you missed</p>
+        <p>Analyze feature sets</p>
+      </div>
+      <div class="policy">
+        <h3 style="color: var(--red);">AI limitations</h3>
+        <p>Doesn't know what users actually experience</p>
+        <p>You must download and use the apps yourself</p>
+        <p>Can hallucinate features or competitors</p>
+      </div>
+    </div>
+    <p class="callout accent mt-lg">AI supplements hands-on research. Never replaces it.</p>
+  </section>
+
+  <!-- ═══ 18. WE DO: POSITIONING EXERCISE ═══ -->
+  <section class="slide content" style="--section-color: var(--green);">
+    <h2>Let's build a positioning matrix together</h2>
+    <ol class="steps mt" style="--section-color: var(--green);">
+      <li><span>Pick a problem space (e.g., fitness tracking)</span></li>
+      <li><span>Name 4 competitors</span></li>
+      <li><span>Identify 2 differentiating axes</span></li>
+      <li><span>Plot them on a 2x2 matrix</span></li>
+      <li><span>Where's the whitespace?</span></li>
+    </ol>
+    <p class="callout accent-green mt-lg">What competitors come to mind? What makes them different from each other?</p>
+  </section>
+
+  <!-- ═══ 19. D3 REQUIREMENTS ═══ -->
+  <section class="slide content" style="--section-color: var(--green);">
+    <h2>D3: Competitive Analysis</h2>
+    <p class="small">Due Mon, Mar 9 @ 11:59pm</p>
+    <ol class="numbered mt">
+      <li>Analysis of <strong>4 competing products</strong> (digital or physical)</li>
+      <li><strong>Competitive positioning matrix</strong> (2x2 quadrant chart)</li>
+      <li><strong>2-paragraph summary</strong> of who's in the space</li>
+      <li>Validate with evidence of market share or usage</li>
+    </ol>
+    <div class="mt-lg">
+      <p class="callout" style="color: var(--fg-dim);">Tips:</p>
+      <p style="color: var(--fg-dim); font-size: 1.3rem; margin-top: 8px;">Actually download and use the apps &nbsp;&middot;&nbsp; Check app store reviews for unsolved pain points &nbsp;&middot;&nbsp; Your matrix should reveal where YOUR app will sit</p>
+    </div>
+  </section>
+
+  <!-- ═══ 20. NEXT UP (work session) ═══ -->
+  <section class="slide top" style="--section-color: var(--fg-dim); background: linear-gradient(135deg, #161616 0%, #111 100%);">
+    <h2>Next up</h2>
+    <div class="mt" style="display: flex; flex-direction: column; gap: 24px;">
+      <div>
+        <p><strong>Work session</strong> (110 min)</p>
+        <ul class="resource-list" style="margin-top: 12px;">
+          <li><span class="label">First 20 min:</span> Final synthesis — write 3-4 insights, then commit to your direction</li>
+          <li><span class="label">Next 30 min:</span> Identify competitors — search app stores, Product Hunt, download 2+ apps</li>
+          <li><span class="label">Remaining 60 min:</span> Begin D3 — draft summary, sketch positioning matrix</li>
+        </ul>
+      </div>
+      <div>
+        <p><strong>D3: Competitive Analysis</strong> — due Mon, Mar 9 @ 11:59pm</p>
+        <p style="color: var(--fg-dim); font-size: 1.3rem; margin-top: 8px;">4 competitors analyzed &nbsp;&middot;&nbsp; Positioning matrix &nbsp;&middot;&nbsp; 2-paragraph summary &nbsp;&middot;&nbsp; Submit PDF to Learning Suite</p>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<div class="counter"><span id="cur">1</span> / <span id="tot"></span></div>
+
+<script>
+  const slides = document.querySelectorAll('.slide');
+  const total = slides.length;
+  let current = 0;
+  document.getElementById('tot').textContent = total;
+
+  function goTo(n) {
+    if (n < 0 || n >= total) return;
+    slides[current].classList.remove('active');
+    current = n;
+    slides[current].classList.add('active');
+    document.getElementById('cur').textContent = current + 1;
+  }
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown' || e.key === ' ') { e.preventDefault(); goTo(current + 1); }
+    else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') { e.preventDefault(); goTo(current - 1); }
+    else if (e.key === 'Home') { e.preventDefault(); goTo(0); }
+    else if (e.key === 'End') { e.preventDefault(); goTo(total - 1); }
+  });
+
+  document.addEventListener('click', e => {
+    if (e.target.closest('a')) return;
+    e.clientX / window.innerWidth < 0.33 ? goTo(current - 1) : goTo(current + 1);
+  });
+</script>
+
+</body>
+</html>

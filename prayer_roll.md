@@ -13,7 +13,7 @@ Once everyone has prayed, the cycle resets.
 | Takumi H. | 1/28 |
 | Peter H. | 2/2 |
 | Carol K. | 2/25 |
-| Lucy L. | |
+| Lucy L. | 3/4 |
 | Mira P. | 2/17 |
 | Cherie P. | 2/11 |
 | Brayden S. | 2/25 |

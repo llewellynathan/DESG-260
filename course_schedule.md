@@ -453,6 +453,8 @@ Today's Focus: Validation reveals truth — now commit to a direction.
 **Resources:**
 - Competitive analysis templates
 
+→ [Lesson Plan](unit_d/day_16.md)
+
 ---
 
 ### Day 17 — Monday, Mar 9
