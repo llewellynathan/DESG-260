@@ -164,7 +164,27 @@ You're not copying. You're learning from what exists.
 
 ---
 
-### Slide 18: Positioning Exercise
+### Slide 18: Choosing Axes
+**How to choose your axes**
+The axes make or break your matrix. Bad axes = useless exercise.
+
+**Good axes:**
+- Represent trade-offs users care about
+- Differentiate competitors (they spread out)
+- Come from your interview findings
+- Examples: Simple ↔ Feature-rich, Social ↔ Individual, Guided ↔ Self-directed
+
+**Bad axes:**
+- Binary features (has X / doesn't have X)
+- Everyone clusters in one quadrant
+- Users don't actually care about this dimension
+- Examples: Has dark mode ↔ No dark mode, Good ↔ Bad, Simple ↔ Easy (same thing)
+
+> Test: Would your interviewees describe this as a meaningful trade-off?
+
+---
+
+### Slide 19: Positioning Exercise
 **Let's build a positioning matrix together**
 1. Pick a problem space (e.g., fitness tracking)
 2. Name 4 competitors
@@ -176,7 +196,7 @@ You're not copying. You're learning from what exists.
 
 ---
 
-### Slide 19: D3 Requirements
+### Slide 20: D3 Requirements
 **D3: Competitive Analysis** (due Mon, Mar 9 @ 11:59pm)
 - Analysis of **4 competing products** (digital or physical)
 - **Competitive positioning matrix** (2x2 quadrant chart)
@@ -190,7 +210,7 @@ You're not copying. You're learning from what exists.
 
 ---
 
-### Slide 20: Next Up
+### Slide 21: Next Up
 **Next up**
 Work session (110 min):
 - **First 20 min:** Final synthesis — write 3-4 insights, then confirm or adjust your direction
