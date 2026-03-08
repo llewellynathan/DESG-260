@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Day 17 — Unit D: Neue App (Capstone)</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #111;
+    --fg: #F0EDE6;
+    --fg-dim: #9A958C;
+    --amber: hsl(46, 90%, 53%);
+    --amber-bg: hsl(46, 40%, 8%);
+    --blue: hsl(210, 80%, 62%);
+    --blue-bg: hsl(210, 50%, 9%);
+    --violet: hsl(270, 60%, 65%);
+    --violet-bg: hsl(270, 40%, 9%);
+    --green: hsl(155, 60%, 50%);
+    --green-bg: hsl(155, 35%, 8%);
+    --red: hsl(0, 65%, 55%);
+    --cyan: hsl(185, 70%, 50%);
+    --cyan-bg: hsl(185, 40%, 8%);
+    --pad: 80px;
+  }
+
+  html { font-size: 19.2px; }
+  body {
+    height: 100vh;
+    overflow: hidden;
+    background: var(--bg);
+    color: var(--fg);
+    font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── Deck ── */
+  .deck { position: relative; width: 100vw; height: 100vh; }
+
+  .slide {
+    position: absolute; inset: 0;
+    display: flex;
+    opacity: 0; pointer-events: none;
+    transform: translateX(40px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+  .slide.active {
+    opacity: 1; pointer-events: auto;
+    transform: translateX(0);
+  }
+
+  /* ── Keyframes ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes scaleUp {
+    from { opacity: 0; transform: scale(0.92); }
+    to   { opacity: 1; transform: scale(1); }
+  }
+  @keyframes popIn {
+    0%   { opacity: 0; transform: scale(0); }
+    70%  { transform: scale(1.2); }
+    100% { opacity: 1; transform: scale(1); }
+  }
+  @keyframes widen {
+    from { width: 0; }
+    to   { width: 100%; }
+  }
+  @keyframes growDown {
+    from { transform: scaleY(0); }
+    to   { transform: scaleY(1); }
+  }
+
+  /* ── Staggered entrance ── */
+  .slide.active > h1, .slide.active > h2, .slide.active > h3,
+  .slide.active > p, .slide.active > div, .slide.active > ol, .slide.active > ul,
+  .slide.active > table {
+    animation: fadeUp 0.5s ease both;
+  }
+  .slide.active > :nth-child(1) { animation-delay: 0.08s; }
+  .slide.active > :nth-child(2) { animation-delay: 0.18s; }
+  .slide.active > :nth-child(3) { animation-delay: 0.28s; }
+  .slide.active > :nth-child(4) { animation-delay: 0.38s; }
+  .slide.active > :nth-child(5) { animation-delay: 0.46s; }
+  .slide.active > :nth-child(6) { animation-delay: 0.52s; }
+
+  .billboard.active > h1, .divider.active > h1 {
+    animation: scaleUp 0.6s ease both;
+    animation-delay: 0.1s;
+  }
+
+  .slide.active .card { animation: fadeUp 0.45s ease both; }
+  .slide.active .card:nth-child(1) { animation-delay: 0.2s; }
+  .slide.active .card:nth-child(2) { animation-delay: 0.32s; }
+  .slide.active .card:nth-child(3) { animation-delay: 0.44s; }
+  .slide.active .card:nth-child(4) { animation-delay: 0.56s; }
+
+  .card { border-top-color: transparent; position: relative; }
+  .card::after {
+    content: "";
+    position: absolute; top: -4px; left: 0; height: 4px;
+    width: 0;
+    background: var(--card-color, var(--fg-dim));
+  }
+  .slide.active .card::after { animation: widen 0.4s ease both; }
+  .slide.active .card:nth-child(1)::after { animation-delay: 0.35s; }
+  .slide.active .card:nth-child(2)::after { animation-delay: 0.47s; }
+  .slide.active .card:nth-child(3)::after { animation-delay: 0.59s; }
+  .slide.active .card:nth-child(4)::after { animation-delay: 0.71s; }
+
+  .slide.active .timeline-item { animation: fadeUp 0.4s ease both; }
+  .slide.active .timeline-item:nth-child(1)  { animation-delay: 0.15s; }
+  .slide.active .timeline-line:nth-child(2)  { animation: fadeUp 0.3s ease both; animation-delay: 0.3s; }
+  .slide.active .timeline-item:nth-child(3)  { animation-delay: 0.4s; }
+  .slide.active .timeline-line:nth-child(4)  { animation: fadeUp 0.3s ease both; animation-delay: 0.55s; }
+  .slide.active .timeline-item:nth-child(5)  { animation-delay: 0.65s; }
+  .slide.active .timeline-line:nth-child(6)  { animation: fadeUp 0.3s ease both; animation-delay: 0.8s; }
+  .slide.active .timeline-item:nth-child(7)  { animation-delay: 0.9s; }
+  .slide.active .timeline-line:nth-child(8)  { animation: fadeUp 0.3s ease both; animation-delay: 1.05s; }
+  .slide.active .timeline-item:nth-child(9)  { animation-delay: 1.15s; }
+
+  .slide.active .timeline-dot { animation: popIn 0.4s ease both; }
+  .slide.active .timeline-item:nth-child(1) .timeline-dot { animation-delay: 0.2s; }
+  .slide.active .timeline-item:nth-child(3) .timeline-dot { animation-delay: 0.45s; }
+  .slide.active .timeline-item:nth-child(5) .timeline-dot { animation-delay: 0.7s; }
+  .slide.active .timeline-item:nth-child(7) .timeline-dot { animation-delay: 0.95s; }
+  .slide.active .timeline-item:nth-child(9) .timeline-dot { animation-delay: 1.2s; }
+
+  .slide.active .steps li { animation: fadeUp 0.4s ease both; }
+  .slide.active .steps li:nth-child(1) { animation-delay: 0.2s; }
+  .slide.active .steps li:nth-child(2) { animation-delay: 0.35s; }
+  .slide.active .steps li:nth-child(3) { animation-delay: 0.5s; }
+  .slide.active .steps li:nth-child(4) { animation-delay: 0.65s; }
+  .slide.active .steps li:nth-child(5) { animation-delay: 0.8s; }
+
+  .slide.active .numbered li { animation: fadeUp 0.4s ease both; }
+  .slide.active .numbered li:nth-child(1) { animation-delay: 0.2s; }
+  .slide.active .numbered li:nth-child(2) { animation-delay: 0.32s; }
+  .slide.active .numbered li:nth-child(3) { animation-delay: 0.44s; }
+  .slide.active .numbered li:nth-child(4) { animation-delay: 0.56s; }
+
+  .slide.active .policy:nth-child(1) { animation: fadeUp 0.45s ease both; animation-delay: 0.2s; }
+  .slide.active .policy:nth-child(2) { animation: fadeUp 0.45s ease both; animation-delay: 0.38s; }
+
+  .slide.active::before {
+    transform-origin: top;
+    animation: growDown 0.4s ease both;
+    animation-delay: 0s;
+  }
+
+  .slide.active .resource-list li { animation: fadeUp 0.35s ease both; }
+  .slide.active .resource-list li:nth-child(1) { animation-delay: 0.12s; }
+  .slide.active .resource-list li:nth-child(2) { animation-delay: 0.2s; }
+  .slide.active .resource-list li:nth-child(3) { animation-delay: 0.28s; }
+  .slide.active .resource-list li:nth-child(4) { animation-delay: 0.36s; }
+  .slide.active .resource-list li:nth-child(5) { animation-delay: 0.44s; }
+
+  /* ── Section bar ── */
+  .slide::before {
+    content: "";
+    position: absolute; left: 0; top: 0; bottom: 0;
+    width: 6px;
+    background: var(--section-color, transparent);
+  }
+
+  /* ── Layout: Billboard ── */
+  .billboard {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: var(--pad);
+  }
+  .billboard h1 {
+    font-size: 4rem;
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    max-width: 900px;
+  }
+  .billboard .sub {
+    font-size: 1.6rem;
+    color: var(--fg-dim);
+    margin-top: 24px;
+    max-width: 650px;
+    line-height: 1.5;
+  }
+
+  /* ── Layout: Divider ── */
+  .divider {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: var(--pad);
+    background: var(--section-bg, var(--bg));
+  }
+  .divider::before { display: none; }
+  .divider h1 {
+    font-size: 4.2rem;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+  }
+  .divider .sub {
+    font-size: 1.6rem;
+    color: var(--fg-dim);
+    margin-top: 20px;
+    font-weight: 400;
+  }
+
+  /* ── Layout: Content ── */
+  .content {
+    flex-direction: column;
+    justify-content: center;
+    padding: var(--pad);
+    padding-left: calc(var(--pad) + 20px);
+    gap: 28px;
+  }
+  .content h2 {
+    font-size: 2.6rem;
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+  }
+
+  /* ── Layout: Top ── */
+  .top {
+    flex-direction: column;
+    padding: var(--pad);
+    padding-left: calc(var(--pad) + 20px);
+    padding-top: 60px;
+    gap: 20px;
+  }
+  .top h2 {
+    font-size: 2.4rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+
+  /* ── Typography ── */
+  p, li { font-size: 1.5rem; line-height: 1.55; }
+  .big-text { font-size: 2.2rem; font-weight: 600; line-height: 1.35; }
+  .callout { font-size: 1.5rem; font-weight: 600; line-height: 1.45; }
+  .small { font-size: 1.25rem; color: var(--fg-dim); }
+
+  /* ── Cards ── */
+  .card-row { display: grid; gap: 28px; margin-top: 16px; }
+  .card-row.c2 { grid-template-columns: repeat(2, 1fr); }
+  .card-row.c3 { grid-template-columns: repeat(3, 1fr); }
+  .card-row.c4 { grid-template-columns: repeat(4, 1fr); }
+
+  .card {
+    border-top: 4px solid var(--card-color, var(--fg-dim));
+    padding: 24px 0 0;
+  }
+  .card h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--card-color, var(--fg));
+    margin-bottom: 10px;
+  }
+  .card p {
+    font-size: 1.25rem;
+    color: var(--fg-dim);
+    line-height: 1.5;
+  }
+
+  /* ── Timeline ── */
+  .timeline { display: flex; flex-direction: column; gap: 0; margin-top: 20px; }
+  .timeline-item { display: flex; align-items: center; gap: 20px; padding: 16px 0; }
+  .timeline-dot { width: 16px; height: 16px; border-radius: 50%; flex-shrink: 0; background: var(--dot-color, var(--fg-dim)); }
+  .timeline-line { width: 2px; height: 20px; margin-left: 7px; background: #333; }
+  .timeline-label { font-size: 1.6rem; font-weight: 500; }
+
+  /* ── Steps ── */
+  .steps { counter-reset: step; list-style: none; display: flex; flex-direction: column; gap: 16px; }
+  .steps li { counter-increment: step; display: flex; gap: 16px; align-items: baseline; }
+  .steps li::before {
+    content: counter(step);
+    flex-shrink: 0; width: 36px; height: 36px;
+    display: flex; align-items: center; justify-content: center;
+    border-radius: 50%;
+    background: var(--section-color, var(--blue));
+    color: #111; font-weight: 700; font-size: 1.1rem;
+  }
+  .steps li span { font-size: 1.4rem; line-height: 1.45; }
+  .steps .sub-options { display: block; font-size: 1.2rem; color: var(--fg-dim); margin-top: 6px; }
+
+  /* ── Numbered ── */
+  .numbered { counter-reset: num; list-style: none; display: flex; flex-direction: column; gap: 14px; }
+  .numbered li { counter-increment: num; font-size: 1.5rem; line-height: 1.5; padding-left: 40px; position: relative; }
+  .numbered li::before { content: counter(num) "."; position: absolute; left: 0; font-weight: 700; color: var(--section-color, var(--blue)); }
+
+  /* ── Policy blocks ── */
+  .policy-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; margin-top: 16px; }
+  .policy h3 { font-size: 1.6rem; font-weight: 700; margin-bottom: 10px; }
+  .policy p { font-size: 1.35rem; color: var(--fg-dim); line-height: 1.5; }
+
+  /* ── Table ── */
+  table { border-collapse: collapse; margin-top: 20px; }
+  th, td { padding: 16px 24px; text-align: left; font-size: 1.3rem; border-bottom: 1px solid #333; }
+  th { color: var(--fg-dim); font-weight: 600; font-size: 1.1rem; text-transform: uppercase; letter-spacing: 0.05em; }
+  td:first-child { font-weight: 700; color: var(--cyan); }
+
+  /* ── Arrow flow ── */
+  .arrow-flow { display: flex; align-items: center; gap: 16px; margin-top: 24px; font-size: 1.4rem; font-weight: 600; flex-wrap: wrap; }
+  .arrow-flow .box { padding: 16px 24px; background: rgba(255,255,255,0.05); border-radius: 8px; }
+  .arrow-flow .arrow { font-size: 1.8rem; color: var(--fg-dim); }
+
+  /* ── Resource list ── */
+  .resource-list { list-style: none; display: flex; flex-direction: column; gap: 16px; margin-top: 12px; }
+  .resource-list li { font-size: 1.35rem; }
+  .resource-list .label { font-weight: 600; color: var(--fg); }
+
+  /* ── Counter ── */
+  .counter { position: fixed; bottom: 20px; right: 28px; font-size: 0.85rem; color: #444; font-variant-numeric: tabular-nums; z-index: 100; }
+
+  /* ── Utility ── */
+  .mt { margin-top: 20px; }
+  .mt-lg { margin-top: 36px; }
+  .accent { color: var(--amber); }
+  .accent-blue { color: var(--blue); }
+  .accent-violet { color: var(--violet); }
+  .accent-green { color: var(--green); }
+  .accent-cyan { color: var(--cyan); }
+
+  a { color: var(--blue); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  @media (max-width: 1200px) {
+    :root { --pad: 48px; }
+    .billboard h1 { font-size: 3rem; }
+    .divider h1 { font-size: 3.2rem; }
+    .card-row.c4 { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
+</head>
+<body>
+
+<div class="deck">
+
+  <!-- ═══ 1. WARM-UP ═══ -->
+  <section class="slide content active" style="--section-color: var(--amber); background: var(--amber-bg);">
+    <h2 style="font-size: 3.2rem;">Competitive Insight Share</h2>
+    <p class="big-text mt" style="color: var(--fg-dim);">Find a partner (someone NOT in your problem space)</p>
+    <ol class="steps mt" style="--section-color: var(--amber);">
+      <li><span>Each person shares (3 min each):<span class="sub-options">"The one insight from my competitive analysis that will most influence my design is..."<br>"My app will be different because..."</span></span></li>
+      <li><span>Partner asks one probing question</span></li>
+      <li><span>Switch and repeat</span></li>
+    </ol>
+  </section>
+
+  <!-- ═══ 2. PRAYER ═══ -->
+  <section class="slide billboard" style="--section-color: var(--amber);">
+    <h1>Prayer</h1>
+    <p class="sub">Annika, will you pray for us today?</p>
+  </section>
+
+  <!-- ═══ 3. TITLE ═══ -->
+  <section class="slide billboard">
+    <h1 style="font-size: 4.8rem;">Unit D: Neue App</h1>
+    <p class="sub" style="font-size: 1.8rem; max-width: 750px;">Your user flow is a prompt — AI turns your thinking into working code</p>
+  </section>
+
+  <!-- ═══ 4. TODAY ═══ -->
+  <section class="slide content" style="padding-left: 160px;">
+    <h2>Today</h2>
+    <div class="timeline">
+      <div class="timeline-item"><div class="timeline-dot" style="background: var(--amber);"></div><span class="timeline-label">Competitive Insight Share</span></div>
+      <div class="timeline-line"></div>
+      <div class="timeline-item"><div class="timeline-dot" style="background: var(--blue);"></div><span class="timeline-label">Synthesis → Differentiation</span></div>
+      <div class="timeline-line"></div>
+      <div class="timeline-item"><div class="timeline-dot" style="background: var(--violet);"></div><span class="timeline-label">User Flows</span></div>
+      <div class="timeline-line"></div>
+      <div class="timeline-item"><div class="timeline-dot" style="background: var(--green);"></div><span class="timeline-label">Annotated Sketches</span></div>
+      <div class="timeline-line"></div>
+      <div class="timeline-item"><div class="timeline-dot" style="background: var(--cyan);"></div><span class="timeline-label">Combining Artifacts → AI Prototype</span></div>
+      <div class="timeline-line"></div>
+      <div class="timeline-item"><div class="timeline-dot" style="background: var(--fg-dim);"></div><span class="timeline-label">Work Session</span></div>
+    </div>
+  </section>
+
+  <!-- ═══ 5. BY THE END OF TODAY ═══ -->
+  <section class="slide top">
+    <h2>By the end of today...</h2>
+    <div class="card-row c4 mt">
+      <div class="card" style="--card-color: var(--blue);">
+        <h3>Differentiation</h3>
+        <p>You'll articulate what makes your app different from competitors</p>
+      </div>
+      <div class="card" style="--card-color: var(--violet);">
+        <h3>User Flow</h3>
+        <p>You'll create a traditional user flow diagram</p>
+      </div>
+      <div class="card" style="--card-color: var(--green);">
+        <h3>Sketches</h3>
+        <p>You'll sketch annotated wireframes</p>
+      </div>
+      <div class="card" style="--card-color: var(--cyan);">
+        <h3>Synthesis</h3>
+        <p>You'll combine these into an AI prompt and generate a working prototype</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 6. WHY THIS MATTERS ═══ -->
+  <section class="slide content" style="--section-color: var(--amber); background: var(--amber-bg);">
+    <h2 style="color: var(--amber);">Why this matters</h2>
+    <p class="big-text">You've done the research. Today your app comes to life.</p>
+    <p class="big-text">AI tools can turn your user flows and sketches into working code in minutes — but only if you give them clear inputs.</p>
+    <p class="callout accent mt">Your flow is your prompt. The clearer your thinking, the better the output.</p>
+  </section>
+
+  <!-- ═══ 7. THE PIVOT POINT ═══ -->
+  <section class="slide billboard" style="--section-color: var(--violet);">
+    <p class="small" style="font-size: 1.4rem; margin-bottom: 24px;">Today marks the shift</p>
+    <h1 style="max-width: 1000px; font-size: 3.8rem;">Forming Intent → Rendering Intent</h1>
+    <div class="policy-pair mt-lg" style="max-width: 800px; text-align: left;">
+      <div class="policy">
+        <h3 style="color: var(--fg-dim);">Forming</h3>
+        <p>Research, validation, competitive analysis</p>
+      </div>
+      <div class="policy">
+        <h3 style="color: var(--violet);">Rendering</h3>
+        <p>User flows, prototypes, working code</p>
+      </div>
+    </div>
+    <p class="callout accent-violet mt-lg" style="font-size: 1.6rem;">Your user flow is the bridge. AI accelerates the rendering.</p>
+  </section>
+
+  <!-- ═══ 8. SECTION: SYNTHESIS ═══ -->
+  <section class="slide divider" style="--section-bg: var(--blue-bg);">
+    <h1 style="color: var(--blue);">From Research to Prototype</h1>
+    <p class="sub">Competitive insights → User flow → Sketches → Working code</p>
+  </section>
+
+  <!-- ═══ 9. THE "SO WHAT?" QUESTION ═══ -->
+  <section class="slide content" style="--section-color: var(--blue);">
+    <h2>The "So What?" Question</h2>
+    <p class="big-text">You have a positioning matrix and four competitor analyses — now what?</p>
+    <p class="callout mt">Every competitive insight should answer:</p>
+    <p class="big-text accent-blue mt">"So what does this mean for MY design?"</p>
+    <div class="arrow-flow mt-lg">
+      <div class="box">"All four competitors have cluttered dashboards"</div>
+      <span class="arrow">→</span>
+      <div class="box" style="color: var(--blue);">"My app will have a focused, single-task home screen"</div>
+    </div>
+  </section>
+
+  <!-- ═══ 10. FINDING YOUR GAP ═══ -->
+  <section class="slide content" style="--section-color: var(--blue);">
+    <h2>Finding Your Gap</h2>
+    <ol class="numbered mt" style="--section-color: var(--blue);">
+      <li>Look at your positioning matrix — where is the <strong>empty space</strong>?</li>
+      <li>Look at competitor weaknesses — what pain points can you solve <strong>better</strong>?</li>
+    </ol>
+    <p class="big-text mt-lg">Differentiation = <span class="accent-blue">gap in the market</span> + <span class="accent">something you can execute</span></p>
+  </section>
+
+  <!-- ═══ 11. SECTION: USER FLOW ═══ -->
+  <section class="slide divider" style="--section-bg: var(--violet-bg);">
+    <h1 style="color: var(--violet);">User Flow as AI Prompt</h1>
+    <p class="sub">The clearer your flow, the better the output</p>
+  </section>
+
+  <!-- ═══ 12. WHAT IS A USER FLOW? ═══ -->
+  <section class="slide content" style="--section-color: var(--violet);">
+    <h2>User flow ≠ feature list</h2>
+    <p class="big-text">A user flow maps <em>how someone moves through your app</em> to accomplish a goal.</p>
+    <div class="arrow-flow mt-lg">
+      <div class="box" style="background: var(--violet); color: #111;">Entry point</div>
+      <span class="arrow">→</span>
+      <div class="box">Core screens (3-4)</div>
+      <span class="arrow">→</span>
+      <div class="box">Decision points</div>
+      <span class="arrow">→</span>
+      <div class="box" style="background: var(--green); color: #111;">Success state</div>
+    </div>
+    <p class="callout mt-lg">Start with the "happy path" — the ideal case where everything works.</p>
+  </section>
+
+  <!-- ═══ 13. YOUR FLOW IS YOUR PROMPT ═══ -->
+  <section class="slide content" style="--section-color: var(--violet);">
+    <h2>Your flow is your prompt</h2>
+    <p class="big-text">AI needs to understand your intent. A clear, annotated user flow tells AI: "Here's what I want the user to experience."</p>
+    <div class="policy-pair mt">
+      <div class="policy">
+        <h3 style="color: var(--red);">Messy flow</h3>
+        <p>= messy AI output</p>
+      </div>
+      <div class="policy">
+        <h3 style="color: var(--green);">Clear flow</h3>
+        <p>= useful AI output</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 14. WHAT MAKES A GOOD FLOW FOR AI? ═══ -->
+  <section class="slide content" style="--section-color: var(--violet);">
+    <h2>What makes a good user flow for AI?</h2>
+    <ol class="numbered mt" style="--section-color: var(--violet);">
+      <li><strong>Specific screen names:</strong> "Home Dashboard" not "Screen 1"</li>
+      <li><strong>Clear actions:</strong> "User taps 'Start Workout'" not "User proceeds"</li>
+      <li><strong>Annotations:</strong> What each screen shows and does</li>
+      <li><strong>Success criteria:</strong> What does "done" look like?</li>
+    </ol>
+  </section>
+
+  <!-- ═══ 15. SECTION: SKETCHES ═══ -->
+  <section class="slide divider" style="--section-bg: var(--green-bg);">
+    <h1 style="color: var(--green);">Annotated Sketches</h1>
+    <p class="sub">Thinking tools that become AI input</p>
+  </section>
+
+  <!-- ═══ 16. SKETCHES AS THINKING TOOLS ═══ -->
+  <section class="slide content" style="--section-color: var(--green);">
+    <h2>Why we still sketch</h2>
+    <p class="big-text">Sketching is faster than words for spatial problems.</p>
+    <p class="callout mt">Quick paper sketches (15-20 min) help you think through layout and hierarchy.</p>
+    <ol class="numbered mt" style="--section-color: var(--green);">
+      <li>Phone scale (index cards work great)</li>
+      <li>Real content — not "lorem ipsum"</li>
+      <li>Tap targets marked</li>
+      <li>Visual hierarchy visible</li>
+    </ol>
+  </section>
+
+  <!-- ═══ 17. ANNOTATE YOUR SKETCHES ═══ -->
+  <section class="slide content" style="--section-color: var(--green);">
+    <h2>Annotate your sketches</h2>
+    <p class="big-text">Annotations make your sketches useful as AI input.</p>
+    <ol class="numbered mt" style="--section-color: var(--green);">
+      <li><strong>Label key elements</strong> — not just boxes, but what they are</li>
+      <li><strong>Mark tap targets</strong> — with where they go ("→ Workout Selection")</li>
+      <li><strong>Add brief notes</strong> — what happens on this screen</li>
+    </ol>
+    <p class="callout accent-green mt-lg">An annotated sketch tells AI both what it looks like AND what it does.</p>
+  </section>
+
+  <!-- ═══ 18. SECTION: SYNTHESIS ═══ -->
+  <section class="slide divider" style="--section-bg: var(--cyan-bg);">
+    <h1 style="color: var(--cyan);">Combining Your Artifacts</h1>
+    <p class="sub">Traditional skills, new application</p>
+  </section>
+
+  <!-- ═══ 19. WHAT EACH ARTIFACT TELLS AI ═══ -->
+  <section class="slide content" style="--section-color: var(--cyan);">
+    <h2>What each artifact tells AI</h2>
+    <div class="card-row c3 mt">
+      <div class="card" style="--card-color: var(--violet);">
+        <h3>User Flow Diagram</h3>
+        <p>Screen sequence</p>
+        <p>Navigation logic</p>
+        <p>Decision points</p>
+      </div>
+      <div class="card" style="--card-color: var(--green);">
+        <h3>Annotated Sketches</h3>
+        <p>Layout structure</p>
+        <p>Visual hierarchy</p>
+        <p>UI elements & tap targets</p>
+      </div>
+      <div class="card" style="--card-color: var(--cyan);">
+        <h3>Text Prompt</h3>
+        <p>App purpose & context</p>
+        <p>Style direction</p>
+        <p>Tech requirements</p>
+      </div>
+    </div>
+    <p class="callout mt-lg">Upload the visuals directly. The text prompt adds what they <span class="accent-cyan">don't</span> show.</p>
+  </section>
+
+  <!-- ═══ 20. THE COMBINATION ═══ -->
+  <section class="slide content" style="--section-color: var(--cyan);">
+    <h2>Combining your artifacts</h2>
+    <div class="policy-pair mt">
+      <div class="policy">
+        <h3 style="color: var(--green);">Visual inputs (upload directly)</h3>
+        <p>• User flow diagram (image)</p>
+        <p>• Annotated sketches (photos)</p>
+        <p style="margin-top: 12px; font-size: 1.15rem; color: var(--fg-dim);">AI can see these — don't describe them in text</p>
+      </div>
+      <div class="policy">
+        <h3 style="color: var(--cyan);">Text prompt (contextual glue)</h3>
+        <p>• App description & purpose</p>
+        <p>• Target user context</p>
+        <p>• Style direction (colors, mood)</p>
+        <p>• Tech stack (React, mobile-first)</p>
+      </div>
+    </div>
+    <p class="callout accent-cyan mt-lg">Don't describe what's in the images — add what's NOT visible.</p>
+  </section>
+
+  <!-- ═══ 21. EXAMPLE PROMPT STRUCTURE ═══ -->
+  <section class="slide content" style="--section-color: var(--cyan);">
+    <h2>Example prompt</h2>
+    <div style="background: rgba(255,255,255,0.05); padding: 28px 32px; border-radius: 12px; margin-top: 20px; font-family: 'SF Mono', Menlo, monospace; font-size: 1.2rem; line-height: 1.7;">
+      <p style="color: var(--fg);">Build a fitness tracking app in React. Target user is a busy professional who wants quick 15-minute workouts.</p>
+      <p style="margin-top: 20px; color: var(--violet);">[Attach: user flow diagram]</p>
+      <p style="color: var(--green);">[Attach: annotated sketches]</p>
+      <p style="margin-top: 20px; color: var(--fg);">Style: Clean, minimal, dark mode. Rounded corners, lots of whitespace. Energetic but not aggressive.</p>
+    </div>
+    <p class="small mt-lg">Notice: no description of the flow or layout — AI sees that in the images.</p>
+  </section>
+
+  <!-- ═══ 22. AI TOOLS ═══ -->
+  <section class="slide content" style="--section-color: var(--cyan);">
+    <h2>AI Prototyping Tools</h2>
+    <table>
+      <tr><th>Tool</th><th>Best for</th></tr>
+      <tr><td style="color: var(--amber);">Figma Make</td><td>Already in Figma — easiest access, quick UI generation</td></tr>
+      <tr><td>V0</td><td>React/Next.js, strong UI generation, iterative prompting</td></tr>
+      <tr><td>Lovable</td><td>Full-stack MVPs, instant deploy, complex apps</td></tr>
+      <tr><td>Bolt.new</td><td>Quick prototypes, simple interactions</td></tr>
+    </table>
+    <p class="callout accent mt-lg">Start with Figma Make — you already have access.</p>
+  </section>
+
+  <!-- ═══ 23. DEMO ═══ -->
+  <section class="slide content" style="--section-color: var(--cyan);">
+    <h2>Demo: From Artifacts to Code</h2>
+    <ol class="steps mt" style="--section-color: var(--cyan);">
+      <li><span>Show a user flow diagram + annotated sketches</span></li>
+      <li><span>Write the contextual prompt (what's NOT in the visuals)</span></li>
+      <li><span>Upload everything to AI tool</span></li>
+      <li><span>See the output — discuss what worked</span></li>
+    </ol>
+    <p class="callout accent-cyan mt-lg">What context is missing from these visuals? What would you add?</p>
+  </section>
+
+  <!-- ═══ 24. D4 ASSIGNMENT ═══ -->
+  <section class="slide top" style="--section-color: var(--fg-dim);">
+    <h2>D4: User Flow + Sketches + AI Prototype</h2>
+    <p class="small">Due Wednesday, Mar 11 @ 5:15pm</p>
+    <div class="card-row c3 mt">
+      <div class="card" style="--card-color: var(--violet);">
+        <h3>User Flow</h3>
+        <p>Traditional diagram: core function in 3-4 screens</p>
+        <p style="margin-top: 8px;">Specific screen names, clear actions</p>
+      </div>
+      <div class="card" style="--card-color: var(--green);">
+        <h3>Annotated Sketches</h3>
+        <p>Paper sketches with labels and tap targets</p>
+        <p style="margin-top: 8px;">Photos/scans showing your process</p>
+      </div>
+      <div class="card" style="--card-color: var(--cyan);">
+        <h3>AI Prototype</h3>
+        <p>Working coded prototype from your synthesis</p>
+        <p style="margin-top: 8px;">Deployed link showing core flow</p>
+      </div>
+    </div>
+    <p class="callout accent mt-lg">Bring your AI prototype to class Wednesday — you'll test it</p>
+  </section>
+
+  <!-- ═══ 25. NEXT UP ═══ -->
+  <section class="slide top" style="--section-color: var(--fg-dim); background: linear-gradient(135deg, #161616 0%, #111 100%);">
+    <h2>Next up</h2>
+    <div class="mt" style="display: flex; flex-direction: column; gap: 24px;">
+      <div>
+        <p><strong>Work session</strong> (60 min)</p>
+        <ul class="resource-list" style="margin-top: 12px;">
+          <li><span class="label">10 min:</span> Write your differentiation strategy</li>
+          <li><span class="label">12 min:</span> Create user flow diagram</li>
+          <li><span class="label">12 min:</span> Quick annotated sketches at phone scale</li>
+          <li><span class="label">6 min:</span> Write contextual prompt (what visuals don't show)</li>
+          <li><span class="label">20 min:</span> AI prototyping — upload, iterate, refine</li>
+        </ul>
+      </div>
+      <div>
+        <p><strong>D4: User Flow + Sketches + AI Prototype</strong> — due Wed, Mar 11 @ 5:15pm</p>
+        <p style="color: var(--fg-dim); font-size: 1.3rem; margin-top: 8px;">Bring your AI prototype to class — you'll test it on Day 18</p>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<div class="counter"><span id="cur">1</span> / <span id="tot"></span></div>
+
+<script>
+  const slides = document.querySelectorAll('.slide');
+  const total = slides.length;
+  let current = 0;
+  document.getElementById('tot').textContent = total;
+
+  function goTo(n) {
+    if (n < 0 || n >= total) return;
+    slides[current].classList.remove('active');
+    current = n;
+    slides[current].classList.add('active');
+    document.getElementById('cur').textContent = current + 1;
+  }
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown' || e.key === ' ') { e.preventDefault(); goTo(current + 1); }
+    else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') { e.preventDefault(); goTo(current - 1); }
+    else if (e.key === 'Home') { e.preventDefault(); goTo(0); }
+    else if (e.key === 'End') { e.preventDefault(); goTo(total - 1); }
+  });
+
+  document.addEventListener('click', e => {
+    if (e.target.closest('a')) return;
+    e.clientX / window.innerWidth < 0.33 ? goTo(current - 1) : goTo(current + 1);
+  });
+</script>
+
+</body>
+</html>

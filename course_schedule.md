@@ -460,52 +460,61 @@ Today's Focus: Validation reveals truth — now commit to a direction.
 ### Day 17 — Monday, Mar 9
 **Unit D: Neue App (Capstone)**
 
-Today's Focus: Understanding the landscape helps you find your unique position.
+Today's Focus: Your user flow is a prompt — AI turns your thinking into working code.
 
 **In class:**
-- D3 Review: Share competitive analyses
-- What did you learn? How will you differentiate?
-- User flow fundamentals: mapping the core experience
-- Paper prototyping introduction: sketch before you commit
-- User flows designed to guide AI prototyping later
-- Work session: Begin user flow + paper prototype sketches
+- Competitive insight share: What will most influence your design?
+- Synthesizing competitive findings into differentiation strategy
+- User flows as AI prompts: how clear flows improve AI output
+- Quick sketches as thinking tools (15-20 min)
+- AI prototyping demo and workshop (V0, Lovable, Bolt.new)
+- Work session: Flow → Sketch → AI Prototype
 
 **Come to class having done:**
 - ⛳ D3: Competitive Analysis
 
 **Assignments due before next class:**
-- ⛳ D4: User Flow Diagram + Paper Prototype (due Mar 11 @ 5:15pm)
-  - User flow for core function (3-4 screens + onboarding)
-  - Paper prototype sketches (5-6 screens main feature, 3-4 secondary)
+- ⛳ D4: User Flow + Sketches + AI Prototype (due Mar 11 @ 5:15pm)
+  - User flow diagram with annotations
+  - Quick paper sketches (photos/scans)
+  - Working AI prototype (deployed link)
 
 **Resources:**
-- Paper prototyping video (NNGroup)
+- V0: https://v0.dev/
+- Lovable: https://lovable.dev/
+- Bolt.new: https://bolt.new/
+
+→ [Lesson Plan](unit_d/day_17.md)
 
 ---
 
 ### Day 18 — Wednesday, Mar 11
 **Unit D: Neue App (Capstone)**
 
-Today's Focus: Testing reveals what you can't see on your own.
+Today's Focus: Testing answers two questions: "Can they use it?" and "Should we build it?"
 
 **In class:**
-- Paper prototype testing in class (Usability Test Round 1)
-- 5 Act Method for usability testing
-- Usability testing facilitation techniques
-- Document findings: What surprised you? What needs to change?
-- AI experimentation preview: how paper sketches become digital prototypes
+- Two types of testing: usability vs. solution validation
+- Writing good tasks and questions (realistic, open-ended, non-leading)
+- The 5 Act Method for structuring test sessions
+- Facilitation techniques: observe and learn, don't explain or defend
+- Test planning workshop: write your tasks and questions
+- In-class testing session: test classmates' AI prototypes
 
 **Come to class having done:**
-- ⛳ D4: User Flow Diagram + Paper Prototype
+- ⛳ D4: User Flow + Sketches + AI Prototype
 - Watch: Usability Test Facilitation (NNGroup)
 
 **Assignments due before next class:**
 - ⛳ D5: Usability Testing Rd. 1 (due Mar 16 @ 5:15pm)
-  - Testing documentation with distilled insights
-  - Notes on what to change based on feedback
+  - Test 3+ people outside class
+  - Document observations, quotes, usability issues, validation signals
+  - Synthesize: patterns, top issues, what you'll change
 
 **Resources:**
 - Usability Test Facilitation video (NNGroup)
+
+→ [Lesson Plan](unit_d/day_18.md)
 
 ---
 

@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Day 18 — Unit D: Neue App (Capstone)</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #111;
+    --fg: #F0EDE6;
+    --fg-dim: #9A958C;
+    --amber: hsl(46, 90%, 53%);
+    --amber-bg: hsl(46, 40%, 8%);
+    --blue: hsl(210, 80%, 62%);
+    --blue-bg: hsl(210, 50%, 9%);
+    --violet: hsl(270, 60%, 65%);
+    --violet-bg: hsl(270, 40%, 9%);
+    --green: hsl(155, 60%, 50%);
+    --green-bg: hsl(155, 35%, 8%);
+    --red: hsl(0, 65%, 55%);
+    --red-bg: hsl(0, 40%, 8%);
+    --cyan: hsl(185, 70%, 50%);
+    --cyan-bg: hsl(185, 40%, 8%);
+    --pink: hsl(330, 65%, 60%);
+    --pink-bg: hsl(330, 40%, 8%);
+    --pad: 80px;
+  }
+
+  html { font-size: 19.2px; }
+  body {
+    height: 100vh;
+    overflow: hidden;
+    background: var(--bg);
+    color: var(--fg);
+    font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── Deck ── */
+  .deck { position: relative; width: 100vw; height: 100vh; }
+
+  .slide {
+    position: absolute; inset: 0;
+    display: flex;
+    opacity: 0; pointer-events: none;
+    transform: translateX(40px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+  .slide.active {
+    opacity: 1; pointer-events: auto;
+    transform: translateX(0);
+  }
+
+  /* ── Keyframes ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes scaleUp {
+    from { opacity: 0; transform: scale(0.92); }
+    to   { opacity: 1; transform: scale(1); }
+  }
+  @keyframes popIn {
+    0%   { opacity: 0; transform: scale(0); }
+    70%  { transform: scale(1.2); }
+    100% { opacity: 1; transform: scale(1); }
+  }
+  @keyframes widen {
+    from { width: 0; }
+    to   { width: 100%; }
+  }
+  @keyframes growDown {
+    from { transform: scaleY(0); }
+    to   { transform: scaleY(1); }
+  }
+
+  /* ── Staggered entrance ── */
+  .slide.active > h1, .slide.active > h2, .slide.active > h3,
+  .slide.active > p, .slide.active > div, .slide.active > ol, .slide.active > ul,
+  .slide.active > table {
+    animation: fadeUp 0.5s ease both;
+  }
+  .slide.active > :nth-child(1) { animation-delay: 0.08s; }
+  .slide.active > :nth-child(2) { animation-delay: 0.18s; }
+  .slide.active > :nth-child(3) { animation-delay: 0.28s; }
+  .slide.active > :nth-child(4) { animation-delay: 0.38s; }
+  .slide.active > :nth-child(5) { animation-delay: 0.46s; }
+  .slide.active > :nth-child(6) { animation-delay: 0.52s; }
+
+  .billboard.active > h1, .divider.active > h1 {
+    animation: scaleUp 0.6s ease both;
+    animation-delay: 0.1s;
+  }
+
+  .slide.active .card { animation: fadeUp 0.45s ease both; }
+  .slide.active .card:nth-child(1) { animation-delay: 0.2s; }
+  .slide.active .card:nth-child(2) { animation-delay: 0.32s; }
+  .slide.active .card:nth-child(3) { animation-delay: 0.44s; }
+  .slide.active .card:nth-child(4) { animation-delay: 0.56s; }
+
+  .card { border-top-color: transparent; position: relative; }
+  .card::after {
+    content: "";
+    position: absolute; top: -4px; left: 0; height: 4px;
+    width: 0;
+    background: var(--card-color, var(--fg-dim));
+  }
+  .slide.active .card::after { animation: widen 0.4s ease both; }
+  .slide.active .card:nth-child(1)::after { animation-delay: 0.35s; }
+  .slide.active .card:nth-child(2)::after { animation-delay: 0.47s; }
+  .slide.active .card:nth-child(3)::after { animation-delay: 0.59s; }
+  .slide.active .card:nth-child(4)::after { animation-delay: 0.71s; }
+
+  .slide.active .timeline-item { animation: fadeUp 0.4s ease both; }
+  .slide.active .timeline-item:nth-child(1)  { animation-delay: 0.15s; }
+  .slide.active .timeline-line:nth-child(2)  { animation: fadeUp 0.3s ease both; animation-delay: 0.3s; }
+  .slide.active .timeline-item:nth-child(3)  { animation-delay: 0.4s; }
+  .slide.active .timeline-line:nth-child(4)  { animation: fadeUp 0.3s ease both; animation-delay: 0.55s; }
+  .slide.active .timeline-item:nth-child(5)  { animation-delay: 0.65s; }
+  .slide.active .timeline-line:nth-child(6)  { animation: fadeUp 0.3s ease both; animation-delay: 0.8s; }
+  .slide.active .timeline-item:nth-child(7)  { animation-delay: 0.9s; }
+  .slide.active .timeline-line:nth-child(8)  { animation: fadeUp 0.3s ease both; animation-delay: 1.05s; }
+  .slide.active .timeline-item:nth-child(9)  { animation-delay: 1.15s; }
+  .slide.active .timeline-line:nth-child(10)  { animation: fadeUp 0.3s ease both; animation-delay: 1.3s; }
+  .slide.active .timeline-item:nth-child(11)  { animation-delay: 1.4s; }
+  .slide.active .timeline-line:nth-child(12)  { animation: fadeUp 0.3s ease both; animation-delay: 1.55s; }
+  .slide.active .timeline-item:nth-child(13)  { animation-delay: 1.65s; }
+
+  .slide.active .timeline-dot { animation: popIn 0.4s ease both; }
+  .slide.active .timeline-item:nth-child(1) .timeline-dot { animation-delay: 0.2s; }
+  .slide.active .timeline-item:nth-child(3) .timeline-dot { animation-delay: 0.45s; }
+  .slide.active .timeline-item:nth-child(5) .timeline-dot { animation-delay: 0.7s; }
+  .slide.active .timeline-item:nth-child(7) .timeline-dot { animation-delay: 0.95s; }
+  .slide.active .timeline-item:nth-child(9) .timeline-dot { animation-delay: 1.2s; }
+  .slide.active .timeline-item:nth-child(11) .timeline-dot { animation-delay: 1.45s; }
+  .slide.active .timeline-item:nth-child(13) .timeline-dot { animation-delay: 1.7s; }
+
+  .slide.active .steps li { animation: fadeUp 0.4s ease both; }
+  .slide.active .steps li:nth-child(1) { animation-delay: 0.2s; }
+  .slide.active .steps li:nth-child(2) { animation-delay: 0.35s; }
+  .slide.active .steps li:nth-child(3) { animation-delay: 0.5s; }
+  .slide.active .steps li:nth-child(4) { animation-delay: 0.65s; }
+  .slide.active .steps li:nth-child(5) { animation-delay: 0.8s; }
+
+  .slide.active .numbered li { animation: fadeUp 0.4s ease both; }
+  .slide.active .numbered li:nth-child(1) { animation-delay: 0.2s; }
+  .slide.active .numbered li:nth-child(2) { animation-delay: 0.32s; }
+  .slide.active .numbered li:nth-child(3) { animation-delay: 0.44s; }
+  .slide.active .numbered li:nth-child(4) { animation-delay: 0.56s; }
+  .slide.active .numbered li:nth-child(5) { animation-delay: 0.68s; }
+
+  .slide.active .policy:nth-child(1) { animation: fadeUp 0.45s ease both; animation-delay: 0.2s; }
+  .slide.active .policy:nth-child(2) { animation: fadeUp 0.45s ease both; animation-delay: 0.38s; }
+
+  .slide.active::before {
+    transform-origin: top;
+    animation: growDown 0.4s ease both;
+    animation-delay: 0s;
+  }
+
+  .slide.active .resource-list li { animation: fadeUp 0.35s ease both; }
+  .slide.active .resource-list li:nth-child(1) { animation-delay: 0.12s; }
+  .slide.active .resource-list li:nth-child(2) { animation-delay: 0.2s; }
+  .slide.active .resource-list li:nth-child(3) { animation-delay: 0.28s; }
+  .slide.active .resource-list li:nth-child(4) { animation-delay: 0.36s; }
+  .slide.active .resource-list li:nth-child(5) { animation-delay: 0.44s; }
+  .slide.active .resource-list li:nth-child(6) { animation-delay: 0.52s; }
+
+  /* ── Section bar ── */
+  .slide::before {
+    content: "";
+    position: absolute; left: 0; top: 0; bottom: 0;
+    width: 6px;
+    background: var(--section-color, transparent);
+  }
+
+  /* ── Layout: Billboard ── */
+  .billboard {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: var(--pad);
+  }
+  .billboard h1 {
+    font-size: 4rem;
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    max-width: 900px;
+  }
+  .billboard .sub {
+    font-size: 1.6rem;
+    color: var(--fg-dim);
+    margin-top: 24px;
+    max-width: 650px;
+    line-height: 1.5;
+  }
+
+  /* ── Layout: Divider ── */
+  .divider {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: var(--pad);
+    background: var(--section-bg, var(--bg));
+  }
+  .divider::before { display: none; }
+  .divider h1 {
+    font-size: 4.2rem;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+  }
+  .divider .sub {
+    font-size: 1.6rem;
+    color: var(--fg-dim);
+    margin-top: 20px;
+    font-weight: 400;
+  }
+
+  /* ── Layout: Content ── */
+  .content {
+    flex-direction: column;
+    justify-content: center;
+    padding: var(--pad);
+    padding-left: calc(var(--pad) + 20px);
+    gap: 28px;
+  }
+  .content h2 {
+    font-size: 2.6rem;
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+  }
+
+  /* ── Layout: Top ── */
+  .top {
+    flex-direction: column;
+    padding: var(--pad);
+    padding-left: calc(var(--pad) + 20px);
+    padding-top: 60px;
+    gap: 20px;
+  }
+  .top h2 {
+    font-size: 2.4rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+
+  /* ── Typography ── */
+  p, li { font-size: 1.5rem; line-height: 1.55; }
+  .big-text { font-size: 2.2rem; font-weight: 600; line-height: 1.35; }
+  .callout { font-size: 1.5rem; font-weight: 600; line-height: 1.45; }
+  .small { font-size: 1.25rem; color: var(--fg-dim); }
+
+  /* ── Cards ── */
+  .card-row { display: grid; gap: 28px; margin-top: 16px; }
+  .card-row.c2 { grid-template-columns: repeat(2, 1fr); }
+  .card-row.c3 { grid-template-columns: repeat(3, 1fr); }
+  .card-row.c4 { grid-template-columns: repeat(4, 1fr); }
+
+  .card {
+    border-top: 4px solid var(--card-color, var(--fg-dim));
+    padding: 24px 0 0;
+  }
+  .card h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--card-color, var(--fg));
+    margin-bottom: 10px;
+  }
+  .card p {
+    font-size: 1.25rem;
+    color: var(--fg-dim);
+    line-height: 1.5;
+  }
+
+  /* ── Timeline ── */
+  .timeline { display: flex; flex-direction: column; gap: 0; margin-top: 20px; }
+  .timeline-item { display: flex; align-items: center; gap: 20px; padding: 16px 0; }
+  .timeline-dot { width: 16px; height: 16px; border-radius: 50%; flex-shrink: 0; background: var(--dot-color, var(--fg-dim)); }
+  .timeline-line { width: 2px; height: 20px; margin-left: 7px; background: #333; }
+  .timeline-label { font-size: 1.6rem; font-weight: 500; }
+
+  /* ── Steps ── */
+  .steps { counter-reset: step; list-style: none; display: flex; flex-direction: column; gap: 16px; }
+  .steps li { counter-increment: step; display: flex; gap: 16px; align-items: baseline; }
+  .steps li::before {
+    content: counter(step);
+    flex-shrink: 0; width: 36px; height: 36px;
+    display: flex; align-items: center; justify-content: center;
+    border-radius: 50%;
+    background: var(--section-color, var(--blue));
+    color: #111; font-weight: 700; font-size: 1.1rem;
+  }
+  .steps li span { font-size: 1.4rem; line-height: 1.45; }
+  .steps .sub-options { display: block; font-size: 1.2rem; color: var(--fg-dim); margin-top: 6px; }
+
+  /* ── Numbered ── */
+  .numbered { counter-reset: num; list-style: none; display: flex; flex-direction: column; gap: 14px; }
+  .numbered li { counter-increment: num; font-size: 1.5rem; line-height: 1.5; padding-left: 40px; position: relative; }
+  .numbered li::before { content: counter(num) "."; position: absolute; left: 0; font-weight: 700; color: var(--section-color, var(--blue)); }
+
+  /* ── Policy blocks ── */
+  .policy-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; margin-top: 16px; }
+  .policy h3 { font-size: 1.6rem; font-weight: 700; margin-bottom: 10px; }
+  .policy p { font-size: 1.35rem; color: var(--fg-dim); line-height: 1.5; }
+
+  /* ── Table ── */
+  table { border-collapse: collapse; margin-top: 20px; width: 100%; }
+  th, td { padding: 16px 24px; text-align: left; font-size: 1.3rem; border-bottom: 1px solid #333; }
+  th { color: var(--fg-dim); font-weight: 600; font-size: 1.1rem; text-transform: uppercase; letter-spacing: 0.05em; }
+  td:first-child { font-weight: 600; }
+  .table-good td:first-child { color: var(--green); }
+  .table-bad td:first-child { color: var(--red); }
+  .table-neutral td:first-child { color: var(--cyan); }
+
+  /* ── Arrow flow ── */
+  .arrow-flow { display: flex; align-items: center; gap: 16px; margin-top: 24px; font-size: 1.4rem; font-weight: 600; flex-wrap: wrap; }
+  .arrow-flow .box { padding: 16px 24px; background: rgba(255,255,255,0.05); border-radius: 8px; }
+  .arrow-flow .arrow { font-size: 1.8rem; color: var(--fg-dim); }
+
+  /* ── Resource list ── */
+  .resource-list { list-style: none; display: flex; flex-direction: column; gap: 16px; margin-top: 12px; }
+  .resource-list li { font-size: 1.35rem; }
+  .resource-list .label { font-weight: 600; color: var(--fg); }
+
+  /* ── Counter ── */
+  .counter { position: fixed; bottom: 20px; right: 28px; font-size: 0.85rem; color: #444; font-variant-numeric: tabular-nums; z-index: 100; }
+
+  /* ── Comparison table ── */
+  .compare-table td:nth-child(2) { color: var(--red); }
+  .compare-table td:nth-child(3) { color: var(--green); }
+
+  /* ── Quote block ── */
+  .quote-block {
+    background: rgba(255,255,255,0.03);
+    border-left: 4px solid var(--section-color, var(--fg-dim));
+    padding: 20px 28px;
+    margin-top: 24px;
+    font-style: italic;
+    font-size: 1.4rem;
+    color: var(--fg-dim);
+  }
+
+  /* ── Utility ── */
+  .mt { margin-top: 20px; }
+  .mt-lg { margin-top: 36px; }
+  .accent { color: var(--amber); }
+  .accent-blue { color: var(--blue); }
+  .accent-violet { color: var(--violet); }
+  .accent-green { color: var(--green); }
+  .accent-cyan { color: var(--cyan); }
+  .accent-red { color: var(--red); }
+  .accent-pink { color: var(--pink); }
+
+  a { color: var(--blue); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  @media (max-width: 1200px) {
+    :root { --pad: 48px; }
+    .billboard h1 { font-size: 3rem; }
+    .divider h1 { font-size: 3.2rem; }
+    .card-row.c4 { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
+</head>
+<body>
+
+<div class="deck">
+
+  <!-- ═══ 1. WARM-UP ═══ -->
+  <section class="slide content active" style="--section-color: var(--amber); background: var(--amber-bg);">
+    <h2 style="font-size: 3.2rem;">Prototype Check</h2>
+    <p class="big-text mt" style="color: var(--fg-dim);">Let's make sure everyone's ready to test</p>
+    <ol class="numbered mt" style="--section-color: var(--amber);">
+      <li>Open your AI prototype on your phone or laptop</li>
+      <li>Walk through your core flow once — does it work?</li>
+      <li>Note any bugs or broken states you need to warn testers about</li>
+      <li>If your prototype isn't ready, pair with someone whose is</li>
+    </ol>
+  </section>
+
+  <!-- ═══ 2. PRAYER ═══ -->
+  <section class="slide billboard" style="--section-color: var(--amber);">
+    <h1>Prayer</h1>
+    <p class="sub">Lucy, will you pray for us today?</p>
+  </section>
+
+  <!-- ═══ 3. TITLE ═══ -->
+  <section class="slide billboard">
+    <h1 style="font-size: 3.8rem;">Testing answers two questions</h1>
+    <p class="sub" style="font-size: 2rem; max-width: 750px;">"Can they use it?" <span style="color: var(--fg-dim);">and</span> "Should we build it?"</p>
+  </section>
+
+  <!-- ═══ 4. TODAY ═══ -->
+  <section class="slide content" style="padding-left: 160px;">
+    <h2>Today</h2>
+    <div class="timeline">
+      <div class="timeline-item"><div class="timeline-dot" style="background: var(--amber);"></div><span class="timeline-label">Prototype Check</span></div>
+      <div class="timeline-line"></div>
+      <div class="timeline-item"><div class="timeline-dot" style="background: var(--blue);"></div><span class="timeline-label">Two Types of Testing</span></div>
+      <div class="timeline-line"></div>
+      <div class="timeline-item"><div class="timeline-dot" style="background: var(--violet);"></div><span class="timeline-label">Writing Good Tasks & Questions</span></div>
+      <div class="timeline-line"></div>
+      <div class="timeline-item"><div class="timeline-dot" style="background: var(--green);"></div><span class="timeline-label">The 5 Act Method</span></div>
+      <div class="timeline-line"></div>
+      <div class="timeline-item"><div class="timeline-dot" style="background: var(--pink);"></div><span class="timeline-label">Facilitation</span></div>
+      <div class="timeline-line"></div>
+      <div class="timeline-item"><div class="timeline-dot" style="background: var(--fg-dim);"></div><span class="timeline-label">Test Planning + In-Class Testing</span></div>
+    </div>
+  </section>
+
+  <!-- ═══ 5. BY THE END OF TODAY ═══ -->
+  <section class="slide top">
+    <h2>By the end of today...</h2>
+    <div class="card-row c4 mt">
+      <div class="card" style="--card-color: var(--blue);">
+        <h3>Test Types</h3>
+        <p>You'll understand the difference between usability testing and solution validation</p>
+      </div>
+      <div class="card" style="--card-color: var(--violet);">
+        <h3>Tasks & Questions</h3>
+        <p>You'll write test tasks and questions that reveal truth</p>
+      </div>
+      <div class="card" style="--card-color: var(--green);">
+        <h3>Facilitation</h3>
+        <p>You'll learn to run a test without leading the participant</p>
+      </div>
+      <div class="card" style="--card-color: var(--pink);">
+        <h3>Practice</h3>
+        <p>You'll test classmates' prototypes and have yours tested</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 6. WHY THIS MATTERS ═══ -->
+  <section class="slide content" style="--section-color: var(--amber); background: var(--amber-bg);">
+    <h2 style="color: var(--amber);">Why this matters</h2>
+    <p class="big-text">You have a working prototype — but you don't know if it works.</p>
+    <p class="big-text mt">Most designers only test usability: "Can users tap the right buttons?"</p>
+    <p class="callout mt-lg">That's necessary but not sufficient. You also need to test <span class="accent">solution fit</span>.</p>
+  </section>
+
+  <!-- ═══ 7. CONNECTION TO FRAMEWORK ═══ -->
+  <section class="slide content" style="--section-color: var(--violet);">
+    <h2>Testing validates both</h2>
+    <p class="big-text">Testing is how you check your work:</p>
+    <div class="policy-pair mt">
+      <div class="policy">
+        <h3 style="color: var(--fg-dim);">Forming Intent</h3>
+        <p>Did you understand the right problem?</p>
+        <p style="margin-top: 8px; color: var(--violet);">→ Validation testing</p>
+      </div>
+      <div class="policy">
+        <h3 style="color: var(--fg-dim);">Rendering Intent</h3>
+        <p>Did you communicate your solution clearly?</p>
+        <p style="margin-top: 8px; color: var(--green);">→ Usability testing</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 8. SECTION: TWO TYPES ═══ -->
+  <section class="slide divider" style="--section-bg: var(--blue-bg);">
+    <h1 style="color: var(--blue);">Two Types of Testing</h1>
+    <p class="sub">Both are necessary — neither is sufficient alone</p>
+  </section>
+
+  <!-- ═══ 9. THE TWO QUESTIONS ═══ -->
+  <section class="slide content" style="--section-color: var(--blue);">
+    <h2>Every test should answer two questions</h2>
+    <table class="mt table-neutral">
+      <tr><th>Question</th><th>Type</th><th>What you learn</th></tr>
+      <tr><td>"Can they use it?"</td><td>Usability</td><td>Can users accomplish tasks? Where do they get stuck?</td></tr>
+      <tr><td>"Should we build it?"</td><td>Validation</td><td>Does this solve their problem? Would they use it?</td></tr>
+    </table>
+  </section>
+
+  <!-- ═══ 10. WHY BOTH ═══ -->
+  <section class="slide content" style="--section-color: var(--blue);">
+    <h2>Why you need both</h2>
+    <ol class="numbered mt" style="--section-color: var(--blue);">
+      <li>A usable product that solves the <span class="accent-red">wrong problem</span> = failure</li>
+      <li>A great solution that's <span class="accent-red">unusable</span> = failure</li>
+      <li>You need signal on <strong>BOTH</strong> to succeed</li>
+    </ol>
+    <div class="quote-block mt-lg" style="--section-color: var(--blue);">
+      You can't A/B test your way to product-market fit. And you can't validate your way to a usable product.
+    </div>
+  </section>
+
+  <!-- ═══ 11. DIFFERENT QUESTIONS ═══ -->
+  <section class="slide content" style="--section-color: var(--blue);">
+    <h2>Different questions for different goals</h2>
+    <div class="policy-pair mt">
+      <div class="policy">
+        <h3 style="color: var(--green);">Usability Questions</h3>
+        <p>"Show me how you would..."</p>
+        <p>"What do you expect to happen?"</p>
+        <p>"What are you looking for?"</p>
+      </div>
+      <div class="policy">
+        <h3 style="color: var(--violet);">Validation Questions</h3>
+        <p>"How does this compare to what you do now?"</p>
+        <p>"Would this change your behavior?"</p>
+        <p>"Tell me about a time you had this problem"</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 12. EXERCISE ═══ -->
+  <section class="slide content" style="--section-color: var(--blue); background: var(--blue-bg);">
+    <h2>Quick exercise: Which type?</h2>
+    <p class="callout mt">Categorize each question — usability or validation?</p>
+    <ol class="numbered mt-lg" style="--section-color: var(--blue);">
+      <li>"Walk me through logging your first workout"</li>
+      <li>"How do you currently track your workouts?"</li>
+      <li>"What would you tap to see your progress?"</li>
+      <li>"Would you use this instead of what you do now? Why or why not?"</li>
+      <li>"What do you expect that button to do?"</li>
+    </ol>
+  </section>
+
+  <!-- ═══ 13. SECTION: TASKS & QUESTIONS ═══ -->
+  <section class="slide divider" style="--section-bg: var(--violet-bg);">
+    <h1 style="color: var(--violet);">Writing Good Tasks & Questions</h1>
+    <p class="sub">The quality of your test depends on this</p>
+  </section>
+
+  <!-- ═══ 14. GOOD TASKS ═══ -->
+  <section class="slide top" style="--section-color: var(--violet);">
+    <h2>What makes a good task?</h2>
+    <table class="mt">
+      <tr><th>Principle</th><th style="color: var(--red);">Bad</th><th style="color: var(--green);">Good</th></tr>
+      <tr><td><strong>Realistic</strong></td><td style="color: var(--red);">"Use the app"</td><td style="color: var(--green);">"You want to track a 20-min run you just completed"</td></tr>
+      <tr><td><strong>Specific</strong></td><td style="color: var(--red);">"Try the features"</td><td style="color: var(--green);">"Log your breakfast from this morning"</td></tr>
+      <tr><td><strong>No hints</strong></td><td style="color: var(--red);">"Tap the + button to add"</td><td style="color: var(--green);">"Log your workout"</td></tr>
+    </table>
+    <p class="callout mt-lg">Tasks are based on actual user goals — not feature demonstrations.</p>
+  </section>
+
+  <!-- ═══ 15. GOOD QUESTIONS ═══ -->
+  <section class="slide top" style="--section-color: var(--violet);">
+    <h2>What makes a good question?</h2>
+    <table class="mt">
+      <tr><th>Principle</th><th style="color: var(--red);">Bad</th><th style="color: var(--green);">Good</th></tr>
+      <tr><td><strong>Open-ended</strong></td><td style="color: var(--red);">"Would you tap this button?"</td><td style="color: var(--green);">"What would you do next?"</td></tr>
+      <tr><td><strong>Past behavior</strong></td><td style="color: var(--red);">"Would you use this?"</td><td style="color: var(--green);">"How do you currently handle this?"</td></tr>
+      <tr><td><strong>Non-leading</strong></td><td style="color: var(--red);">"Don't you think this is easier?"</td><td style="color: var(--green);">"What do you think of this?"</td></tr>
+    </table>
+  </section>
+
+  <!-- ═══ 16. MOM TEST ═══ -->
+  <section class="slide content" style="--section-color: var(--violet);">
+    <h2>The Mom Test applies here too</h2>
+    <p class="big-text">People will be nice. They'll say they'd use it.</p>
+    <p class="big-text mt">Your job is to design questions that reveal <span class="accent-violet">truth</span>, not confirm your hopes.</p>
+    <p class="callout accent-green mt-lg">You can test with anyone — friends, roommates, family — if you ask the right questions.</p>
+    <div class="arrow-flow mt">
+      <div class="box" style="color: var(--red);">"Would you use this?"</div>
+      <span class="arrow">→</span>
+      <div class="box" style="color: var(--fg-dim);">People say yes to be nice</div>
+    </div>
+    <div class="arrow-flow mt">
+      <div class="box" style="color: var(--green);">"How did you handle this last time?"</div>
+      <span class="arrow">→</span>
+      <div class="box" style="color: var(--fg);">Reveals actual behavior</div>
+    </div>
+  </section>
+
+  <!-- ═══ 16b. MOM TEST QUESTIONS ═══ -->
+  <section class="slide content" style="--section-color: var(--violet);">
+    <h2>Mom Test style questions for prototypes</h2>
+    <p class="callout">Ask about <span class="accent-violet">past behavior</span> and <span class="accent-violet">current reality</span> — not future intentions</p>
+    <ul class="resource-list mt">
+      <li>"How do you currently handle [this problem]?" <span style="color: var(--fg-dim);">→ reveals if problem is real</span></li>
+      <li>"What happened the last time you tried to [task]?" <span style="color: var(--fg-dim);">→ reveals pain points</span></li>
+      <li>"What would you do if this app didn't exist?" <span style="color: var(--fg-dim);">→ reveals alternatives</span></li>
+      <li>"Who else has this problem?" <span style="color: var(--fg-dim);">→ reveals if they're representative</span></li>
+    </ul>
+  </section>
+
+  <!-- ═══ 17. REWRITE EXERCISE ═══ -->
+  <section class="slide content" style="--section-color: var(--violet); background: var(--violet-bg);">
+    <h2>Let's rewrite some bad questions</h2>
+    <p class="callout mt">Turn these into good questions:</p>
+    <ol class="numbered mt-lg" style="--section-color: var(--violet);">
+      <li>"Don't you think this workout tracker is easy to use?"</li>
+      <li>"Would you pay $5/month for this app?"</li>
+      <li>"Do you like the color scheme?"</li>
+    </ol>
+    <p class="small mt-lg">Hint: What's leading? What's hypothetical? How can you ground it in real behavior?</p>
+  </section>
+
+  <!-- ═══ 18. SECTION: 5 ACT METHOD ═══ -->
+  <section class="slide divider" style="--section-bg: var(--green-bg);">
+    <h1 style="color: var(--green);">The 5 Act Method</h1>
+    <p class="sub">Structure for a productive test session</p>
+  </section>
+
+  <!-- ═══ 19. 5 ACT OVERVIEW ═══ -->
+  <section class="slide content" style="--section-color: var(--green);">
+    <h2>The 5 Act Method</h2>
+    <ol class="steps mt" style="--section-color: var(--green);">
+      <li><span><strong>Friendly welcome</strong> (1 min) — Make them comfortable, explain think-aloud</span></li>
+      <li><span><strong>Context questions</strong> (3 min) — Current behavior, relevant habits</span></li>
+      <li><span><strong>Introduce prototype</strong> (1 min) — "This is early. Some things won't work."</span></li>
+      <li><span><strong>Tasks</strong> (10-15 min) — Give tasks one at a time. Observe. Don't help.</span></li>
+      <li><span><strong>Debrief</strong> (5 min) — Overall impressions, comparison to current solutions</span></li>
+    </ol>
+  </section>
+
+  <!-- ═══ 20. ACT 1 ═══ -->
+  <section class="slide content" style="--section-color: var(--green);">
+    <h2>Act 1: Friendly Welcome <span class="small">(1 min)</span></h2>
+    <ol class="numbered mt" style="--section-color: var(--green);">
+      <li>Make them comfortable — you want honest feedback</li>
+      <li>Explain think-aloud: "Tell me what you're thinking as you use this"</li>
+      <li>Reassure them: "We're testing the design, not you"</li>
+      <li>Permission: "It's totally fine to be confused or critical"</li>
+    </ol>
+  </section>
+
+  <!-- ═══ 21. ACT 2 ═══ -->
+  <section class="slide content" style="--section-color: var(--green);">
+    <h2>Act 2: Context Questions <span class="small">(3 min)</span></h2>
+    <p class="big-text">Before showing the prototype, understand their world:</p>
+    <ul class="resource-list mt">
+      <li>"How do you currently [relevant behavior]?"</li>
+      <li>"Tell me about the last time you [relevant situation]"</li>
+      <li>"What tools do you use for [relevant task]?"</li>
+    </ul>
+    <p class="callout accent-green mt-lg">This sets up your validation questions later.</p>
+  </section>
+
+  <!-- ═══ 22. ACT 3 ═══ -->
+  <section class="slide content" style="--section-color: var(--green);">
+    <h2>Act 3: Introduce the Prototype <span class="small">(1 min)</span></h2>
+    <p class="big-text">Set expectations:</p>
+    <ul class="resource-list mt">
+      <li>"This is an early prototype"</li>
+      <li>"Some things won't work — that's okay"</li>
+      <li>"Think out loud as you explore"</li>
+    </ul>
+    <p class="callout accent-green mt-lg">Don't explain what it does. Let them discover.</p>
+  </section>
+
+  <!-- ═══ 23. ACT 4 ═══ -->
+  <section class="slide content" style="--section-color: var(--green);">
+    <h2>Act 4: Tasks <span class="small">(10-15 min)</span></h2>
+    <ol class="numbered mt" style="--section-color: var(--green);">
+      <li>Give tasks <strong>one at a time</strong></li>
+      <li><strong>Observe</strong> — don't interrupt</li>
+      <li><strong>Note</strong> where they hesitate, tap wrong things, look confused</li>
+      <li>When they get stuck, ask "What are you looking for?" — <span class="accent-red">don't rescue them</span></li>
+    </ol>
+    <p class="callout mt-lg">This is where most usability insights come from.</p>
+  </section>
+
+  <!-- ═══ 24. ACT 5 ═══ -->
+  <section class="slide content" style="--section-color: var(--green);">
+    <h2>Act 5: Debrief <span class="small">(5 min)</span></h2>
+    <p class="big-text">Now ask validation questions:</p>
+    <ul class="resource-list mt">
+      <li>"How does this compare to what you do now?"</li>
+      <li>"What would make you switch to this?"</li>
+      <li>"What's missing that you'd need?"</li>
+      <li>"Would you recommend this to someone like you?"</li>
+    </ul>
+    <p class="callout accent-violet mt-lg">This is where solution fit insights come from.</p>
+  </section>
+
+  <!-- ═══ 25. SECTION: FACILITATION ═══ -->
+  <section class="slide divider" style="--section-bg: var(--pink-bg);">
+    <h1 style="color: var(--pink);">Facilitation</h1>
+    <p class="sub">Your job: observe and learn — not explain or defend</p>
+  </section>
+
+  <!-- ═══ 26. PRINCIPLES ═══ -->
+  <section class="slide content" style="--section-color: var(--pink);">
+    <h2>Four principles of good facilitation</h2>
+    <ol class="numbered mt" style="--section-color: var(--pink);">
+      <li><strong>Silence is your friend</strong> — Let them struggle. That's data.</li>
+      <li><strong>Don't explain</strong> — If they're confused, note it. Don't rescue them.</li>
+      <li><strong>Don't defend</strong> — If they criticize, say "Tell me more." Not "Well, actually..."</li>
+      <li><strong>Ask "Why?"</strong> — When they do something unexpected, ask what they were thinking.</li>
+    </ol>
+  </section>
+
+  <!-- ═══ 27. COMMON MISTAKES ═══ -->
+  <section class="slide top" style="--section-color: var(--pink);">
+    <h2>Common facilitation mistakes</h2>
+    <table class="mt">
+      <tr><th>Mistake</th><th>What it sounds like</th><th>Why it's bad</th></tr>
+      <tr><td style="color: var(--red);">Helping too quickly</td><td>"Oh, you tap here"</td><td>You don't learn where UI fails</td></tr>
+      <tr><td style="color: var(--red);">Leading questions</td><td>"You found that easy, right?"</td><td>You get false confirmation</td></tr>
+      <tr><td style="color: var(--red);">Defending choices</td><td>"That's because we wanted to..."</td><td>You stop learning</td></tr>
+      <tr><td style="color: var(--red);">Hypothetical questions</td><td>"Would you use this?"</td><td>People say yes to be nice</td></tr>
+    </table>
+  </section>
+
+  <!-- ═══ 28. D5 ASSIGNMENT ═══ -->
+  <section class="slide top" style="--section-color: var(--cyan);">
+    <h2>D5: Usability Testing Round 1</h2>
+    <p class="small">Due Monday, Mar 16 @ 5:15pm</p>
+    <p class="callout mt">Test at least <span class="accent-cyan">5 people</span> outside of class</p>
+    <p class="mt" style="color: var(--fg-dim);">Test anyone — friends, roommates, family, strangers. The skill is asking good questions.</p>
+    <div class="mt-lg">
+      <p><strong>Your test should include:</strong></p>
+      <ul class="resource-list mt">
+        <li><span class="label">4-5</span> task-based questions (realistic scenarios)</li>
+        <li><span class="label">1+</span> follow-up question per task (dig into confusion)</li>
+        <li><span class="label">4-5</span> Mom Test style questions (past behavior, not hypotheticals)</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ═══ 30. D5 DOCUMENTATION ═══ -->
+  <section class="slide content" style="--section-color: var(--cyan);">
+    <h2>D5: What to Document</h2>
+    <p class="big-text">For each of your 5 tests:</p>
+    <ul class="resource-list mt">
+      <li>Who they are (relationship to you, relevant background)</li>
+      <li>What happened (observations, not interpretations)</li>
+      <li>Key quotes</li>
+      <li>Usability issues discovered</li>
+      <li>Solution validation signals</li>
+    </ul>
+  </section>
+
+  <!-- ═══ 30b. D5 SYNTHESIS ═══ -->
+  <section class="slide content" style="--section-color: var(--cyan);">
+    <h2>D5: Synthesis</h2>
+    <p class="big-text">After your 5 tests, synthesize:</p>
+    <ol class="numbered mt" style="--section-color: var(--cyan);">
+      <li><strong>Patterns</strong> across tests</li>
+      <li><strong>Top 3 usability issues</strong> to fix</li>
+      <li><strong>Top 3 solution fit insights</strong></li>
+      <li><strong>Question reflection:</strong> Which questions got honest answers? Which invited polite non-answers?</li>
+      <li><strong>What you'll change</strong> in next iteration</li>
+    </ol>
+    <p class="callout mt-lg">Submit: PDF (2 pages — key insights + raw data)</p>
+  </section>
+
+  <!-- ═══ 31. TEST PLANNING ═══ -->
+  <section class="slide content" style="--section-color: var(--fg-dim);">
+    <h2>Test Planning Workshop <span class="small">(20 min)</span></h2>
+    <div class="policy-pair mt">
+      <div class="policy">
+        <h3>First 10 min: Write your test plan</h3>
+        <p>• 4-5 realistic task-based questions</p>
+        <p>• A follow-up question for each task</p>
+        <p>• 4-5 Mom Test style questions</p>
+        <p>• What you're specifically looking for</p>
+      </div>
+      <div class="policy">
+        <h3>Next 10 min: Peer review</h3>
+        <p>• Partner identifies: leading questions?</p>
+        <p>• Tasks that give hints?</p>
+        <p>• Hypotheticals that should be past behavior?</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 32. IN-CLASS TESTING ═══ -->
+  <section class="slide content" style="--section-color: var(--fg-dim);">
+    <h2>In-Class Testing <span class="small">(100 min)</span></h2>
+    <p class="big-text">Three rounds of testing (~30 min each):</p>
+    <ol class="steps mt" style="--section-color: var(--cyan);">
+      <li><span><strong>Round 1:</strong> You test a classmate's prototype (you facilitate)</span></li>
+      <li><span><strong>Round 2:</strong> A classmate tests yours (you observe silently)</span></li>
+      <li><span><strong>Round 3:</strong> Switch partners, repeat</span></li>
+    </ol>
+    <p class="callout accent-red mt-lg">Prototype owner: no helping! Take notes.</p>
+  </section>
+
+  <!-- ═══ 33. GROUND RULES ═══ -->
+  <section class="slide content" style="--section-color: var(--fg-dim);">
+    <h2>Testing ground rules</h2>
+    <div class="policy-pair mt">
+      <div class="policy">
+        <h3 style="color: var(--green);">For facilitators</h3>
+        <p>• Run the 5 Act Method</p>
+        <p>• Don't explain or rescue</p>
+        <p>• Take notes</p>
+      </div>
+      <div class="policy">
+        <h3 style="color: var(--violet);">For prototype owners</h3>
+        <p>• Observe silently — no helping!</p>
+        <p>• Take notes on issues</p>
+        <p>• Save questions for debrief</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 34. WHAT TO DOCUMENT ═══ -->
+  <section class="slide top" style="--section-color: var(--fg-dim);">
+    <h2>What to document during testing</h2>
+    <table class="mt compare-table">
+      <tr><th style="color: var(--green);">Capture this</th><th style="color: var(--red);">Not this</th></tr>
+      <tr><td style="color: var(--green) !important;">"User tapped menu icon 3 times"</td><td style="color: var(--red) !important;">"User was confused"</td></tr>
+      <tr><td style="color: var(--green) !important;">"User said 'Where do I go?'"</td><td style="color: var(--red) !important;">"UI was unclear"</td></tr>
+      <tr><td style="color: var(--green) !important;">"User looked for search, couldn't find it"</td><td style="color: var(--red) !important;">"Search is broken"</td></tr>
+    </table>
+    <p class="callout mt-lg">Observations, not interpretations. Quotes, not summaries.</p>
+  </section>
+
+  <!-- ═══ 35. REFLECTION ═══ -->
+  <section class="slide content" style="--section-color: var(--fg-dim);">
+    <h2>After each round, reflect</h2>
+    <ol class="numbered mt" style="--section-color: var(--cyan);">
+      <li>What surprised you?</li>
+      <li>What usability issues emerged?</li>
+      <li>What did you learn about solution fit?</li>
+      <li>What will you change?</li>
+    </ol>
+  </section>
+
+  <!-- ═══ 36. NEXT UP ═══ -->
+  <section class="slide top" style="--section-color: var(--fg-dim); background: linear-gradient(135deg, #161616 0%, #111 100%);">
+    <h2>Next up</h2>
+    <div class="mt" style="display: flex; flex-direction: column; gap: 28px;">
+      <div>
+        <p><strong>Today</strong></p>
+        <ul class="resource-list" style="margin-top: 12px;">
+          <li><span class="label">20 min:</span> Test Planning Workshop</li>
+          <li><span class="label">100 min:</span> In-Class Testing — 3 rounds</li>
+          <li><span class="label">10 min:</span> Reflection</li>
+        </ul>
+      </div>
+      <div>
+        <p><strong>D5: Usability Testing Round 1</strong> — due Mon, Mar 16 @ 5:15pm</p>
+        <p style="color: var(--fg-dim); font-size: 1.3rem; margin-top: 8px;">Test 5 people (anyone!), 4-5 tasks + follow-ups + 4-5 Mom Test questions, synthesize patterns</p>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<div class="counter"><span id="cur">1</span> / <span id="tot"></span></div>
+
+<script>
+  const slides = document.querySelectorAll('.slide');
+  const total = slides.length;
+  let current = 0;
+  document.getElementById('tot').textContent = total;
+
+  function goTo(n) {
+    if (n < 0 || n >= total) return;
+    slides[current].classList.remove('active');
+    current = n;
+    slides[current].classList.add('active');
+    document.getElementById('cur').textContent = current + 1;
+  }
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown' || e.key === ' ') { e.preventDefault(); goTo(current + 1); }
+    else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') { e.preventDefault(); goTo(current - 1); }
+    else if (e.key === 'Home') { e.preventDefault(); goTo(0); }
+    else if (e.key === 'End') { e.preventDefault(); goTo(total - 1); }
+  });
+
+  document.addEventListener('click', e => {
+    if (e.target.closest('a')) return;
+    e.clientX / window.innerWidth < 0.33 ? goTo(current - 1) : goTo(current + 1);
+  });
+</script>
+
+</body>
+</html>
