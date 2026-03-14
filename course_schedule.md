@@ -521,30 +521,26 @@ Today's Focus: Testing answers two questions: "Can they use it?" and "Should we 
 ### Day 19 — Monday, Mar 16
 **Unit D: Neue App (Capstone)**
 
-Today's Focus: Iterate based on what you learned — wireframes bridge paper to digital.
+Today's Focus: One concept, two platforms — adapting your validated idea to a new form factor.
 
 **In class:**
-- D5 Debrief: What did usability testing reveal?
-- Synthesis: prioritizing changes based on user feedback
-- AI prototyping workshop: paper sketches → AI → digital wireframes
-  - Photograph paper prototypes
-  - Prompt AI tools (V0, Lovable, Figma Make)
-  - Compare AI output to design intent
-  - Learn what AI needs: clear flows, annotations, context
-- Work session: Create digital wireframes
+- D5 Debrief: What did usability testing reveal? What changes will you make?
+- Platform adaptation principles: what transfers vs. what must change
+  - Screen real estate & input modality (touch vs. crown vs. keyboard)
+  - Information density: phone (moderate) vs. watch (minimal) vs. tablet (expansive)
+  - Platform conventions: Apple HIG for watch, Material for tablet, etc.
+  - Which screens/flows survive the translation? Which get simplified or expanded?
+- Examples: how real apps adapt across platforms (e.g., fitness apps on phone vs. watch)
+- Work session: Choose your second platform, create user flow + sketches
 
 **Come to class having done:**
 - ⛳ D5: Usability Testing Rd. 1
 
 **Assignments due before next class:**
-- ⛳ D6: Wireframe (due Mar 18 @ 5:15pm)
-  - Digital wireframes for all flows
-  - Both primary and secondary interfaces
-
-**Resources:**
-- V0 by Vercel: https://v0.dev/
-- Lovable: https://lovable.dev/
-- Figma Make: https://www.figma.com/ai/
+- ⛳ D6: Second Platform Flow + Sketches (due Mar 18 @ 5:15pm)
+  - User flow diagram for second platform
+  - Annotated sketches showing key screens
+  - Brief written rationale: what changed from primary platform and why
 
 ---
 
@@ -554,7 +550,7 @@ Today's Focus: Iterate based on what you learned — wireframes bridge paper to 
 Today's Focus: Visual identity serves usability — brand and function work together.
 
 **In class:**
-- D6 Wireframe review and feedback
+- D6 Second Platform review and feedback
 - Brand exploration with AI:
   - AI for generating brand directions (color palettes, type pairings)
   - Evaluate AI output against persona needs
@@ -564,7 +560,7 @@ Today's Focus: Visual identity serves usability — brand and function work toge
 - Work session: Hierarchy sheet + iterations
 
 **Come to class having done:**
-- ⛳ D6: Wireframe
+- ⛳ D6: Second Platform Flow + Sketches
 
 **Assignments due before next class:**
 - ⛳ D7: Hierarchy sheet + 5 iterations (due Mar 23 @ 5:15pm)
@@ -587,15 +583,18 @@ Today's Focus: Visual identity serves usability — brand and function work toge
 ### Day 21 — Monday, Mar 23
 **Unit D: Neue App (Capstone)**
 
-Today's Focus: High fidelity requires every choice to be intentional.
+Today's Focus: High fidelity requires every choice to be intentional — built by you, not by AI.
 
 **In class:**
 - D7 Hierarchy review and feedback
 - High-fidelity design techniques
+- The AI prototype was a validation tool — now build the real thing from scratch in Figma
+  - Use AI output as reference, not as a starting point
+  - Every layout choice, spacing decision, and component must be yours
 - Using your style guide consistently
 - Gestalt principles in practice
 - Motion design introduction: purpose-driven animation
-- Work session: High-fidelity screens
+- Work session: Hand-build high-fidelity screens in Figma
 
 **Come to class having done:**
 - ⛳ D7: Hierarchy sheet + 5 iterations
@@ -641,12 +640,13 @@ Today's Focus: Test high-fidelity prototypes to catch issues before final polish
 ### Day 23 — Monday, Mar 30
 **Unit D: Neue App (Capstone)**
 
-Today's Focus: Iterate based on testing — motion and polish complete the experience.
+Today's Focus: Iterate, animate, and extend — polish primary platform and build second platform high-fi.
 
 **In class:**
 - D9 Testing debrief: What did Round 2 reveal?
 - Final iteration based on testing feedback
 - Motion design workshop: at least 2 custom microinteractions
+- Second platform: build high-fidelity screens in Figma (using your D6 flow + sketches)
 - Accessibility check: contrast, touch targets
 - Documentation preparation: what goes in the case study?
 

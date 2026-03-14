@@ -49,6 +49,15 @@ Any new digital product succeeds only when it can convince people to use it inst
 ❌ Do not skip paper prototyping — start low-fidelity before going digital
 
 
+### AI USAGE POLICY
+
+AI tools (V0, Lovable, Bolt.new, Figma Make, etc.) are powerful **validation tools**. Use them to quickly test whether your concept works — generate a coded prototype, put it in front of users, and learn fast.
+
+However, your AI prototype is a **disposable artifact**, not your final design. All high-fidelity screens (D8, D9) must be **hand-built in Figma from scratch**. You may reference the AI output for layout ideas, but your final design should reflect your own intentional decisions about spacing, hierarchy, typography, color, and interaction patterns.
+
+**Why?** The AI can render a plausible interface, but it can't form intent. Your job is to demonstrate that you can do both — discover the right problem (forming) AND craft a beautiful, functional solution (rendering). If the AI does the rendering for you, you've only done half the work.
+
+
 ### Rubric
 
 | Criterion | Beginning (1) | Developing (2) | Proficient (3) | Exemplary (4) |
@@ -196,15 +205,16 @@ Document: Voice memo or written notes with distilled insights
 
 ---
 
-### D7: Revised Wireframes & Brand Style Sheet Draft
+### D7: Second Platform Flow + Brand Style Sheet Draft
 **Due: Day 22 (Wed, Mar 25) — submit to Learning Suite**
 
-Iterate based on testing feedback.
+Adapt your validated concept to a second platform and begin developing your visual identity.
 
-**Revised Wireframes:**
-- Higher fidelity than paper prototypes
-- Both primary and secondary interface flows
-- All sourced content (copy, images, video)
+**Second Platform Design:**
+- Choose your second platform (watch, tablet, desktop, Vision Pro, car dashboard, etc.)
+- User flow diagram for second platform — what screens/flows survive the translation?
+- Annotated sketches showing key screens at the second platform's scale
+- Brief written rationale: what changed from your primary platform and why
 
 **Brand Style Sheet Draft:**
 - Logo
@@ -291,9 +301,10 @@ A comprehensive process book documenting your entire project:
 - Key findings from all rounds (10+ interviews total)
 - Specific changes made in response
 
-**7. Digital Wireframes (Annotated)**
-- Screens from clickable prototype
-- Annotations explaining design decisions
+**7. Second Platform Design**
+- Flow diagram and sketches for second platform
+- Rationale for platform-specific adaptations
+- High-fidelity screens for second platform
 
 **8. Visual Style Guide & Branding**
 - Final brand style sheet
