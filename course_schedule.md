@@ -574,6 +574,8 @@ Today's Focus: Visual identity serves usability — brand and function work toge
 - TypeTogether's Guide to Pairing Type
 - BYU Graphic Design Type Library
 
+→ [Lesson Plan](unit_d/day_20.md)
+
 ---
 
 ### Friday, Mar 20
