@@ -549,30 +549,31 @@ Today's Focus: One concept, two platforms — adapting your validated idea to a 
 ### Day 20 — Wednesday, Mar 18
 **Unit D: Neue App (Capstone)**
 
-Today's Focus: Visual identity serves usability — brand and function work together.
+Today's Focus: A design system is the toolkit you build before you build the product.
 
 **In class:**
-- D6 Second Platform review and feedback
-- Brand exploration with AI:
-  - AI for generating brand directions (color palettes, type pairings)
-  - Evaluate AI output against persona needs
-  - Critical: AI suggests, you decide
-- Typography hierarchy development
-- Visual identity fundamentals
-- Work session: Hierarchy sheet + iterations
+- D6 Second Platform review and peer feedback
+- What is a UI design system? Reusable decisions, not a pretty PDF
+- Logo + wordmark: simple, functional, works at 29×29px
+- Type scale: setting up Figma text styles for 7 UI roles
+- Color tokens: named by role (Primary, Surface, Error), not by color
+- Accessibility: contrast ratios in 30 seconds
+- Work session: Build your design system + begin iterations
 
 **Come to class having done:**
 - ⛳ D6: Second Platform Flow + Sketches
 
 **Assignments due before next class:**
-- ⛳ D7: Hierarchy sheet + 5 iterations (due Mar 23 @ 5:15pm)
-  - Typography hierarchy
-  - Color palette
-  - 5 design iterations showing exploration
+- ⛳ D7: Design System + 5 Iterations (due Mar 23 @ 5:15pm)
+  - Logo + wordmark (app icon + horizontal)
+  - Type scale (7 Figma text styles)
+  - Color tokens (all roles + contrast ratios)
+  - 5 design iterations of one key screen
 
 **Resources:**
-- TypeTogether's Guide to Pairing Type
+- Google Fonts
 - BYU Graphic Design Type Library
+- WebAIM Contrast Checker
 
 → [Lesson Plan](unit_d/day_20.md)
 

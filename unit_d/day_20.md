@@ -1,9 +1,9 @@
 # Day 20 — Wednesday, Mar 18
 ## Unit D: Neue App (Capstone)
 
-**Focus:** Visual identity isn't decoration — it's how your brand communicates before the user reads a single word.
+**Focus:** A design system is the toolkit you build before you build the product.
 
-**Why This Matters:** You're about to build high-fidelity screens from scratch in Figma. Every pixel will reflect choices about typography, color, and brand personality. If you start designing without a visual system, you'll make inconsistent decisions screen by screen and spend hours fixing things later. A strong hierarchy sheet and brand style guide is your foundation — it makes every subsequent design decision faster, more consistent, and more intentional. Professional designers never skip this step.
+**Why This Matters:** Starting Day 21, you'll hand-build every screen in Figma from scratch. Without a design system, you'll make hundreds of one-off decisions — picking colors by eye, guessing font sizes, rebuilding the same button five different ways. A simple design system (logo, wordmark, type scale, color tokens, basic components) eliminates those decisions upfront. Every professional UI team builds one before touching a single screen. Today you build yours.
 
 **Targeted Learning Outcomes:**
 - Critical Analysis of Form and Format
@@ -16,146 +16,165 @@
 ### Desired Results
 
 **Essential Questions:**
-- EQ1: How does visual identity serve usability — not just aesthetics?
-- EQ2: How do you develop a typography hierarchy that communicates structure and personality simultaneously?
-- EQ3: How can AI help you explore brand directions without replacing your judgment?
+- EQ1: What is a design system and why do UI designers build one before designing screens?
+- EQ2: How do you set up typography, color, and components in Figma so they work as a connected system?
+- EQ3: How simple can a logo and wordmark be while still being effective?
 
 **Understandings:**
-- U1: Brand and function work together — visual identity reinforces what the product does and who it's for
-- U2: A typography hierarchy is a system of relationships, not a collection of font choices
-- U3: AI can generate options rapidly, but evaluating them against your persona and product purpose is the design skill
+- U1: A design system is not a style guide — it's a set of reusable decisions that make every subsequent design faster and more consistent
+- U2: Typography hierarchy in UI is about function (scannability, readability, interaction) more than expression
+- U3: Color in UI serves meaning (primary actions, surfaces, errors, success) — not just brand personality
 
 **Students Will Know:**
-- K1: Components of a brand style sheet (logo, colors, typography, icons, illustration direction, voice, interactive elements)
-- K2: How to build a typographic hierarchy (scale, weight, role assignment)
-- K3: How to use AI tools to explore brand directions (color palettes, type pairings) while maintaining critical judgment
+- K1: The components of a simple UI design system (logo, wordmark, type scale, color tokens, basic UI elements)
+- K2: How to set up Figma text styles and color styles as reusable tokens
+- K3: How to create a simple logo and wordmark that's functional at small sizes
 
 **Students Will Be Able To:**
-- S1: Give structured feedback on second platform designs
-- S2: Develop a typography hierarchy with clear roles (display, heading, body, caption, label)
-- S3: Create a color palette that serves both brand personality and usability (contrast, accessibility)
-- S4: Produce multiple design iterations that show genuine exploration, not minor variations
+- S1: Create a simple logo and wordmark appropriate for an app icon and navigation bar
+- S2: Build a type scale in Figma with named text styles (Display, H1, H2, Body, Caption, Label, Button)
+- S3: Define a color token system (primary, surface, text, border, semantic colors) with accessible contrast
+- S4: Produce 5 design iterations showing different visual directions for their app
 
 ---
 
 ### Assignments Due
 - ⛳ D6: Second Platform Flow + Sketches (submitted before class)
-  - User flow diagram for second platform
-  - Annotated sketches showing key screens
-  - Brief written rationale: what changed and why
 
 ---
 
 ### Activities
 
-1. **Warm-Up: D6 Second Platform Gallery** (10 min) `[S1]`
-   - Lay out your D6 submissions on your desk (or screen)
+1. **Warm-Up: D6 Second Platform Gallery** (10 min) `[EQ1]`
+   - Lay out your D6 submissions on your desk or screen
    - Walk around and look at 3–4 classmates' second platform designs
-   - For each one you look at, note: What platform did they choose? What's the most interesting adaptation they made?
+   - For each: What platform did they choose? What's the most interesting adaptation?
    - Find someone who chose a different platform than you — compare notes
 
 2. **Today's Learning Goals** (5 min) `[EQ1, EQ2, EQ3, U1, U2, U3]`
-   - **Why this matters:** Starting next class (Day 21), you'll hand-build high-fidelity screens in Figma from scratch. Today you build the visual foundation that makes that work faster and more consistent.
+   - **Why this matters:** Day 21, you build screens from scratch. Today you build the system that makes that work 10x faster. Without it, you'll spend hours making inconsistent decisions.
    - Preview:
-     - Visual identity fundamentals: how brand serves usability
-     - Typography hierarchy: building a type system
-     - AI-assisted brand exploration: generating and evaluating options
-     - D6 peer feedback: improve your second platform designs
-   - Connection to forming/rendering: You've formed your intent through research, validation, and flow design. Now you begin rendering — giving your product a visual voice. The visual choices you make today will shape every screen you build.
+     - What a UI design system is (and isn't)
+     - Logo + wordmark: simple, functional, done
+     - Type scale: setting up Figma text styles
+     - Color tokens: defining your palette as a system
+     - D6 peer feedback
+   - Connection to forming/rendering: Your research formed the intent. Now you're building the rendering toolkit — the set of reusable decisions that will shape every screen.
 
-3. **Direct Instruction: Building a Visual Identity** (45 min) `[EQ1, EQ2, EQ3, U1, U2, U3, K1, K2, K3, S2, S3]`
+3. **Direct Instruction: Building a UI Design System** (50 min) `[EQ1, EQ2, EQ3, U1, U2, U3, K1, K2, K3, S1, S2, S3]`
 
-   **Part A: Visual Identity Serves Usability** (10 min)
-   - **I do:** Brand isn't just a logo — it's a system of visual decisions
-     - Typography creates hierarchy and scannability
-     - Color creates meaning and draws attention
-     - Spacing and layout create rhythm and breathing room
-     - Consistency builds trust — inconsistency feels broken
-   - **I do:** Your persona should guide every choice
-     - A fitness app for weekend warriors looks different from one for elite athletes
-     - A budgeting app for college students looks different from one for retirees
-     - The question isn't "What looks cool?" — it's "What serves this person?"
-   - **We do:** Show 2–3 apps in the same category with very different visual identities
-     - What does each visual identity communicate about who the product is for?
+   **Part A: What Is a Design System?** (8 min)
+   - **I do:** A design system is a set of reusable decisions
+     - It's not a pretty PDF — it's a working Figma file with styles, tokens, and components
+     - It answers: "What font size is a heading? What color is a primary button? What's the border radius?"
+     - Without one, you answer those questions differently every time you design a new screen
+   - **I do:** What goes in a simple UI design system
+     - **Logo + Wordmark** — App icon, nav bar logo (simple and functional)
+     - **Type scale** — Named text styles with sizes, weights, line heights
+     - **Color tokens** — Named colors with roles (primary, surface, text, semantic)
+     - **Basic UI elements** — Buttons, inputs, cards built from your tokens
+   - **I do:** Show a real design system in Figma (Apple HIG Figma kit or Material Design kit)
+     - Point out: text styles panel, color styles panel, component library
+     - "You're building a small version of this today"
 
-   **Part B: Typography Hierarchy** (15 min)
-   - **I do:** A hierarchy is a system of roles, not a collection of sizes
-     - **Display** — App name, feature titles, splash screens (largest, most expressive)
-     - **Heading** — Section headers, screen titles (clear, bold, scannable)
-     - **Body** — Primary content, descriptions (readable, comfortable for paragraphs)
-     - **Caption/Label** — Metadata, timestamps, secondary info (small, unobtrusive)
-     - **Button/Action** — Interactive elements (medium weight, high contrast)
-   - **I do:** Type pairing principles
-     - Contrast: pair a serif with a sans-serif, or a geometric with a humanist
-     - Don't pair fonts that are too similar — it looks like a mistake
-     - One expressive font + one workhorse font is usually enough
-     - Consider your persona: playful vs. professional, warm vs. clinical
-   - **I do:** Building a type scale
-     - Start from your body text size (16–18px on mobile)
-     - Use a ratio (1.25 or 1.333) to derive other sizes
-     - Assign roles to each size — every size needs a purpose
-   - **You do:** Open your phone's Settings app. Identify: what's the display type? Heading? Body? Caption? How many distinct type styles do you count?
+   **Part B: Logo + Wordmark** (10 min)
+   - **I do:** Your logo needs to work at 29×29 pixels (app icon smallest size)
+     - Simple beats clever — at small sizes, detail disappears
+     - A strong wordmark can be your entire logo (think: Figma, Notion, Linear)
+     - You need: app icon version + horizontal wordmark for nav bars
+   - **I do:** Quick approaches that work
+     - Lettermark: stylized first letter or initials
+     - Simple symbol: one recognizable shape
+     - Wordmark only: distinctive font treatment of your app name
+     - Avoid: gradients that flatten at small size, thin lines that disappear, excessive detail
+   - **We do:** Look at 5 well-known app icons. What makes them work at small sizes? What's the simplest element?
+   - **You do:** Sketch 3 quick logo concepts in your notebook (2 min). Pick your strongest one — you'll refine it in the work session.
 
-   **Part C: AI-Assisted Brand Exploration** (20 min)
-   - **I do:** AI is good at generating options — you're good at evaluating them
-     - AI tools for brand exploration: Claude for strategy/naming, Coolors for palettes, Fontjoy for pairings, Figma Make for quick mockups
-     - What to ask AI: "Generate 5 color palettes for a [adjective] [adjective] [product type] aimed at [persona]"
-     - What AI can't do: understand your specific users, evaluate cultural context, feel the emotional weight of a color choice
-   - **I do:** Evaluating AI output critically
-     - Does this palette have sufficient contrast for accessibility? (4.5:1 minimum for text)
-     - Does this type pairing match my brand's personality adjectives?
-     - Would my persona trust this visual language?
-     - Is this distinctive or generic? (If it looks like every other app, it won't stand out)
-   - **We do:** Live demo — prompt Claude or another AI for 3 brand directions for a sample app
-     - Class evaluates: Which direction best serves the persona? Why?
-     - Identify what AI got right and what needs human judgment
-   - **You do:** Write your 3 brand personality adjectives. Then write a prompt asking AI for color palette suggestions using those adjectives + your persona description. (Save this — you'll use it in the work session.)
+   **Part C: Type Scale for UI** (15 min)
+   - **I do:** UI typography is about function, not expression
+     - **Display** (28–34px) — Feature titles, hero text, onboarding
+     - **H1** (22–24px) — Screen titles
+     - **H2** (18–20px) — Section headings
+     - **Body** (16–17px) — Primary content, descriptions
+     - **Caption** (13–14px) — Metadata, timestamps, secondary info
+     - **Label** (12–13px) — Form labels, tag text
+     - **Button** (15–16px) — Interactive elements, medium weight
+   - **I do:** Setting up text styles in Figma (live demo)
+     - Create a text style for each role
+     - Name them systematically: Display, H1, H2, Body, Caption, Label, Button
+     - Set size, weight, line height, and letter spacing for each
+     - Show how changing a text style updates every instance
+   - **I do:** Choosing typefaces for UI
+     - Readability at small sizes is non-negotiable — test at Caption size first
+     - One typeface family is often enough for UI (use weight variations instead of pairing)
+     - If you pair: one for headings (personality), one for body (readability)
+     - Google Fonts and the BYU Type Library are your resources
+   - **You do:** Open Figma. Create 7 text styles using the roles above. Pick a typeface and set your sizes. (5 min)
 
-4. **D6 Peer Feedback** (20 min) `[S1, EQ1]`
-   - Groups of 3 (mix of different second platforms if possible)
-   - Each person presents their D6 (3 min): What platform? What changed? Why?
-   - Group feedback (4 min per person):
+   **Part D: Color Tokens for UI** (17 min)
+   - **I do:** Color in UI has a job — it's not just decoration
+     - **Primary** — Your main brand color. Used for primary buttons, active states, links.
+     - **On Primary** — Text/icons that sit on top of your primary color (usually white or dark)
+     - **Surface** — Background of cards, sheets, modals (light or dark)
+     - **Background** — App background (usually slightly different from surface)
+     - **Text Primary** — Main body text color
+     - **Text Secondary** — Captions, placeholders, less important text
+     - **Border** — Dividers, input outlines
+     - **Success / Error / Warning** — Semantic colors (green, red, amber)
+   - **I do:** Setting up color styles in Figma (live demo)
+     - Create a color style for each token
+     - Name them by role, not by color: "Primary" not "Blue," "Error" not "Red"
+     - Show how changing a color style propagates everywhere
+   - **I do:** Accessibility in 30 seconds
+     - Text on backgrounds must hit 4.5:1 contrast ratio (WCAG AA)
+     - Use WebAIM contrast checker — test every text/background combination
+     - If it fails, adjust the shade — don't skip the check
+   - **We do:** Check contrast — instructor picks a student's primary color, tests it against white and dark text live. Does it pass?
+   - **You do:** Pick your primary color. Test it against white text and against your intended background color using the WebAIM contrast checker. Adjust if needed. (3 min)
+
+4. **D6 Peer Feedback** (15 min) `[EQ1]`
+   - Groups of 3 (mix platforms if possible)
+   - Each person presents D6 (2 min): What platform? What changed? Why?
+   - Group feedback (3 min per person):
      - Does the second platform feel native or ported?
-     - What's the strongest adaptation? What feels like it's still a phone screen?
      - One specific suggestion for improvement
-   - Instructor circulates to join group discussions
 
 5. **D7 Assignment Introduction** (10 min) `[K1, S2, S3, S4]`
-   - **D7: Hierarchy Sheet + 5 Design Iterations** (due Mon, Mar 23 @ 5:15pm)
-   - **Typography hierarchy:**
-     - Choose your typefaces (1–2 font families)
-     - Define your type scale with sizes, weights, and roles
-     - Show each level in context (not just a list of sizes — show them as they'd appear in your app)
-   - **Color palette:**
-     - Primary, secondary, accent, and neutral colors
-     - Background and surface colors
-     - Semantic colors (success, error, warning)
-     - Show contrast ratios for text on backgrounds
+   - **D7: Design System + 5 Iterations** (due Mon, Mar 23 @ 5:15pm)
+   - **Logo + Wordmark:**
+     - App icon version (square, works at small sizes)
+     - Horizontal wordmark for nav bars
+   - **Type scale:**
+     - Figma text styles for all 7 roles (Display, H1, H2, Body, Caption, Label, Button)
+     - Show each level in context on a sample screen
+   - **Color tokens:**
+     - Primary, On Primary, Surface, Background, Text Primary, Text Secondary, Border
+     - Semantic: Success, Error, Warning
+     - Contrast ratios documented for text on backgrounds
    - **5 design iterations:**
-     - Apply your hierarchy to one key screen from your app
-     - Each iteration should show genuine exploration — different type pairings, color directions, or layout approaches
-     - Not 5 minor tweaks — 5 meaningfully different visual directions
-     - Annotate: what did you try? What worked? What didn't?
+     - Apply your design system to one key screen from your app
+     - Each iteration should explore a meaningfully different direction — different typeface, different primary color, different layout density
+     - Not 5 minor tweaks — 5 genuinely different visual approaches
    - Submit: PDF to Learning Suite
 
-6. **Work Session: Visual Identity Development** (90 min) `[EQ1, EQ2, EQ3, U1, U2, U3, K1, K2, K3, S2, S3, S4]`
-   - **First 20 min:** Brand exploration with AI
-     - Use your prompt from Part C to generate palette options
-     - Try 2–3 type pairing tools (Fontjoy, Google Fonts, TypeTogether)
-     - Sketch your 3 brand personality adjectives and evaluate options against them
-   - **Next 20 min:** Build your typography hierarchy in Figma
-     - Set up text styles with clear naming (Display/H1/H2/Body/Caption/Label/Button)
-     - Define sizes, weights, line heights, and letter spacing
-     - Create a hierarchy sheet showing all levels
-   - **Next 20 min:** Develop your color palette
-     - Define primary, secondary, accent, neutral, and semantic colors
-     - Check contrast ratios (use WebAIM contrast checker)
-     - Create color styles in Figma
-   - **Final 30 min:** Begin design iterations
-     - Pick one key screen from your app
-     - Create at least 2 variations using different visual directions
-     - Push yourself: try something unexpected in at least one iteration
-   - Instructor circulates for 1:1 feedback on type choices, palette decisions, and brand direction
+6. **Work Session: Build Your Design System** (90 min) `[EQ1, EQ2, EQ3, U1, U2, U3, K1, K2, K3, S1, S2, S3, S4]`
+   - **First 15 min:** Logo + wordmark
+     - Refine your strongest sketch concept in Figma or Illustrator
+     - Test at app icon size (60×60 and 29×29) — does it still read?
+     - Create a horizontal wordmark version
+   - **Next 20 min:** Type scale setup
+     - Choose your typeface(s) from Google Fonts or BYU Type Library
+     - Create all 7 text styles in Figma with proper naming
+     - Test readability: does your Caption size work? Is your Display size impactful?
+   - **Next 20 min:** Color token setup
+     - Define all color tokens as Figma color styles
+     - Test contrast ratios for every text/background combination
+     - Set up semantic colors (success, error, warning)
+   - **Final 35 min:** Begin design iterations
+     - Apply your system to one key screen
+     - Build at least 2 different directions — push for variety
+     - Try changing your primary color, your typeface, or your layout density between iterations
+   - Instructor circulates for 1:1 feedback on type choices, color tokens, and logo refinement
 
 **Total: 180 min**
 
@@ -165,36 +184,36 @@
 
 | Code | Desired Result | Activities |
 |------|----------------|------------|
-| EQ1 | Visual identity serves usability | 2, 3A, 4 |
-| EQ2 | Typography hierarchy communicates structure + personality | 2, 3B, 6 |
-| EQ3 | AI helps explore without replacing judgment | 2, 3C, 6 |
-| U1 | Brand and function work together | 2, 3A, 4 |
-| U2 | Typography hierarchy = system of relationships | 3B, 6 |
-| U3 | AI generates options; evaluating them is the skill | 3C, 6 |
-| K1 | Components of a brand style sheet | 3A, 5 |
-| K2 | How to build a typographic hierarchy | 3B, 6 |
-| K3 | How to use AI for brand exploration critically | 3C, 6 |
-| S1 | Give structured feedback on second platform designs | 1, 4 |
-| S2 | Develop typography hierarchy with clear roles | 5, 6 |
-| S3 | Create accessible, brand-appropriate color palette | 5, 6 |
+| EQ1 | What is a design system and why build one | 2, 3A, 4 |
+| EQ2 | Setting up type, color, components in Figma | 2, 3C, 3D, 6 |
+| EQ3 | How simple can a logo be and still work | 3B, 6 |
+| U1 | Design system = reusable decisions | 2, 3A |
+| U2 | UI type is about function over expression | 3C, 6 |
+| U3 | UI color serves meaning, not just personality | 3D, 6 |
+| K1 | Components of a simple design system | 3A, 5 |
+| K2 | Figma text styles and color styles | 3C, 3D, 6 |
+| K3 | Creating a functional logo at small sizes | 3B, 6 |
+| S1 | Create logo + wordmark for app icon and nav | 3B, 6 |
+| S2 | Build type scale with named Figma text styles | 3C, 5, 6 |
+| S3 | Define color tokens with accessible contrast | 3D, 5, 6 |
 | S4 | Produce genuinely different design iterations | 5, 6 |
 
 ---
 
 ### Homework
-- ⛳ D7: Hierarchy Sheet + 5 Design Iterations (due Mon, Mar 23 @ 5:15pm)
-  - Typography hierarchy (typefaces, type scale, roles shown in context)
-  - Color palette (primary, secondary, accent, neutral, semantic + contrast ratios)
+- ⛳ D7: Design System + 5 Iterations (due Mon, Mar 23 @ 5:15pm)
+  - Logo + wordmark (app icon + horizontal version)
+  - Type scale (7 Figma text styles shown in context)
+  - Color tokens (all roles defined, contrast ratios documented)
   - 5 design iterations of one key screen showing genuine visual exploration
   - Submit: PDF to Learning Suite
 
 ---
 
 ### Resources
-- TypeTogether's Guide to Pairing Type
-- BYU Graphic Design Type Library
-- Fontjoy (AI type pairing): https://fontjoy.com/
 - Google Fonts: https://fonts.google.com/
-- Coolors (palette generator): https://coolors.co/
+- BYU Graphic Design Type Library
 - WebAIM Contrast Checker: https://webaim.org/resources/contrastchecker/
 - Type Scale Calculator: https://typescale.com/
+- Apple HIG — Foundations (Typography, Color): https://developer.apple.com/design/human-interface-guidelines/foundations
+- Material Design — Design tokens: https://m3.material.io/foundations
