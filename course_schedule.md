@@ -542,6 +542,8 @@ Today's Focus: One concept, two platforms — adapting your validated idea to a 
   - Annotated sketches showing key screens
   - Brief written rationale: what changed from primary platform and why
 
+→ [Lesson Plan](unit_d/day_19.md)
+
 ---
 
 ### Day 20 — Wednesday, Mar 18

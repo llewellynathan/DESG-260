@@ -5,17 +5,17 @@ Once everyone has prayed, the cycle resets.
 
 | Student | Last Prayed |
 |---------|-------------|
-| Annika B. | 3/9 |
-| Ya Chi C. | 2/23 |
-| Kalli F. | 2/18 |
-| Brevyn G. | 2/9 |
-| Elizabeth G. | 2/4 |
-| Takumi H. | 1/28 |
-| Peter H. | 2/2 |
-| Carol K. | 2/25 |
-| Lucy L. | 3/4 |
-| Mira P. | 2/17 |
-| Cherie P. | 2/11 |
-| Brayden S. | 2/25 |
-| Mercy T. | 3/2 |
-| Lucy W. | 3/11 |
+| Annika B. | |
+| Ya Chi C. | |
+| Kalli F. | |
+| Brevyn G. | |
+| Elizabeth G. | |
+| Takumi H. | 3/16 |
+| Peter H. | |
+| Carol K. | |
+| Lucy L. | |
+| Mira P. | |
+| Cherie P. | |
+| Brayden S. | |
+| Mercy T. | |
+| Lucy W. | |

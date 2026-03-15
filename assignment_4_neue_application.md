@@ -51,6 +51,14 @@ All projects need to show at least 2 animations of new micro-interactions.
 
 *NOTE: the main function of your app should be understandable within 3 or 4 screens (not counting on-boarding/signing in). On-boarding and additional features may increase the number of screens you need, but seek guidance on how to pare down the interactive product if you have dramatically more than this.*
 
+## AI Usage Policy
+
+AI tools (V0, Lovable, Bolt.new, Figma Make, etc.) are powerful **validation tools**. Use them to quickly test whether your concept works — generate a coded prototype, put it in front of users, and learn fast.
+
+However, your AI prototype is a **disposable artifact**, not your final design. All high-fidelity screens must be **hand-built in Figma from scratch**. You may reference the AI output for layout ideas, but your final design should reflect your own intentional decisions about spacing, hierarchy, typography, color, and interaction patterns.
+
+**Why?** The AI can render a plausible interface, but it can't form intent. Your job is to demonstrate that you can do both — discover the right problem (forming) AND craft a beautiful, functional solution (rendering). If the AI does the rendering for you, you've only done half the work.
+
 ## Deliverables
 
 Your end goal will be to create an animated video of the final walk-through and a case study PDF.
@@ -74,8 +82,8 @@ Your end goal will be to create an animated video of the final walk-through and 
 6. Usability Testing (at least ten interviews of ten questions or more)
             a. Show complete interview questions and answers in documentation
             b. Include specific feedback integrated into the prototypes.
-7. Digital Wireframes (Clickable Prototype annotated)
-        Show screens from your clickable prototype with results from usability testing your product with the intended audience. 
+7. Second Platform Design
+        Flow diagram and sketches for second platform, rationale for platform-specific adaptations, and high-fidelity screens for second platform.
     8. Visual Style Guide, Branding, and Icon Design
     Note your ideas and reasoning for creative choices (why this icon or that typeface or color)
     9. High-fidelity Prototype: final screens, annotation of key features, motion (can be incorporated with 8).
@@ -198,16 +206,16 @@ We’re doing this to see what’s working and what’s not on our prototypes so
 
 ----------
 
-### Revised Wireframes—Let’s fix it
-[ ] Revised wireframe flow that highlights the things that you fixed based on the feedback from your 5 user tests
-    - This includes the flows for both your primary and secondary interface (e.g. app & webpage)
-    
-[ ] Also bring all of the content that you’ll be using in your app
-    - All Body copy/text
-    - All Images
-    - All Video
+### Second Platform Design—How does your concept translate?
+[ ] Choose your second platform (watch, tablet, desktop, Vision Pro, car dashboard, etc.)
 
-These wireframes should be at a much higher level of fidelity than your previous prototype. We’re being extremely clear with how our prototype looks so applying branding at our next step is doable. 
+[ ] Create a user flow diagram for your second platform — what screens/flows survive the translation?
+
+[ ] Sketch key screens at the second platform’s actual scale
+
+[ ] Write a brief rationale: what changed from your primary platform and why
+
+Your primary platform was validated through user testing. Now adapt that validated concept to a different form factor. Think about what the new platform is good at and redesign around that — don’t just resize your phone screens.
 
 ----------
 ### Brand Style Sheet Draft
