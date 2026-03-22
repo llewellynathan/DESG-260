@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UI Design Checklist — DESG 260</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink: #1c1814;
+    --ink-medium: #6b5e50;
+    --ink-light: #a89882;
+    --ink-faint: #c8bfb2;
+    --rule: #e6dfd6;
+    --rule-light: #f0ece6;
+    --paper: #f8f6f2;
+    --paper-hover: #f3f0ea;
+    --check-fill: #1c1814;
+    --accent: #b85c38;
+    --accent-light: #f0e0d6;
+  }
+
+  body {
+    font-family: system-ui, -apple-system, 'Helvetica Neue', sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    padding: clamp(20px, 4vw, 56px) clamp(20px, 5vw, 64px);
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+  }
+
+  /* ── Progress bar — thin line at page top ── */
+  .progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    background: var(--accent);
+    width: 0%;
+    transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 100;
+  }
+
+  /* ── Page header ── */
+  .page-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 32px;
+    padding-bottom: 24px;
+    border-bottom: 2px solid var(--ink);
+  }
+  .page-header h1 {
+    font-size: clamp(28px, 4vw, 38px);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    line-height: 1;
+  }
+  .header-right {
+    text-align: right;
+  }
+  .progress-text {
+    font-size: 13px;
+    color: var(--ink-medium);
+    font-weight: 500;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 0.01em;
+  }
+  .progress-fraction {
+    font-size: clamp(22px, 3vw, 30px);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    line-height: 1;
+    margin-bottom: 2px;
+  }
+  .progress-fraction .of {
+    font-weight: 400;
+    color: var(--ink-faint);
+    font-size: 0.65em;
+    margin: 0 1px;
+  }
+
+  /* ── Single-column layout ── */
+  .columns {
+    display: block;
+    max-width: 640px;
+  }
+
+  /* ── Sections ── */
+  .section {
+    margin-top: 32px;
+  }
+  .col-left > .section:first-child {
+    margin-top: 0;
+  }
+  .col-left > .section:first-child .section-label {
+    border-top: none;
+    padding-top: 0;
+  }
+  .section-label {
+    font-size: 16px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--ink-medium);
+    padding-bottom: 8px;
+    margin-bottom: 4px;
+    border-bottom: 1px solid var(--rule);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .section-label .emoji {
+    font-size: 12px;
+    line-height: 1;
+  }
+
+  /* ── Checklist items ── */
+  .item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 7px 4px 7px 0;
+    cursor: pointer;
+    user-select: none;
+    border-radius: 3px;
+    transition: opacity 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .item:hover {
+    background: var(--paper-hover);
+    margin-left: -4px;
+    padding-left: 4px;
+  }
+  .item.checked {
+    opacity: 0.4;
+  }
+  .item.checked .item-text {
+    text-decoration: line-through;
+    text-decoration-color: var(--ink-faint);
+    text-decoration-thickness: 1px;
+  }
+
+  /* ── Custom checkbox ── */
+  .item input[type="checkbox"] {
+    display: none;
+  }
+  .check {
+    width: 18px;
+    height: 18px;
+    border: 1.5px solid var(--ink-faint);
+    border-radius: 4px;
+    flex-shrink: 0;
+    margin-top: 3px;
+    position: relative;
+    transition: background 0.15s ease, border-color 0.15s ease, transform 0.15s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+  .check::after {
+    content: "";
+    position: absolute;
+    top: 2px;
+    left: 5px;
+    width: 5.5px;
+    height: 9px;
+    border: solid var(--paper);
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg) scale(0);
+    transition: transform 0.15s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+  .item.checked .check {
+    background: var(--check-fill);
+    border-color: var(--check-fill);
+    transform: scale(1.05);
+  }
+  .item.checked .check::after {
+    transform: rotate(45deg) scale(1);
+  }
+
+  /* ── Item text ── */
+  .item-text {
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--ink);
+    line-height: 1.5;
+  }
+  .item-text strong {
+    font-weight: 600;
+  }
+  .sub-note {
+    display: block;
+    font-size: 14px;
+    font-style: italic;
+    color: var(--ink-light);
+    margin-top: 2px;
+    line-height: 1.4;
+  }
+
+  /* ── Footer ── */
+  .page-footer {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-top: 36px;
+    padding-top: 20px;
+    border-top: 1px solid var(--rule);
+  }
+  .footer-note {
+    font-size: 12px;
+    font-style: italic;
+    color: var(--ink-light);
+    max-width: 520px;
+    line-height: 1.55;
+  }
+  .reset-btn {
+    background: none;
+    border: none;
+    font-family: inherit;
+    font-size: 11px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--ink-light);
+    cursor: pointer;
+    padding: 6px 0;
+    white-space: nowrap;
+    transition: color 0.2s ease;
+  }
+  .reset-btn:hover {
+    color: var(--accent);
+  }
+
+  /* ── Completion state ── */
+  .all-done .progress-fraction {
+    color: var(--accent);
+  }
+  .all-done .progress-text {
+    color: var(--accent);
+  }
+
+  /* ── Mobile ── */
+  @media (max-width: 600px) {
+    .page-header { flex-direction: column; gap: 12px; }
+    .header-right { text-align: left; }
+    .page-footer { flex-direction: column; gap: 12px; }
+  }
+
+  /* ── Print ── */
+  @media print {
+    body { padding: 0; margin: 0.75in; background: #fff; }
+    .progress-bar, .progress-fraction, .progress-text, .reset-btn { display: none; }
+    .item { transition: none; }
+    .item:hover { background: none; margin-left: 0; padding-left: 0; }
+    .section { break-inside: avoid; }
+    .check {
+      border: 1.5px solid #666;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    .item.checked .check {
+      background: #1a1a1a;
+      border-color: #1a1a1a;
+    }
+    .item.checked .check::after {
+      transform: rotate(45deg) scale(1);
+    }
+    .page-header { border-bottom-width: 1px; }
+  }
+
+  /* ── Reduced motion ── */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      transition-duration: 0.01ms !important;
+    }
+    .progress-bar { transition: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="progress-bar" id="progressBar"></div>
+
+<div class="page-header">
+  <h1>UI Design Checklist</h1>
+  <div class="header-right">
+    <div class="progress-fraction" id="progressFraction"><span id="checkedCount">0</span><span class="of">/</span><span id="totalCount">0</span></div>
+    <div class="progress-text" id="progressLabel">complete</div>
+  </div>
+</div>
+
+<div class="columns">
+  <div class="col-left">
+
+    <div class="section">
+      <div class="section-label"><span class="emoji">🎯</span> Visual Hierarchy</div>
+      <label class="item" data-id="h1"><input type="checkbox"><span class="check"></span><span class="item-text">I can identify my <strong>Level 1 element</strong> in under 3 seconds</span></label>
+      <label class="item" data-id="h2"><input type="checkbox"><span class="check"></span><span class="item-text"><strong>No more than 3 hierarchy levels</strong> visible at once</span></label>
+      <label class="item" data-id="h3"><input type="checkbox"><span class="check"></span><span class="item-text"><strong>Bold, regular, and light</strong> weights used intentionally — not everything the same</span></label>
+      <label class="item" data-id="h4"><input type="checkbox"><span class="check"></span><span class="item-text"><strong>Color contrast</strong> alongside size builds hierarchy</span></label>
+      <label class="item" data-id="h5"><input type="checkbox"><span class="check"></span><span class="item-text">Competing elements are <strong>de-emphasized</strong> — lighter, smaller, or lower contrast</span></label>
+    </div>
+
+    <div class="section">
+      <div class="section-label"><span class="emoji">📏</span> Spacing</div>
+      <label class="item" data-id="s1"><input type="checkbox"><span class="check"></span><span class="item-text">All spacing is a <strong>multiple of 8</strong> — 8, 16, 24, 32, 48, 64px</span></label>
+      <label class="item" data-id="s2"><input type="checkbox"><span class="check"></span><span class="item-text">Space <strong>between groups</strong> is noticeably larger than space <strong>within groups</strong></span></label>
+      <label class="item" data-id="s3"><input type="checkbox"><span class="check"></span><span class="item-text">Started with generous whitespace — only removed what felt excessive</span></label>
+      <label class="item" data-id="s4"><input type="checkbox"><span class="check"></span><span class="item-text">Related elements are <strong>close</strong>; unrelated elements have breathing room</span></label>
+    </div>
+
+    <div class="section">
+      <div class="section-label"><span class="emoji">🔤</span> Typography</div>
+      <label class="item" data-id="t1"><input type="checkbox"><span class="check"></span><span class="item-text"><strong>4 or fewer font sizes</strong> — no arbitrary in-between values</span></label>
+      <label class="item" data-id="t2"><input type="checkbox"><span class="check"></span><span class="item-text">Large headlines have <strong>tighter letter spacing</strong> (~−0.02em)</span></label>
+      <label class="item" data-id="t3"><input type="checkbox"><span class="check"></span><span class="item-text">All-caps labels have <strong>looser letter spacing</strong> (at least +0.05em)</span></label>
+      <label class="item" data-id="t4"><input type="checkbox"><span class="check"></span><span class="item-text">Body text is <strong>15–16px</strong> with 1.4–1.5 line height</span></label>
+      <label class="item" data-id="t5"><input type="checkbox"><span class="check"></span><span class="item-text">Mixed-size text on the same line is <strong>baseline-aligned</strong></span></label>
+    </div>
+
+    <div class="section">
+      <div class="section-label"><span class="emoji">📐</span> Alignment</div>
+      <label class="item" data-id="a1"><input type="checkbox"><span class="check"></span><span class="item-text">I can draw an invisible line through the <strong>left edges</strong> of my content</span></label>
+      <label class="item" data-id="a2"><input type="checkbox"><span class="check"></span><span class="item-text">Elements that look aligned actually <strong>are</strong> aligned — not approximately</span></label>
+      <label class="item" data-id="a3"><input type="checkbox"><span class="check"></span><span class="item-text">Icons beside text align to the <strong>optical center</strong>, not the bounding box</span></label>
+    </div>
+
+  </div>
+  <div class="col-right">
+
+    <div class="section">
+      <div class="section-label"><span class="emoji">🎨</span> Color</div>
+      <label class="item" data-id="c1"><input type="checkbox"><span class="check"></span><span class="item-text"><strong>One primary accent color</strong> — used only for actions and interactive elements</span></label>
+      <label class="item" data-id="c2"><input type="checkbox"><span class="check"></span><span class="item-text">Accent color is <strong>rare</strong> — not on more than ~10% of the screen</span></label>
+      <label class="item" data-id="c3"><input type="checkbox"><span class="check"></span><span class="item-text">All text/background pairs pass <strong>4.5:1 contrast minimum</strong></span></label>
+      <label class="item" data-id="c4"><input type="checkbox"><span class="check"></span><span class="item-text">Not using <strong>pure grey</strong> — neutrals have a warm or cool tint</span></label>
+      <label class="item" data-id="c5"><input type="checkbox"><span class="check"></span><span class="item-text">Color is <strong>not the only</strong> indicator of state — icons, borders, or text added</span></label>
+      <label class="item" data-id="c6"><input type="checkbox"><span class="check"></span><span class="item-text">No color on <strong>non-interactive headings</strong> — it makes them look like links</span></label>
+    </div>
+
+    <div class="section">
+      <div class="section-label"><span class="emoji">🏷</span> Labels &amp; Data</div>
+      <label class="item" data-id="l1"><input type="checkbox"><span class="check"></span><span class="item-text">Not showing data as <strong>"Label: Value"</strong> everywhere — labels embedded into values<span class="sub-note">"In stock: 12" → "12 left in stock"</span></span></label>
+      <label class="item" data-id="l2"><input type="checkbox"><span class="check"></span><span class="item-text">Necessary labels are <strong>de-emphasized</strong> — smaller, lighter, lower contrast</span></label>
+      <label class="item" data-id="l3"><input type="checkbox"><span class="check"></span><span class="item-text">Form fields have <strong>visible labels above the input</strong> — not just placeholder text</span></label>
+    </div>
+
+    <div class="section">
+      <div class="section-label"><span class="emoji">✂️</span> Restraint</div>
+      <label class="item" data-id="r1"><input type="checkbox"><span class="check"></span><span class="item-text"><strong>Cover test:</strong> covered each element — if removing it loses nothing, considered cutting it</span></label>
+      <label class="item" data-id="r2"><input type="checkbox"><span class="check"></span><span class="item-text">Haven't added elements because something "felt empty" — fixed hierarchy instead</span></label>
+      <label class="item" data-id="r3"><input type="checkbox"><span class="check"></span><span class="item-text">Cards and borders only exist because <strong>spacing alone</strong> doesn't create the grouping</span></label>
+    </div>
+
+    <div class="section">
+      <div class="section-label"><span class="emoji">♿</span> Accessibility</div>
+      <label class="item" data-id="x1"><input type="checkbox"><span class="check"></span><span class="item-text">All text passes <strong>4.5:1 contrast</strong> against its background</span></label>
+      <label class="item" data-id="x2"><input type="checkbox"><span class="check"></span><span class="item-text">Errors and status states use <strong>icons or text</strong>, not color alone</span></label>
+      <label class="item" data-id="x3"><input type="checkbox"><span class="check"></span><span class="item-text">Touch targets are at least <strong>44×44px</strong></span></label>
+    </div>
+
+    <div class="section">
+      <div class="section-label"><span class="emoji">🚨</span> Quick Gut-Check</div>
+      <label class="item" data-id="g1"><input type="checkbox"><span class="check"></span><span class="item-text">No "Label: Value" dumps — data has hierarchy</span></label>
+      <label class="item" data-id="g2"><input type="checkbox"><span class="check"></span><span class="item-text">No equidistant spacing — tighter within groups, wider between</span></label>
+      <label class="item" data-id="g3"><input type="checkbox"><span class="check"></span><span class="item-text">No color as the only error indicator — icon or message added</span></label>
+      <label class="item" data-id="g4"><input type="checkbox"><span class="check"></span><span class="item-text">No light text on medium-saturation color — contrast checked</span></label>
+      <label class="item" data-id="g5"><input type="checkbox"><span class="check"></span><span class="item-text">No random font sizes — every size from my defined scale</span></label>
+      <label class="item" data-id="g6"><input type="checkbox"><span class="check"></span><span class="item-text">No same-size, same-weight everything — clear hierarchy exists</span></label>
+    </div>
+
+  </div>
+</div>
+
+<div class="page-footer">
+  <p class="footer-note">Your first instinct is usually "add something." The fix is usually "adjust hierarchy, spacing, or contrast." · Principles from <em>Refactoring UI</em> &amp; <em>Practical UI</em></p>
+  <button class="reset-btn" id="resetBtn">Reset checklist</button>
+</div>
+
+<script>
+  const items = document.querySelectorAll('.item');
+  const total = items.length;
+  const bar = document.getElementById('progressBar');
+  const checkedEl = document.getElementById('checkedCount');
+  const totalEl = document.getElementById('totalCount');
+  const labelEl = document.getElementById('progressLabel');
+  const STORAGE_KEY = 'desg260-checklist';
+
+  totalEl.textContent = total;
+
+  function save() {
+    const state = {};
+    items.forEach(item => {
+      if (item.querySelector('input').checked) state[item.dataset.id] = true;
+    });
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+  }
+
+  function load() {
+    try {
+      const state = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {};
+      items.forEach(item => {
+        if (state[item.dataset.id]) {
+          item.querySelector('input').checked = true;
+          item.classList.add('checked');
+        }
+      });
+    } catch (e) {}
+  }
+
+  function updateProgress() {
+    const checked = document.querySelectorAll('.item.checked').length;
+    checkedEl.textContent = checked;
+    bar.style.width = (checked / total * 100) + '%';
+    labelEl.textContent = checked === total ? 'done — nice work' : 'complete';
+    document.body.classList.toggle('all-done', checked === total);
+  }
+
+  items.forEach(item => {
+    item.addEventListener('click', () => {
+      requestAnimationFrame(() => {
+        const cb = item.querySelector('input');
+        item.classList.toggle('checked', cb.checked);
+        save();
+        updateProgress();
+      });
+    });
+  });
+
+  document.getElementById('resetBtn').addEventListener('click', () => {
+    items.forEach(item => {
+      item.querySelector('input').checked = false;
+      item.classList.remove('checked');
+    });
+    localStorage.removeItem(STORAGE_KEY);
+    updateProgress();
+  });
+
+  load();
+  updateProgress();
+</script>
+
+</body>
+</html>

@@ -588,31 +588,30 @@ Today's Focus: A design system is the toolkit you build before you build the pro
 ### Day 21 — Monday, Mar 23
 **Unit D: Neue App (Capstone)**
 
-Today's Focus: High fidelity requires every choice to be intentional — built by you, not by AI.
+Today's Focus: Ugly isn't a taste problem — it's a hierarchy problem.
 
 **In class:**
-- D7 Hierarchy review and feedback
-- High-fidelity design techniques
-- The AI prototype was a validation tool — now build the real thing from scratch in Figma
-  - Use AI output as reference, not as a starting point
-  - Every layout choice, spacing decision, and component must be yours
-- Using your style guide consistently
-- Gestalt principles in practice
-- Motion design introduction: purpose-driven animation
+- D7 Design System gallery walk
+- 6 Principles of High-Fidelity Craft:
+  - Visual hierarchy (3 levels only), spacing (8pt grid), typography (4 sizes + letter spacing), color (60-30-10), alignment (grid + concentric radii), restraint (cover test)
+- Before/after examples for each principle
+- Self-audit: apply each principle as a checklist to your own screens
 - Work session: Hand-build high-fidelity screens in Figma
 
 **Come to class having done:**
-- ⛳ D7: Hierarchy sheet + 5 iterations
+- ⛳ D7: Design System + 5 Iterations
 
 **Assignments due before next class:**
-- ⛳ D8: High Fidelity Prototype (due Mar 25 @ 11:59pm)
-  - Complete high-fidelity screens for all flows
-  - Interactive Figma prototype
-- Watch: Microanimations, SmartAnimate tutorial
+- ⛳ D8: High Fidelity Round 1 (due Wed, Apr 1 — bring to Day 24 for critique)
+  - App icon and logo, style guide, at least 5 key interaction screens
+  - Hand-built in Figma, not AI-generated
 
 **Resources:**
-- Figma Variants and Interactive Components
-- Elements and Principles of Design
+- UI Design Principles: `docs/principles.md`
+- WebAIM Contrast Checker
+- Figma Auto Layout guide
+
+→ [Lesson Plan](unit_d/day_21.md)
 
 ---
 
