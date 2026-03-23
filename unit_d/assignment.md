@@ -231,12 +231,20 @@ Adapt your validated concept to a second platform and begin developing your visu
 ### D8: High Fidelity Round 1
 **Due: Day 24 (Wed, Apr 1) — in-class critique**
 
-Transform wireframes into polished screens.
+Your AI prototype validated the concept. Now prove you can design.
+
+All high-fidelity screens must be hand-built in Figma from scratch. You may reference your AI prototype for layout ideas, but your final design should reflect your own intentional decisions about spacing, hierarchy, typography, color, and interaction patterns. If your D8 looks like a polished version of your AI output, you haven't done the work.
 
 **Bring to class:**
-- Icon and app logo
-- Style guide with typography and color
-- At least 5 key interaction screens
+- App logo and icon
+- Brand style guide with typography hierarchy and color palette (from D7)
+- At least 5 key interaction screens for your primary platform — hand-built in Figma
+- Interactive Figma prototype linking your core flow
+
+**Your screens should demonstrate:**
+- Consistent application of your typography hierarchy and color system
+- Real content — not placeholder text or stock imagery
+- Clear user flow from onboarding through your core function to success state
 
 ---
 
