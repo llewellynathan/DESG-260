@@ -639,6 +639,8 @@ Today's Focus: Test high-fidelity prototypes to catch issues before final polish
 **Resources:**
 - Figma Smart Animate documentation
 
+→ [Lesson Plan](unit_d/day_22.md)
+
 ---
 
 ### Day 23 — Monday, Mar 30

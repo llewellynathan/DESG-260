@@ -1,0 +1,1006 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Day 22 — Unit D: Neue App (Capstone)</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #111;
+    --fg: #F0EDE6;
+    --fg-dim: #9A958C;
+    --amber: hsl(46, 90%, 53%);
+    --amber-bg: hsl(46, 40%, 8%);
+    --blue: hsl(210, 80%, 62%);
+    --blue-bg: hsl(210, 50%, 9%);
+    --violet: hsl(270, 60%, 65%);
+    --violet-bg: hsl(270, 40%, 9%);
+    --green: hsl(155, 60%, 50%);
+    --green-bg: hsl(155, 35%, 8%);
+    --pad: 80px;
+  }
+
+  html { font-size: 19.2px; }
+  body {
+    height: 100vh;
+    overflow: hidden;
+    background: var(--bg);
+    color: var(--fg);
+    font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── Deck ── */
+  .deck { position: relative; width: 100vw; height: 100vh; }
+
+  .slide {
+    position: absolute; inset: 0;
+    display: flex;
+    opacity: 0; pointer-events: none;
+    transform: translateX(40px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+  .slide.active {
+    opacity: 1; pointer-events: auto;
+    transform: translateX(0);
+  }
+  .slide.exit-left {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  .slide.exit-right {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+
+  /* ── Keyframes ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes scaleUp {
+    from { opacity: 0; transform: scale(0.92); }
+    to   { opacity: 1; transform: scale(1); }
+  }
+  @keyframes popIn {
+    0%   { opacity: 0; transform: scale(0); }
+    70%  { transform: scale(1.2); }
+    100% { opacity: 1; transform: scale(1); }
+  }
+  @keyframes growDown {
+    from { transform: scaleY(0); }
+    to   { transform: scaleY(1); }
+  }
+  @keyframes widen {
+    from { width: 0; }
+    to   { width: 100%; }
+  }
+
+  /* ── Staggered entrance: children of active slides ── */
+  .slide.active > h1, .slide.active > h2, .slide.active > h3,
+  .slide.active > p, .slide.active > div, .slide.active > ol, .slide.active > ul {
+    animation: fadeUp 0.5s ease both;
+  }
+  .slide.active > :nth-child(1) { animation-delay: 0.08s; }
+  .slide.active > :nth-child(2) { animation-delay: 0.18s; }
+  .slide.active > :nth-child(3) { animation-delay: 0.28s; }
+  .slide.active > :nth-child(4) { animation-delay: 0.38s; }
+  .slide.active > :nth-child(5) { animation-delay: 0.46s; }
+  .slide.active > :nth-child(6) { animation-delay: 0.52s; }
+
+  /* Billboard headings: scale entrance */
+  .billboard.active > h1 {
+    animation: scaleUp 0.6s ease both;
+    animation-delay: 0.1s;
+  }
+  .divider.active > h1 {
+    animation: scaleUp 0.6s ease both;
+    animation-delay: 0.1s;
+  }
+
+  /* Cards: stagger individually */
+  .slide.active .card {
+    animation: fadeUp 0.45s ease both;
+  }
+  .slide.active .card:nth-child(1) { animation-delay: 0.2s; }
+  .slide.active .card:nth-child(2) { animation-delay: 0.32s; }
+  .slide.active .card:nth-child(3) { animation-delay: 0.44s; }
+  .slide.active .card:nth-child(4) { animation-delay: 0.56s; }
+
+  /* Card top-border widen effect */
+  .card { border-top-color: transparent; position: relative; }
+  .card::after {
+    content: "";
+    position: absolute; top: -4px; left: 0; height: 4px;
+    width: 0;
+    background: var(--card-color, var(--fg-dim));
+    transition: none;
+  }
+  .slide.active .card::after {
+    animation: widen 0.4s ease both;
+  }
+  .slide.active .card:nth-child(1)::after { animation-delay: 0.35s; }
+  .slide.active .card:nth-child(2)::after { animation-delay: 0.47s; }
+  .slide.active .card:nth-child(3)::after { animation-delay: 0.59s; }
+  .slide.active .card:nth-child(4)::after { animation-delay: 0.71s; }
+
+  /* Timeline items: stagger with dot pop */
+  .slide.active .timeline-item {
+    animation: fadeUp 0.4s ease both;
+  }
+  .slide.active .timeline-item:nth-child(1)  { animation-delay: 0.15s; }
+  .slide.active .timeline-line:nth-child(2)   { animation: fadeUp 0.3s ease both; animation-delay: 0.3s; }
+  .slide.active .timeline-item:nth-child(3)  { animation-delay: 0.4s; }
+  .slide.active .timeline-line:nth-child(4)   { animation: fadeUp 0.3s ease both; animation-delay: 0.55s; }
+  .slide.active .timeline-item:nth-child(5)  { animation-delay: 0.65s; }
+  .slide.active .timeline-line:nth-child(6)   { animation: fadeUp 0.3s ease both; animation-delay: 0.8s; }
+  .slide.active .timeline-item:nth-child(7)  { animation-delay: 0.9s; }
+
+  .slide.active .timeline-dot {
+    animation: popIn 0.4s ease both;
+  }
+  .slide.active .timeline-item:nth-child(1) .timeline-dot { animation-delay: 0.2s; }
+  .slide.active .timeline-item:nth-child(3) .timeline-dot { animation-delay: 0.45s; }
+  .slide.active .timeline-item:nth-child(5) .timeline-dot { animation-delay: 0.7s; }
+  .slide.active .timeline-item:nth-child(7) .timeline-dot { animation-delay: 0.95s; }
+
+  /* Steps: stagger with circle pop */
+  .slide.active .steps li {
+    animation: fadeUp 0.4s ease both;
+  }
+  .slide.active .steps li:nth-child(1) { animation-delay: 0.2s; }
+  .slide.active .steps li:nth-child(2) { animation-delay: 0.35s; }
+  .slide.active .steps li:nth-child(3) { animation-delay: 0.5s; }
+  .slide.active .steps li:nth-child(4) { animation-delay: 0.65s; }
+
+  /* Numbered list stagger */
+  .slide.active .numbered li {
+    animation: fadeUp 0.4s ease both;
+  }
+  .slide.active .numbered li:nth-child(1) { animation-delay: 0.2s; }
+  .slide.active .numbered li:nth-child(2) { animation-delay: 0.32s; }
+  .slide.active .numbered li:nth-child(3) { animation-delay: 0.44s; }
+  .slide.active .numbered li:nth-child(4) { animation-delay: 0.56s; }
+  .slide.active .numbered li:nth-child(5) { animation-delay: 0.68s; }
+  .slide.active .numbered li:nth-child(6) { animation-delay: 0.80s; }
+
+  /* ── Demo Cards (interactive animation examples) ── */
+  .demo-card {
+    cursor: pointer;
+    position: relative;
+    border-top: 4px solid var(--card-color, var(--fg-dim));
+    padding: 24px 0 0;
+    transition: border-top-color 0.2s;
+  }
+  .demo-card:hover { border-top-color: var(--fg); }
+  .demo-card h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--card-color, var(--fg));
+    margin-bottom: 6px;
+    margin-top: 12px;
+  }
+  .demo-card p {
+    font-size: 1.15rem;
+    color: var(--fg-dim);
+    line-height: 1.45;
+  }
+
+  .demo-stage {
+    height: 150px;
+    background: #1a1a1a;
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .demo-hint {
+    position: absolute;
+    bottom: 10px;
+    left: 0; right: 0;
+    text-align: center;
+    font-size: 0.85rem;
+    color: #555;
+    transition: opacity 0.4s;
+    pointer-events: none;
+  }
+  .demo-card.played .demo-hint { opacity: 0; }
+
+  /* Confirm demo */
+  .confirm-btn {
+    padding: 10px 28px;
+    background: var(--violet);
+    color: #111;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 700;
+    pointer-events: none;
+    transition: transform 0.1s, opacity 0.3s;
+  }
+  .confirm-check {
+    position: absolute;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  .confirm-check circle {
+    fill: hsl(155, 60%, 40%);
+  }
+  .confirm-check polyline {
+    stroke: #fff;
+    stroke-width: 3;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    fill: none;
+    stroke-dasharray: 30;
+    stroke-dashoffset: 30;
+  }
+  .demo-card.playing .confirm-btn {
+    animation: btnPress 0.3s ease forwards;
+  }
+  .demo-card.playing .confirm-check {
+    opacity: 1;
+    animation: checkAppear 0.4s ease 0.35s both;
+  }
+  .demo-card.playing .confirm-check polyline {
+    animation: checkDraw 0.4s ease 0.5s forwards;
+  }
+  @keyframes btnPress {
+    0%   { transform: scale(1); opacity: 1; }
+    30%  { transform: scale(0.9); opacity: 1; }
+    100% { transform: scale(0.8); opacity: 0; }
+  }
+  @keyframes checkAppear {
+    from { transform: scale(0); opacity: 0; }
+    to   { transform: scale(1); opacity: 1; }
+  }
+  @keyframes checkDraw {
+    to { stroke-dashoffset: 0; }
+  }
+
+  /* Guide demo */
+  .guide-phone {
+    width: 90px;
+    height: 130px;
+    background: #252525;
+    border-radius: 10px;
+    border: 2px solid #333;
+    padding: 10px 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    position: relative;
+    overflow: hidden;
+  }
+  .guide-line {
+    height: 8px;
+    background: #3a3a3a;
+    border-radius: 3px;
+  }
+  .guide-line:nth-child(1) { width: 65%; }
+  .guide-line:nth-child(2) { width: 85%; }
+  .guide-line:nth-child(3) { width: 50%; }
+  .guide-line:nth-child(4) { width: 75%; height: 6px; margin-top: 4px; }
+  .guide-line:nth-child(5) { width: 90%; height: 6px; }
+  .guide-line:nth-child(6) { width: 40%; height: 6px; }
+  .guide-drawer {
+    position: absolute;
+    top: 0; bottom: 0; right: 0;
+    width: 45%;
+    background: var(--violet);
+    border-radius: 0 8px 8px 0;
+    transform: translateX(100%);
+    transition: transform 0.4s cubic-bezier(0.22, 0.61, 0.36, 1);
+    display: flex;
+    flex-direction: column;
+    padding: 14px 6px;
+    gap: 8px;
+  }
+  .guide-drawer-line {
+    height: 5px;
+    background: rgba(0,0,0,0.25);
+    border-radius: 2px;
+  }
+  .guide-drawer-line:nth-child(1) { width: 70%; }
+  .guide-drawer-line:nth-child(2) { width: 90%; }
+  .guide-drawer-line:nth-child(3) { width: 55%; }
+  .demo-card.playing .guide-drawer {
+    transform: translateX(0);
+  }
+
+  /* Connect demo */
+  .connect-stage {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    justify-content: center;
+  }
+  .connect-item {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    padding: 8px;
+    background: #252525;
+    border-radius: 8px;
+    transition: all 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
+  }
+  .connect-thumb {
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+    background: var(--violet);
+    flex-shrink: 0;
+    transition: all 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
+  }
+  .connect-text {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+  .connect-title {
+    height: 7px;
+    width: 60px;
+    background: #555;
+    border-radius: 2px;
+  }
+  .connect-sub {
+    height: 5px;
+    width: 40px;
+    background: #3a3a3a;
+    border-radius: 2px;
+  }
+  .connect-detail {
+    position: absolute;
+    inset: 0;
+    background: #252525;
+    border-radius: 12px;
+    opacity: 0;
+    transform: scale(0.85);
+    transition: all 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+    pointer-events: none;
+  }
+  .connect-detail-img {
+    width: 100%;
+    height: 60px;
+    background: var(--violet);
+    border-radius: 8px;
+    opacity: 0.8;
+    margin-bottom: 10px;
+  }
+  .connect-detail-line {
+    height: 6px;
+    background: #444;
+    border-radius: 3px;
+    margin-bottom: 6px;
+  }
+  .connect-detail-line:nth-child(2) { width: 80%; }
+  .connect-detail-line:nth-child(3) { width: 60%; }
+  .connect-detail-line:nth-child(4) { width: 90%; }
+  .demo-card.playing .connect-item:first-child {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  .demo-card.playing .connect-item:last-child {
+    opacity: 0.3;
+  }
+  .demo-card.playing .connect-detail {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  /* Brand demo — expressive like button */
+  .brand-heart-wrap {
+    position: relative;
+    width: 56px;
+    height: 56px;
+  }
+  .brand-heart {
+    font-size: 40px;
+    line-height: 56px;
+    text-align: center;
+    width: 100%;
+    color: #555;
+    transition: color 0.1s, transform 0.1s;
+    user-select: none;
+  }
+  .brand-ring {
+    position: absolute;
+    inset: -8px;
+    border-radius: 50%;
+    border: 3px solid var(--violet);
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  .brand-dot {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    opacity: 0;
+  }
+  .brand-dot:nth-child(1) { top: -12px; left: 50%; margin-left: -3px; background: var(--amber); }
+  .brand-dot:nth-child(2) { top: 5px; right: -14px; background: var(--blue); }
+  .brand-dot:nth-child(3) { bottom: 5px; right: -14px; background: var(--violet); }
+  .brand-dot:nth-child(4) { bottom: -12px; left: 50%; margin-left: -3px; background: var(--green); }
+  .brand-dot:nth-child(5) { bottom: 5px; left: -14px; background: var(--amber); }
+  .brand-dot:nth-child(6) { top: 5px; left: -14px; background: var(--blue); }
+
+  .demo-card.playing .brand-heart {
+    color: hsl(340, 82%, 55%);
+    animation: heartPop 0.45s cubic-bezier(0.17, 0.89, 0.32, 1.49) both;
+  }
+  .demo-card.playing .brand-ring {
+    animation: ringBurst 0.5s ease-out 0.1s both;
+  }
+  .demo-card.playing .brand-dot {
+    animation: dotBurst 0.55s ease-out 0.12s both;
+  }
+  .demo-card.playing .brand-dot:nth-child(1) { --dx: 0; --dy: -22px; animation-delay: 0.1s; }
+  .demo-card.playing .brand-dot:nth-child(2) { --dx: 19px; --dy: -11px; animation-delay: 0.14s; }
+  .demo-card.playing .brand-dot:nth-child(3) { --dx: 19px; --dy: 11px; animation-delay: 0.18s; }
+  .demo-card.playing .brand-dot:nth-child(4) { --dx: 0; --dy: 22px; animation-delay: 0.22s; }
+  .demo-card.playing .brand-dot:nth-child(5) { --dx: -19px; --dy: 11px; animation-delay: 0.16s; }
+  .demo-card.playing .brand-dot:nth-child(6) { --dx: -19px; --dy: -11px; animation-delay: 0.2s; }
+
+  @keyframes heartPop {
+    0%   { transform: scale(1); }
+    25%  { transform: scale(0.8); }
+    50%  { transform: scale(1.2); }
+    100% { transform: scale(1); }
+  }
+  @keyframes ringBurst {
+    0%   { opacity: 1; transform: scale(0.5); }
+    100% { opacity: 0; transform: scale(1.6); }
+  }
+  @keyframes dotBurst {
+    0%   { opacity: 1; transform: translate(0, 0) scale(1); }
+    100% { opacity: 0; transform: translate(var(--dx), var(--dy)) scale(0); }
+  }
+
+  /* Section bar: grow from top */
+  .slide.active::before {
+    transform-origin: top;
+    animation: growDown 0.4s ease both;
+    animation-delay: 0s;
+  }
+
+  /* ── Section bar (left edge color indicator) ── */
+  .slide::before {
+    content: "";
+    position: absolute; left: 0; top: 0; bottom: 0;
+    width: 6px;
+    background: var(--section-color, transparent);
+  }
+
+  /* ── Layout: Billboard (centered single statement) ── */
+  .billboard {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: var(--pad);
+  }
+  .billboard h1 {
+    font-size: 4rem;
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    max-width: 900px;
+  }
+  .billboard .sub {
+    font-size: 1.6rem;
+    color: var(--fg-dim);
+    margin-top: 24px;
+    max-width: 650px;
+    line-height: 1.5;
+  }
+
+  /* ── Layout: Section Divider (color wash) ── */
+  .divider {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: var(--pad);
+    background: var(--section-bg, var(--bg));
+  }
+  .divider::before { display: none; }
+  .divider h1 {
+    font-size: 4.2rem;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+  }
+  .divider .sub {
+    font-size: 1.6rem;
+    color: var(--fg-dim);
+    margin-top: 20px;
+    font-weight: 400;
+  }
+
+  /* ── Layout: Content (left-aligned, vertically centered) ── */
+  .content {
+    flex-direction: column;
+    justify-content: center;
+    padding: var(--pad);
+    padding-left: calc(var(--pad) + 20px);
+    gap: 28px;
+  }
+  .content h2 {
+    font-size: 2.6rem;
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+  }
+
+  /* ── Layout: Top-aligned (cards, grids) ── */
+  .top {
+    flex-direction: column;
+    padding: var(--pad);
+    padding-left: calc(var(--pad) + 20px);
+    padding-top: 60px;
+    gap: 20px;
+  }
+  .top h2 {
+    font-size: 2.4rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+
+  /* ── Typography ── */
+  p, li { font-size: 1.5rem; line-height: 1.55; }
+
+  .big-text {
+    font-size: 2.2rem;
+    font-weight: 600;
+    line-height: 1.35;
+  }
+
+  .callout {
+    font-size: 1.5rem;
+    font-weight: 600;
+    line-height: 1.45;
+  }
+
+  .small { font-size: 1.25rem; color: var(--fg-dim); }
+
+  /* ── Cards ── */
+  .card-row {
+    display: grid;
+    gap: 28px;
+    margin-top: 16px;
+  }
+  .card-row.c2 { grid-template-columns: repeat(2, 1fr); }
+  .card-row.c3 { grid-template-columns: repeat(3, 1fr); }
+  .card-row.c4 { grid-template-columns: repeat(4, 1fr); }
+
+  .card {
+    border-top: 4px solid var(--card-color, var(--fg-dim));
+    padding: 24px 0 0;
+  }
+  .card h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--card-color, var(--fg));
+    margin-bottom: 10px;
+  }
+  .card p {
+    font-size: 1.25rem;
+    color: var(--fg-dim);
+    line-height: 1.5;
+  }
+
+  /* ── Timeline (vertical flow for "Today") ── */
+  .timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-top: 20px;
+  }
+  .timeline-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 16px 0;
+  }
+  .timeline-dot {
+    width: 16px; height: 16px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    background: var(--dot-color, var(--fg-dim));
+  }
+  .timeline-line {
+    width: 2px;
+    height: 20px;
+    margin-left: 7px;
+    background: #333;
+  }
+  .timeline-label {
+    font-size: 1.6rem;
+    font-weight: 500;
+  }
+
+  /* ── Steps (exercise tracker) ── */
+  .steps {
+    counter-reset: step;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .steps li {
+    counter-increment: step;
+    display: flex;
+    gap: 16px;
+    align-items: baseline;
+  }
+  .steps li::before {
+    content: counter(step);
+    flex-shrink: 0;
+    width: 36px; height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: var(--section-color, var(--blue));
+    color: #111;
+    font-weight: 700;
+    font-size: 1.1rem;
+  }
+  .steps li span {
+    font-size: 1.4rem;
+    line-height: 1.45;
+  }
+
+  /* ── Numbered points (non-exercise) ── */
+  .numbered {
+    counter-reset: num;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .numbered li {
+    counter-increment: num;
+    font-size: 1.5rem;
+    line-height: 1.5;
+    padding-left: 40px;
+    position: relative;
+  }
+  .numbered li::before {
+    content: counter(num) ".";
+    position: absolute;
+    left: 0;
+    font-weight: 700;
+    color: var(--section-color, var(--blue));
+  }
+
+  /* ── Links ── */
+  a { color: var(--blue); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  /* ── Counter ── */
+  .counter {
+    position: fixed;
+    bottom: 20px; right: 28px;
+    font-size: 0.85rem;
+    color: #444;
+    font-variant-numeric: tabular-nums;
+    z-index: 100;
+  }
+
+  /* ── Utility ── */
+  .mt { margin-top: 20px; }
+  .mt-lg { margin-top: 36px; }
+  .accent { color: var(--amber); }
+  .accent-blue { color: var(--blue); }
+  .accent-violet { color: var(--violet); }
+  .accent-green { color: var(--green); }
+
+  /* ── Responsive ── */
+  @media (max-width: 1200px) {
+    :root { --pad: 48px; }
+    .billboard h1 { font-size: 3rem; }
+    .divider h1 { font-size: 3.2rem; }
+    .card-row.c4 { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
+</head>
+<body>
+
+<div class="deck">
+
+  <!-- ═══ 1. WARM-UP (amber) ═══ -->
+  <section class="slide content active" style="--section-color: var(--amber); background: var(--amber-bg);">
+    <h2 style="font-size: 3.2rem;">D8 Desk Crit</h2>
+    <p class="big-text mt" style="color: var(--fg-dim);">Open your D8 screens on your laptop</p>
+    <p class="big-text" style="color: var(--fg-dim);">Turn to a neighbor — 3 minutes each</p>
+    <p class="callout accent mt">What's the first thing your eye goes to? Does that match what I want you to see first?</p>
+  </section>
+
+  <!-- ═══ 2. PRAYER (amber) ═══ -->
+  <section class="slide billboard" style="--section-color: var(--amber);">
+    <h1>Prayer</h1>
+    <p class="sub">Brevyn, will you pray for us today?</p>
+  </section>
+
+  <!-- ═══ 3. TITLE ═══ -->
+  <section class="slide billboard">
+    <h1 style="font-size: 4.8rem;">Unit D: Neue App</h1>
+    <p class="sub" style="font-size: 1.8rem; max-width: 700px;">Testing is the fastest way to find what your eyes can't see.</p>
+  </section>
+
+  <!-- ═══ 4. TODAY (timeline) ═══ -->
+  <section class="slide content" style="padding-left: 160px;">
+    <h2>Today</h2>
+    <div class="timeline">
+      <div class="timeline-item"><div class="timeline-dot" style="background: var(--amber);"></div><span class="timeline-label">D8 Desk Crit</span></div>
+      <div class="timeline-line"></div>
+      <div class="timeline-item"><div class="timeline-dot" style="background: var(--blue);"></div><span class="timeline-label">Testing High-Fi + Motion Essentials</span></div>
+      <div class="timeline-line"></div>
+      <div class="timeline-item"><div class="timeline-dot" style="background: var(--violet);"></div><span class="timeline-label">In-Class Peer Testing</span></div>
+      <div class="timeline-line"></div>
+      <div class="timeline-item"><div class="timeline-dot" style="background: var(--green);"></div><span class="timeline-label">Work Session — Build, Animate, Polish</span></div>
+    </div>
+  </section>
+
+  <!-- ═══ 5. BY THE END OF TODAY ═══ -->
+  <section class="slide top">
+    <h2>By the end of today...</h2>
+    <div class="card-row c4 mt">
+      <div class="card" style="--card-color: var(--blue);">
+        <h3>High-fi testing</h3>
+        <p>You'll know how to set up a clickable Figma prototype and run a usability test that catches real issues</p>
+      </div>
+      <div class="card" style="--card-color: var(--blue);">
+        <h3>Testing shift</h3>
+        <p>You'll understand why users behave differently with polished screens vs. rough wireframes</p>
+      </div>
+      <div class="card" style="--card-color: var(--violet);">
+        <h3>Motion basics</h3>
+        <p>You'll know the 4 jobs of microinteractions and how to set up Smart Animate in Figma</p>
+      </div>
+      <div class="card" style="--card-color: var(--green);">
+        <h3>3 actionable issues</h3>
+        <p>You'll leave class with at least 3 specific things to fix, documented and ready to address</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 6. WHY THIS MATTERS (amber) ═══ -->
+  <section class="slide content" style="--section-color: var(--amber); background: var(--amber-bg);">
+    <h2 style="color: var(--amber);">Why this matters</h2>
+    <p class="big-text">You've been staring at your own screens for days. You know where everything is, so everything "makes sense" to you.</p>
+    <p class="big-text">Your users don't have that context. A 10-minute test will reveal more than another hour of self-critique.</p>
+    <p class="callout accent mt">Get your work in front of real eyes — classmates first, then outside users for D9.</p>
+  </section>
+
+  <!-- ═══ 7. SECTION DIVIDER: Testing High-Fi ═══ -->
+  <section class="slide divider" style="--section-bg: var(--blue-bg);">
+    <h1 style="color: var(--blue);">Testing<br>High-Fidelity Prototypes</h1>
+    <p class="sub">What changes when the prototype looks real</p>
+  </section>
+
+  <!-- ═══ 8. PROTOTYPE SETUP ═══ -->
+  <section class="slide content" style="--section-color: var(--blue);">
+    <h2>Figma Prototype Setup</h2>
+    <ul style="list-style: none; display: flex; flex-direction: column; gap: 14px;">
+      <li><strong style="color: var(--fg);">Starting frame</strong> <span style="color: var(--fg-dim);">— Set the entry point for your flow</span></li>
+      <li><strong style="color: var(--fg);">Hotspot connections</strong> <span style="color: var(--fg-dim);">— Link screens with click/tap targets</span></li>
+      <li><strong style="color: var(--fg);">Share settings</strong> <span style="color: var(--fg-dim);">— "Anyone with the link" for remote testing</span></li>
+      <li><strong style="color: var(--fg);">Present full-screen</strong> <span style="color: var(--fg-dim);">— Hide Figma UI so it feels like a real app</span></li>
+    </ul>
+    <p class="callout accent-blue mt">Show of hands — who has at least 5 screens connected? Who needs to set up hotspots today?</p>
+  </section>
+
+  <!-- ═══ 9. WHAT CHANGES AT HIGH-FI ═══ -->
+  <section class="slide content" style="--section-color: var(--blue);">
+    <h2>What changes when it looks real</h2>
+    <p class="big-text">Users stop saying "I get the idea" and start noticing <span class="accent-blue">details</span></p>
+    <div class="mt" style="display: flex; flex-direction: column; gap: 14px;">
+      <p style="color: var(--fg-dim);"><strong style="color: var(--fg);">Watch for:</strong> hesitations, misreads of hierarchy, tapping the wrong element, confused expressions they don't voice</p>
+    </div>
+    <p class="callout accent mt">Your question shifts: not "Does this concept make sense?" but "Can you complete this task without help?"</p>
+  </section>
+
+  <!-- ═══ 10. SECTION DIVIDER: Motion ═══ -->
+  <section class="slide divider" style="--section-bg: var(--violet-bg);">
+    <h1 style="color: var(--violet);">Motion Design<br>in 5 Minutes</h1>
+    <p class="sub">Not decoration — communication</p>
+  </section>
+
+  <!-- ═══ 11. 4 JOBS OF MICROINTERACTIONS (interactive demos) ═══ -->
+  <section class="slide top" style="--section-color: var(--violet);">
+    <h2>Every animation should have a job</h2>
+    <div class="card-row c4 mt">
+
+      <!-- Confirm -->
+      <div class="demo-card" data-demo="confirm" style="--card-color: var(--violet);">
+        <div class="demo-stage">
+          <div class="confirm-btn">Save</div>
+          <svg class="confirm-check" width="48" height="48" viewBox="0 0 48 48">
+            <circle cx="24" cy="24" r="22"/>
+            <polyline points="14,25 21,32 34,18"/>
+          </svg>
+          <span class="demo-hint">Click to play</span>
+        </div>
+        <h3>Confirm</h3>
+        <p>"Yes, that worked"</p>
+      </div>
+
+      <!-- Guide -->
+      <div class="demo-card" data-demo="guide" style="--card-color: var(--violet);">
+        <div class="demo-stage">
+          <div class="guide-phone">
+            <div class="guide-line"></div>
+            <div class="guide-line"></div>
+            <div class="guide-line"></div>
+            <div class="guide-line"></div>
+            <div class="guide-line"></div>
+            <div class="guide-line"></div>
+            <div class="guide-drawer">
+              <div class="guide-drawer-line"></div>
+              <div class="guide-drawer-line"></div>
+              <div class="guide-drawer-line"></div>
+            </div>
+          </div>
+          <span class="demo-hint">Click to play</span>
+        </div>
+        <h3>Guide</h3>
+        <p>"Look over here"</p>
+      </div>
+
+      <!-- Connect -->
+      <div class="demo-card" data-demo="connect" style="--card-color: var(--violet);">
+        <div class="demo-stage">
+          <div class="connect-stage">
+            <div class="connect-item">
+              <div class="connect-thumb"></div>
+              <div class="connect-text">
+                <div class="connect-title"></div>
+                <div class="connect-sub"></div>
+              </div>
+            </div>
+            <div class="connect-item">
+              <div class="connect-thumb" style="background: #555;"></div>
+              <div class="connect-text">
+                <div class="connect-title"></div>
+                <div class="connect-sub"></div>
+              </div>
+            </div>
+            <div class="connect-detail">
+              <div class="connect-detail-img"></div>
+              <div class="connect-detail-line"></div>
+              <div class="connect-detail-line"></div>
+              <div class="connect-detail-line"></div>
+            </div>
+          </div>
+          <span class="demo-hint">Click to play</span>
+        </div>
+        <h3>Connect</h3>
+        <p>"These are related"</p>
+      </div>
+
+      <!-- Brand -->
+      <div class="demo-card" data-demo="brand" style="--card-color: var(--violet);">
+        <div class="demo-stage">
+          <div class="brand-heart-wrap">
+            <div class="brand-dot"></div>
+            <div class="brand-dot"></div>
+            <div class="brand-dot"></div>
+            <div class="brand-dot"></div>
+            <div class="brand-dot"></div>
+            <div class="brand-dot"></div>
+            <div class="brand-ring"></div>
+            <div class="brand-heart">♥</div>
+          </div>
+          <span class="demo-hint">Click to play</span>
+        </div>
+        <h3>Brand</h3>
+        <p>"This is who we are"</p>
+      </div>
+
+    </div>
+    <p class="callout mt-lg"><span class="accent-violet">Smart Animate:</span> Match layer names between frames — Figma interpolates the difference. D9 requires at least 2 custom microinteractions.</p>
+  </section>
+
+  <!-- ═══ 12. SECTION DIVIDER: Peer Testing ═══ -->
+  <section class="slide divider" style="--section-bg: var(--violet-bg);">
+    <h1 style="color: var(--violet);">In-Class<br>Peer Testing</h1>
+    <p class="sub">Pair up with someone you haven't worked with recently</p>
+  </section>
+
+  <!-- ═══ 13. TESTING INSTRUCTIONS ═══ -->
+  <section class="slide content" style="--section-color: var(--violet);">
+    <h2>Testing Rounds</h2>
+    <div style="display: flex; flex-direction: column; gap: 20px;">
+      <div>
+        <p><strong style="color: var(--violet);">Round 1</strong> (15 min) — Person A tests Person B's prototype</p>
+        <p style="color: var(--fg-dim);">Give 2-3 realistic tasks. Observer: watch silently, note hesitations. Debrief: top 3 observations.</p>
+      </div>
+      <div>
+        <p><strong style="color: var(--violet);">Round 2</strong> (15 min) — Switch roles</p>
+      </div>
+      <div>
+        <p><strong style="color: var(--amber);">Wrap-up</strong> (10 min) — Write down individually:</p>
+        <p style="color: var(--fg-dim);">3 specific issues found. For each: what you'll change and why. This becomes the start of your D9 documentation.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 14. NEXT UP (green) ═══ -->
+  <section class="slide top" style="--section-color: var(--green); background: var(--green-bg);">
+    <h2 style="color: var(--green);">Next up</h2>
+    <div class="mt" style="display: flex; flex-direction: column; gap: 20px;">
+      <p><strong>Work session</strong> (110 min) — Fix issues from peer testing first. Continue building high-fidelity screens. Experiment with Smart Animate. Set up your prototype link for outside testing.</p>
+      <div>
+        <p><strong>Day 21 checklist — use it as you work:</strong></p>
+        <ol class="numbered mt" style="gap: 8px;">
+          <li><strong>Hierarchy</strong> — 3 levels visible in 3 seconds?</li>
+          <li><strong>Spacing</strong> — 8pt grid, groups clearly separated?</li>
+          <li><strong>Typography</strong> — 4 sizes max, correct letter spacing?</li>
+          <li><strong>Color</strong> — Accent at ~10%, text passes 4.5:1?</li>
+          <li><strong>Alignment</strong> — Left edges align, concentric radii?</li>
+          <li><strong>Restraint</strong> — Can you remove anything without losing info?</li>
+        </ol>
+      </div>
+    </div>
+    <p class="callout accent mt-lg">D9: Usability Testing Rd. 2 — due Mon, Mar 30 @ 5:15pm. Test 3+ people outside class. Document findings with before/after screenshots.</p>
+  </section>
+
+</div>
+
+<div class="counter"><span id="cur">1</span> / <span id="tot"></span></div>
+
+<script>
+  const slides = document.querySelectorAll('.slide');
+  const total = slides.length;
+  let current = 0;
+  document.getElementById('tot').textContent = total;
+
+  function goTo(n) {
+    if (n < 0 || n >= total) return;
+    slides[current].classList.remove('active');
+    current = n;
+    slides[current].classList.add('active');
+    document.getElementById('cur').textContent = current + 1;
+  }
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown' || e.key === ' ') { e.preventDefault(); goTo(current + 1); }
+    else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') { e.preventDefault(); goTo(current - 1); }
+    else if (e.key === 'Home') { e.preventDefault(); goTo(0); }
+    else if (e.key === 'End') { e.preventDefault(); goTo(total - 1); }
+  });
+
+  document.addEventListener('click', e => {
+    if (e.target.closest('a, .demo-card')) return;
+    e.clientX / window.innerWidth < 0.33 ? goTo(current - 1) : goTo(current + 1);
+  });
+
+  /* ── Demo card interactions ── */
+  document.querySelectorAll('.demo-card').forEach(card => {
+    card.addEventListener('click', () => {
+      if (card.classList.contains('playing')) return;
+      card.classList.add('played', 'playing');
+      const durations = { confirm: 1800, guide: 2200, connect: 2500, brand: 1200 };
+      const dur = durations[card.dataset.demo] || 2000;
+      setTimeout(() => card.classList.remove('playing'), dur);
+    });
+  });
+</script>
+
+</body>
+</html>

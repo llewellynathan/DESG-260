@@ -8,7 +8,7 @@ Once everyone has prayed, the cycle resets.
 | Annika B. | |
 | Ya Chi C. | |
 | Kalli F. | |
-| Brevyn G. | |
+| Brevyn G. | 3/25 |
 | Elizabeth G. | |
 | Takumi H. | 3/16 |
 | Peter H. | |
