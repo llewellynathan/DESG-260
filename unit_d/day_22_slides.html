@@ -166,6 +166,309 @@
   .slide.active .numbered li:nth-child(5) { animation-delay: 0.68s; }
   .slide.active .numbered li:nth-child(6) { animation-delay: 0.80s; }
 
+  /* ── Demo Cards (interactive animation examples) ── */
+  .demo-card {
+    cursor: pointer;
+    position: relative;
+    border-top: 4px solid var(--card-color, var(--fg-dim));
+    padding: 24px 0 0;
+    transition: border-top-color 0.2s;
+  }
+  .demo-card:hover { border-top-color: var(--fg); }
+  .demo-card h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--card-color, var(--fg));
+    margin-bottom: 6px;
+    margin-top: 12px;
+  }
+  .demo-card p {
+    font-size: 1.15rem;
+    color: var(--fg-dim);
+    line-height: 1.45;
+  }
+
+  .demo-stage {
+    height: 150px;
+    background: #1a1a1a;
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .demo-hint {
+    position: absolute;
+    bottom: 10px;
+    left: 0; right: 0;
+    text-align: center;
+    font-size: 0.85rem;
+    color: #555;
+    transition: opacity 0.4s;
+    pointer-events: none;
+  }
+  .demo-card.played .demo-hint { opacity: 0; }
+
+  /* Confirm demo */
+  .confirm-btn {
+    padding: 10px 28px;
+    background: var(--violet);
+    color: #111;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 700;
+    pointer-events: none;
+    transition: transform 0.1s, opacity 0.3s;
+  }
+  .confirm-check {
+    position: absolute;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  .confirm-check circle {
+    fill: hsl(155, 60%, 40%);
+  }
+  .confirm-check polyline {
+    stroke: #fff;
+    stroke-width: 3;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    fill: none;
+    stroke-dasharray: 30;
+    stroke-dashoffset: 30;
+  }
+  .demo-card.playing .confirm-btn {
+    animation: btnPress 0.3s ease forwards;
+  }
+  .demo-card.playing .confirm-check {
+    opacity: 1;
+    animation: checkAppear 0.4s ease 0.35s both;
+  }
+  .demo-card.playing .confirm-check polyline {
+    animation: checkDraw 0.4s ease 0.5s forwards;
+  }
+  @keyframes btnPress {
+    0%   { transform: scale(1); opacity: 1; }
+    30%  { transform: scale(0.9); opacity: 1; }
+    100% { transform: scale(0.8); opacity: 0; }
+  }
+  @keyframes checkAppear {
+    from { transform: scale(0); opacity: 0; }
+    to   { transform: scale(1); opacity: 1; }
+  }
+  @keyframes checkDraw {
+    to { stroke-dashoffset: 0; }
+  }
+
+  /* Guide demo */
+  .guide-phone {
+    width: 90px;
+    height: 130px;
+    background: #252525;
+    border-radius: 10px;
+    border: 2px solid #333;
+    padding: 10px 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    position: relative;
+    overflow: hidden;
+  }
+  .guide-line {
+    height: 8px;
+    background: #3a3a3a;
+    border-radius: 3px;
+  }
+  .guide-line:nth-child(1) { width: 65%; }
+  .guide-line:nth-child(2) { width: 85%; }
+  .guide-line:nth-child(3) { width: 50%; }
+  .guide-line:nth-child(4) { width: 75%; height: 6px; margin-top: 4px; }
+  .guide-line:nth-child(5) { width: 90%; height: 6px; }
+  .guide-line:nth-child(6) { width: 40%; height: 6px; }
+  .guide-drawer {
+    position: absolute;
+    top: 0; bottom: 0; right: 0;
+    width: 45%;
+    background: var(--violet);
+    border-radius: 0 8px 8px 0;
+    transform: translateX(100%);
+    transition: transform 0.4s cubic-bezier(0.22, 0.61, 0.36, 1);
+    display: flex;
+    flex-direction: column;
+    padding: 14px 6px;
+    gap: 8px;
+  }
+  .guide-drawer-line {
+    height: 5px;
+    background: rgba(0,0,0,0.25);
+    border-radius: 2px;
+  }
+  .guide-drawer-line:nth-child(1) { width: 70%; }
+  .guide-drawer-line:nth-child(2) { width: 90%; }
+  .guide-drawer-line:nth-child(3) { width: 55%; }
+  .demo-card.playing .guide-drawer {
+    transform: translateX(0);
+  }
+
+  /* Connect demo */
+  .connect-stage {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    justify-content: center;
+  }
+  .connect-item {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    padding: 8px;
+    background: #252525;
+    border-radius: 8px;
+    transition: all 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
+  }
+  .connect-thumb {
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+    background: var(--violet);
+    flex-shrink: 0;
+    transition: all 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
+  }
+  .connect-text {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+  .connect-title {
+    height: 7px;
+    width: 60px;
+    background: #555;
+    border-radius: 2px;
+  }
+  .connect-sub {
+    height: 5px;
+    width: 40px;
+    background: #3a3a3a;
+    border-radius: 2px;
+  }
+  .connect-detail {
+    position: absolute;
+    inset: 0;
+    background: #252525;
+    border-radius: 12px;
+    opacity: 0;
+    transform: scale(0.85);
+    transition: all 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+    pointer-events: none;
+  }
+  .connect-detail-img {
+    width: 100%;
+    height: 60px;
+    background: var(--violet);
+    border-radius: 8px;
+    opacity: 0.8;
+    margin-bottom: 10px;
+  }
+  .connect-detail-line {
+    height: 6px;
+    background: #444;
+    border-radius: 3px;
+    margin-bottom: 6px;
+  }
+  .connect-detail-line:nth-child(2) { width: 80%; }
+  .connect-detail-line:nth-child(3) { width: 60%; }
+  .connect-detail-line:nth-child(4) { width: 90%; }
+  .demo-card.playing .connect-item:first-child {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  .demo-card.playing .connect-item:last-child {
+    opacity: 0.3;
+  }
+  .demo-card.playing .connect-detail {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  /* Brand demo — expressive like button */
+  .brand-heart-wrap {
+    position: relative;
+    width: 56px;
+    height: 56px;
+  }
+  .brand-heart {
+    font-size: 40px;
+    line-height: 56px;
+    text-align: center;
+    width: 100%;
+    color: #555;
+    transition: color 0.1s, transform 0.1s;
+    user-select: none;
+  }
+  .brand-ring {
+    position: absolute;
+    inset: -8px;
+    border-radius: 50%;
+    border: 3px solid var(--violet);
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  .brand-dot {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    opacity: 0;
+  }
+  .brand-dot:nth-child(1) { top: -12px; left: 50%; margin-left: -3px; background: var(--amber); }
+  .brand-dot:nth-child(2) { top: 5px; right: -14px; background: var(--blue); }
+  .brand-dot:nth-child(3) { bottom: 5px; right: -14px; background: var(--violet); }
+  .brand-dot:nth-child(4) { bottom: -12px; left: 50%; margin-left: -3px; background: var(--green); }
+  .brand-dot:nth-child(5) { bottom: 5px; left: -14px; background: var(--amber); }
+  .brand-dot:nth-child(6) { top: 5px; left: -14px; background: var(--blue); }
+
+  .demo-card.playing .brand-heart {
+    color: hsl(340, 82%, 55%);
+    animation: heartPop 0.45s cubic-bezier(0.17, 0.89, 0.32, 1.49) both;
+  }
+  .demo-card.playing .brand-ring {
+    animation: ringBurst 0.5s ease-out 0.1s both;
+  }
+  .demo-card.playing .brand-dot {
+    animation: dotBurst 0.55s ease-out 0.12s both;
+  }
+  .demo-card.playing .brand-dot:nth-child(1) { --dx: 0; --dy: -22px; animation-delay: 0.1s; }
+  .demo-card.playing .brand-dot:nth-child(2) { --dx: 19px; --dy: -11px; animation-delay: 0.14s; }
+  .demo-card.playing .brand-dot:nth-child(3) { --dx: 19px; --dy: 11px; animation-delay: 0.18s; }
+  .demo-card.playing .brand-dot:nth-child(4) { --dx: 0; --dy: 22px; animation-delay: 0.22s; }
+  .demo-card.playing .brand-dot:nth-child(5) { --dx: -19px; --dy: 11px; animation-delay: 0.16s; }
+  .demo-card.playing .brand-dot:nth-child(6) { --dx: -19px; --dy: -11px; animation-delay: 0.2s; }
+
+  @keyframes heartPop {
+    0%   { transform: scale(1); }
+    25%  { transform: scale(0.8); }
+    50%  { transform: scale(1.2); }
+    100% { transform: scale(1); }
+  }
+  @keyframes ringBurst {
+    0%   { opacity: 1; transform: scale(0.5); }
+    100% { opacity: 0; transform: scale(1.6); }
+  }
+  @keyframes dotBurst {
+    0%   { opacity: 1; transform: translate(0, 0) scale(1); }
+    100% { opacity: 0; transform: translate(var(--dx), var(--dy)) scale(0); }
+  }
+
   /* Section bar: grow from top */
   .slide.active::before {
     transform-origin: top;
@@ -518,26 +821,97 @@
     <p class="sub">Not decoration — communication</p>
   </section>
 
-  <!-- ═══ 11. 4 JOBS OF MICROINTERACTIONS ═══ -->
+  <!-- ═══ 11. 4 JOBS OF MICROINTERACTIONS (interactive demos) ═══ -->
   <section class="slide top" style="--section-color: var(--violet);">
     <h2>Every animation should have a job</h2>
     <div class="card-row c4 mt">
-      <div class="card" style="--card-color: var(--violet);">
+
+      <!-- Confirm -->
+      <div class="demo-card" data-demo="confirm" style="--card-color: var(--violet);">
+        <div class="demo-stage">
+          <div class="confirm-btn">Save</div>
+          <svg class="confirm-check" width="48" height="48" viewBox="0 0 48 48">
+            <circle cx="24" cy="24" r="22"/>
+            <polyline points="14,25 21,32 34,18"/>
+          </svg>
+          <span class="demo-hint">Click to play</span>
+        </div>
         <h3>Confirm</h3>
-        <p>"Yes, that worked" — button press feedback, checkmark appear</p>
+        <p>"Yes, that worked"</p>
       </div>
-      <div class="card" style="--card-color: var(--violet);">
+
+      <!-- Guide -->
+      <div class="demo-card" data-demo="guide" style="--card-color: var(--violet);">
+        <div class="demo-stage">
+          <div class="guide-phone">
+            <div class="guide-line"></div>
+            <div class="guide-line"></div>
+            <div class="guide-line"></div>
+            <div class="guide-line"></div>
+            <div class="guide-line"></div>
+            <div class="guide-line"></div>
+            <div class="guide-drawer">
+              <div class="guide-drawer-line"></div>
+              <div class="guide-drawer-line"></div>
+              <div class="guide-drawer-line"></div>
+            </div>
+          </div>
+          <span class="demo-hint">Click to play</span>
+        </div>
         <h3>Guide</h3>
-        <p>"Look over here" — drawer slides in, element enters view</p>
+        <p>"Look over here"</p>
       </div>
-      <div class="card" style="--card-color: var(--violet);">
+
+      <!-- Connect -->
+      <div class="demo-card" data-demo="connect" style="--card-color: var(--violet);">
+        <div class="demo-stage">
+          <div class="connect-stage">
+            <div class="connect-item">
+              <div class="connect-thumb"></div>
+              <div class="connect-text">
+                <div class="connect-title"></div>
+                <div class="connect-sub"></div>
+              </div>
+            </div>
+            <div class="connect-item">
+              <div class="connect-thumb" style="background: #555;"></div>
+              <div class="connect-text">
+                <div class="connect-title"></div>
+                <div class="connect-sub"></div>
+              </div>
+            </div>
+            <div class="connect-detail">
+              <div class="connect-detail-img"></div>
+              <div class="connect-detail-line"></div>
+              <div class="connect-detail-line"></div>
+              <div class="connect-detail-line"></div>
+            </div>
+          </div>
+          <span class="demo-hint">Click to play</span>
+        </div>
         <h3>Connect</h3>
-        <p>"These are related" — shared element transitions, card expands to detail</p>
+        <p>"These are related"</p>
       </div>
-      <div class="card" style="--card-color: var(--violet);">
+
+      <!-- Brand -->
+      <div class="demo-card" data-demo="brand" style="--card-color: var(--violet);">
+        <div class="demo-stage">
+          <div class="brand-heart-wrap">
+            <div class="brand-dot"></div>
+            <div class="brand-dot"></div>
+            <div class="brand-dot"></div>
+            <div class="brand-dot"></div>
+            <div class="brand-dot"></div>
+            <div class="brand-dot"></div>
+            <div class="brand-ring"></div>
+            <div class="brand-heart">♥</div>
+          </div>
+          <span class="demo-hint">Click to play</span>
+        </div>
         <h3>Brand</h3>
-        <p>"This is who we are" — playful loading state, custom toggle</p>
+        <p>"This is who we are"</p>
       </div>
+
     </div>
     <p class="callout mt-lg"><span class="accent-violet">Smart Animate:</span> Match layer names between frames — Figma interpolates the difference. D9 requires at least 2 custom microinteractions.</p>
   </section>
@@ -612,8 +986,19 @@
   });
 
   document.addEventListener('click', e => {
-    if (e.target.closest('a')) return;
+    if (e.target.closest('a, .demo-card')) return;
     e.clientX / window.innerWidth < 0.33 ? goTo(current - 1) : goTo(current + 1);
+  });
+
+  /* ── Demo card interactions ── */
+  document.querySelectorAll('.demo-card').forEach(card => {
+    card.addEventListener('click', () => {
+      if (card.classList.contains('playing')) return;
+      card.classList.add('played', 'playing');
+      const durations = { confirm: 1800, guide: 2200, connect: 2500, brand: 1200 };
+      const dur = durations[card.dataset.demo] || 2000;
+      setTimeout(() => card.classList.remove('playing'), dur);
+    });
   });
 </script>
 
