@@ -618,26 +618,24 @@ Today's Focus: Ugly isn't a taste problem — it's a hierarchy problem.
 ### Day 22 — Wednesday, Mar 25
 **Unit D: Neue App (Capstone)**
 
-Today's Focus: Test high-fidelity prototypes to catch issues before final polish.
+Today's Focus: A prototype that doesn't move is a wireframe with better fonts.
 
 **In class:**
-- D8 High-fidelity critique (in-class)
-- Usability Testing Round 2: Testing high-fidelity prototypes
-- Testing with clickable prototypes vs. paper
-- Document findings: What still needs work?
-- Motion design work session
+- Workshop: Prototype mechanics (flows, hotspots, triggers, actions, navigation patterns)
+- Workshop: Smart Animate deep-dive (layer matching, card expand exercise)
+- Workshop: Microinteractions with component variants (state machines, toggle/button demos)
+- Workshop: Overlays, scroll behaviors, and polish
+- Structured work session: build clickable prototype with 2+ animations
 
 **Come to class having done:**
-- ⛳ D8: High Fidelity Prototype
-- Watch: Microanimations, SmartAnimate tutorial
+- ⛳ D8: High Fidelity Round 1 (in progress — bring current screens)
+- Watch: Smart Animate tutorial
 
 **Assignments due before next class:**
 - ⛳ D9: Usability Testing Rd. 2 (due Mar 30 @ 5:15pm)
-  - Testing documentation
-  - Specific changes made in response to findings
-
-**Resources:**
-- Figma Smart Animate documentation
+  - Test with 3+ people outside class using clickable prototype
+  - Document observations, quotes, usability issues
+  - Show before/after for changes made
 
 → [Lesson Plan](unit_d/day_22.md)
 

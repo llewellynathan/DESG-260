@@ -80,7 +80,8 @@
 
   /* ── Staggered entrance: children of active slides ── */
   .slide.active > h1, .slide.active > h2, .slide.active > h3,
-  .slide.active > p, .slide.active > div, .slide.active > ol, .slide.active > ul {
+  .slide.active > p, .slide.active > div, .slide.active > ol, .slide.active > ul,
+  .slide.active > table {
     animation: fadeUp 0.5s ease both;
   }
   .slide.active > :nth-child(1) { animation-delay: 0.08s; }
@@ -89,6 +90,7 @@
   .slide.active > :nth-child(4) { animation-delay: 0.38s; }
   .slide.active > :nth-child(5) { animation-delay: 0.46s; }
   .slide.active > :nth-child(6) { animation-delay: 0.52s; }
+  .slide.active > :nth-child(7) { animation-delay: 0.58s; }
 
   /* Billboard headings: scale entrance */
   .billboard.active > h1 {
@@ -154,6 +156,8 @@
   .slide.active .steps li:nth-child(2) { animation-delay: 0.35s; }
   .slide.active .steps li:nth-child(3) { animation-delay: 0.5s; }
   .slide.active .steps li:nth-child(4) { animation-delay: 0.65s; }
+  .slide.active .steps li:nth-child(5) { animation-delay: 0.8s; }
+  .slide.active .steps li:nth-child(6) { animation-delay: 0.95s; }
 
   /* Numbered list stagger */
   .slide.active .numbered li {
@@ -687,6 +691,33 @@
     color: var(--section-color, var(--blue));
   }
 
+  /* ── Tables ── */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 1.3rem;
+  }
+  th {
+    text-align: left;
+    padding: 12px 16px;
+    border-bottom: 2px solid #333;
+    color: var(--fg);
+    font-weight: 700;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  td {
+    padding: 10px 16px;
+    border-bottom: 1px solid #222;
+    color: var(--fg-dim);
+    line-height: 1.4;
+  }
+  td:first-child {
+    color: var(--fg);
+    font-weight: 600;
+  }
+
   /* ── Links ── */
   a { color: var(--blue); text-decoration: none; }
   a:hover { text-decoration: underline; }
@@ -724,10 +755,11 @@
 
   <!-- ═══ 1. WARM-UP (amber) ═══ -->
   <section class="slide content active" style="--section-color: var(--amber); background: var(--amber-bg);">
-    <h2 style="font-size: 3.2rem;">D8 Desk Crit</h2>
-    <p class="big-text mt" style="color: var(--fg-dim);">Open your D8 screens on your laptop</p>
-    <p class="big-text" style="color: var(--fg-dim);">Turn to a neighbor — 3 minutes each</p>
-    <p class="callout accent mt">What's the first thing your eye goes to? Does that match what I want you to see first?</p>
+    <h2 style="font-size: 3.2rem;">Prototype Show & Tell</h2>
+    <p class="big-text" style="color: var(--fg-dim);">Quick poll: Who has a clickable prototype? Who has static frames only?</p>
+    <p class="big-text" style="color: var(--fg-dim);">Two examples side by side: static screens vs. connected + animated</p>
+    <p class="callout accent mt">Which would you test with a user? Which would you put in a portfolio?</p>
+    <p class="callout mt" style="color: var(--fg-dim);">Today's goal: everyone leaves with a working clickable prototype + at least one animated transition.</p>
   </section>
 
   <!-- ═══ 2. PRAYER (amber) ═══ -->
@@ -739,20 +771,20 @@
   <!-- ═══ 3. TITLE ═══ -->
   <section class="slide billboard">
     <h1 style="font-size: 4.8rem;">Unit D: Neue App</h1>
-    <p class="sub" style="font-size: 1.8rem; max-width: 700px;">Testing is the fastest way to find what your eyes can't see.</p>
+    <p class="sub" style="font-size: 1.8rem; max-width: 700px;">A prototype that doesn't move is a wireframe with better fonts.</p>
   </section>
 
   <!-- ═══ 4. TODAY (timeline) ═══ -->
   <section class="slide content" style="padding-left: 160px;">
-    <h2>Today</h2>
+    <h2>Today — Three Workshops + Structured Work</h2>
     <div class="timeline">
-      <div class="timeline-item"><div class="timeline-dot" style="background: var(--amber);"></div><span class="timeline-label">D8 Desk Crit</span></div>
+      <div class="timeline-item"><div class="timeline-dot" style="background: var(--blue);"></div><span class="timeline-label">Workshop 1: Prototype Mechanics</span></div>
       <div class="timeline-line"></div>
-      <div class="timeline-item"><div class="timeline-dot" style="background: var(--blue);"></div><span class="timeline-label">Testing High-Fi + Motion Essentials</span></div>
+      <div class="timeline-item"><div class="timeline-dot" style="background: var(--violet);"></div><span class="timeline-label">Workshop 2: Smart Animate + Microinteractions</span></div>
       <div class="timeline-line"></div>
-      <div class="timeline-item"><div class="timeline-dot" style="background: var(--violet);"></div><span class="timeline-label">In-Class Peer Testing</span></div>
+      <div class="timeline-item"><div class="timeline-dot" style="background: var(--green);"></div><span class="timeline-label">Workshop 3: Overlays + Scroll</span></div>
       <div class="timeline-line"></div>
-      <div class="timeline-item"><div class="timeline-dot" style="background: var(--green);"></div><span class="timeline-label">Work Session — Build, Animate, Polish</span></div>
+      <div class="timeline-item"><div class="timeline-dot" style="background: var(--amber);"></div><span class="timeline-label">Structured Work Session — 3 Timed Rounds</span></div>
     </div>
   </section>
 
@@ -761,20 +793,20 @@
     <h2>By the end of today...</h2>
     <div class="card-row c4 mt">
       <div class="card" style="--card-color: var(--blue);">
-        <h3>High-fi testing</h3>
-        <p>You'll know how to set up a clickable Figma prototype and run a usability test that catches real issues</p>
-      </div>
-      <div class="card" style="--card-color: var(--blue);">
-        <h3>Testing shift</h3>
-        <p>You'll understand why users behave differently with polished screens vs. rough wireframes</p>
+        <h3>Clickable prototype</h3>
+        <p>Every screen connected with proper navigation and transitions</p>
       </div>
       <div class="card" style="--card-color: var(--violet);">
-        <h3>Motion basics</h3>
-        <p>You'll know the 4 jobs of microinteractions and how to set up Smart Animate in Figma</p>
+        <h3>Smart Animate</h3>
+        <p>At least one animated transition using layer-name matching</p>
+      </div>
+      <div class="card" style="--card-color: var(--violet);">
+        <h3>Microinteraction</h3>
+        <p>At least one interactive element built with component variants</p>
       </div>
       <div class="card" style="--card-color: var(--green);">
-        <h3>3 actionable issues</h3>
-        <p>You'll leave class with at least 3 specific things to fix, documented and ready to address</p>
+        <h3>Ready to test</h3>
+        <p>A shareable prototype link for D9 external testing this weekend</p>
       </div>
     </div>
   </section>
@@ -782,46 +814,143 @@
   <!-- ═══ 6. WHY THIS MATTERS (amber) ═══ -->
   <section class="slide content" style="--section-color: var(--amber); background: var(--amber-bg);">
     <h2 style="color: var(--amber);">Why this matters</h2>
-    <p class="big-text">You've been staring at your own screens for days. You know where everything is, so everything "makes sense" to you.</p>
-    <p class="big-text">Your users don't have that context. A 10-minute test will reveal more than another hour of self-critique.</p>
-    <p class="callout accent mt">Get your work in front of real eyes — classmates first, then outside users for D9.</p>
+    <p class="big-text">Your screens look great as static frames — but apps are not posters. Users expect things to respond, transition, and flow.</p>
+    <p class="big-text">A prototype that just jumps between screens feels like a slideshow. One that moves and responds feels like a <span class="accent">product</span>.</p>
+    <p class="callout mt" style="color: var(--fg-dim);">D9 requires 2 custom microinteractions. D10 requires an animated walkthrough video. Today is where you build those skills.</p>
   </section>
 
-  <!-- ═══ 7. SECTION DIVIDER: Testing High-Fi ═══ -->
+  <!-- ═══ 7. DIVIDER: Workshop 1 ═══ -->
   <section class="slide divider" style="--section-bg: var(--blue-bg);">
-    <h1 style="color: var(--blue);">Testing<br>High-Fidelity Prototypes</h1>
-    <p class="sub">What changes when the prototype looks real</p>
+    <h1 style="color: var(--blue);">Workshop 1<br>Prototype Mechanics</h1>
+    <p class="sub">Open Figma and follow along</p>
   </section>
 
-  <!-- ═══ 8. PROTOTYPE SETUP ═══ -->
+  <!-- ═══ 8. SETTING UP A FLOW ═══ -->
   <section class="slide content" style="--section-color: var(--blue);">
-    <h2>Figma Prototype Setup</h2>
-    <ul style="list-style: none; display: flex; flex-direction: column; gap: 14px;">
-      <li><strong style="color: var(--fg);">Starting frame</strong> <span style="color: var(--fg-dim);">— Set the entry point for your flow</span></li>
-      <li><strong style="color: var(--fg);">Hotspot connections</strong> <span style="color: var(--fg-dim);">— Link screens with click/tap targets</span></li>
-      <li><strong style="color: var(--fg);">Share settings</strong> <span style="color: var(--fg-dim);">— "Anyone with the link" for remote testing</span></li>
-      <li><strong style="color: var(--fg);">Present full-screen</strong> <span style="color: var(--fg-dim);">— Hide Figma UI so it feels like a real app</span></li>
+    <h2>Setting Up a Flow</h2>
+    <ol class="steps" style="--section-color: var(--blue);">
+      <li><span>Open the <strong>Prototype</strong> tab in the right panel</span></li>
+      <li><span>Click <strong>+</strong> to add a flow — name it (e.g., "Core Task Flow")</span></li>
+      <li><span>Set the <strong>starting frame</strong> — this plays when you hit Present</span></li>
+      <li><span>Click a button/element → drag the <strong>connection noodle</strong> to the destination frame</span></li>
+    </ol>
+    <p class="callout accent-blue mt">Follow along now: connect your first two screens with a tap interaction.</p>
+  </section>
+
+  <!-- ═══ 9. ANATOMY OF AN INTERACTION ═══ -->
+  <section class="slide content" style="--section-color: var(--blue);">
+    <h2>Every connection has 6 parts</h2>
+    <table>
+      <tr><th>Field</th><th>Options</th></tr>
+      <tr><td>Trigger</td><td>On tap, On drag, While hovering, After delay, Mouse enter/leave</td></tr>
+      <tr><td>Action</td><td>Navigate to, Open overlay, Swap overlay, Scroll to, Back, Open link</td></tr>
+      <tr><td>Destination</td><td>Target frame</td></tr>
+      <tr><td>Animation</td><td>Instant, Dissolve, Smart Animate, Move in/out, Push, Slide in/out</td></tr>
+      <tr><td>Easing</td><td>Ease in, Ease out, Ease in and out, Linear, Spring, Custom bezier</td></tr>
+      <tr><td>Duration</td><td>In ms (typical: 200–500ms)</td></tr>
+    </table>
+  </section>
+
+  <!-- ═══ 10. NAVIGATION PATTERNS ═══ -->
+  <section class="slide content" style="--section-color: var(--blue);">
+    <h2>Navigation Patterns</h2>
+    <ul style="list-style: none; display: flex; flex-direction: column; gap: 18px;">
+      <li><strong style="color: var(--blue);">Back button</strong> <span style="color: var(--fg-dim);">— Use the "Back" action — respects the navigation stack</span></li>
+      <li><strong style="color: var(--blue);">Tab bar / bottom nav</strong> <span style="color: var(--fg-dim);">— Connect each tab to its destination. Use "Instant" animation (tabs swap, they don't slide)</span></li>
+      <li><strong style="color: var(--blue);">Multiple flows</strong> <span style="color: var(--fg-dim);">— Onboarding flow → Main flow. Link with a connection from the last onboarding frame.</span></li>
     </ul>
-    <p class="callout accent-blue mt">Show of hands — who has at least 5 screens connected? Who needs to set up hotspots today?</p>
+    <p class="callout accent-blue mt">Follow along: connect your remaining screens. Add back actions. Set up tab navigation if applicable.</p>
   </section>
 
-  <!-- ═══ 9. WHAT CHANGES AT HIGH-FI ═══ -->
+  <!-- ═══ 11. QUICK CHECK 1 ═══ -->
   <section class="slide content" style="--section-color: var(--blue);">
-    <h2>What changes when it looks real</h2>
-    <p class="big-text">Users stop saying "I get the idea" and start noticing <span class="accent-blue">details</span></p>
-    <div class="mt" style="display: flex; flex-direction: column; gap: 14px;">
-      <p style="color: var(--fg-dim);"><strong style="color: var(--fg);">Watch for:</strong> hesitations, misreads of hierarchy, tapping the wrong element, confused expressions they don't voice</p>
+    <h2>Quick Check</h2>
+    <p class="big-text">Present your prototype (&#9654; button in top right).</p>
+    <p class="big-text">Can you tap through your entire core flow?</p>
+    <p class="callout accent-blue mt">Raise your hand if you're stuck.</p>
+    <div style="display: flex; flex-direction: column; gap: 10px; color: var(--fg-dim);">
+      <p>Common problems:</p>
+      <p>• Missing hotspots on tappable elements</p>
+      <p>• Wrong starting frame</p>
+      <p>• Connections pointing to the wrong frame</p>
     </div>
-    <p class="callout accent mt">Your question shifts: not "Does this concept make sense?" but "Can you complete this task without help?"</p>
   </section>
 
-  <!-- ═══ 10. SECTION DIVIDER: Motion ═══ -->
+  <!-- ═══ 12. REFERENCE CARD ═══ -->
+  <section class="slide top" style="--section-color: var(--blue);">
+    <h2>Reference Card — Keep This Handy</h2>
+    <div class="card-row c3 mt">
+      <div class="card" style="--card-color: var(--blue);">
+        <h3>Duration</h3>
+        <p><strong style="color: var(--fg);">150–200ms</strong> → micro (button press, toggle)<br>
+        <strong style="color: var(--fg);">250–350ms</strong> → page transitions<br>
+        <strong style="color: var(--fg);">400–600ms</strong> → complex choreography</p>
+      </div>
+      <div class="card" style="--card-color: var(--violet);">
+        <h3>Easing</h3>
+        <p><strong style="color: var(--fg);">Ease out</strong> → things entering<br>
+        <strong style="color: var(--fg);">Ease in</strong> → things leaving<br>
+        <strong style="color: var(--fg);">Ease in and out</strong> → moving within<br>
+        <strong style="color: var(--fg);">Linear</strong> → almost never (robotic)<br>
+        <strong style="color: var(--fg);">Spring</strong> → playful, organic</p>
+      </div>
+      <div class="card" style="--card-color: var(--green);">
+        <h3>Animation Type</h3>
+        <p><strong style="color: var(--fg);">Push</strong> → forward nav (iOS)<br>
+        <strong style="color: var(--fg);">Slide in from right</strong> → detail views<br>
+        <strong style="color: var(--fg);">Dissolve</strong> → tab switches<br>
+        <strong style="color: var(--fg);">Instant</strong> → tab bar taps<br>
+        <strong style="color: var(--fg);">Smart Animate</strong> → element morphs</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 13. DIVIDER: Workshop 2 ═══ -->
   <section class="slide divider" style="--section-bg: var(--violet-bg);">
-    <h1 style="color: var(--violet);">Motion Design<br>in 5 Minutes</h1>
-    <p class="sub">Not decoration — communication</p>
+    <h1 style="color: var(--violet);">Workshop 2<br>Smart Animate +<br>Microinteractions</h1>
+    <p class="sub">The mechanics of motion in Figma</p>
   </section>
 
-  <!-- ═══ 11. 4 JOBS OF MICROINTERACTIONS (interactive demos) ═══ -->
+  <!-- ═══ 14. HOW SMART ANIMATE WORKS ═══ -->
+  <section class="slide content" style="--section-color: var(--violet);">
+    <h2>Smart Animate is layer-name matching</h2>
+    <p class="big-text">Figma looks at Frame A and Frame B. For every layer with the <span class="accent-violet">same name</span> in both:</p>
+    <div style="display: flex; flex-direction: column; gap: 8px; color: var(--fg-dim);">
+      <p>Different <strong style="color: var(--fg);">position</strong> → it moves &nbsp;|&nbsp; Different <strong style="color: var(--fg);">size</strong> → it scales</p>
+      <p>Different <strong style="color: var(--fg);">opacity</strong> → it fades &nbsp;|&nbsp; Different <strong style="color: var(--fg);">rotation</strong> → it rotates</p>
+      <p>Different <strong style="color: var(--fg);">fill</strong> → it color-shifts</p>
+    </div>
+    <p class="callout mt"><span class="accent-violet">Layer only in A</span> → fades out. <span class="accent-violet">Layer only in B</span> → fades in.</p>
+    <p class="callout" style="color: var(--fg-dim);">Layer names must match <strong style="color: var(--fg);">exactly</strong>. Rename your layers intentionally.</p>
+  </section>
+
+  <!-- ═══ 15. THE WORKFLOW ═══ -->
+  <section class="slide content" style="--section-color: var(--violet);">
+    <h2>The Smart Animate Workflow</h2>
+    <ol class="steps" style="--section-color: var(--violet);">
+      <li><span><strong>Duplicate</strong> Frame A to create Frame B</span></li>
+      <li><span><strong>Modify</strong> the layers you want to animate in Frame B (move, resize, hide, recolor)</span></li>
+      <li><span><strong>Connect</strong> A → B with Smart Animate + your chosen easing + duration</span></li>
+      <li><span><strong>Present</strong> and test</span></li>
+    </ol>
+    <p class="callout accent-violet mt">That's it. The "duplicate and modify" pattern is 90% of Smart Animate work.</p>
+  </section>
+
+  <!-- ═══ 16. GUIDED EXERCISE: CARD EXPAND ═══ -->
+  <section class="slide content" style="--section-color: var(--violet);">
+    <h2>Guided Exercise: Card Expand</h2>
+    <ol class="steps" style="--section-color: var(--violet);">
+      <li><span>Find a screen with a card or list item</span></li>
+      <li><span><strong>Duplicate</strong> the entire frame</span></li>
+      <li><span>In the duplicate: resize the card to fill the screen (detail view)</span></li>
+      <li><span>Move/resize text layers to their "expanded" positions</span></li>
+      <li><span>Connect the card in Frame A → Frame B: <strong>Smart Animate, Ease out, 300ms</strong></span></li>
+      <li><span>Present and test</span></li>
+    </ol>
+    <p class="callout mt" style="color: var(--fg-dim);">No card in your design? Use a button that slides to a different position, or a nav bar that changes color.</p>
+  </section>
+
+  <!-- ═══ 17. 4 JOBS OF MOTION (interactive demos) ═══ -->
   <section class="slide top" style="--section-color: var(--violet);">
     <h2>Every animation should have a job</h2>
     <div class="card-row c4 mt">
@@ -904,7 +1033,7 @@
             <div class="brand-dot"></div>
             <div class="brand-dot"></div>
             <div class="brand-ring"></div>
-            <div class="brand-heart">♥</div>
+            <div class="brand-heart">&#9829;</div>
           </div>
           <span class="demo-hint">Click to play</span>
         </div>
@@ -913,51 +1042,175 @@
       </div>
 
     </div>
-    <p class="callout mt-lg"><span class="accent-violet">Smart Animate:</span> Match layer names between frames — Figma interpolates the difference. D9 requires at least 2 custom microinteractions.</p>
+    <p class="callout mt-lg"><span class="accent-violet">D9 requires at least 2 custom microinteractions</span> — every one should serve one of these four jobs.</p>
   </section>
 
-  <!-- ═══ 12. SECTION DIVIDER: Peer Testing ═══ -->
-  <section class="slide divider" style="--section-bg: var(--violet-bg);">
-    <h1 style="color: var(--violet);">In-Class<br>Peer Testing</h1>
-    <p class="sub">Pair up with someone you haven't worked with recently</p>
-  </section>
-
-  <!-- ═══ 13. TESTING INSTRUCTIONS ═══ -->
+  <!-- ═══ 18. COMPONENT VARIANTS AS STATE MACHINES ═══ -->
   <section class="slide content" style="--section-color: var(--violet);">
-    <h2>Testing Rounds</h2>
-    <div style="display: flex; flex-direction: column; gap: 20px;">
+    <h2>Component Variants = State Machines</h2>
+    <div style="display: flex; flex-direction: column; gap: 14px;">
+      <p>A component with variants is an interactive element:</p>
+      <p style="color: var(--fg-dim);"><strong style="color: var(--fg);">Default</strong> → Hover → <strong style="color: var(--fg);">Pressed</strong> → Disabled</p>
+      <p style="color: var(--fg-dim);"><strong style="color: var(--fg);">Off</strong> → <strong style="color: var(--fg);">On</strong> (toggle switch)</p>
+      <p style="color: var(--fg-dim);"><strong style="color: var(--fg);">Collapsed</strong> → <strong style="color: var(--fg);">Expanded</strong> (accordion)</p>
+      <p style="color: var(--fg-dim);"><strong style="color: var(--fg);">Empty</strong> → <strong style="color: var(--fg);">Focused</strong> → <strong style="color: var(--fg);">Filled</strong> (input field)</p>
+    </div>
+    <div class="mt" style="display: flex; flex-direction: column; gap: 8px;">
+      <p><strong style="color: var(--violet);">How to wire it:</strong></p>
+      <p style="color: var(--fg-dim);">1. Create a component with 2+ variants</p>
+      <p style="color: var(--fg-dim);">2. In Prototype tab: On tap → <strong style="color: var(--fg);">Change to</strong> [other variant]</p>
+      <p style="color: var(--fg-dim);">3. Animation: Smart Animate + Spring or Ease out, 200ms</p>
+    </div>
+  </section>
+
+  <!-- ═══ 19. GUIDED EXERCISE: MICROINTERACTION ═══ -->
+  <section class="slide content" style="--section-color: var(--violet);">
+    <h2>Guided Exercise: Build a Microinteraction</h2>
+    <ol class="steps" style="--section-color: var(--violet);">
+      <li><span>Pick one element with two states (button, toggle, card, menu item)</span></li>
+      <li><span>Create it as a <strong>component with 2 variants</strong></span></li>
+      <li><span>Add interaction: On tap → Change to [other variant], Smart Animate, Spring, 200ms</span></li>
+      <li><span>Test in Present mode</span></li>
+    </ol>
+    <p class="callout accent-violet mt">Finished early? Add a third state, or try different easing curves and compare how they feel.</p>
+  </section>
+
+  <!-- ═══ 20. MOTION RESTRAINT ═══ -->
+  <section class="slide content" style="--section-color: var(--violet); background: var(--violet-bg);">
+    <h2 style="color: var(--violet);">When Animation Hurts</h2>
+    <p class="big-text">Animation without a job is just <span class="accent-violet">delay</span>.</p>
+    <div style="display: flex; flex-direction: column; gap: 14px; color: var(--fg-dim);">
+      <p><strong style="color: var(--fg);">Too slow</strong> — Anything over 500ms feels sluggish. Users wait for your animation instead of doing their task.</p>
+      <p><strong style="color: var(--fg);">Too much</strong> — When everything bounces, nothing stands out. Motion loses meaning.</p>
+      <p><strong style="color: var(--fg);">Wrong easing</strong> — Linear movement feels robotic. Spring on a delete button feels flippant.</p>
+      <p><strong style="color: var(--fg);">No purpose</strong> — If you can't name the job (confirm, guide, connect, brand), remove the animation.</p>
+    </div>
+    <p class="callout accent mt">The best motion design is the animation you don't notice — it just makes the app feel right.</p>
+  </section>
+
+  <!-- ═══ 21. DIVIDER: Workshop 3 ═══ -->
+  <section class="slide divider" style="--section-bg: var(--green-bg);">
+    <h1 style="color: var(--green);">Workshop 3<br>Overlays + Scroll</h1>
+    <p class="sub">Modals, bottom sheets, fixed headers</p>
+  </section>
+
+  <!-- ═══ 22. OVERLAYS ═══ -->
+  <section class="slide content" style="--section-color: var(--green);">
+    <h2>Overlays — Layers on Top</h2>
+    <p>"Navigate to" replaces the screen. <strong style="color: var(--green);">"Open overlay"</strong> adds on top.</p>
+    <ol class="steps" style="--section-color: var(--green);">
+      <li><span>Create the sheet as its own frame (sized to the sheet, not the full screen)</span></li>
+      <li><span>On the trigger element: <strong>Open overlay</strong> → select the sheet frame</span></li>
+      <li><span>Animation: <strong>Slide in from bottom</strong>, Ease out, 300ms</span></li>
+      <li><span>Set overlay position (bottom-center or manual)</span></li>
+      <li><span>Enable <strong>Close on outside click</strong> + background dimming (50% black)</span></li>
+    </ol>
+    <p class="callout mt" style="color: var(--fg-dim);">Use cases: modals, bottom sheets, dropdown menus, snackbars, tooltips</p>
+    <p class="callout accent-green">Follow along: pick one screen that should have a modal or bottom sheet. Build it.</p>
+  </section>
+
+  <!-- ═══ 23. SCROLL BEHAVIORS ═══ -->
+  <section class="slide content" style="--section-color: var(--green);">
+    <h2>Scroll Behaviors</h2>
+    <div style="display: flex; flex-direction: column; gap: 18px;">
       <div>
-        <p><strong style="color: var(--violet);">Round 1</strong> (15 min) — Person A tests Person B's prototype</p>
-        <p style="color: var(--fg-dim);">Give 2-3 realistic tasks. Observer: watch silently, note hesitations. Debrief: top 3 observations.</p>
+        <p><strong style="color: var(--green);">Vertical scroll</strong></p>
+        <p style="color: var(--fg-dim);">Frame height shorter than content → enable "Vertical scrolling" in Prototype settings</p>
       </div>
       <div>
-        <p><strong style="color: var(--violet);">Round 2</strong> (15 min) — Switch roles</p>
+        <p><strong style="color: var(--green);">Horizontal scroll</strong></p>
+        <p style="color: var(--fg-dim);">Same concept, horizontal direction. Great for carousels, image galleries, category chips.</p>
       </div>
       <div>
-        <p><strong style="color: var(--amber);">Wrap-up</strong> (10 min) — Write down individually:</p>
-        <p style="color: var(--fg-dim);">3 specific issues found. For each: what you'll change and why. This becomes the start of your D9 documentation.</p>
+        <p><strong style="color: var(--green);">Fixed elements (sticky headers, bottom nav)</strong></p>
+        <p style="color: var(--fg-dim);">Select element → Design panel → <strong style="color: var(--fg);">Fix position when scrolling</strong>. Or: place it outside the scrollable group.</p>
       </div>
     </div>
   </section>
 
-  <!-- ═══ 14. NEXT UP (green) ═══ -->
+  <!-- ═══ 24. QUICK CHECK 2 ═══ -->
+  <section class="slide content" style="--section-color: var(--green); background: var(--green-bg);">
+    <h2 style="color: var(--green);">Quick Check</h2>
+    <p class="big-text">Present your prototype. Do you have:</p>
+    <div style="display: flex; flex-direction: column; gap: 14px; font-size: 1.6rem;">
+      <p>&#9744; Connected screens (tap through your core flow)</p>
+      <p>&#9744; At least one Smart Animate transition</p>
+      <p>&#9744; At least one microinteraction (component variant)</p>
+    </div>
+    <p class="callout accent-green mt-lg">Missing something? That's your #1 priority in the work session.</p>
+  </section>
+
+  <!-- ═══ 25. DIVIDER: Work Session ═══ -->
+  <section class="slide divider" style="--section-bg: var(--green-bg);">
+    <h1 style="color: var(--green);">Structured<br>Work Session</h1>
+    <p class="sub">Three timed rounds — not free work</p>
+  </section>
+
+  <!-- ═══ 26. ROUND 1 ═══ -->
+  <section class="slide content" style="--section-color: var(--green);">
+    <h2>Round 1: Complete Your Clickable Prototype <span class="small">(30 min)</span></h2>
+    <p class="big-text">Goal: Every screen in your core flow is connected and navigable.</p>
+    <ul style="list-style: none; display: flex; flex-direction: column; gap: 12px; color: var(--fg-dim);">
+      <li>• Connect all screens with appropriate transitions</li>
+      <li>• Push for forward, slide back for backward</li>
+      <li>• Set up tab bar / navigation</li>
+      <li>• Test full-screen — can someone tap through without getting stuck?</li>
+    </ul>
+  </section>
+
+  <!-- ═══ 27. ROUND 2 ═══ -->
+  <section class="slide content" style="--section-color: var(--green);">
+    <h2>Round 2: Animation Challenge <span class="small">(30 min)</span></h2>
+    <p class="big-text">Goal: Build <span class="accent-green">2 distinct animations</span> (this is the D9 requirement).</p>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px 30px; color: var(--fg-dim);">
+      <p>• Onboarding transition (staggered elements)</p>
+      <p>• Button press feedback (variant + scale)</p>
+      <p>• Card expand to detail (Smart Animate)</p>
+      <p>• Toggle or checkbox (variant swap)</p>
+      <p>• Bottom sheet or modal (overlay + slide)</p>
+      <p>• Loading / success state (opacity + scale)</p>
+      <p>• Tab switch with content crossfade</p>
+    </div>
+    <p class="callout mt" style="color: var(--fg-dim);"><strong style="color: var(--fg);">Common mistakes:</strong> under 150ms feels broken, over 500ms feels sluggish, linear easing feels robotic.</p>
+  </section>
+
+  <!-- ═══ 28. ROUND 3 ═══ -->
   <section class="slide top" style="--section-color: var(--green); background: var(--green-bg);">
-    <h2 style="color: var(--green);">Next up</h2>
+    <h2 style="color: var(--green);">Round 3: Polish & Prepare for Testing <span class="small">(30 min)</span></h2>
     <div class="mt" style="display: flex; flex-direction: column; gap: 20px;">
-      <p><strong>Work session</strong> (110 min) — Fix issues from peer testing first. Continue building high-fidelity screens. Experiment with Smart Animate. Set up your prototype link for outside testing.</p>
       <div>
-        <p><strong>Day 21 checklist — use it as you work:</strong></p>
-        <ol class="numbered mt" style="gap: 8px;">
-          <li><strong>Hierarchy</strong> — 3 levels visible in 3 seconds?</li>
-          <li><strong>Spacing</strong> — 8pt grid, groups clearly separated?</li>
+        <p><strong>Prototype checklist:</strong></p>
+        <div style="display: flex; flex-direction: column; gap: 8px; color: var(--fg-dim); margin-top: 8px;">
+          <p>&#9744; Starts on the right screen?</p>
+          <p>&#9744; Can you complete the core task without getting stuck?</p>
+          <p>&#9744; No dead-end screens?</p>
+          <p>&#9744; Feels like the real thing full-screen with device frame?</p>
+        </div>
+      </div>
+      <p><strong>Set up sharing:</strong> <span style="color: var(--fg-dim);">Prototype tab → Share → "Anyone with the link" → Copy link</span></p>
+      <div>
+        <p><strong>Day 21 craft checklist</strong> for any new screens:</p>
+        <ol class="numbered mt" style="gap: 8px; --section-color: var(--green);">
+          <li><strong>Hierarchy</strong> — 3 levels in 3 seconds?</li>
+          <li><strong>Spacing</strong> — 8pt grid, groups separated?</li>
           <li><strong>Typography</strong> — 4 sizes max, correct letter spacing?</li>
-          <li><strong>Color</strong> — Accent at ~10%, text passes 4.5:1?</li>
-          <li><strong>Alignment</strong> — Left edges align, concentric radii?</li>
-          <li><strong>Restraint</strong> — Can you remove anything without losing info?</li>
+          <li><strong>Color</strong> — Accent ~10%, text passes 4.5:1?</li>
+          <li><strong>Alignment</strong> — Edges align, concentric radii?</li>
+          <li><strong>Restraint</strong> — Can you remove anything?</li>
         </ol>
       </div>
     </div>
-    <p class="callout accent mt-lg">D9: Usability Testing Rd. 2 — due Mon, Mar 30 @ 5:15pm. Test 3+ people outside class. Document findings with before/after screenshots.</p>
+  </section>
+
+  <!-- ═══ 29. CLOSING ═══ -->
+  <section class="slide content" style="--section-color: var(--amber); background: var(--amber-bg);">
+    <h2 style="color: var(--amber);">Before you leave</h2>
+    <p class="big-text">Show of hands: Who has a working clickable prototype? Who has 2+ animations?</p>
+    <div class="mt" style="display: flex; flex-direction: column; gap: 14px;">
+      <p><strong style="color: var(--amber);">D9: Usability Testing Rd. 2</strong> <span style="color: var(--fg-dim);">(due Mon, Mar 30 @ 5:15pm)</span></p>
+      <p style="color: var(--fg-dim);">Test with 3+ people outside class using your prototype link. Document observations, quotes, usability issues. Show before/after for changes you made.</p>
+    </div>
+    <p class="callout accent mt-lg">Monday (Day 23): Peer testing in class — bring your prototype ready to test.</p>
   </section>
 
 </div>

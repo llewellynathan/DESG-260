@@ -4,150 +4,335 @@
 ---
 
 ### Slide 1: Warm-Up
-**Warm-Up: D8 Desk Crit** (10 min)
-- Open your D8 screens on your laptop
-- Turn to a neighbor — spend 3 minutes each sharing screens
-- Prompt: "What's the first thing your eye goes to? Does that match what I want you to see first?"
-- Quick gut-check only — save detailed feedback for testing later
+**Prototype Show & Tell** (8 min)
+- Quick poll: Who has a clickable prototype? Who has static frames only?
+- Two examples side by side: static screens vs. the same file with connections, animations, and overlays
+- "Which would you test with a user? Which would you put in a portfolio?"
+- Today's goal: everyone leaves with a working clickable prototype + at least one animated transition
 
 ---
 
 ### Slide 2: Prayer
 **Prayer**
-Brevyn, will you pray for us today?
 
 ---
 
 ### Slide 3: Title
 **Unit D: Neue App**
-Testing is the fastest way to find what your eyes can't see.
+A prototype that doesn't move is a wireframe with better fonts.
 
 ---
 
 ### Slide 4: Today
-**Today**
-- Testing high-fi prototypes (what changes vs. earlier rounds)
-- Motion design essentials (7 min — just the concept)
-- In-class peer usability testing
-- Extended work session: fix, build, animate
+**Today — Three Workshops + Structured Work**
+1. Prototype Mechanics — flows, hotspots, triggers, actions, navigation
+2. Smart Animate + Microinteractions — layer matching, card expand, component variants
+3. Overlays + Scroll — modals, bottom sheets, fixed headers
+4. Structured work session — 3 timed rounds to build your prototype
 
 ---
 
 ### Slide 5: By the end of today...
-**High-fi testing** — You'll know how to set up a clickable Figma prototype and run a usability test that catches real issues
+**Clickable prototype** — Every screen connected with proper navigation and transitions
 
-**Testing shift** — You'll understand why users behave differently with polished screens vs. rough wireframes, and what to watch for
+**Smart Animate** — At least one animated transition using layer-name matching
 
-**Motion basics** — You'll know the 4 jobs of microinteractions and how to set up Smart Animate in Figma
+**Microinteraction** — At least one interactive element built with component variants
 
-**3 actionable issues** — You'll leave class with at least 3 specific things to fix, documented and ready to address
+**Ready to test** — A shareable prototype link for D9 external testing this weekend
 
 ---
 
 ### Slide 6: Why This Matters
 **Why this matters**
 
-You've been staring at your screens for days. You know where everything is, so everything "makes sense" to you.
+Your screens look great as static frames — but apps are not posters.
 
-Your users don't have that context. A 10-minute test will reveal more than another hour of self-critique.
+Users expect things to respond, transition, and flow. A prototype that just jumps between screens feels like a slideshow. One that moves and responds feels like a product.
 
-Today: get your work in front of real eyes — classmates first, then outside users for D9.
-
----
-
-### Slide 7: Testing High-Fi Prototypes
-**Testing High-Fidelity Prototypes**
-What changes when the prototype looks real
+D9 requires 2 custom microinteractions. D10 requires an animated walkthrough video. Today is where you build those skills.
 
 ---
 
-### Slide 8: Setting Up a Clickable Prototype
-**Figma Prototype Setup**
-- Set a starting frame for your flow
-- Add hotspot connections between screens (click/tap targets)
-- Present mode: Share → "Anyone with the link" for remote testing
-- Hide Figma UI — present full-screen so it feels like a real app
+### Slide 7: Workshop 1 — Prototype Mechanics
+**Workshop 1: Prototype Mechanics** (25 min)
+Open Figma and follow along.
 
 ---
 
-### Slide 9: What Changes at High Fidelity
-**Users behave differently when it looks real**
-- They stop saying "I get the idea" and start noticing details
-- They focus on color, copy, spacing — things they'd ignore on a wireframe
+### Slide 8: Setting Up a Flow
+**Setting Up a Flow**
+1. Open the **Prototype** tab in the right panel
+2. Click **+** to add a flow — name it (e.g., "Core Task Flow")
+3. Set the **starting frame** — this plays when you hit Present
+4. Click a button/element → drag the connection noodle to the destination frame
 
-**What to watch for:**
-- Hesitations (even brief ones)
-- Misreads of hierarchy (tapping the wrong element)
-- Confused expressions they don't voice
-- Questions about copy or labels
-
-Your testing question shifts: not "Does this concept make sense?" but **"Can you complete this task without help?"**
-
-> Show of hands — who has at least 5 screens connected in Figma? Who needs to set up hotspots today?
+**Follow along now:** Connect your first two screens with a tap interaction.
 
 ---
 
-### Slide 10: Motion Design Essentials
-**Motion Design in 5 Minutes**
-Not decoration — communication
+### Slide 9: Anatomy of an Interaction
+**Every connection has 6 parts:**
+
+| Field | Options |
+|-------|---------|
+| **Trigger** | On tap, On drag, While hovering, After delay, Mouse enter/leave |
+| **Action** | Navigate to, Open overlay, Swap overlay, Scroll to, Back, Open link |
+| **Destination** | Target frame |
+| **Animation** | Instant, Dissolve, Smart Animate, Move in/out, Push, Slide in/out |
+| **Easing** | Ease in, Ease out, Ease in and out, Linear, Spring, Custom bezier |
+| **Duration** | In ms (typical: 200–500ms) |
 
 ---
 
-### Slide 11: The 4 Jobs of Microinteractions
-**Every animation should have a job**
-- **Confirm** — "Yes, that worked" (button press feedback, checkmark)
-- **Guide** — "Look over here" (drawer slides in, element enters view)
-- **Connect** — "These are related" (shared element transitions, card → detail)
-- **Brand** — "This is who we are" (playful loading state, custom toggle)
+### Slide 10: Navigation Patterns
+**Navigation Patterns**
+- **Back button:** Use the "Back" action — respects the navigation stack
+- **Tab bar / bottom nav:** Connect each tab to its destination. Use "Instant" animation (tabs swap, they don't slide)
+- **Multiple flows:** Onboarding flow → Main flow. Link them with a connection from the last onboarding frame.
 
-**Smart Animate in Figma:**
-- Match layer names between two frames
-- Figma interpolates the difference automatically
-- Start simple: try a card expanding to a detail view
-
-D9 requires at least 2 custom microinteractions — start experimenting today.
+**Follow along:** Connect your remaining screens. Add back actions. Set up tab navigation if applicable.
 
 ---
 
-### Slide 12: In-Class Peer Testing
-**In-Class Peer Testing** (40 min)
-Pair up with someone you haven't worked with recently
+### Slide 11: Quick Check
+**Quick Check**
+Present your prototype (▶ button in top right).
+
+Can you tap through your entire core flow?
+
+> Raise your hand if you're stuck.
+
+Common problems:
+- Missing hotspots on tappable elements
+- Wrong starting frame
+- Connections pointing to the wrong frame
 
 ---
 
-### Slide 13: Testing Instructions
-**Round 1** (15 min) — Person A tests Person B's prototype
-1. Tester: Give 2-3 realistic tasks ("You want to log today's workout — show me how")
-2. Observer: Watch silently. Note where they hesitate, tap wrong, or ask questions.
-3. Debrief together: Top 3 observations
+### Slide 12: Interaction Reference Card
+**Reference Card — Keep This Handy**
 
-**Round 2** (15 min) — Switch roles
+**Duration guidelines:**
+- 150–200ms → micro interactions (button press, toggle)
+- 250–350ms → page transitions
+- 400–600ms → complex choreography (multi-element)
 
-**Wrap-up** (10 min) — Write down individually:
-1. 3 specific issues found
-2. For each: what you'll change and why
-3. This becomes the start of your D9 documentation
+**Easing guidelines:**
+- **Ease out** → things entering the screen
+- **Ease in** → things leaving the screen
+- **Ease in and out** → things moving within the screen
+- **Linear** → almost never (feels robotic)
+- **Spring** → playful, organic micro interactions
+
+**Animation types:**
+- **Push** → forward navigation (iOS standard)
+- **Slide in from right** → detail views
+- **Dissolve** → tab switches, mood transitions
+- **Instant** → tab bar taps, state changes
+- **Smart Animate** → when elements morph between states
 
 ---
 
-### Slide 14: Next Up
-**Next up**
+### Slide 13: Workshop 2 — Smart Animate
+**Workshop 2: Smart Animate + Microinteractions** (30 min)
 
-**Work session** (110 min) — prioritize in this order:
-1. Fix the biggest issues from peer testing
-2. Continue building high-fidelity screens (5-screen minimum for D8)
-3. Experiment with Smart Animate — try at least one transition
-4. Set up your prototype link for outside testing
+---
 
-**Day 21 checklist — use it as you work:**
-- Hierarchy: 3 levels in 3 seconds?
-- Spacing: 8pt grid, groups separated?
-- Type: 4 sizes max, correct letter spacing?
-- Color: accent ~10%, text passes 4.5:1?
-- Alignment: edges align, concentric radii?
-- Restraint: can you remove anything?
+### Slide 14: How Smart Animate Works
+**Smart Animate is layer-name matching**
+
+Figma looks at Frame A and Frame B. For every layer with the **same name** in both frames:
+- Different **position** → it moves
+- Different **size** → it scales
+- Different **opacity** → it fades
+- Different **rotation** → it rotates
+- Different **fill** → it color-shifts
+
+**Layer only in A** → fades out
+**Layer only in B** → fades in
+
+Critical: layer names must match **exactly**. Rename your layers intentionally.
+
+---
+
+### Slide 15: The Workflow
+**The Smart Animate Workflow**
+1. **Duplicate** Frame A to create Frame B
+2. **Modify** the layers you want to animate in Frame B (move, resize, hide, recolor)
+3. **Connect** A → B with Smart Animate + your chosen easing + duration
+4. **Present** and test
+
+That's it. The "duplicate and modify" pattern is 90% of Smart Animate work.
+
+---
+
+### Slide 16: Guided Exercise — Card Expand
+**Guided Exercise 1: Card Expand** (8 min)
+Follow along step by step:
+
+1. Find a screen with a card or list item
+2. **Duplicate** the entire frame
+3. In the duplicate: resize the card to fill the screen (detail view)
+4. Move/resize text layers to their "expanded" positions
+5. Connect the card in Frame A → Frame B: **Smart Animate, Ease out, 300ms**
+6. Present and test
+
+> No card in your design? Use a button that slides to a different position, or a nav bar that changes color.
+
+---
+
+### Slide 17: Component Variants as State Machines
+**Component Variants = State Machines**
+
+A component with variants is an interactive element:
+- **Default** → Hover → **Pressed** → Disabled
+- **Off** → **On** (toggle switch)
+- **Collapsed** → **Expanded** (accordion)
+- **Empty** → **Focused** → **Filled** (input field)
+
+**How to wire it:**
+1. Create a component with 2+ variants
+2. In Prototype tab: On tap → **Change to** [other variant]
+3. Animation: Smart Animate + Spring or Ease out, 200ms
+
+The element responds to interaction without leaving the screen.
+
+---
+
+### Slide 18: Guided Exercise — Microinteraction
+**Guided Exercise 2: Build a Microinteraction** (10 min)
+
+1. Pick one element with two states (button, toggle, card, menu item)
+2. Create it as a **component with 2 variants**
+3. Add interaction: On tap → Change to [other variant], Smart Animate, Spring, 200ms
+4. Test in Present mode
+
+**Finished early?** Add a third state, or try different easing curves and compare how they feel.
+
+---
+
+### Slide 19: Workshop 3 — Overlays & Scroll
+**Workshop 3: Overlays, Scroll, and Polish** (18 min)
+
+---
+
+### Slide 20: Overlays
+**Overlays — Layers on Top of the Current Screen**
+
+"Navigate to" replaces the screen. "Open overlay" adds on top.
+
+**Building a bottom sheet:**
+1. Create the sheet as its own frame (sized to the sheet, not the full screen)
+2. On the trigger element: **Open overlay** → select the sheet frame
+3. Animation: **Slide in from bottom**, Ease out, 300ms
+4. Set overlay position (bottom-center or manual)
+5. Enable **Close on outside click**
+6. Set background dimming (50% black is standard)
+
+**Use cases:** modals, bottom sheets, dropdown menus, snackbars, tooltips
+
+**Follow along:** Pick one screen that should have a modal or bottom sheet. Build it.
+
+---
+
+### Slide 21: Scroll Behaviors
+**Scroll Behaviors**
+
+**Vertical scroll:**
+- Frame height shorter than content
+- Enable "Vertical scrolling" in Prototype settings
+- Content scrolls inside the frame
+
+**Horizontal scroll:**
+- Same concept, horizontal direction
+- Great for carousels, image galleries, category chips
+
+**Fixed elements (sticky headers, bottom nav):**
+- Select the element → Design panel → **Fix position when scrolling**
+- Or: place it outside the scrollable group
+
+---
+
+### Slide 22: Quick Check 2
+**Quick Check**
+Present your prototype. Do you have:
+
+☐ Connected screens (tap through your core flow)
+☐ At least one Smart Animate transition
+☐ At least one microinteraction (component variant)
+
+**Missing something?** That's your #1 priority in the work session.
+
+---
+
+### Slide 23: Work Session
+**Structured Work Session** (90 min)
+Three timed rounds — not free work.
+
+---
+
+### Slide 24: Round 1
+**Round 1: Complete Your Clickable Prototype** (30 min)
+
+Goal: Every screen in your core flow is connected and navigable.
+
+- Connect all screens with appropriate transitions
+- Push for forward, slide back for backward
+- Set up tab bar / navigation
+- Test full-screen — can someone tap through without getting stuck?
+
+---
+
+### Slide 25: Round 2
+**Round 2: Animation Challenge** (30 min)
+
+Goal: Build **2 distinct animations** (this is the D9 requirement).
+
+Pick 2:
+- Onboarding transition (Smart Animate + staggered elements)
+- Button press feedback (variant with scale/color change)
+- Card expand to detail (Smart Animate)
+- Toggle or checkbox (variant swap)
+- Bottom sheet or modal (overlay + slide-in)
+- Loading state / success confirmation (opacity + scale)
+- Tab switch with content crossfade
+
+**Common timing mistakes:** under 150ms feels broken, over 500ms feels sluggish, linear easing feels robotic.
+
+---
+
+### Slide 26: Round 3
+**Round 3: Polish & Prepare for Testing** (30 min)
+
+Goal: Your prototype is ready for a real user this weekend.
+
+**Checklist:**
+- ☐ Starts on the right screen?
+- ☐ Can you complete the core task without getting stuck?
+- ☐ No dead-end screens?
+- ☐ Feels like the real thing full-screen with device frame?
+
+**Set up sharing:** Prototype tab → Share → "Anyone with the link" → Copy link
+
+**Day 21 craft checklist** for any new screens:
+1. Hierarchy: 3 levels in 3 seconds?
+2. Spacing: 8pt grid, groups separated?
+3. Type: 4 sizes max, correct letter spacing?
+4. Color: accent ~10%, text passes 4.5:1?
+5. Alignment: edges align, concentric radii?
+6. Restraint: can you remove anything?
+
+---
+
+### Slide 27: Closing
+**Before you leave**
+
+Show of hands: Who has a working clickable prototype? Who has 2+ animations?
 
 **D9: Usability Testing Rd. 2** (due Mon, Mar 30 @ 5:15pm)
-- Test 3+ people outside class
-- Document observations, quotes, issues
+- Test with 3+ people outside class using your prototype link
+- Document observations, quotes, usability issues
 - Show before/after for changes you made
+
+**Monday (Day 23):** Peer testing in class — bring your prototype ready to test.
