@@ -644,15 +644,14 @@ Today's Focus: A prototype that doesn't move is a wireframe with better fonts.
 ### Day 23 — Monday, Mar 30
 **Unit D: Neue App (Capstone)**
 
-Today's Focus: Iterate, animate, and extend — polish primary platform and build second platform high-fi.
+Today's Focus: A great product poorly communicated will not succeed — your case study is design work too.
 
 **In class:**
-- D9 Testing debrief: What did Round 2 reveal?
-- Final iteration based on testing feedback
-- Motion design workshop: at least 2 custom microinteractions
-- Second platform: build high-fidelity screens in Figma (using your D6 flow + sketches)
-- Accessibility check: contrast, touch targets
-- Documentation preparation: what goes in the case study?
+- D9 Testing debrief: What did Round 2 reveal? Pair sharing + whole-class highlights
+- Direct instruction: Storytelling & the case study — Freytag's Pyramid (Exposition → Rising Action → Climax → Falling Action → Resolution), inciting incidents for school projects, the document as a design artifact
+- Story thread exercise: write your project's story in one paragraph
+- D10 assignment introduction
+- Work session: iterate screens from testing feedback, outline case study narrative, begin assembly
 
 **Come to class having done:**
 - ⛳ D9: Usability Testing Rd. 2
@@ -660,7 +659,9 @@ Today's Focus: Iterate, animate, and extend — polish primary platform and buil
 **Assignments due before next class:**
 - ⛳ D10: Draft Documentation + Animated Prototype (due Apr 1 @ 11:55pm)
   - Screen recording walkthrough (1-3 min)
-  - Draft case study sections
+  - Draft case study PDF with all sections roughed in
+
+→ [Lesson Plan](unit_d/day_23.md)
 
 **Resources:**
 - UX & Motion: https://www.nngroup.com/articles/animation-purpose-ux/

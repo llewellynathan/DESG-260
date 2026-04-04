@@ -7,7 +7,7 @@ Once everyone has prayed, the cycle resets.
 |---------|-------------|
 | Annika B. | |
 | Ya Chi C. | |
-| Kalli F. | |
+| Kalli F. | 3/30 |
 | Brevyn G. | 3/25 |
 | Elizabeth G. | |
 | Takumi H. | 3/16 |
@@ -16,6 +16,6 @@ Once everyone has prayed, the cycle resets.
 | Lucy L. | |
 | Mira P. | 3/23 |
 | Cherie P. | |
-| Brayden S. | |
+| Brayden S. | 4/1 |
 | Mercy T. | |
 | Lucy W. | |
