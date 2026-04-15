@@ -22,9 +22,11 @@ You are not a programmer. You probably won't become one through this guide. That
 1. **Research** — talk to 3 potential users before touching AI
 2. **Product brief** — write a one-page brief with Claude
 3. **DESIGN.md** — write a design spec with Claude
-4. **Build** — hand brief + DESIGN.md to Claude Code
+4. **Build** — hand brief + DESIGN.md to Claude Code, save to GitHub
 5. **Refine the UI** — explore in Figma (default) or Paper (alternative)
 6. **Deploy** — web via Vercel (default) or TestFlight (optional stretch)
+
+**Accounts you'll create along the way:** a Claude account (Step 1), a GitHub account (Step 3, *free*), and a Vercel account (Step 5, *free*). You don't need any of them up front — create each one when the guide tells you to, and your brain won't be cluttered with signup forms while you're trying to design.
 
 The forming-intent work lives in Steps 1–3. Steps 4–6 are rendering. The guide won't stop you from skipping Steps 1–3, but if you do, you'll just get the same generic AI app everyone else is getting.
 
@@ -130,8 +132,12 @@ You only do this once, the first time you ever use Claude Code.
    npm install -g @anthropic-ai/claude-code
    ```
 3. **Sign in.** Run `claude` in your terminal and follow the prompts to sign in with your Claude account.
+4. **Install git.** Git is how you save versions of your project — think of it as "Time Machine for your code." Mac: run `git --version` in your terminal; if it's not installed, it'll prompt you to install the developer tools. Windows: download from [git-scm.com](https://git-scm.com).
+5. **Create a free GitHub account** at [github.com](https://github.com). GitHub is where your project snapshots live online. You'll need this later for deploying, but creating the account now means Claude Code can push to it whenever you're ready.
 
 If any of the above fails, jump to [Appendix B: Common Claude Code errors](#appendix-b-common-claude-code-errors).
+
+**Mental model for git and GitHub:** You are not learning to be a software engineer. Treat git like saving a document — you'll make a "save point" (a *commit*) whenever the app is in a state you'd be sad to lose. GitHub is where those save points sync online. Claude Code handles the mechanics; you just decide when to save.
 
 ### Scaffold the app
 
@@ -162,12 +168,38 @@ If any of the above fails, jump to [Appendix B: Common Claude Code errors](#appe
 
 5. Claude Code will ask you questions, create files, and eventually tell you to run `npm run dev`. Do that. Open the URL it prints (usually `http://localhost:3000`) in your browser.
 
+### Save your first working version (GitHub)
+
+**Do this the moment the app first runs.** This is your "nothing else has broken yet" baseline. Future you will thank you.
+
+Back in Claude Code, paste:
+
+> ```
+> Set up git for this project and push it to a new private repository on
+> my GitHub account. Name the repo after this folder. Walk me through
+> anything I need to click or paste. When it's done, make an initial
+> commit called "First working scaffold" and push it.
+> ```
+
+Claude Code will guide you through authenticating with GitHub (usually a one-time browser login), creating the repo, and pushing your code. When you refresh your GitHub page, you should see your project.
+
+**Why this matters:** From now on, every time Claude Code makes a change you like, you'll save a new commit. If a later change breaks something, you can ask Claude Code to "revert to the last working commit" and get your app back. Without git, a single bad edit can cost you a weekend.
+
 ### Iterate
 
 From here on, working with Claude Code is a conversation. Try:
 - "The primary button should have more vertical padding — use 12px top/bottom instead of 8px."
 - "The empty state on the home screen is too plain. Add the microcopy from DESIGN.md."
 - "This screen doesn't match Reference 2. Look at the spacing and try again."
+
+**End each working session with a commit.** When you're happy with a round of changes, say:
+
+> ```
+> Commit the current changes with a short message describing what changed,
+> and push to GitHub.
+> ```
+
+You don't need to understand the git commands — Claude Code runs them. Just make it a habit: *change → check → commit*. If something breaks later, you can always come back to the last committed version.
 
 ### Review & edit
 
@@ -205,6 +237,7 @@ You already know Figma from Units A–C. This option keeps you in familiar terri
 > ```
 
 5. Claude Code will update the code. Refresh your browser. Iterate.
+6. **When a refinement round is done and you like the result, commit it.** Ask Claude Code to commit and push. Each refined screen becomes a save point you can roll back to if a later change goes sideways.
 
 **Why this works:** You're not asking Claude Code to "make it look better" (too vague). You're describing specific, bounded changes that you decided in Figma. That's forming intent — then rendering it.
 
@@ -238,16 +271,21 @@ Paper is newer and less familiar, but has a tighter integration with Claude Code
 
 This is the easiest way to share your app. You'll get a URL anyone can open.
 
-1. **Create a free account** at [vercel.com](https://vercel.com). Sign in with GitHub if possible.
+*Your project is already on GitHub from Step 3. That makes this step short.*
+
+1. **Create a free account** at [vercel.com](https://vercel.com). **Sign in with the same GitHub account you used in Step 3** — this is what lets Vercel see your repo.
 2. **In Claude Code, paste:**
 
 > ```
-> Help me deploy this app to Vercel. Walk me through it step by step.
-> I've already created a Vercel account.
+> My project is already on GitHub and I just signed up for Vercel with
+> the same GitHub account. Walk me through connecting this repo to
+> Vercel and deploying it. Tell me what to click.
 > ```
 
-3. Claude Code will guide you through: creating a GitHub repo, pushing your code, connecting Vercel, and deploying. It's usually a 10-minute process the first time.
+3. Claude Code will guide you through importing the repo into Vercel and triggering the first build. It's usually a 5-minute process the first time.
 4. When done, you'll have a URL like `your-app-name.vercel.app`. That's your app. Share it.
+
+**Bonus:** Because your app is linked to GitHub, every future commit you push automatically redeploys on Vercel. You don't have to think about deploy again after today — just commit, and the live site updates.
 
 ### Option B: TestFlight (optional, iOS only)
 
@@ -324,6 +362,17 @@ It prints your current folder. If you're not in your project folder, `cd` into i
 ```
 cd ~/Desktop/your-project-name
 ```
+
+### 9. GitHub asks for a password and nothing works
+GitHub no longer accepts your account password in the terminal — you need a **personal access token** (PAT) or the GitHub CLI. Easiest path: ask Claude Code to install and set up the GitHub CLI (`gh`) for you. It handles authentication through a browser login and you never have to manage tokens.
+
+> ```
+> Install the GitHub CLI and sign me in. Walk me through the browser
+> login. After I'm signed in, try pushing this repo again.
+> ```
+
+### 10. "Permission denied" when pushing to GitHub
+You're probably pushing to someone else's repo, or the repo name is wrong. Ask Claude Code: "What's the remote URL of this repo, and does it match my GitHub username?" It'll diagnose and fix.
 
 ---
 
