@@ -7,6 +7,16 @@
 
 ---
 
+## Before you start: learn to fish
+
+This guide walks you through a specific six-step workflow. But workflows change. Tools change. What won't change is the meta-skill of *directing AI to extend your competence into domains you don't yet know.*
+
+If you haven't already, start with the [AI Fishing Demo](ai_fishing_demo.md) session and keep the [AI Fishing Moves handout](handouts/ai_fishing_moves.md) next to you while you work through this guide. The eight moves on that handout are how you'll survive every technical moment in this document — especially Move #1 ("Teach me, don't do it for me"), Move #4 ("Explain like I'm a design student"), and Move #8 ("Capture what we decided"). When the guide tells you to paste a prompt, you can always modify it using a move if the literal prompt isn't quite right for your situation.
+
+**If this guide feels too technical at any point, that's a signal to pull out a fishing move — not a signal that you can't do this.**
+
+---
+
 ## Who this guide is for
 
 You've done some work in Unit D. You know how to research a problem, interview users, and design screens in Figma. Now you want to **actually ship a working app** — something a friend can open on their phone or in a browser.
